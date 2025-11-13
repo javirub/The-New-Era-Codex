@@ -1,0 +1,59 @@
+name: Add Missing Versions
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'src/content/docs/**/*.md'
+      - 'src/content/docs/**/*.mdx'
+
+jobs:
+  add-versions:
+    name: Add version 1.0 to files without version
+    runs-on: [self-hosted, Linux, X64]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure git
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
+      - name: Make script executable
+        run: chmod +x .github/scripts/add-missing-versions.sh
+
+      - name: Add missing versions
+        run: .github/scripts/add-missing-versions.sh
+
+      - name: Check for changes
+        id: check_changes
+        run: |
+          if [[ -n $(git status -s) ]]; then
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push changes
+        if: steps.check_changes.outputs.has_changes == 'true'
+        run: |
+          git add src/content/docs/
+          git commit -m "chore: add version 1.0 to content files without version
+
+          Automatically added version: \"1.0\" to English content files
+          that were missing the version field in their frontmatter.
+
+          This ensures all content files have proper version tracking
+          for translation synchronization.
+
+          [skip ci]"
+          git push
+
+      - name: No changes needed
+        if: steps.check_changes.outputs.has_changes == 'false'
+        run: echo "✅ All content files already have version field"
