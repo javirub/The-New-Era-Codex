@@ -12,6 +12,17 @@ export default defineConfig({
       starlight({
           title: 'The New Era Codex',
           description: 'Democratizing AI knowledge across all professions',
+          defaultLocale: 'root',
+          locales: {
+              root: {
+                  label: 'English',
+                  lang: 'en',
+              },
+              es: {
+                  label: 'Español',
+                  lang: 'es',
+              },
+          },
           social: [
               { icon: 'github', label: 'GitHub', href: 'https://github.com/javirub/The-New-Era-Codex' },
           ],

@@ -1,6 +1,6 @@
 # Contributing to The New Era Codex
 
-Thank you for your interest in contributing to The New Era Codex! This project aims to democratize AI knowledge across all professions—from developers to HR professionals.
+Thank you for your interest in contributing to The New Era Codex! This project aims to democratize AI knowledge across all professions—for everyone, regardless of their role or background.
 
 ## Quick Start
 

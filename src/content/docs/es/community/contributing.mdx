@@ -1,0 +1,216 @@
+---
+title: Guía de Contribución
+description: Ayuda a democratizar el conocimiento de IA en todas las profesiones
+sidebar:
+  order: 1
+---
+
+import { Tabs, TabItem, Steps, Aside, Card, CardGrid } from '@astrojs/starlight/components'
+
+# Contribuir a The New Era Codex
+
+¡Bienvenido! Gracias por tu interés en contribuir a The New Era Codex. Esta guía te ayudará a entender nuestro enfoque único de múltiples audiencias y cómo crear contenido que sirva a las personas adecuadas de la manera correcta.
+
+## Entendiendo Nuestro Enfoque Multi-Audiencia
+
+The New Era Codex es único: organizamos el contenido **primero por audiencia**, no por tema. Esto significa que el mismo tema (como "usar IA para automatización") será completamente diferente dependiendo de para quién estés escribiendo.
+
+<Tabs>
+  <TabItem label="Desarrolladores">
+    **Tu audiencia**: Ingenieros de software, científicos de datos, ingenieros de ML
+
+    **Tono**: Técnico, asume conocimiento de programación
+
+    **Temas**: Agentes de IA, sistemas RAG, LangChain, desarrollo Python, APIs, bases de datos vectoriales
+
+    **Qué incluir**:
+    - Ejemplos de código funcionales con explicaciones
+    - Diagramas de arquitectura
+    - Patrones de repositorios GitHub
+    - Mejores prácticas técnicas
+    - Consideraciones de rendimiento
+
+    **Ejemplo de apertura**: "En esta guía, construiremos un sistema RAG usando LangChain y Pinecone. Necesitarás Python 3.9+, una clave API de OpenAI y familiaridad con patrones async/await."
+  </TabItem>
+
+  <TabItem label="Automatización">
+    **Tu audiencia**: Entusiastas no-code/low-code, diseñadores de flujos de trabajo
+
+    **Tono**: Visual, paso a paso, no asume conocimiento de programación
+
+    **Temas**: Flujos de trabajo n8n, integraciones Zapier, escenarios Make.com
+
+    **Qué incluir**:
+    - Capturas de pantalla con anotaciones
+    - Diagramas de flujo de trabajo
+    - Instrucciones paso a paso
+    - Archivos de flujo de trabajo descargables
+    - Solución de problemas comunes
+
+    **Ejemplo de apertura**: "En esta guía, crearás un clasificador de emails potenciado por IA en n8n. ¡No se requiere programar! Necesitarás una cuenta de n8n y una conexión a Gmail."
+  </TabItem>
+
+  <TabItem label="Todos">
+    **Tu audiencia**: Usuarios generales, todos los niveles, personas no técnicas
+
+    **Tono**: Accesible, sin jerga, amigable
+
+    **Temas**: Consejos de ChatGPT, fundamentos de prompt engineering, herramientas de productividad diarias
+
+    **Qué incluir**:
+    - Explicaciones simples sin jerga
+    - Prompts para copiar y pegar
+    - Ejemplos de antes/después
+    - Escenarios relacionables
+    - Errores comunes a evitar
+
+    **Ejemplo de apertura**: "¿Quieres mejores respuestas de ChatGPT? En solo 5 minutos, aprenderás una fórmula simple que funciona para cualquier solicitud, no se necesita conocimiento técnico."
+  </TabItem>
+
+  <TabItem label="Profesionales">
+    **Tu audiencia**: RRHH, marketing, analítica, gerentes de producto, profesionales de negocios
+
+    **Tono**: Enfocado en negocios, específico por rol, consciente del ROI
+
+    **Temas**: Casos de uso de IA específicos por rol, automatización de flujos de trabajo, mejoras de productividad
+
+    **Qué incluir**:
+    - Cálculos de ROI
+    - Métricas de impacto empresarial
+    - Plantillas específicas por rol
+    - Consideraciones de cumplimiento/privacidad
+    - Ejemplos específicos por industria
+
+    **Ejemplo de apertura**: "Equipos de RRHH: reduzcan el tiempo de revisión de currículums en un 70%. Esta guía te muestra cómo usar IA para evaluación de candidatos mientras mantienes el cumplimiento con las regulaciones de contratación."
+  </TabItem>
+</Tabs>
+
+<Aside type="tip">
+**Prueba rápida**: Si no puedes identificar claramente para qué audiencia única es tu guía, probablemente necesites dividirla en múltiples guías o reenfocar tu contenido.
+</Aside>
+
+## Antes de Empezar
+
+<Steps>
+
+1. **Elige Tu Audiencia**
+
+   Pregúntate: "¿Quién se beneficiará más de esta guía?" Tu respuesta determina:
+   - En qué directorio colocar tu archivo
+   - Qué tono y profundidad usar
+   - Qué ejemplos incluir
+   - Qué conocimiento previo asumir
+
+2. **Elige la Plantilla Correcta**
+
+   Proporcionamos plantillas para cada tipo de audiencia:
+   - [Plantilla de Guía para Desarrolladores](/es/community/templates/developer-guide-template/)
+   - [Plantilla de Guía de Automatización](/es/community/templates/automation-guide-template/)
+   - [Plantilla de Guía para Todos](/es/community/templates/everyone-guide-template/)
+   - [Plantilla de Guía para Profesionales](/es/community/templates/professional-guide-template/)
+
+   Copia la plantilla apropiada y complétala con tu contenido.
+
+3. **Revisa la Guía de Estilo**
+
+   Consulta nuestra [Guía de Estilo](/es/community/style-guide/) para:
+   - Convenciones de formato
+   - Pautas de tono para cada audiencia
+   - Cómo usar componentes de Starlight
+   - Mejores prácticas de Markdown
+
+4. **Configura Tu Entorno**
+
+   ```bash
+   # Haz fork y clona el repositorio
+   git clone https://github.com/javirub/The-New-Era-Codex.git
+   cd The-New-Era-Codex
+
+   # Instala dependencias
+   bun install
+
+   # Inicia servidor de desarrollo
+   bun dev
+   ```
+
+</Steps>
+
+## Proceso de Envío
+
+<Steps>
+
+1. **Crea Tu Contenido**
+
+   - Usa la plantilla apropiada
+   - Escribe para tu audiencia específica
+   - Prueba cualquier código o flujo de trabajo
+   - Incluye ejemplos prácticos
+
+2. **Prueba Localmente**
+
+   ```bash
+   # Inicia servidor de desarrollo
+   bun dev
+
+   # Visita localhost:4321 para previsualizar
+   # Verifica que el formato se vea correcto
+   # Verifica que todos los enlaces funcionen
+   ```
+
+3. **Crea un Pull Request**
+
+   ```bash
+   # Crea una rama de feature
+   git checkout -b guide/nombre-del-tema
+
+   # Añade tus archivos
+   git add .
+
+   # Commit con mensaje claro
+   git commit -m "[Audiencia] Añadir guía sobre tema"
+
+   # Push a tu fork
+   git push origin guide/nombre-del-tema
+   ```
+
+4. **Escribe una Descripción Clara del PR**
+
+   ```markdown
+   ## Detalles de la Guía
+   **Audiencia**: [Desarrolladores/Automatización/Todos/Profesionales]
+   **Tema**: [Qué cubre esta guía]
+   **Valor**: [Por qué esto es útil]
+
+   ## Checklist
+   - [ ] Usé la plantilla apropiada
+   - [ ] Probé todo el código/flujos de trabajo
+   - [ ] Verifiqué el formato localmente
+   - [ ] Verifiqué que los enlaces funcionen
+   - [ ] Seguí la guía de estilo
+   ```
+
+</Steps>
+
+## ¿Necesitas Ayuda?
+
+<CardGrid>
+  <Card title="¿Preguntas?" icon="information">
+    Abre una [Discusión en GitHub](https://github.com/javirub/The-New-Era-Codex/discussions)
+  </Card>
+
+  <Card title="¿Encontraste un Bug?" icon="warning">
+    Reporta un [Issue](https://github.com/javirub/The-New-Era-Codex/issues)
+  </Card>
+
+  <Card title="Ver Ejemplos" icon="open-book">
+    Explora las guías existentes para inspiración
+  </Card>
+</CardGrid>
+
+## Reconocimiento
+
+¡Todos los contribuidores son reconocidos en nuestra comunidad. Tus contribuciones ayudan a democratizar el conocimiento de IA para todos!
+
+---
+
+**¿Listo para contribuir?** Elige una [plantilla de contenido](/es/community/templates/) y comienza a escribir, o explora nuestra [guía de estilo](/es/community/style-guide/) para pautas más detalladas.

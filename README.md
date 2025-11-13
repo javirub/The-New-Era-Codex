@@ -4,7 +4,7 @@
 
 **Blazingly fast, multilingual AI documentation for everyone**
 
-*From developers to HR professionals - master AI in your field*
+*Master AI in your field—whatever your role or background*
 
 [![🌐 Live Site](https://img.shields.io/badge/🌐_Live_Site-codex.javirub.pro-00ADD8?style=for-the-badge)](https://codex.javirub.pro)
 
@@ -21,7 +21,7 @@
 
 ## 🌟 What is The New Era Codex?
 
-**The New Era Codex** is a comprehensive, open-source AI documentation platform designed to democratize AI knowledge across all professions. Whether you're a developer building AI agents, an HR professional optimizing workflows, or anyone looking to leverage AI in daily tasks, this is your go-to resource.
+**The New Era Codex** is a comprehensive, open-source AI documentation platform designed to democratize AI knowledge across all professions. Whether you're a student exploring AI, a developer building agents, a professional optimizing workflows, or anyone looking to leverage AI in daily tasks, this is your go-to resource.
 
 ### Why "New Era"?
 
