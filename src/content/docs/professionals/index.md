@@ -1,6 +1,7 @@
 ---
 title: For Professionals
 description: AI applications for business, HR, marketing, and specialized roles
+version: "1.0"
 ---
 
 Welcome to the professional section of **The New Era Codex**. Here you'll find role-specific AI guides for:

@@ -5,6 +5,7 @@ sidebar:
   badge:
     text: "Template"
     variant: tip
+version: "1.0"
 ---
 
 # [Result-Focused Title for Specific Role]
