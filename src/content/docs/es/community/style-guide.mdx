@@ -1,0 +1,606 @@
+---
+title: Guía de Estilo
+description: Pautas de formato, tono y componentes para The New Era Codex
+sidebar:
+  order: 2
+---
+
+import { Tabs, TabItem, Aside, Code, Card, CardGrid } from '@astrojs/starlight/components'
+
+# Guía de Estilo
+
+Esta guía asegura consistencia en todo el contenido de The New Era Codex. Sigue estas pautas al crear o editar contenido.
+
+## Estándares de Frontmatter
+
+Cada página debe incluir frontmatter al inicio del archivo:
+
+```yaml
+---
+title: "Título de Tu Página"
+description: "Breve descripción para SEO y vistas previas (140-160 caracteres)"
+sidebar:
+  order: 1              # Opcional: controla posición en la barra lateral
+  badge:                # Opcional: añade insignias visuales
+    text: "Nuevo"
+    variant: tip        # Opciones: note, tip, caution, danger
+---
+```
+
+### Pautas para Títulos
+
+- **Usa formato de oración**: "Construyendo tu primer sistema RAG" (no "Construyendo Tu Primer Sistema RAG")
+- **Sé específico**: "Crea un clasificador de emails en n8n" (no "Automatización de email")
+- **Evita jerga en títulos**: Prefiere claridad sobre ingenio
+- **Mantenlo conciso**: 3-8 palabras ideal
+
+### Pautas para Descripciones
+
+- **140-160 caracteres** para SEO óptimo
+- **Incluye el beneficio**: "Aprende cómo..." o "Reduce tiempo en..."
+- **Menciona la audiencia** si no es obvio del directorio
+- **Sin punto final**
+
+**Buenos ejemplos**:
+```yaml
+description: "Construye un sistema RAG listo para producción usando LangChain y Pinecone en menos de 30 minutos"
+description: "Reduce el tiempo de revisión de currículums en 70% con evaluación de candidatos potenciada por IA"
+description: "Domina prompt engineering en ChatGPT con técnicas simples que cualquiera puede usar"
+```
+
+**Malos ejemplos**:
+```yaml
+description: "Sistemas RAG" # Demasiado vago
+description: "Esta guía te enseñará todo lo que necesitas saber sobre construir sistemas RAG con bases de datos vectoriales y embeddings." # Demasiado largo
+description: "La guía definitiva para RAG." # Clickbait, termina con punto
+```
+
+## Tono por Audiencia
+
+<Tabs>
+  <TabItem label="Desarrolladores">
+    **Voz**: Técnica, directa, asume conocimiento de programación
+
+    **Sí hacer**:
+    - Usar terminología técnica sin explicar demasiado
+    - Enlazar a documentación oficial
+    - Mostrar código primero, explicar después
+    - Discutir trade-offs y rendimiento
+
+    **No hacer**:
+    - Explicar conceptos básicos de programación
+    - Usar analogías no técnicas
+    - Simplificar excesivamente decisiones de arquitectura
+
+    **Ejemplo**:
+    ```markdown
+    Inicializa el vector store con embeddings de OpenAI:
+
+    ```python
+    from langchain.vectorstores import Pinecone
+    embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
+    vectorstore = Pinecone.from_documents(docs, embeddings, index_name="my-index")
+    ```
+
+    Este enfoque usa el nuevo modelo `text-embedding-3-small`, que ofrece
+    mejor rendimiento a menor costo comparado con `text-embedding-ada-002`.
+    ```
+  </TabItem>
+
+  <TabItem label="Automatización">
+    **Voz**: Amigable, paso a paso, visual, no asume conocimiento de programación
+
+    **Sí hacer**:
+    - Usar pasos numerados
+    - Incluir capturas de pantalla con anotaciones
+    - Explicar qué hace cada paso
+    - Proporcionar archivos de flujo de trabajo descargables
+
+    **No hacer**:
+    - Asumir conocimiento técnico
+    - Saltar pasos "obvios"
+    - Usar código sin explicación
+
+    **Ejemplo**:
+    ```markdown
+    ## Paso 3: Añade el Nodo OpenAI
+
+    Ahora añadirás el componente de IA que analiza tus emails.
+
+    1. Haz clic en el botón **+** en el canvas
+    2. Busca "OpenAI" en el selector de nodos
+    3. Selecciona **"OpenAI Chat Model"**
+
+    [Captura de pantalla mostrando dónde hacer clic, con flechas]
+
+    **Qué hace esto**: Este nodo envía el texto de tu email al modelo de IA de OpenAI
+    y recibe una respuesta con la categoría del email.
+    ```
+  </TabItem>
+
+  <TabItem label="Todos">
+    **Voz**: Accesible, sin jerga, alentadora, conversacional
+
+    **Sí hacer**:
+    - Explicar términos la primera vez que aparecen
+    - Usar analogías cotidianas
+    - Proporcionar ejemplos para copiar y pegar
+    - Celebrar pequeños logros
+
+    **No hacer**:
+    - Usar jerga sin explicar
+    - Asumir conocimiento previo de IA
+    - Hacer que se sienta complicado
+
+    **Ejemplo**:
+    ```markdown
+    ## ¿Qué es un "Prompt"?
+
+    Un prompt es simplemente la instrucción que le das a ChatGPT. Piénsalo como
+    ordenar en un restaurante: cuanto más específico seas, más probable es que
+    obtengas exactamente lo que quieres.
+
+    **Orden vaga**: "Quiero pasta"
+    **Orden específica**: "Quiero espagueti carbonara, con tocino extra crujiente,
+    poco queso"
+
+    La misma idea con ChatGPT:
+
+    **Prompt vago**: "Escribe sobre productividad"
+    **Prompt específico**: "Escribe 5 consejos de productividad para padres que trabajan
+    desde casa, cada uno de menos de 50 palabras, con ejemplos prácticos"
+    ```
+  </TabItem>
+
+  <TabItem label="Profesionales">
+    **Voz**: Enfocada en negocios, específica por rol, consciente del ROI, atenta al cumplimiento
+
+    **Sí hacer**:
+    - Liderar con impacto empresarial
+    - Incluir métricas y ROI
+    - Abordar cumplimiento/privacidad
+    - Proporcionar plantillas específicas por rol
+
+    **No hacer**:
+    - Incluir detalles técnicos de implementación
+    - Ignorar restricciones empresariales
+    - Omitir consideraciones de cumplimiento
+
+    **Ejemplo**:
+    ```markdown
+    ## Impacto Empresarial
+
+    **Tiempo Ahorrado**: 2 horas por evaluación de candidato
+    **Reducción de Costos**: $150 por contratación en tiempo de RRHH
+    **Mejora de Calidad**: 40% más consistencia en evaluaciones
+    **Beneficio de Cumplimiento**: Rastro de auditoría completo de criterios de evaluación
+
+    ## Consideraciones de Privacidad
+
+    Antes de implementar screening con IA:
+    - ✅ Asegura consentimiento del candidato para procesamiento con IA
+    - ✅ Documenta criterios de evaluación para auditorías
+    - ✅ Mantén supervisión humana para decisiones finales
+    - ✅ Verifica cumplimiento GDPR/CCPA con equipo legal
+    ```
+  </TabItem>
+</Tabs>
+
+## Formato Markdown
+
+### Encabezados
+
+Usa encabezados estilo ATX con jerarquía apropiada:
+
+```markdown
+# Título de Página (H1) - Solo uno por página, usualmente automático del frontmatter
+
+## Secciones Principales (H2)
+
+### Subsecciones (H3)
+
+#### Subsecciones menores (H4) - Usar con moderación
+```
+
+**No saltes niveles**: H2 → H4 rompe la estructura del documento.
+
+### Bloques de Código
+
+Siempre especifica el lenguaje para resaltado de sintaxis:
+
+````markdown
+```python
+def hello():
+    return "Hello, World!"
+```
+
+```bash
+bun install
+bun dev
+```
+
+```javascript
+const greeting = "Hello, World!";
+console.log(greeting);
+```
+````
+
+Para output de terminal sin resaltado de sintaxis:
+
+````markdown
+```text
+Output del comando
+```
+````
+
+### Listas
+
+**Listas desordenadas**: Usa `-` (no `*` o `+`) para consistencia
+
+```markdown
+- Primer ítem
+- Segundo ítem
+  - Ítem anidado (2 espacios)
+  - Otro ítem anidado
+- Tercer ítem
+```
+
+**Listas ordenadas**: Usa `1.` para todos los ítems (auto-numeración)
+
+```markdown
+1. Primer paso
+1. Segundo paso
+1. Tercer paso
+```
+
+### Enlaces
+
+**Enlaces internos**: Usa rutas relativas sin extensión `.md` o `.mdx`
+
+```markdown
+[Ve nuestra guía de contribución](/es/community/contributing/)
+[Guías para desarrolladores](/es/developers/)
+```
+
+**Enlaces externos**: Incluye `https://` (abrir en nueva pestaña no es necesario, Starlight lo maneja)
+
+```markdown
+[Documentación de LangChain](https://docs.langchain.com)
+```
+
+### Imágenes
+
+Almacena imágenes en `src/assets/` para optimización:
+
+```markdown
+![Texto alternativo describiendo la imagen](../../assets/screenshot.png)
+```
+
+Para imágenes hero en frontmatter:
+
+```yaml
+---
+title: Mi Guía
+hero:
+  image:
+    file: ../../assets/hero.webp
+    alt: "Texto alternativo descriptivo"
+---
+```
+
+## Componentes de Starlight
+
+Importa componentes al inicio de archivos `.mdx`:
+
+```mdx
+---
+title: Mi Guía
+---
+
+import { Card, CardGrid, Tabs, TabItem, Aside, Steps, Code } from '@astrojs/starlight/components'
+```
+
+### Cards
+
+Usa para destacar características o información agrupada:
+
+```mdx
+<CardGrid>
+  <Card title="Característica Uno" icon="rocket">
+    Descripción de la característica
+  </Card>
+
+  <Card title="Característica Dos" icon="star">
+    Otra descripción de característica
+  </Card>
+</CardGrid>
+```
+
+**Iconos disponibles**: rocket, star, pencil, setting, laptop, approve-check, warning, information, etc.
+[Ver lista completa de iconos](https://starlight.astro.build/guides/components/#available-icons)
+
+### Tabs
+
+Perfecto para mostrar contenido específico por audiencia o enfoques alternativos:
+
+````mdx
+<Tabs>
+  <TabItem label="Python">
+    ```python
+    print("Hola")
+    ```
+  </TabItem>
+
+  <TabItem label="JavaScript">
+    ```javascript
+    console.log("Hola")
+    ```
+  </TabItem>
+</Tabs>
+````
+
+### Asides (Llamadas de Atención)
+
+Usa para notas importantes, consejos, advertencias:
+
+```mdx
+<Aside>
+Nota por defecto
+</Aside>
+
+<Aside type="tip">
+Consejo útil para lectores
+</Aside>
+
+<Aside type="caution">
+Advertencia importante o salvedad
+</Aside>
+
+<Aside type="danger">
+Advertencia crítica - riesgo de pérdida de datos, problema de seguridad, etc.
+</Aside>
+```
+
+**Cuándo usar cada uno**:
+- `note` (por defecto): Información suplementaria
+- `tip`: Atajos útiles o mejores prácticas
+- `caution`: Advertencias importantes, trampas
+- `danger`: Problemas críticos, riesgos de seguridad, potencial pérdida de datos
+
+### Steps
+
+Para procesos secuenciales:
+
+````mdx
+<Steps>
+
+1. **Primer Paso**
+
+   Explicación de qué hacer
+
+   ```bash
+   comando a ejecutar
+   ```
+
+2. **Segundo Paso**
+
+   Más detalles aquí
+
+3. **Tercer Paso**
+
+   Instrucciones finales
+
+</Steps>
+````
+
+<Aside type="tip">
+El componente `<Steps>` numera y estiliza automáticamente tu lista. ¡Úsalo para cualquier proceso multi-paso!
+</Aside>
+
+## Nomenclatura de Archivos
+
+### Las URLs Son Permanentes
+
+Las rutas de archivos se convierten en URLs. Una vez publicado, cambiar una ruta de archivo rompe enlaces.
+
+**Buenos nombres de archivo**:
+- `guia-rag-langchain.md` → `/es/developers/guia-rag-langchain/`
+- `clasificador-emails-n8n.md` → `/es/automation/clasificador-emails-n8n/`
+- `prompts-chatgpt-basicos.md` → `/es/everyone/prompts-chatgpt-basicos/`
+
+**Malos nombres de archivo**:
+- `guia1.md` - No descriptivo
+- `Sistema_RAG_Guia.md` - Usa kebab-case, no snake_case o PascalCase
+- `la-guia-definitiva-para-rag.md` - Evita "definitiva" y sé conciso
+
+### Estructura de Directorios
+
+Los archivos están organizados **primero por audiencia**:
+
+```
+src/content/docs/
+├── es/
+│   ├── developers/
+│   │   ├── agents/
+│   │   │   └── guia.md
+│   │   └── rag/
+│   │       └── langchain.md
+│   ├── automation/
+│   │   ├── n8n/
+│   │   └── zapier/
+│   ├── everyone/
+│   │   ├── chatgpt/
+│   │   └── prompts/
+│   └── professionals/
+│       ├── hr/
+│       └── marketing/
+```
+
+## Ejemplos de Código
+
+### Todo el Código Debe Estar Probado
+
+Antes de enviar:
+- ✅ Ejecuta el código tú mismo
+- ✅ Verifica que funciona con versiones actuales
+- ✅ Incluye imports necesarios
+- ✅ Especifica requisitos de versión si es relevante
+
+### Incluye Contexto
+
+**Malo**:
+```python
+result = chain.run(query)
+```
+
+**Bueno**:
+```python
+from langchain.chains import RetrievalQA
+
+# Inicializa la cadena QA con nuestro vector store
+qa_chain = RetrievalQA.from_chain_type(
+    llm=llm,
+    retriever=vectorstore.as_retriever(),
+    chain_type="stuff"
+)
+
+# Ejecuta una consulta
+result = qa_chain.run("¿Cuáles son las características clave?")
+print(result)
+```
+
+### Variables de Entorno
+
+Nunca incluyas claves API reales. Usa placeholders:
+
+**Malo**:
+```python
+openai.api_key = "sk-proj-abc123xyz"
+```
+
+**Bueno**:
+```python
+import os
+openai.api_key = os.getenv("OPENAI_API_KEY")
+```
+
+Y recuerda a los lectores configurarlas:
+
+```markdown
+Crea un archivo `.env`:
+
+```text
+OPENAI_API_KEY=tu-clave-aqui
+PINECONE_API_KEY=tu-clave-aqui
+```
+
+¡Nunca hagas commit de archivos `.env` al control de versiones!
+```
+
+## Consideraciones Multilingües
+
+### Actualmente: Solo Inglés (con Español en Desarrollo)
+
+Todo el contenido nuevo debe estar en inglés, con traducciones al español opcionales. La estructura está preparada para español y más idiomas.
+
+### Futuro: Traducciones al Español
+
+Al traducir:
+- Mantén la misma estructura de archivos: `es/developers/` refleja `en/developers/`
+- Traduce también nombres de archivos: `langchain-rag-guide.md` → `guia-rag-langchain.md`
+- Adapta ejemplos para que sean culturalmente relevantes
+- Mantén el mismo tono específico por audiencia
+
+### Prioridad de Traducción
+
+Al agregar soporte para español, prioriza:
+1. **Everyone** contenido - Más accesible para hablantes de español
+2. **Professionals** contenido - Alto valor empresarial
+3. **Automation** contenido - Visual, más fácil de traducir
+4. **Developers** contenido - Audiencia internacional ya usa inglés
+
+## Errores Comunes
+
+<CardGrid>
+  <Card title="❌ Mezclar Audiencias" icon="warning">
+    **No**: Escribir una guía que es mitad técnica, mitad principiante
+
+    **Sí**: Crear guías separadas para diferentes audiencias
+  </Card>
+
+  <Card title="❌ Código Sin Probar" icon="warning">
+    **No**: Copiar código de Stack Overflow sin probar
+
+    **Sí**: Ejecutar cada ejemplo de código antes de publicar
+  </Card>
+
+  <Card title="❌ Omitir Prerequisitos" icon="warning">
+    **No**: Asumir que los lectores tienen cuentas/claves API
+
+    **Sí**: Listar prerequisitos al inicio con enlaces
+  </Card>
+
+  <Card title="❌ Beneficios Vagos" icon="warning">
+    **No**: "Esta guía te ayudará con productividad"
+
+    **Sí**: "Reduce el tiempo de clasificación de emails en 2 horas por semana"
+  </Card>
+</CardGrid>
+
+## Accesibilidad
+
+### Texto Alternativo para Imágenes
+
+Siempre incluye texto alternativo descriptivo:
+
+```markdown
+![Captura de pantalla mostrando el editor de flujo de trabajo n8n con un nodo trigger de Gmail conectado a un nodo OpenAI](../../assets/n8n-workflow.png)
+```
+
+**No**: `![captura](imagen.png)`
+
+### Jerarquía de Encabezados
+
+No saltes niveles de encabezados - los lectores de pantalla dependen de la estructura apropiada:
+
+**Malo**:
+```markdown
+# Título
+### Subsección (¡saltó H2!)
+```
+
+**Bueno**:
+```markdown
+# Título
+## Sección Principal
+### Subsección
+```
+
+### Texto de Enlaces
+
+Usa texto de enlace descriptivo, no "haz clic aquí":
+
+**Malo**: "Haz clic [aquí](https://example.com) para aprender más"
+
+**Bueno**: "Aprende más sobre [arquitectura RAG](https://example.com)"
+
+## Lista de Verificación de Revisión
+
+Antes de enviar un PR, verifica:
+
+- [ ] Frontmatter incluye título y descripción
+- [ ] Descripción tiene 140-160 caracteres
+- [ ] Archivo usa nomenclatura kebab-case
+- [ ] Contenido coincide con la audiencia objetivo
+- [ ] Todos los ejemplos de código están probados y funcionan
+- [ ] Sin claves API reales o credenciales
+- [ ] Imágenes tienen texto alternativo descriptivo
+- [ ] Encabezados siguen jerarquía apropiada (sin niveles saltados)
+- [ ] Enlaces funcionan (internos y externos)
+- [ ] Componentes de Starlight están importados si se usan
+- [ ] Revisado ortografía y gramática
+- [ ] Probado localmente con `bun dev`
+
+---
+
+**¿Preguntas sobre estilo?** Consulta la [guía de contribución](/es/community/contributing/) o abre una discusión en GitHub.
