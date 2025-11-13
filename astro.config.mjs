@@ -32,37 +32,91 @@ export default defineConfig({
           sidebar: [
               {
                   label: 'For Developers',
+                  translations: {
+                      es: 'Para Desarrolladores',
+                  },
                   badge: { text: 'Code', variant: 'note' },
                   autogenerate: { directory: 'developers' },
               },
               {
                   label: 'For Automation',
+                  translations: {
+                      es: 'Para Automatización',
+                  },
                   badge: { text: 'No-Code', variant: 'tip' },
                   autogenerate: { directory: 'automation' },
               },
               {
                   label: 'For Everyone',
+                  translations: {
+                      es: 'Para Todos',
+                  },
                   badge: { text: 'Beginner', variant: 'success' },
                   autogenerate: { directory: 'everyone' },
               },
               {
                   label: 'For Professionals',
+                  translations: {
+                      es: 'Para Profesionales',
+                  },
                   badge: { text: 'Business', variant: 'caution' },
                   autogenerate: { directory: 'professionals' },
               },
               {
                   label: 'Community',
+                  translations: {
+                      es: 'Comunidad',
+                  },
                   items: [
-                      { label: 'Contribution Guide', slug: 'community/contributing' },
-                      { label: 'Style Guide', slug: 'community/style-guide' },
+                      {
+                          label: 'Contribution Guide',
+                          translations: {
+                              es: 'Guía de Contribución',
+                          },
+                          slug: 'community/contributing',
+                      },
+                      {
+                          label: 'Style Guide',
+                          translations: {
+                              es: 'Guía de Estilo',
+                          },
+                          slug: 'community/style-guide',
+                      },
                       {
                           label: 'Content Templates',
+                          translations: {
+                              es: 'Plantillas de Contenido',
+                          },
                           collapsed: true,
                           items: [
-                              { label: 'Developer Guide Template', slug: 'community/templates/developer-guide-template' },
-                              { label: 'Automation Guide Template', slug: 'community/templates/automation-guide-template' },
-                              { label: 'Everyone Guide Template', slug: 'community/templates/everyone-guide-template' },
-                              { label: 'Professional Guide Template', slug: 'community/templates/professional-guide-template' },
+                              {
+                                  label: 'Developer Guide Template',
+                                  translations: {
+                                      es: 'Plantilla Guía Desarrollador',
+                                  },
+                                  slug: 'community/templates/developer-guide-template',
+                              },
+                              {
+                                  label: 'Automation Guide Template',
+                                  translations: {
+                                      es: 'Plantilla Guía Automatización',
+                                  },
+                                  slug: 'community/templates/automation-guide-template',
+                              },
+                              {
+                                  label: 'Everyone Guide Template',
+                                  translations: {
+                                      es: 'Plantilla Guía Para Todos',
+                                  },
+                                  slug: 'community/templates/everyone-guide-template',
+                              },
+                              {
+                                  label: 'Professional Guide Template',
+                                  translations: {
+                                      es: 'Plantilla Guía Profesional',
+                                  },
+                                  slug: 'community/templates/professional-guide-template',
+                              },
                           ],
                       },
                   ],
