@@ -1,5 +1,5 @@
 ---
-title: Para Desarrolladores
+title: Para desarrolladores
 description: Herramientas de IA, frameworks y mejores prácticas para desarrolladores de software
 ---
 

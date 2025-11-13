@@ -1,5 +1,5 @@
 ---
-title: Para Profesionales
+title: Para profesionales
 description: Aplicaciones de IA para negocios, RRHH, marketing y roles especializados
 ---
 

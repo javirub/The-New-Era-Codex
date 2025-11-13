@@ -11,7 +11,7 @@ import { Tabs, TabItem, Steps, Aside, Card, CardGrid } from '@astrojs/starlight/
 
 ¡Bienvenido! Gracias por tu interés en contribuir a The New Era Codex. Esta guía te ayudará a entender nuestro enfoque único de múltiples audiencias y cómo crear contenido que sirva a las personas adecuadas de la manera correcta.
 
-## Entendiendo Nuestro Enfoque Multi-Audiencia
+## Entendiendo nuestro enfoque multi-audiencia
 
 The New Era Codex es único: organizamos el contenido **primero por audiencia**, no por tema. Esto significa que el mismo tema (como "usar IA para automatización") será completamente diferente dependiendo de para quién estés escribiendo.
 
@@ -89,8 +89,6 @@ The New Era Codex es único: organizamos el contenido **primero por audiencia**,
 **Prueba rápida**: Si no puedes identificar claramente para qué audiencia única es tu guía, probablemente necesites dividirla en múltiples guías o reenfocar tu contenido.
 </Aside>
 
-## Antes de Empezar
-
 <Aside type="caution" title="Requisito de Idioma">
 **IMPORTANTE**: Todas las guías nuevas **deben estar escritas en inglés**. Las traducciones al español (u otros idiomas) son opcionales y muy bienvenidas, pero el inglés es obligatorio.
 
@@ -101,9 +99,11 @@ The New Era Codex es único: organizamos el contenido **primero por audiencia**,
 Esto asegura que todos los contribuidores y mantenedores puedan revisar el contenido, mientras seguimos apoyando nuestra misión multilingüe.
 </Aside>
 
+## Antes de empezar
+
 <Steps>
 
-1. **Elige Tu Audiencia**
+1. **Elige tu audiencia**
 
    Pregúntate: "¿Quién se beneficiará más de esta guía?" Tu respuesta determina:
    - En qué directorio colocar tu archivo
@@ -111,7 +111,7 @@ Esto asegura que todos los contribuidores y mantenedores puedan revisar el conte
    - Qué ejemplos incluir
    - Qué conocimiento previo asumir
 
-2. **Elige la Plantilla Correcta**
+2. **Elige la plantilla correcta**
 
    Proporcionamos plantillas para cada tipo de audiencia:
    - [Plantilla de Guía para Desarrolladores](/es/community/templates/developer-guide-template/)
@@ -121,7 +121,7 @@ Esto asegura que todos los contribuidores y mantenedores puedan revisar el conte
 
    Copia la plantilla apropiada y complétala con tu contenido.
 
-3. **Revisa la Guía de Estilo**
+3. **Revisa la guía de estilo**
 
    Consulta nuestra [Guía de Estilo](/es/community/style-guide/) para:
    - Convenciones de formato
@@ -129,7 +129,7 @@ Esto asegura que todos los contribuidores y mantenedores puedan revisar el conte
    - Cómo usar componentes de Starlight
    - Mejores prácticas de Markdown
 
-4. **Configura Tu Entorno**
+4. **Configura tu entorno**
 
    ```bash
    # Haz fork y clona el repositorio
@@ -145,9 +145,9 @@ Esto asegura que todos los contribuidores y mantenedores puedan revisar el conte
 
 </Steps>
 
-## Pautas de Contenido por Audiencia
+## Pautas de contenido por audiencia
 
-### Para Guías de Desarrolladores
+### Para guías de desarrolladores
 
 <CardGrid>
   <Card title="Sí Incluir" icon="approve-check">
@@ -171,11 +171,11 @@ Esto asegura que todos los contribuidores y mantenedores puedan revisar el conte
 
 ````markdown
 ---
-title: Construyendo Tu Primer Sistema RAG
+title: Construyendo tu primer sistema RAG
 description: Guía paso a paso para implementar Retrieval-Augmented Generation con LangChain
 ---
 
-# Construyendo Tu Primer Sistema RAG
+# Construyendo tu primer sistema RAG
 
 ## Resumen
 Aprende cómo construir un sistema RAG listo para producción usando LangChain, embeddings de OpenAI y base de datos vectorial Pinecone.
@@ -191,13 +191,13 @@ Aprende cómo construir un sistema RAG listo para producción usando LangChain, 
 
 ## Implementación
 
-### Paso 1: Configura Tu Entorno
+### Paso 1: Configura tu entorno
 
 ```python
 pip install langchain openai pinecone-client tiktoken
 ```
 
-### Paso 2: Inicializa Componentes
+### Paso 2: Inicializa componentes
 
 ```python
 from langchain.embeddings import OpenAIEmbeddings
@@ -216,7 +216,7 @@ embeddings = OpenAIEmbeddings(
 [Continúa con implementación detallada...]
 ````
 
-### Para Guías de Automatización
+### Para guías de automatización
 
 <CardGrid>
   <Card title="Sí Incluir" icon="approve-check">
@@ -240,13 +240,13 @@ embeddings = OpenAIEmbeddings(
 
 ````markdown
 ---
-title: Crea un Clasificador de Emails Potenciado por IA en n8n
-description: Clasifica y etiqueta automáticamente emails entrantes usando IA—sin programar
+title: Crea un clasificador de emails potenciado por IA en n8n
+description: Clasifica y etiqueta automáticamente emails entrantes usando IA, sin programar
 ---
 
-# Clasificador de Emails Potenciado por IA
+# Clasificador de emails potenciado por IA
 
-## Qué Construirás
+## Qué construirás
 Al final de esta guía, tu flujo de trabajo n8n automáticamente:
 - Leerá emails entrantes
 - Analizará contenido con IA
@@ -255,13 +255,13 @@ Al final de esta guía, tu flujo de trabajo n8n automáticamente:
 
 [Captura de pantalla del flujo de trabajo final]
 
-## Antes de Empezar
+## Antes de empezar
 - [ ] Cuenta n8n (cloud o self-hosted)
 - [ ] Cuenta Gmail conectada a n8n
 - [ ] Clave API de OpenAI
 - [ ] Workspace de Slack (opcional, para notificaciones)
 
-## Paso 1: Crea un Nuevo Flujo de Trabajo
+## Paso 1: Crea un nuevo flujo de trabajo
 
 1. Abre n8n y haz clic en **"New Workflow"** en la esquina superior derecha
 2. Haz clic en el canvas para añadir tu primer nodo
@@ -269,7 +269,7 @@ Al final de esta guía, tu flujo de trabajo n8n automáticamente:
 
 [Captura de pantalla mostrando dónde hacer clic]
 
-## Paso 2: Configura el Gmail Trigger
+## Paso 2: Configura el Gmail trigger
 
 **Acción**: Configura monitoreo de email
 
@@ -284,7 +284,7 @@ Al final de esta guía, tu flujo de trabajo n8n automáticamente:
 [Continúa con paso a paso visual...]
 ````
 
-### Para Guías de Todos
+### Para guías de todos
 
 <CardGrid>
   <Card title="Sí Incluir" icon="approve-check">
@@ -308,35 +308,35 @@ Al final de esta guía, tu flujo de trabajo n8n automáticamente:
 
 ````markdown
 ---
-title: Escribe Mejores Prompts de ChatGPT en 5 Minutos
+title: Escribe mejores prompts de ChatGPT en 5 minutos
 description: Técnicas simples que cualquiera puede usar para obtener mejores respuestas de IA
 ---
 
-# Escribe Mejores Prompts de ChatGPT
+# Escribe mejores prompts de ChatGPT
 
-## Por Qué Importa Esto
+## Por qué importa esto
 
-¿Alguna vez le has preguntado algo a ChatGPT y obtenido una respuesta vaga e inútil? No estás solo. El secreto no es ChatGPT—es cómo preguntas.
+¿Alguna vez le has preguntado algo a ChatGPT y obtenido una respuesta vaga e inútil? No estás solo. El secreto no es ChatGPT, es cómo preguntas.
 
 En los próximos 5 minutos, aprenderás una fórmula simple que funciona siempre.
 
-## El Problema: Prompts Vagos Obtienen Respuestas Vagas
+## El problema: prompts vagos obtienen respuestas vagas
 
-### Prompt Malo
+### Prompt malo
 ```
 Escríbeme un post de blog sobre productividad
 ```
 
 **Lo que obtienes**: Un artículo genérico y aburrido que podría ser sobre cualquier cosa
 
-### Prompt Bueno
+### Prompt bueno
 ```
 Escribe un post de blog de 500 palabras sobre consejos de productividad para trabajadores remotos con niños pequeños. Usa un tono amigable y conversacional. Incluye 3 estrategias específicas con ejemplos. La audiencia son padres trabajando desde casa que luchan con interrupciones.
 ```
 
 **Lo que obtienes**: Un artículo enfocado y útil que realmente ayuda a la gente
 
-## La Fórmula de 5 Minutos
+## La fórmula de 5 minutos
 
 Cada buen prompt necesita estas 4 partes:
 
@@ -345,9 +345,9 @@ Cada buen prompt necesita estas 4 partes:
 3. **Cómo** debe sonar (formal, casual, divertido, etc.)
 4. **Detalles** (longitud, ejemplos, formato, etc.)
 
-## Pruébalo Tú Mismo
+## Pruébalo tú mismo
 
-### Ejemplo 1: Escribir un Email
+### Ejemplo 1: Escribir un email
 
 **Malo**: "Escribe un email a mi jefe"
 
@@ -362,7 +362,7 @@ Escribe un email [tono] a [destinatario] sobre [tema].
 [Continúa con más ejemplos...]
 ````
 
-### Para Guías de Profesionales
+### Para guías de profesionales
 
 <CardGrid>
   <Card title="Sí Incluir" icon="approve-check">
@@ -386,19 +386,19 @@ Escribe un email [tono] a [destinatario] sobre [tema].
 
 ````markdown
 ---
-title: Screening de Candidatos Potenciado por IA para Equipos de RRHH
+title: Screening de candidatos potenciado por IA para equipos de RRHH
 description: Reduce el tiempo de revisión de currículums en 70% mientras mejoras la consistencia de contratación
 ---
 
-# Screening de Candidatos Potenciado por IA
+# Screening de candidatos potenciado por IA
 
-## Impacto Empresarial
+## Impacto empresarial
 
 **Tiempo Ahorrado**: ~2 horas por posición
 **Reducción de Costos**: ~$150 por contratación en tiempo de RRHH
 **Mejora de Calidad**: 40% más consistencia en evaluación de candidatos
 
-## Para Quién Es Esto
+## Para quién es esto
 
 Esta guía está diseñada para profesionales de RRHH y reclutadores que:
 - Revisan 20+ currículums por posición
@@ -406,7 +406,7 @@ Esta guía está diseñada para profesionales de RRHH y reclutadores que:
 - Necesitan reducir el tiempo de contratación
 - Quieren mantener cumplimiento con regulaciones de contratación
 
-## El Problema
+## El problema
 
 El screening tradicional de currículums es:
 - Consume tiempo (promedio 6 minutos por currículum)
@@ -414,7 +414,7 @@ El screening tradicional de currículums es:
 - Sesgado (sesgos inconscientes afectan decisiones)
 - No escalable (100+ aplicantes = días de trabajo)
 
-## La Solución
+## La solución
 
 Usa IA para crear un screening inicial consistente y rápido que:
 - Aplica los mismos criterios a cada candidato
@@ -422,9 +422,9 @@ Usa IA para crear un screening inicial consistente y rápido que:
 - Documenta razonamiento para cumplimiento
 - Reduce tiempo de screening en 70%
 
-## Cómo Funciona
+## Cómo funciona
 
-### Paso 1: Define Tus Criterios
+### Paso 1: Define tus criterios
 
 Trabaja con hiring managers para listar calificaciones imprescindibles y deseables:
 
@@ -438,7 +438,7 @@ Trabaja con hiring managers para listar calificaciones imprescindibles y deseabl
 - Idiomas adicionales
 - Experiencia en liderazgo
 
-### Paso 2: Crea Tu Prompt de Screening
+### Paso 2: Crea tu prompt de screening
 
 ```
 Analiza este currículum para una posición de [Título del Trabajo].
@@ -459,27 +459,27 @@ Proporciona:
 4. Recomendación (Sí Fuerte/Sí/Quizás/No)
 ```
 
-### Paso 3: Revisa Evaluaciones de IA
+### Paso 3: Revisa evaluaciones de IA
 
 [Incluir ejemplo de output]
 
-## Consideraciones Importantes
+## Consideraciones importantes
 
-### Privacidad y Cumplimiento
+### Privacidad y cumplimiento
 
 - **GDPR/Privacidad de Datos**: Asegura consentimiento del candidato para procesamiento por IA
 - **Anti-Discriminación**: La IA debe evaluar calificaciones, no demografía
 - **Documentación**: Mantén registros de criterios de evaluación para auditorías
-- **Revisión Humana**: La IA filtra, los humanos deciden—nunca automatices decisiones finales
+- **Revisión Humana**: La IA filtra, los humanos deciden; nunca automatices decisiones finales
 
-### Mejores Prácticas
+### Mejores prácticas
 
 1. **Valida Regularmente**: Audita recomendaciones de IA trimestralmente
 2. **Entrena a Tu Equipo**: Asegura que RRHH entienda cómo funcionan las evaluaciones de IA
 3. **Sé Transparente**: Dile a los candidatos que la IA es parte del proceso
 4. **Itera**: Refina criterios basándote en resultados de contratación
 
-## Midiendo Éxito
+## Midiendo éxito
 
 Rastrea estas métricas para medir impacto:
 
@@ -492,18 +492,18 @@ Rastrea estas métricas para medir impacto:
 [Continúa con plantillas y ejemplos...]
 ````
 
-## Proceso de Envío
+## Proceso de envío
 
 <Steps>
 
-1. **Crea Tu Contenido**
+1. **Crea tu contenido**
 
    - Usa la plantilla apropiada
    - Escribe para tu audiencia específica
    - Prueba cualquier código o flujo de trabajo
    - Incluye ejemplos prácticos
 
-2. **Prueba Localmente**
+2. **Prueba localmente**
 
    ```bash
    # Inicia servidor de desarrollo
@@ -514,7 +514,7 @@ Rastrea estas métricas para medir impacto:
    # Verifica que todos los enlaces funcionen
    ```
 
-3. **Crea un Pull Request**
+3. **Crea un pull request**
 
    ```bash
    # Crea una rama de feature
@@ -530,10 +530,10 @@ Rastrea estas métricas para medir impacto:
    git push origin guide/nombre-del-tema
    ```
 
-4. **Escribe una Descripción Clara del PR**
+4. **Escribe una descripción clara del PR**
 
    ```markdown
-   ## Detalles de la Guía
+   ## Detalles de la guía
    **Audiencia**: [Desarrolladores/Automatización/Todos/Profesionales]
    **Tema**: [Qué cubre esta guía]
    **Valor**: [Por qué esto es útil]
@@ -548,9 +548,9 @@ Rastrea estas métricas para medir impacto:
 
 </Steps>
 
-## Qué Buscamos
+## Qué buscamos
 
-### Todo el Contenido Debe Ser:
+### Todo el contenido debe ser:
 
 - **Preciso**: Prueba tu código, verifica tu información, cita fuentes
 - **Práctico**: Incluye ejemplos del mundo real y consejos accionables
@@ -570,16 +570,16 @@ Rastrea estas métricas para medir impacto:
 **Importante**: Todos los ejemplos de código deben estar probados y funcionando. Todas las herramientas/servicios externos mencionados deben ser accesibles (tier gratuito o prueba disponible).
 </Aside>
 
-## Después del Envío
+## Después del envío
 
-### Proceso de Revisión
+### Proceso de revisión
 
 1. **Verificaciones Automáticas**: El PR ejecutará verificaciones de build automáticamente
 2. **Revisión del Mantenedor**: Un mantenedor revisará en 3-5 días
 3. **Feedback**: Podemos solicitar cambios o aclaraciones
 4. **Merge**: ¡Una vez aprobado, tu contribución se publica!
 
-### Qué Sucede Después
+### Qué sucede después
 
 - Tu nombre se añade a los contribuidores
 - El contenido aparece en el sitio en vivo (usualmente en 24 horas)

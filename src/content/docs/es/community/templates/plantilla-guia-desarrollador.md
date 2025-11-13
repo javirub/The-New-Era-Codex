@@ -11,7 +11,7 @@ sidebar:
 
 <!-- Ejemplo: "Construyendo un Sistema RAG Listo para Producción con LangChain" -->
 
-## Descripción General
+## Descripción general
 
 <!-- Breve descripción de 2-3 oraciones sobre lo que cubre esta guía y lo que el lector construirá/aprenderá -->
 
@@ -21,7 +21,7 @@ sidebar:
 
 **Tiempo para completar**: [Estimación realista]
 
-## Requisitos Previos
+## Requisitos previos
 
 **Conocimientos requeridos**:
 - [ej., Python 3.9+]
@@ -37,7 +37,7 @@ sidebar:
 - [ej., Conocimiento de Docker para containerización]
 - [ej., Experiencia con LangChain]
 
-## Descripción de la Arquitectura
+## Descripción de la arquitectura
 
 <!-- Incluye un diagrama o descripción de cómo encajan los componentes -->
 
@@ -52,9 +52,9 @@ sidebar:
 - **[Componente 2]**: [Qué hace]
 - **[Componente 3]**: [Qué hace]
 
-## Configuración del Entorno
+## Configuración del entorno
 
-### Instalar Dependencias
+### Instalar dependencias
 
 ```bash
 # Create virtual environment
@@ -152,7 +152,7 @@ vectorstore = Pinecone.from_existing_index(
 
 ## Pruebas
 
-### Pruebas Unitarias
+### Pruebas unitarias
 
 ```python
 import pytest
@@ -173,7 +173,7 @@ def test_retrieval():
     assert all(hasattr(doc, 'page_content') for doc in results)
 ```
 
-### Pruebas de Integración
+### Pruebas de integración
 
 ```python
 def test_full_pipeline():
@@ -199,7 +199,7 @@ pytest tests/ -v
 
 ## Optimización
 
-### Ajuste de Rendimiento
+### Ajuste de rendimiento
 
 **Optimización de embeddings**:
 - Usa `text-embedding-3-small` para un balance costo/rendimiento
@@ -211,7 +211,7 @@ pytest tests/ -v
 - Usa filtrado de metadatos para reducir el espacio de búsqueda
 - Considera vecino más cercano aproximado (ANN) para conjuntos de datos grandes
 
-### Optimización de Costos
+### Optimización de costos
 
 **Costos estimados** (a partir de 2025):
 - Embeddings: ~$0.02 por 1M tokens
@@ -254,7 +254,7 @@ docker build -t my-rag-app .
 docker run --env-file .env my-rag-app
 ```
 
-### Consideraciones para Producción
+### Consideraciones para producción
 
 **Monitoreo**:
 - Rastrea la latencia de la API y tasas de error
@@ -272,9 +272,9 @@ docker run --env-file .env my-rag-app
 - Implementa capa de caché (Redis/Memcached)
 - Considera despliegue serverless (AWS Lambda, Cloud Run)
 
-## Solución de Problemas
+## Solución de problemas
 
-### Errores Comunes
+### Errores comunes
 
 **Error**: `RateLimitError: Rate limit exceeded`
 ```python
@@ -301,7 +301,7 @@ def call_with_retry(func, max_retries=3):
 - **Causa**: No hay documentos en el almacén de vectores o la consulta es demasiado específica
 - **Solución**: Verifica que se agregaron documentos; prueba con términos de consulta más amplios
 
-## Próximos Pasos
+## Próximos pasos
 
 **Mejoras a considerar**:
 - [ ] Agregar memoria de conversación para interacciones multi-turno
@@ -314,7 +314,7 @@ def call_with_retry(func, max_retries=3):
 - [Enlace a guía de desarrollador relacionada]
 - [Enlace a otra guía relevante]
 
-## Recursos Adicionales
+## Recursos adicionales
 
 **Documentación oficial**:
 - [Documentos de LangChain](https://docs.langchain.com)

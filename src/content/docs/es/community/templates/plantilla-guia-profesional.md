@@ -11,7 +11,7 @@ sidebar:
 
 <!-- Ejemplo: "Selección de Candidatos con IA para Equipos de RRHH" -->
 
-## Impacto Empresarial de un Vistazo
+## Impacto empresarial de un vistazo
 
 **Tiempo Ahorrado**: [Métrica específica, ej., "~2 horas por posición"]
 
@@ -23,7 +23,7 @@ sidebar:
 
 **Costo**: [Costo total incluyendo herramientas, ej., "$20-50/mes dependiendo del volumen"]
 
-## Para Quién Es Esto
+## Para quién es esto
 
 Esta guía está diseñada para **[rol específico]** que:
 - [Punto de dolor o responsabilidad específica]
@@ -33,9 +33,9 @@ Esta guía está diseñada para **[rol específico]** que:
 
 **Aplicabilidad industrial**: [Para qué industrias funciona mejor esto]
 
-## El Problema
+## El problema
 
-### Estado Actual: [Enfoque Tradicional]
+### Estado actual: [enfoque tradicional]
 
 [Describe cómo se hace típicamente esta tarea hoy]
 
@@ -46,7 +46,7 @@ Esta guía está diseñada para **[rol específico]** que:
 - **Alto costo**: [Implicación de costo]
 - **[Desafío específico del rol]**: [Descripción]
 
-### Impacto en Tu Organización
+### Impacto en tu organización
 
 **Sin optimización**:
 - [Impacto específico en equipo/negocio 1]
@@ -56,11 +56,11 @@ Esta guía está diseñada para **[rol específico]** que:
 **Escenario de ejemplo**:
 
 [Ejemplo concreto con números]
-> "Para una empresa que contrata 20 posiciones por año con 100 solicitantes cada una, RRHH gasta más de 200 horas en selección inicial solamente—equivalente a 5 semanas de trabajo a tiempo completo."
+> "Para una empresa que contrata 20 posiciones por año con 100 solicitantes cada una, RRHH gasta más de 200 horas en selección inicial solamente, equivalente a 5 semanas de trabajo a tiempo completo."
 
-## La Solución
+## La solución
 
-**Cómo la IA Cambia Esto**:
+**Cómo la IA cambia esto**:
 
 Usa IA para [tarea específica] que:
 - [Beneficio 1 con métrica]
@@ -70,9 +70,9 @@ Usa IA para [tarea específica] que:
 
 **Lo que permanece humano**: [Nota importante sobre supervisión humana y toma de decisiones]
 
-## Cómo Funciona
+## Cómo funciona
 
-### Paso 1: Define Tus Criterios
+### Paso 1: Define tus criterios
 
 [Instrucciones para configurar parámetros/criterios específicos de su rol]
 
@@ -95,7 +95,7 @@ Trabaja con [interesados] para identificar:
 | [Categoría] | [Requisito específico] | Alto/Medio/Bajo | [Método] |
 | [Categoría] | [Requisito específico] | Alto/Medio/Bajo | [Método] |
 
-### Paso 2: Crea Tu Plantilla de Proceso
+### Paso 2: Crea tu plantilla de proceso
 
 **La plantilla que usarás**:
 
@@ -129,12 +129,12 @@ Formatea tu respuesta como datos estructurados para nuestro sistema de seguimien
 - **Para [Industria/Departamento B]**: [Modificaciones diferentes]
 - **Para [Caso de Uso Específico]**: [Variaciones]
 
-### Paso 3: Implementa el Flujo de Trabajo
+### Paso 3: Implementa el flujo de trabajo
 
 **Elige tu método de implementación**:
 
 <details>
-<summary><strong>Opción A: Proceso Manual (Comienza Aquí)</strong></summary>
+<summary><strong>Opción A: Proceso manual (comienza aquí)</strong></summary>
 
 Mejor para: Probar el enfoque, bajo volumen, equipos conscientes del presupuesto
 
@@ -153,7 +153,7 @@ Mejor para: Probar el enfoque, bajo volumen, equipos conscientes del presupuesto
 </details>
 
 <details>
-<summary><strong>Opción B: Semi-Automatizado (Recomendado)</strong></summary>
+<summary><strong>Opción B: Semi-automatizado (recomendado)</strong></summary>
 
 Mejor para: Volumen medio, uso regular, equipos cómodos con herramientas básicas
 
@@ -175,7 +175,7 @@ Mejor para: Volumen medio, uso regular, equipos cómodos con herramientas básic
 </details>
 
 <details>
-<summary><strong>Opción C: Completamente Automatizado (Avanzado)</strong></summary>
+<summary><strong>Opción C: Completamente automatizado (avanzado)</strong></summary>
 
 Mejor para: Alto volumen, equipos empresariales, recursos técnicos disponibles
 
@@ -185,7 +185,7 @@ Mejor para: Alto volumen, equipos empresariales, recursos técnicos disponibles
 
 </details>
 
-### Paso 4: Revisa y Valida Resultados
+### Paso 4: Revisa y valida resultados
 
 **Proceso de revisión humana**:
 
@@ -203,9 +203,9 @@ Mejor para: Alto volumen, equipos empresariales, recursos técnicos disponibles
 
 [Muestra cómo se ve un resultado típico generado por IA en contexto empresarial]
 
-## Consideraciones Importantes
+## Consideraciones importantes
 
-### Cumplimiento y Legal
+### Cumplimiento y legal
 
 **[Regulación/Ley Relevante]**:
 - ✅ [Requisito y cómo este enfoque lo aborda]
@@ -222,7 +222,7 @@ Mejor para: Alto volumen, equipos empresariales, recursos técnicos disponibles
 
 **Consulta a tu equipo legal**: Siempre verifica que tu implementación cumpla con los requisitos de cumplimiento específicos de tu organización.
 
-### Privacidad y Seguridad de Datos
+### Privacidad y seguridad de datos
 
 **Manejo de datos**:
 - **Qué datos se procesan**: [Sé específico]
@@ -241,7 +241,7 @@ Mejor para: Alto volumen, equipos empresariales, recursos técnicos disponibles
 - [Pregunta de seguridad relevante 1]
 - [Pregunta de seguridad relevante 2]
 
-### Ética y Sesgo
+### Ética y sesgo
 
 **Riesgos potenciales de sesgo**:
 - [Riesgo de sesgo específico para este caso de uso]
@@ -257,7 +257,7 @@ Mejor para: Alto volumen, equipos empresariales, recursos técnicos disponibles
 - [Señal de advertencia 1]
 - [Señal de advertencia 2]
 
-## Hoja de Ruta de Implementación
+## Hoja de ruta de implementación
 
 ### Fase 1: Piloto (Semanas 1-2)
 
@@ -298,9 +298,9 @@ Mejor para: Alto volumen, equipos empresariales, recursos técnicos disponibles
 
 **Cronograma de revisión**: [Cadencia específica]
 
-## Medición del Éxito
+## Medición del éxito
 
-### Indicadores Clave de Rendimiento
+### Indicadores clave de rendimiento
 
 Rastrea estas métricas para medir el impacto:
 
@@ -327,7 +327,7 @@ Rastrea estas métricas para medir el impacto:
 
 **Período de recuperación**: [Período de tiempo para recuperar costo de implementación]
 
-### Beneficios Cualitativos
+### Beneficios cualitativos
 
 Más allá del ahorro de tiempo y costos:
 - [Mejora en la moral o satisfacción del equipo]
@@ -335,9 +335,9 @@ Más allá del ahorro de tiempo y costos:
 - [Ventaja competitiva ganada]
 - [Reducción de riesgo lograda]
 
-## Plantillas y Recursos
+## Plantillas y recursos
 
-### Plantilla Copiar-Pegar
+### Plantilla copiar-pegar
 
 ```
 [Proporciona la plantilla completa lista para usar]
@@ -360,7 +360,7 @@ Más allá del ahorro de tiempo y costos:
 - [ ] [Acción de seguimiento]
 - [ ] [Seguimiento de métricas]
 
-### Correo/Comunicación de Ejemplo
+### Correo/comunicación de ejemplo
 
 [Si es relevante, proporciona plantilla de comunicación para interesados]
 
@@ -369,7 +369,7 @@ Más allá del ahorro de tiempo y costos:
 
 [Correo plantilla explicando el nuevo proceso]
 
-## Solución de Problemas
+## Solución de problemas
 
 ### Problema: [Problema Común]
 
@@ -390,9 +390,9 @@ Más allá del ahorro de tiempo y costos:
 
 [Repite el patrón]
 
-## Casos de Estudio
+## Casos de estudio
 
-### Historia de Éxito de [Empresa/Tipo de Industria]
+### Historia de éxito de [Empresa/Tipo de Industria]
 
 **Desafío**: [Problema específico que enfrentaron]
 
@@ -409,7 +409,7 @@ Más allá del ahorro de tiempo y costos:
 
 [Si está disponible, incluye 2-3 ejemplos reales o realistas]
 
-## Próximos Pasos
+## Próximos pasos
 
 **Comienza esta semana**:
 1. [ ] Revisa tus métricas actuales de [proceso] (tiempo, costo, volumen)
@@ -426,7 +426,7 @@ Más allá del ahorro de tiempo y costos:
 2. [ ] Optimización trimestral
 3. [ ] Auditoría anual
 
-## Recursos Adicionales
+## Recursos adicionales
 
 **Herramientas mencionadas**:
 - [Herramienta 1]: [Enlace] - [Qué hace] - [Precio]
@@ -445,7 +445,7 @@ Más allá del ahorro de tiempo y costos:
 - [Foro profesional o grupo]
 - [Comunidad de IA específica de la industria]
 
-## Obtén Ayuda Experta
+## Obtén ayuda experta
 
 **¿Necesitas asistencia con la implementación?**
 - [Enlace a consultoría/servicios si está disponible]

@@ -11,7 +11,7 @@ import { Tabs, TabItem, Aside, Code, Card, CardGrid } from '@astrojs/starlight/c
 
 Esta guía asegura consistencia en todo el contenido de The New Era Codex. Sigue estas pautas al crear o editar contenido.
 
-## Estándares de Frontmatter
+## Estándares de frontmatter
 
 Cada página debe incluir frontmatter al inicio del archivo:
 
@@ -27,14 +27,14 @@ sidebar:
 ---
 ```
 
-### Pautas para Títulos
+### Pautas para títulos
 
 - **Usa formato de oración**: "Construyendo tu primer sistema RAG" (no "Construyendo Tu Primer Sistema RAG")
 - **Sé específico**: "Crea un clasificador de emails en n8n" (no "Automatización de email")
 - **Evita jerga en títulos**: Prefiere claridad sobre ingenio
 - **Mantenlo conciso**: 3-8 palabras ideal
 
-### Pautas para Descripciones
+### Pautas para descripciones
 
 - **140-160 caracteres** para SEO óptimo
 - **Incluye el beneficio**: "Aprende cómo..." o "Reduce tiempo en..."
@@ -55,7 +55,7 @@ description: "Esta guía te enseñará todo lo que necesitas saber sobre constru
 description: "La guía definitiva para RAG." # Clickbait, termina con punto
 ```
 
-## Tono por Audiencia
+## Tono por audiencia
 
 <Tabs>
   <TabItem label="Desarrolladores">
@@ -186,7 +186,7 @@ description: "La guía definitiva para RAG." # Clickbait, termina con punto
   </TabItem>
 </Tabs>
 
-## Formato Markdown
+## Formato markdown
 
 ### Encabezados
 
@@ -204,7 +204,7 @@ Usa encabezados estilo ATX con jerarquía apropiada:
 
 **No saltes niveles**: H2 → H4 rompe la estructura del documento.
 
-### Bloques de Código
+### Bloques de código
 
 Siempre especifica el lenguaje para resaltado de sintaxis:
 
@@ -339,7 +339,7 @@ Perfecto para mostrar contenido específico por audiencia o enfoques alternativo
 </Tabs>
 ````
 
-### Asides (Llamadas de Atención)
+### Asides (llamadas de atención)
 
 Usa para notas importantes, consejos, advertencias:
 
@@ -397,9 +397,9 @@ Para procesos secuenciales:
 El componente `<Steps>` numera y estiliza automáticamente tu lista. ¡Úsalo para cualquier proceso multi-paso!
 </Aside>
 
-## Nomenclatura de Archivos
+## Nomenclatura de archivos
 
-### Las URLs Son Permanentes
+### Las URLs son permanentes
 
 Las rutas de archivos se convierten en URLs. Una vez publicado, cambiar una ruta de archivo rompe enlaces.
 
@@ -413,7 +413,7 @@ Las rutas de archivos se convierten en URLs. Una vez publicado, cambiar una ruta
 - `Sistema_RAG_Guia.md` - Usa kebab-case, no snake_case o PascalCase
 - `la-guia-definitiva-para-rag.md` - Evita "definitiva" y sé conciso
 
-### Estructura de Directorios
+### Estructura de directorios
 
 Los archivos están organizados **primero por audiencia**:
 
@@ -436,9 +436,9 @@ src/content/docs/
 │       └── marketing/
 ```
 
-## Ejemplos de Código
+## Ejemplos de código
 
-### Todo el Código Debe Estar Probado
+### Todo el código debe estar probado
 
 Antes de enviar:
 - ✅ Ejecuta el código tú mismo
@@ -446,7 +446,7 @@ Antes de enviar:
 - ✅ Incluye imports necesarios
 - ✅ Especifica requisitos de versión si es relevante
 
-### Incluye Contexto
+### Incluye contexto
 
 **Malo**:
 ```python
@@ -469,7 +469,7 @@ result = qa_chain.run("¿Cuáles son las características clave?")
 print(result)
 ```
 
-### Variables de Entorno
+### Variables de entorno
 
 Nunca incluyas claves API reales. Usa placeholders:
 
@@ -497,13 +497,13 @@ PINECONE_API_KEY=tu-clave-aqui
 ¡Nunca hagas commit de archivos `.env` al control de versiones!
 ```
 
-## Consideraciones Multilingües
+## Consideraciones multilingües
 
-### Actualmente: Solo Inglés (con Español en Desarrollo)
+### Actualmente: solo inglés (con español en desarrollo)
 
 Todo el contenido nuevo debe estar en inglés, con traducciones al español opcionales. La estructura está preparada para español y más idiomas.
 
-### Futuro: Traducciones al Español
+### Futuro: traducciones al español
 
 Al traducir:
 - Mantén la misma estructura de archivos: `es/developers/` refleja `en/developers/`
@@ -511,7 +511,7 @@ Al traducir:
 - Adapta ejemplos para que sean culturalmente relevantes
 - Mantén el mismo tono específico por audiencia
 
-### Prioridad de Traducción
+### Prioridad de traducción
 
 Al agregar soporte para español, prioriza:
 1. **Everyone** contenido - Más accesible para hablantes de español
@@ -519,28 +519,28 @@ Al agregar soporte para español, prioriza:
 3. **Automation** contenido - Visual, más fácil de traducir
 4. **Developers** contenido - Audiencia internacional ya usa inglés
 
-## Errores Comunes
+## Errores comunes
 
 <CardGrid>
-  <Card title="❌ Mezclar Audiencias" icon="warning">
+  <Card title="❌ Mezclar audiencias" icon="warning">
     **No**: Escribir una guía que es mitad técnica, mitad principiante
 
     **Sí**: Crear guías separadas para diferentes audiencias
   </Card>
 
-  <Card title="❌ Código Sin Probar" icon="warning">
+  <Card title="❌ Código sin probar" icon="warning">
     **No**: Copiar código de Stack Overflow sin probar
 
     **Sí**: Ejecutar cada ejemplo de código antes de publicar
   </Card>
 
-  <Card title="❌ Omitir Prerequisitos" icon="warning">
+  <Card title="❌ Omitir prerequisitos" icon="warning">
     **No**: Asumir que los lectores tienen cuentas/claves API
 
     **Sí**: Listar prerequisitos al inicio con enlaces
   </Card>
 
-  <Card title="❌ Beneficios Vagos" icon="warning">
+  <Card title="❌ Beneficios vagos" icon="warning">
     **No**: "Esta guía te ayudará con productividad"
 
     **Sí**: "Reduce el tiempo de clasificación de emails en 2 horas por semana"
@@ -549,7 +549,7 @@ Al agregar soporte para español, prioriza:
 
 ## Accesibilidad
 
-### Texto Alternativo para Imágenes
+### Texto alternativo para imágenes
 
 Siempre incluye texto alternativo descriptivo:
 
@@ -559,7 +559,7 @@ Siempre incluye texto alternativo descriptivo:
 
 **No**: `![captura](imagen.png)`
 
-### Jerarquía de Encabezados
+### Jerarquía de encabezados
 
 No saltes niveles de encabezados - los lectores de pantalla dependen de la estructura apropiada:
 
@@ -576,7 +576,7 @@ No saltes niveles de encabezados - los lectores de pantalla dependen de la estru
 ### Subsección
 ```
 
-### Texto de Enlaces
+### Texto de enlaces
 
 Usa texto de enlace descriptivo, no "haz clic aquí":
 
@@ -584,7 +584,7 @@ Usa texto de enlace descriptivo, no "haz clic aquí":
 
 **Bueno**: "Aprende más sobre [arquitectura RAG](https://example.com)"
 
-## Lista de Verificación de Revisión
+## Lista de verificación de revisión
 
 Antes de enviar un PR, verifica:
 

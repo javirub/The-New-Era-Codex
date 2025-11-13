@@ -11,7 +11,7 @@ sidebar:
 
 <!-- Ejemplo: "Crear un Clasificador de Correos Electrónicos con IA en n8n" -->
 
-## Lo Que Construirás
+## Lo que construirás
 
 Al final de esta guía, tu flujo de trabajo automáticamente:
 - [Acción específica 1]
@@ -29,7 +29,7 @@ Al final de esta guía, tu flujo de trabajo automáticamente:
 <!-- ![Diagrama del flujo de trabajo final](../../assets/workflow-final.png) -->
 **[Agrega aquí una captura de pantalla de tu flujo de trabajo completado]**
 
-## Antes de Comenzar
+## Antes de comenzar
 
 Necesitarás:
 - [ ] Cuenta de [nombre de la plataforma] ([Enlace para registrarse - menciona el nivel gratuito si está disponible])
@@ -39,7 +39,7 @@ Necesitarás:
 
 **Estimación de costo**: [ej., "El nivel gratuito funciona bien. OpenAI cuesta ~$0.10 por 100 correos procesados"]
 
-## Cómo Funciona
+## Cómo funciona
 
 **El flujo de trabajo en lenguaje sencillo**:
 
@@ -51,7 +51,7 @@ Necesitarás:
 
 **Por qué esto es útil**: [Beneficio del mundo real, ej., "Ahorra 2 horas por día en clasificación de correos"]
 
-## Paso 1: Crear un Nuevo Flujo de Trabajo
+## Paso 1: Crear un nuevo flujo de trabajo
 
 1. Inicia sesión en [nombre de la plataforma]
 2. Haz clic en **"Nuevo Flujo de Trabajo"** en la esquina superior derecha
@@ -61,7 +61,7 @@ Necesitarás:
 <!-- ![Crear nuevo flujo de trabajo](../../assets/step-1-create.png) -->
 **[Agrega captura de pantalla mostrando dónde hacer clic]**
 
-## Paso 2: Agregar el Desencadenador
+## Paso 2: Agregar el desencadenador
 
 **Lo que estamos haciendo**: Configurar [qué desencadena el flujo de trabajo]
 
@@ -73,7 +73,7 @@ Necesitarás:
 <!-- ![Agregar nodo desencadenador](../../assets/step-2-trigger.png) -->
 **[Agrega captura de pantalla con flechas apuntando a elementos de la UI]**
 
-### Configurar el Desencadenador
+### Configurar el desencadenador
 
 1. Haz clic en **"Iniciar sesión con [Servicio]"** para conectar tu cuenta
 2. En el menú desplegable **Evento**, selecciona **"[Tipo de evento]"** (ej., "Mensaje Recibido")
@@ -134,7 +134,7 @@ Email body: {{ $json.body }}
 Return only the category name.
 ```
 
-### Probar Este Nodo
+### Probar este nodo
 
 1. Haz clic en **"Ejecutar Nodo"**
 2. Deberías ver una salida como: `"Important"`
@@ -157,7 +157,7 @@ Return only the category name.
 - Solución de problemas comunes
 -->
 
-## Paso 5: Agregar Lógica de Decisión (If/Else)
+## Paso 5: Agregar lógica de decisión (If/Else)
 
 **Lo que estamos haciendo**: Tomar diferentes acciones basadas en la clasificación de la IA
 
@@ -172,7 +172,7 @@ Return only the category name.
 <!-- ![Configuración del nodo IF](../../assets/step-5-if.png) -->
 **[Agrega captura de pantalla de la configuración del nodo IF]**
 
-### Rama Verdadera: Manejar Correos Urgentes
+### Rama verdadera: manejar correos urgentes
 
 Si la condición es VERDADERA (el correo es Urgente):
 
@@ -182,7 +182,7 @@ Si la condición es VERDADERA (el correo es Urgente):
    - **Etiqueta**: "URGENTE"
    - **ID del Mensaje**: `{{ $json.messageId }}`
 
-### Rama Falsa: Manejar Otros Correos
+### Rama falsa: manejar otros correos
 
 Si la condición es FALSA:
 
@@ -193,7 +193,7 @@ Si la condición es FALSA:
 <!-- ![Ramificación completa](../../assets/step-5-branches.png) -->
 **[Agrega captura de pantalla mostrando ambas ramas]**
 
-## Paso 6: Activar Tu Flujo de Trabajo
+## Paso 6: Activar tu flujo de trabajo
 
 **¡Casi listo!** Activémoslo.
 
@@ -206,15 +206,15 @@ Si la condición es FALSA:
 
 **Qué sucede ahora**: [Explica cuándo se ejecuta el flujo de trabajo y qué lo desencadena]
 
-## Probar Tu Flujo de Trabajo
+## Probar tu flujo de trabajo
 
-### Prueba Manual
+### Prueba manual
 
 1. [Acción desencadenante, ej., "Envíate un correo de prueba"]
 2. Espera [intervalo de tiempo]
 3. Verifica que [resultado esperado haya ocurrido]
 
-### Verificar Historial de Ejecución
+### Verificar historial de ejecución
 
 1. Ve a **Ejecuciones** en la barra lateral izquierda
 2. Deberías ver las ejecuciones de tu flujo de trabajo
@@ -227,7 +227,7 @@ Si la condición es FALSA:
 **Marca de verificación verde** = ¡Éxito!
 **X roja** = Error (haz clic para ver detalles)
 
-## Personalizar Tu Flujo de Trabajo
+## Personalizar tu flujo de trabajo
 
 **Ideas para mejorarlo**:
 
@@ -236,7 +236,7 @@ Si la condición es FALSA:
 - **Agregar filtrado**: Usa un nodo IF al inicio para procesar solo correos de remitentes específicos
 - **Programar informes**: Agrega un desencadenador Cron para enviar un resumen diario
 
-## Solución de Problemas
+## Solución de problemas
 
 ### El flujo de trabajo no se está ejecutando
 
@@ -264,7 +264,7 @@ Soluciones comunes:
 - Busca en su [enlace de documentación]
 - [Discord/Slack de la plataforma si está disponible]
 
-## Lo Que Has Aprendido
+## Lo que has aprendido
 
 - ✅ Cómo configurar un desencadenador en [plataforma]
 - ✅ Cómo conectar [servicio 1] y [servicio 2]
@@ -272,7 +272,7 @@ Soluciones comunes:
 - ✅ Cómo agregar lógica condicional con nodos IF
 - ✅ Cómo probar y activar flujos de trabajo
 
-## Descargar Este Flujo de Trabajo
+## Descargar este flujo de trabajo
 
 **¿Quieres saltarte la configuración?** Descarga el flujo de trabajo completo:
 
@@ -285,7 +285,7 @@ Soluciones comunes:
 3. Actualiza las credenciales con tus claves API
 4. ¡Activa!
 
-## Próximos Pasos
+## Próximos pasos
 
 **Construye sobre este flujo de trabajo**:
 - [Idea de flujo de trabajo relacionada 1]
