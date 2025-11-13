@@ -1,0 +1,605 @@
+---
+title: Style Guide
+description: Formatting, tone, and component guidelines for The New Era Codex
+sidebar:
+  order: 2
+---
+
+import { Tabs, TabItem, Aside, Code, Card, CardGrid } from '@astrojs/starlight/components'
+
+# Style Guide
+
+This guide ensures consistency across all content in The New Era Codex. Follow these guidelines when creating or editing content.
+
+## Frontmatter Standards
+
+Every page must include frontmatter at the top of the file:
+
+```yaml
+---
+title: "Your Page Title"
+description: "Brief description for SEO and previews (140-160 characters)"
+sidebar:
+  order: 1              # Optional: controls position in sidebar
+  badge:                # Optional: add visual badges
+    text: "New"
+    variant: tip        # Options: note, tip, caution, danger
+---
+```
+
+### Title Guidelines
+
+- **Use sentence case**: "Building your first RAG system" (not "Building Your First RAG System")
+- **Be specific**: "Create an email classifier in n8n" (not "Email automation")
+- **Avoid jargon in titles**: Prefer clarity over cleverness
+- **Keep it concise**: 3-8 words ideal
+
+### Description Guidelines
+
+- **140-160 characters** for optimal SEO
+- **Include the benefit**: "Learn how to..." or "Reduce time by..."
+- **Mention the audience** if not obvious from directory
+- **No ending period**
+
+**Good examples**:
+```yaml
+description: "Build a production-ready RAG system using LangChain and Pinecone in under 30 minutes"
+description: "Reduce resume screening time by 70% with AI-powered candidate evaluation"
+description: "Master ChatGPT prompt engineering with simple techniques anyone can use"
+```
+
+**Bad examples**:
+```yaml
+description: "RAG systems" # Too vague
+description: "This guide will teach you everything you need to know about building RAG systems with vector databases and embeddings." # Too long
+description: "The ultimate guide to RAG." # Clickbait, ends with period
+```
+
+## Tone by Audience
+
+<Tabs>
+  <TabItem label="Developers">
+    **Voice**: Technical, direct, assumes coding knowledge
+
+    **Do**:
+    - Use technical terminology without over-explaining
+    - Link to official documentation
+    - Show code-first, explain after
+    - Discuss tradeoffs and performance
+
+    **Don't**:
+    - Explain basic programming concepts
+    - Use non-technical analogies
+    - Over-simplify architecture decisions
+
+    **Example**:
+    ```markdown
+    Initialize the vector store with OpenAI embeddings:
+
+    ```python
+    from langchain.vectorstores import Pinecone
+    embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
+    vectorstore = Pinecone.from_documents(docs, embeddings, index_name="my-index")
+    ```
+
+    This approach uses the newer `text-embedding-3-small` model, which offers
+    better performance at lower cost compared to `text-embedding-ada-002`.
+    ```
+  </TabItem>
+
+  <TabItem label="Automation">
+    **Voice**: Friendly, step-by-step, visual, assumes no coding knowledge
+
+    **Do**:
+    - Use numbered steps
+    - Include screenshots with annotations
+    - Explain what each step does
+    - Provide downloadable workflow files
+
+    **Don't**:
+    - Assume technical knowledge
+    - Skip "obvious" steps
+    - Use code without explanation
+
+    **Example**:
+    ```markdown
+    ## Step 3: Add the OpenAI Node
+
+    Now you'll add the AI component that analyzes your emails.
+
+    1. Click the **+** button on the canvas
+    2. Search for "OpenAI" in the node selector
+    3. Select **"OpenAI Chat Model"**
+
+    [Screenshot showing where to click, with arrows]
+
+    **What this does**: This node sends your email text to OpenAI's AI model
+    and receives a response with the email category.
+    ```
+  </TabItem>
+
+  <TabItem label="Everyone">
+    **Voice**: Accessible, jargon-free, encouraging, conversational
+
+    **Do**:
+    - Explain terms the first time they appear
+    - Use everyday analogies
+    - Provide copy-paste examples
+    - Celebrate small wins
+
+    **Don't**:
+    - Use unexplained jargon
+    - Assume prior AI knowledge
+    - Make it feel complicated
+
+    **Example**:
+    ```markdown
+    ## What is a "Prompt"?
+
+    A prompt is simply the instruction you give to ChatGPT. Think of it like
+    ordering at a restaurant: the more specific you are, the more likely you'll
+    get exactly what you want.
+
+    **Vague order**: "I'll have pasta"
+    **Specific order**: "I'll have the spaghetti carbonara, extra crispy bacon,
+    light on the cheese"
+
+    Same idea with ChatGPT:
+
+    **Vague prompt**: "Write about productivity"
+    **Specific prompt**: "Write 5 productivity tips for parents working from home,
+    each under 50 words, with practical examples"
+    ```
+  </TabItem>
+
+  <TabItem label="Professionals">
+    **Voice**: Business-focused, role-specific, ROI-conscious, compliance-aware
+
+    **Do**:
+    - Lead with business impact
+    - Include metrics and ROI
+    - Address compliance/privacy
+    - Provide role-specific templates
+
+    **Don't**:
+    - Include technical implementation details
+    - Ignore business constraints
+    - Skip compliance considerations
+
+    **Example**:
+    ```markdown
+    ## Business Impact
+
+    **Time Saved**: 2 hours per candidate evaluation
+    **Cost Reduction**: $150 per hire in HR time
+    **Quality Improvement**: 40% more consistent evaluations
+    **Compliance Benefit**: Complete audit trail of evaluation criteria
+
+    ## Privacy Considerations
+
+    Before implementing AI screening:
+    - ✅ Ensure candidate consent for AI processing
+    - ✅ Document evaluation criteria for audits
+    - ✅ Maintain human oversight for final decisions
+    - ✅ Check GDPR/CCPA compliance with legal team
+    ```
+  </TabItem>
+</Tabs>
+
+## Markdown Formatting
+
+### Headings
+
+Use ATX-style headers with proper hierarchy:
+
+```markdown
+# Page Title (H1) - Only one per page, usually automatic from frontmatter
+
+## Main Sections (H2)
+
+### Subsections (H3)
+
+#### Minor subsections (H4) - Use sparingly
+```
+
+**Don't skip levels**: H2 → H4 breaks document structure.
+
+### Code Blocks
+
+Always specify the language for syntax highlighting:
+
+````markdown
+```python
+def hello():
+    return "Hello, World!"
+```
+
+```bash
+bun install
+bun dev
+```
+
+```javascript
+const greeting = "Hello, World!";
+console.log(greeting);
+```
+````
+
+For terminal output without syntax highlighting:
+
+````markdown
+```text
+Output from command
+```
+````
+
+### Lists
+
+**Unordered lists**: Use `-` (not `*` or `+`) for consistency
+
+```markdown
+- First item
+- Second item
+  - Nested item (2 spaces)
+  - Another nested item
+- Third item
+```
+
+**Ordered lists**: Use `1.` for all items (auto-numbering)
+
+```markdown
+1. First step
+1. Second step
+1. Third step
+```
+
+### Links
+
+**Internal links**: Use relative paths without `.md` or `.mdx` extension
+
+```markdown
+[See our contribution guide](/community/contributing/)
+[Developer guides](/developers/)
+```
+
+**External links**: Include `https://` and open in new tab isn't needed (Starlight handles this)
+
+```markdown
+[LangChain documentation](https://docs.langchain.com)
+```
+
+### Images
+
+Store images in `src/assets/` for optimization:
+
+```markdown
+![Alt text describing the image](../../assets/screenshot.png)
+```
+
+For frontmatter hero images:
+
+```yaml
+---
+title: My Guide
+hero:
+  image:
+    file: ../../assets/hero.webp
+    alt: "Descriptive alt text"
+---
+```
+
+## Starlight Components
+
+Import components at the top of `.mdx` files:
+
+```mdx
+---
+title: My Guide
+---
+
+import { Card, CardGrid, Tabs, TabItem, Aside, Steps, Code } from '@astrojs/starlight/components'
+```
+
+### Cards
+
+Use for feature highlights or grouped information:
+
+```mdx
+<CardGrid>
+  <Card title="Feature One" icon="rocket">
+    Description of the feature
+  </Card>
+
+  <Card title="Feature Two" icon="star">
+    Another feature description
+  </Card>
+</CardGrid>
+```
+
+**Available icons**: rocket, star, pencil, setting, laptop, approve-check, warning, information, etc.
+[See full icon list](https://starlight.astro.build/guides/components/#available-icons)
+
+### Tabs
+
+Perfect for showing audience-specific content or alternative approaches:
+
+````mdx
+<Tabs>
+  <TabItem label="Python">
+    ```python
+    print("Hello")
+    ```
+  </TabItem>
+
+  <TabItem label="JavaScript">
+    ```javascript
+    console.log("Hello")
+    ```
+  </TabItem>
+</Tabs>
+````
+
+### Asides (Callouts)
+
+Use for important notes, tips, warnings:
+
+```mdx
+<Aside>
+Default note
+</Aside>
+
+<Aside type="tip">
+Helpful tip for readers
+</Aside>
+
+<Aside type="caution">
+Important warning or caveat
+</Aside>
+
+<Aside type="danger">
+Critical warning - risk of data loss, security issue, etc.
+</Aside>
+```
+
+**When to use each**:
+- `note` (default): Supplementary information
+- `tip`: Helpful shortcuts or best practices
+- `caution`: Important warnings, gotchas
+- `danger`: Critical issues, security risks, data loss potential
+
+### Steps
+
+For sequential processes:
+
+````mdx
+<Steps>
+
+1. **First Step**
+
+   Explanation of what to do
+
+   ```bash
+   command to run
+   ```
+
+2. **Second Step**
+
+   More details here
+
+3. **Third Step**
+
+   Final instructions
+
+</Steps>
+````
+
+<Aside type="tip">
+The `<Steps>` component automatically numbers and styles your list. Use it for any multi-step process!
+</Aside>
+
+## File Naming
+
+### URLs Are Permanent
+
+File paths become URLs. Once published, changing a file path breaks links.
+
+**Good file names**:
+- `langchain-rag-guide.md` → `/developers/langchain-rag-guide/`
+- `n8n-email-classifier.md` → `/automation/n8n-email-classifier/`
+- `chatgpt-prompts-basics.md` → `/everyone/chatgpt-prompts-basics/`
+
+**Bad file names**:
+- `guide1.md` - Not descriptive
+- `RAG_System_Guide.md` - Use kebab-case, not snake_case or PascalCase
+- `the-ultimate-guide-to-rag.md` - Avoid "ultimate" and be concise
+
+### Directory Structure
+
+Files are organized by **audience first**:
+
+```
+src/content/docs/
+├── developers/
+│   ├── agents/
+│   │   └── guide.md
+│   └── rag/
+│       └── langchain.md
+├── automation/
+│   ├── n8n/
+│   └── zapier/
+├── everyone/
+│   ├── chatgpt/
+│   └── prompts/
+└── professionals/
+    ├── hr/
+    └── marketing/
+```
+
+## Code Examples
+
+### All Code Must Be Tested
+
+Before submitting:
+- ✅ Run the code yourself
+- ✅ Verify it works with current versions
+- ✅ Include necessary imports
+- ✅ Specify version requirements if relevant
+
+### Include Context
+
+**Bad**:
+```python
+result = chain.run(query)
+```
+
+**Good**:
+```python
+from langchain.chains import RetrievalQA
+
+# Initialize the QA chain with our vector store
+qa_chain = RetrievalQA.from_chain_type(
+    llm=llm,
+    retriever=vectorstore.as_retriever(),
+    chain_type="stuff"
+)
+
+# Run a query
+result = qa_chain.run("What are the key features?")
+print(result)
+```
+
+### Environment Variables
+
+Never include real API keys. Use placeholders:
+
+**Bad**:
+```python
+openai.api_key = "sk-proj-abc123xyz"
+```
+
+**Good**:
+```python
+import os
+openai.api_key = os.getenv("OPENAI_API_KEY")
+```
+
+And remind readers to set them:
+
+```markdown
+Create a `.env` file:
+
+```text
+OPENAI_API_KEY=your-key-here
+PINECONE_API_KEY=your-key-here
+```
+
+Never commit `.env` files to version control!
+```
+
+## Multilingual Considerations
+
+### Currently: English Only
+
+All content is currently in English. However, the structure is prepared for Spanish (and more languages).
+
+### Future: Spanish Translations
+
+When translating:
+- Keep the same file structure: `es/developers/` mirrors `en/developers/`
+- Translate file names too: `langchain-rag-guide.md` → `guia-rag-langchain.md`
+- Adapt examples to be culturally relevant
+- Maintain the same audience-specific tone
+
+### Translation Priority
+
+When Spanish support launches, prioritize:
+1. **Everyone** content - Most accessible to Spanish speakers
+2. **Professionals** content - High business value
+3. **Automation** content - Visual, easier to translate
+4. **Developers** content - International audience already uses English
+
+## Common Mistakes
+
+<CardGrid>
+  <Card title="❌ Mixing Audiences" icon="warning">
+    **Don't**: Write a guide that's half technical, half beginner
+
+    **Do**: Create separate guides for different audiences
+  </Card>
+
+  <Card title="❌ Untested Code" icon="warning">
+    **Don't**: Copy code from Stack Overflow without testing
+
+    **Do**: Run every code example before publishing
+  </Card>
+
+  <Card title="❌ Skipping Prerequisites" icon="warning">
+    **Don't**: Assume readers have accounts/API keys
+
+    **Do**: List prerequisites upfront with links
+  </Card>
+
+  <Card title="❌ Vague Benefits" icon="warning">
+    **Don't**: "This guide will help you with productivity"
+
+    **Do**: "Reduce email triage time by 2 hours per week"
+  </Card>
+</CardGrid>
+
+## Accessibility
+
+### Alt Text for Images
+
+Always include descriptive alt text:
+
+```markdown
+![Screenshot showing the n8n workflow editor with a Gmail trigger node connected to an OpenAI node](../../assets/n8n-workflow.png)
+```
+
+**Not**: `![screenshot](image.png)`
+
+### Heading Hierarchy
+
+Don't skip heading levels - screen readers rely on proper structure:
+
+**Bad**:
+```markdown
+# Title
+### Subsection (skipped H2!)
+```
+
+**Good**:
+```markdown
+# Title
+## Main Section
+### Subsection
+```
+
+### Link Text
+
+Use descriptive link text, not "click here":
+
+**Bad**: "Click [here](https://example.com) to learn more"
+
+**Good**: "Learn more about [RAG architecture](https://example.com)"
+
+## Review Checklist
+
+Before submitting a PR, verify:
+
+- [ ] Frontmatter includes title and description
+- [ ] Description is 140-160 characters
+- [ ] File uses kebab-case naming
+- [ ] Content matches the target audience
+- [ ] All code examples are tested and working
+- [ ] No real API keys or credentials
+- [ ] Images have descriptive alt text
+- [ ] Headings follow proper hierarchy (no skipped levels)
+- [ ] Links are working (internal and external)
+- [ ] Starlight components are imported if used
+- [ ] Checked for spelling and grammar
+- [ ] Tested locally with `bun dev`
+
+---
+
+**Questions about style?** Check the [contribution guide](/community/contributing/) or open a discussion on GitHub.

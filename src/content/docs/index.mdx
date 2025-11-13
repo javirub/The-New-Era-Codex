@@ -1,40 +1,74 @@
 ---
-title: Welcome to Starlight
-description: Get started building your docs site with Starlight.
-template: splash # Remove or comment out this line to display the site sidebar on this page.
+title: The New Era Codex
+description: Blazingly fast, multilingual AI documentation for everyone—from developers to HR professionals
+template: splash
 hero:
-  tagline: Congrats on setting up a new Starlight project!
+  tagline: Master AI in your field—from developers to HR professionals
   image:
     file: ../../assets/houston.webp
   actions:
-    - text: Example Guide
-      link: /guides/example/
-      icon: right-arrow
-    - text: Read the Starlight docs
-      link: https://starlight.astro.build
-      icon: external
+    - text: Start Learning
+      link: /developers/
+      icon: rocket
+      variant: primary
+    - text: Contribute
+      link: /community/contributing/
+      icon: github
       variant: minimal
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-## Next steps
+## Choose Your Path
 
 <CardGrid stagger>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
-	</Card>
-	<Card title="Change page layout" icon="document">
-		Delete `template: splash` in `src/content/docs/index.mdx` to display a
-		sidebar on this page.
-	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
-	</Card>
-	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
-	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
-	</Card>
+  <Card title="For Developers" icon="laptop">
+    Build AI agents, RAG systems, and master LangChain. Learn AGENTS.md patterns, vector databases, and modern AI frameworks.
+
+    [Explore Developer Guides →](/developers/)
+  </Card>
+
+  <Card title="For Automation" icon="puzzle">
+    Create intelligent workflows with n8n, Zapier, and Make.com. Automate tasks with AI-powered integrations.
+
+    [Explore Automation Guides →](/automation/)
+  </Card>
+
+  <Card title="For Everyone" icon="star">
+    Master ChatGPT and daily AI productivity tools. Learn prompt engineering fundamentals anyone can use.
+
+    [Explore Guides for Everyone →](/everyone/)
+  </Card>
+
+  <Card title="For Professionals" icon="document">
+    AI for your role: HR, Marketing, Analytics. Streamline workflows and boost productivity with practical use cases.
+
+    [Explore Professional Guides →](/professionals/)
+  </Card>
 </CardGrid>
+
+## Why The New Era Codex?
+
+<CardGrid>
+  <Card title="Blazingly Fast" icon="rocket">
+    Built with Astro for instant page loads and optimal performance. No waiting, just learning.
+  </Card>
+
+  <Card title="Multilingual" icon="translate">
+    Starting with English and Spanish, expanding to more languages. AI knowledge in your native language.
+  </Card>
+
+  <Card title="Multi-Audience" icon="open-book">
+    Content tailored for your role and skill level. From code examples to business use cases.
+  </Card>
+
+  <Card title="Community-Driven" icon="heart">
+    Open source and built by practitioners. Contribute your knowledge, help others learn.
+  </Card>
+</CardGrid>
+
+## Ready to Contribute?
+
+The New Era Codex is an open-source project. Whether you're fixing a typo, adding a guide, or translating content—we welcome your contributions.
+
+[Read Our Contribution Guidelines →](/community/contributing/)

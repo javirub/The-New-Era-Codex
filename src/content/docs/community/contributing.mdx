@@ -1,0 +1,604 @@
+---
+title: Contribution Guide
+description: Help democratize AI knowledge across all professions
+sidebar:
+  order: 1
+---
+
+import { Tabs, TabItem, Steps, Aside, Card, CardGrid } from '@astrojs/starlight/components'
+
+# Contributing to The New Era Codex
+
+Welcome! Thank you for your interest in contributing to The New Era Codex. This guide will help you understand our unique multi-audience approach and how to create content that serves the right people in the right way.
+
+## Understanding Our Multi-Audience Approach
+
+The New Era Codex is unique: we organize content by **audience first**, not topic first. This means the same topic (like "using AI for automation") will be completely different depending on who you're writing for.
+
+<Tabs>
+  <TabItem label="Developers">
+    **Your audience**: Software engineers, data scientists, ML engineers
+
+    **Tone**: Technical, assumes coding knowledge
+
+    **Topics**: AI agents, RAG systems, LangChain, Python development, APIs, vector databases
+
+    **What to include**:
+    - Working code examples with explanations
+    - Architecture diagrams
+    - GitHub repository patterns
+    - Technical best practices
+    - Performance considerations
+
+    **Example opening**: "In this guide, we'll build a RAG system using LangChain and Pinecone. You'll need Python 3.9+, an OpenAI API key, and familiarity with async/await patterns."
+  </TabItem>
+
+  <TabItem label="Automation">
+    **Your audience**: No-code/low-code enthusiasts, workflow designers
+
+    **Tone**: Visual, step-by-step, assumes no coding knowledge
+
+    **Topics**: n8n workflows, Zapier integrations, Make.com scenarios
+
+    **What to include**:
+    - Screenshots with annotations
+    - Workflow diagrams
+    - Step-by-step instructions
+    - Downloadable workflow files
+    - Troubleshooting common issues
+
+    **Example opening**: "In this guide, you'll create an AI-powered email classifier in n8n. No coding required! You'll need an n8n account and a Gmail connection."
+  </TabItem>
+
+  <TabItem label="Everyone">
+    **Your audience**: General users, all skill levels, non-technical folks
+
+    **Tone**: Accessible, jargon-free, friendly
+
+    **Topics**: ChatGPT tips, prompt engineering basics, daily productivity tools
+
+    **What to include**:
+    - Simple explanations without jargon
+    - Copy-paste prompts
+    - Before/after examples
+    - Relatable scenarios
+    - Common mistakes to avoid
+
+    **Example opening**: "Want better responses from ChatGPT? In just 5 minutes, you'll learn a simple formula that works for any request—no technical knowledge needed."
+  </TabItem>
+
+  <TabItem label="Professionals">
+    **Your audience**: HR, marketing, analytics, product managers, business professionals
+
+    **Tone**: Business-focused, role-specific, ROI-conscious
+
+    **Topics**: Role-specific AI use cases, workflow automation, productivity improvements
+
+    **What to include**:
+    - ROI calculations
+    - Business impact metrics
+    - Role-specific templates
+    - Compliance/privacy considerations
+    - Industry-specific examples
+
+    **Example opening**: "HR teams: reduce resume screening time by 70%. This guide shows you how to use AI for candidate evaluation while maintaining compliance with hiring regulations."
+  </TabItem>
+</Tabs>
+
+<Aside type="tip">
+**Quick test**: If you can't clearly identify which single audience your guide is for, you probably need to split it into multiple guides or refocus your content.
+</Aside>
+
+## Before You Start
+
+<Steps>
+
+1. **Choose Your Audience**
+
+   Ask yourself: "Who will benefit most from this guide?" Your answer determines:
+   - Which directory to place your file in
+   - What tone and depth to use
+   - What examples to include
+   - What prior knowledge to assume
+
+2. **Pick the Right Template**
+
+   We provide templates for each audience type:
+   - [Developer Guide Template](/community/templates/developer-guide-template/)
+   - [Automation Guide Template](/community/templates/automation-guide-template/)
+   - [Everyone Guide Template](/community/templates/everyone-guide-template/)
+   - [Professional Guide Template](/community/templates/professional-guide-template/)
+
+   Copy the appropriate template and fill it in with your content.
+
+3. **Review the Style Guide**
+
+   Check our [Style Guide](/community/style-guide/) for:
+   - Formatting conventions
+   - Tone guidelines for each audience
+   - How to use Starlight components
+   - Markdown best practices
+
+4. **Set Up Your Environment**
+
+   ```bash
+   # Fork and clone the repository
+   git clone https://github.com/javirub/The-New-Era-Codex.git
+   cd The-New-Era-Codex
+
+   # Install dependencies
+   bun install
+
+   # Start development server
+   bun dev
+   ```
+
+</Steps>
+
+## Content Guidelines by Audience
+
+### For Developer Guides
+
+<CardGrid>
+  <Card title="Do Include" icon="approve-check">
+    - Working, tested code examples
+    - Architecture diagrams
+    - Technical terminology
+    - Performance considerations
+    - Links to relevant documentation
+    - GitHub repository patterns
+  </Card>
+
+  <Card title="Don't Include" icon="warning">
+    - Explaining basic programming concepts
+    - Overly simplified analogies
+    - Non-technical business justifications
+    - Step-by-step GUI instructions
+  </Card>
+</CardGrid>
+
+**Example structure:**
+
+````markdown
+---
+title: Building Your First RAG System
+description: Step-by-step guide to implementing Retrieval-Augmented Generation with LangChain
+---
+
+# Building Your First RAG System
+
+## Overview
+Learn how to build a production-ready RAG system using LangChain, OpenAI embeddings, and Pinecone vector database.
+
+## Prerequisites
+- Python 3.9+
+- OpenAI API key
+- Basic understanding of embeddings and vector similarity
+- Familiarity with async Python
+
+## Architecture
+[Include diagram showing: Documents → Chunking → Embedding → Vector Store → Retrieval → LLM]
+
+## Implementation
+
+### Step 1: Set Up Your Environment
+
+```python
+pip install langchain openai pinecone-client tiktoken
+```
+
+### Step 2: Initialize Components
+
+```python
+from langchain.embeddings import OpenAIEmbeddings
+from langchain.vectorstores import Pinecone
+from langchain.chains import RetrievalQA
+
+# Initialize embeddings
+embeddings = OpenAIEmbeddings(
+    model="text-embedding-3-small",
+    openai_api_key=os.getenv("OPENAI_API_KEY")
+)
+```
+
+**Why this works**: [Explain the technical reasoning]
+
+[Continue with detailed implementation...]
+````
+
+### For Automation Guides
+
+<CardGrid>
+  <Card title="Do Include" icon="approve-check">
+    - Screenshots with clear annotations
+    - Step-by-step numbered instructions
+    - Visual workflow diagrams
+    - "Click here" type directions
+    - Common error messages and fixes
+    - Downloadable workflow exports
+  </Card>
+
+  <Card title="Don't Include" icon="warning">
+    - Code without explanation
+    - Assumptions about technical knowledge
+    - Command-line instructions
+    - Complex technical jargon
+  </Card>
+</CardGrid>
+
+**Example structure:**
+
+````markdown
+---
+title: Create an AI-Powered Email Classifier in n8n
+description: Automatically sort and label incoming emails using AI—no coding required
+---
+
+# AI-Powered Email Classifier
+
+## What You'll Build
+By the end of this guide, your n8n workflow will automatically:
+- Read incoming emails
+- Analyze content with AI
+- Apply appropriate labels
+- Send important emails to Slack
+
+[Screenshot of final workflow]
+
+## Before You Start
+- [ ] n8n account (cloud or self-hosted)
+- [ ] Gmail account connected to n8n
+- [ ] OpenAI API key
+- [ ] Slack workspace (optional, for notifications)
+
+## Step 1: Create a New Workflow
+
+1. Open n8n and click **"New Workflow"** in the top right
+2. Click on the canvas to add your first node
+3. Search for "Gmail Trigger" and select it
+
+[Screenshot showing where to click]
+
+## Step 2: Configure the Gmail Trigger
+
+**Action**: Set up email monitoring
+
+1. Click "Sign in with Google" to connect your account
+2. In the **Event** dropdown, select "Message Received"
+3. Set **Poll Times** to "Every 5 minutes"
+
+[Screenshot with numbered annotations]
+
+**What this does**: n8n will check for new emails every 5 minutes
+
+[Continue with visual step-by-step...]
+````
+
+### For Everyone Guides
+
+<CardGrid>
+  <Card title="Do Include" icon="approve-check">
+    - Simple, jargon-free explanations
+    - Copy-paste prompts
+    - Before/after comparisons
+    - Relatable everyday scenarios
+    - "Here's exactly what to type" examples
+    - Common mistakes people make
+  </Card>
+
+  <Card title="Don't Include" icon="warning">
+    - Technical jargon without explanation
+    - Code or command-line instructions
+    - Assumptions about AI knowledge
+    - Complex multi-step workflows
+  </Card>
+</CardGrid>
+
+**Example structure:**
+
+````markdown
+---
+title: Write Better ChatGPT Prompts in 5 Minutes
+description: Simple techniques anyone can use to get better AI responses
+---
+
+# Write Better ChatGPT Prompts
+
+## Why This Matters
+
+Have you ever asked ChatGPT a question and gotten a vague, unhelpful answer? You're not alone. The secret isn't ChatGPT—it's how you ask.
+
+In the next 5 minutes, you'll learn a simple formula that works every time.
+
+## The Problem: Vague Prompts Get Vague Answers
+
+### Bad Prompt
+```
+Write me a blog post about productivity
+```
+
+**What you get**: A generic, boring article that could be about anything
+
+### Good Prompt
+```
+Write a 500-word blog post about productivity tips for remote workers with young children. Use a friendly, conversational tone. Include 3 specific strategies with examples. The audience is parents working from home who struggle with interruptions.
+```
+
+**What you get**: A focused, useful article that actually helps people
+
+## The 5-Minute Formula
+
+Every good prompt needs these 4 parts:
+
+1. **What** you want (blog post, email, summary, etc.)
+2. **Who** it's for (beginners, experts, parents, etc.)
+3. **How** it should sound (formal, casual, funny, etc.)
+4. **Specifics** (length, examples, format, etc.)
+
+## Try It Yourself
+
+### Example 1: Writing an Email
+
+**Bad**: "Write an email to my boss"
+
+**Good**: "Write a professional email to my boss requesting next Friday off. I need it for a family event. Keep it brief and polite, around 100 words."
+
+**Copy this template**:
+```
+Write a [tone] email to [recipient] about [topic].
+[Any specific requirements]. Keep it [length] and [style].
+```
+
+[Continue with more examples...]
+````
+
+### For Professional Guides
+
+<CardGrid>
+  <Card title="Do Include" icon="approve-check">
+    - ROI calculations and metrics
+    - Business impact statements
+    - Role-specific terminology
+    - Compliance considerations
+    - Templates they can adapt
+    - Time-saving quantifications
+  </Card>
+
+  <Card title="Don't Include" icon="warning">
+    - Technical implementation details
+    - Code examples
+    - Generic advice not specific to role
+    - Assumptions about AI expertise
+  </Card>
+</CardGrid>
+
+**Example structure:**
+
+````markdown
+---
+title: AI-Powered Candidate Screening for HR Teams
+description: Reduce resume review time by 70% while improving hiring consistency
+---
+
+# AI-Powered Candidate Screening
+
+## Business Impact
+
+**Time Saved**: ~2 hours per position
+**Cost Reduction**: ~$150 per hire in HR time
+**Quality Improvement**: 40% more consistent candidate evaluation
+
+## Who This Is For
+
+This guide is designed for HR professionals and recruiters who:
+- Review 20+ resumes per position
+- Struggle with inconsistent evaluation criteria
+- Need to reduce time-to-hire
+- Want to maintain compliance with hiring regulations
+
+## The Problem
+
+Traditional resume screening is:
+- Time-consuming (average 6 minutes per resume)
+- Inconsistent (different reviewers use different criteria)
+- Biased (unconscious biases affect decisions)
+- Unscalable (100+ applicants = days of work)
+
+## The Solution
+
+Use AI to create a consistent, fast initial screening that:
+- Applies the same criteria to every candidate
+- Flags top matches for human review
+- Documents reasoning for compliance
+- Reduces screening time by 70%
+
+## How It Works
+
+### Step 1: Define Your Criteria
+
+Work with hiring managers to list must-have and nice-to-have qualifications:
+
+**Must-Have (Deal-breakers)**:
+- 3+ years in role
+- Specific certifications
+- Required skills
+
+**Nice-to-Have (Bonus points)**:
+- Relevant industry experience
+- Additional languages
+- Leadership experience
+
+### Step 2: Create Your Screening Prompt
+
+```
+Analyze this resume for a [Job Title] position.
+
+Must-have requirements:
+- [Requirement 1]
+- [Requirement 2]
+- [Requirement 3]
+
+Nice-to-have qualifications:
+- [Qualification 1]
+- [Qualification 2]
+
+Provide:
+1. Match score (0-100)
+2. Brief summary of relevant experience
+3. Potential concerns
+4. Recommendation (Strong Yes/Yes/Maybe/No)
+```
+
+### Step 3: Review AI Assessments
+
+[Include example output]
+
+## Important Considerations
+
+### Privacy & Compliance
+
+- **GDPR/Data Privacy**: Ensure candidate consent for AI processing
+- **Anti-Discrimination**: AI should evaluate qualifications, not demographics
+- **Documentation**: Keep records of evaluation criteria for audits
+- **Human Review**: AI screens, humans decide—never automate final decisions
+
+### Best Practices
+
+1. **Validate Regularly**: Audit AI recommendations quarterly
+2. **Train Your Team**: Ensure HR understands how AI evaluations work
+3. **Be Transparent**: Tell candidates AI is part of the process
+4. **Iterate**: Refine criteria based on hiring outcomes
+
+## Measuring Success
+
+Track these metrics to measure impact:
+
+| Metric | Before AI | After AI | Improvement |
+|--------|-----------|----------|-------------|
+| Time per resume | 6 min | 2 min | 67% reduction |
+| Time to first interview | 5 days | 2 days | 60% faster |
+| Evaluation consistency | 65% | 92% | 42% better |
+
+[Continue with templates and examples...]
+````
+
+## Submission Process
+
+<Steps>
+
+1. **Create Your Content**
+
+   - Use the appropriate template
+   - Write for your specific audience
+   - Test any code or workflows
+   - Include practical examples
+
+2. **Test Locally**
+
+   ```bash
+   # Start development server
+   bun dev
+
+   # Visit localhost:4321 to preview
+   # Check that formatting looks correct
+   # Verify all links work
+   ```
+
+3. **Create a Pull Request**
+
+   ```bash
+   # Create a feature branch
+   git checkout -b guide/topic-name
+
+   # Add your files
+   git add .
+
+   # Commit with clear message
+   git commit -m "[Audience] Add guide on topic"
+
+   # Push to your fork
+   git push origin guide/topic-name
+   ```
+
+4. **Write a Clear PR Description**
+
+   ```markdown
+   ## Guide Details
+   **Audience**: [Developers/Automation/Everyone/Professionals]
+   **Topic**: [What this guide covers]
+   **Value**: [Why this is useful]
+
+   ## Checklist
+   - [ ] Used appropriate template
+   - [ ] Tested all code/workflows
+   - [ ] Checked formatting locally
+   - [ ] Verified links work
+   - [ ] Followed style guide
+   ```
+
+</Steps>
+
+## What We're Looking For
+
+### All Content Should Be:
+
+- **Accurate**: Test your code, verify your information, cite sources
+- **Practical**: Include real-world examples and actionable advice
+- **Well-Structured**: Use clear headings, lists, and formatting
+- **Audience-Appropriate**: Match tone and depth to your target audience
+- **Complete**: Guide readers from start to finish
+
+### We Prioritize:
+
+- Guides that fill gaps in existing content
+- Translations to Spanish (and eventually other languages)
+- Updates to keep content current with AI developments
+- Real-world case studies and examples
+- Beginner-friendly content (we need more of this!)
+
+<Aside type="caution">
+**Important**: All code examples must be tested and working. All external tools/services mentioned should be accessible (free tier or trial available).
+</Aside>
+
+## After Submission
+
+### Review Process
+
+1. **Automated Checks**: PR will run build checks automatically
+2. **Maintainer Review**: A maintainer will review within 3-5 days
+3. **Feedback**: We may request changes or clarifications
+4. **Merge**: Once approved, your contribution goes live!
+
+### What Happens Next
+
+- Your name is added to contributors
+- Content appears on the live site (usually within 24 hours)
+- You're invited to our contributor community
+
+## Need Help?
+
+<CardGrid>
+  <Card title="Questions?" icon="information">
+    Open a [GitHub Discussion](https://github.com/javirub/The-New-Era-Codex/discussions)
+  </Card>
+
+  <Card title="Found a Bug?" icon="warning">
+    Report an [Issue](https://github.com/javirub/The-New-Era-Codex/issues)
+  </Card>
+
+  <Card title="Want to Chat?" icon="comment">
+    Join our Discord (coming soon)
+  </Card>
+
+  <Card title="See Examples" icon="open-book">
+    Browse existing guides for inspiration
+  </Card>
+</CardGrid>
+
+## Recognition
+
+All contributors are recognized in our community. Your contributions help democratize AI knowledge for everyone!
+
+---
+
+**Ready to contribute?** Pick a [content template](/community/templates/) and start writing, or browse our [style guide](/community/style-guide/) for more detailed guidelines.
