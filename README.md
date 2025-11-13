@@ -8,7 +8,7 @@
 
 [![🌐 Live Site](https://img.shields.io/badge/🌐_Live_Site-codex.javirub.pro-00ADD8?style=for-the-badge)](https://codex.javirub.pro)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![License: CC-BY-SA-4.0](https://img.shields.io/badge/License-CC--BY--SA--4.0-blue.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
 [![Built with Astro](https://img.shields.io/badge/Built%20with-Astro-FF5D01.svg)](https://astro.build)
 [![Powered by Starlight](https://img.shields.io/badge/Powered%20by-Starlight-C561FF.svg)](https://starlight.astro.build)
 [![Languages](https://img.shields.io/badge/Languages-EN%20%7C%20ES-success.svg)](#)
