@@ -1,6 +1,7 @@
 ---
 title: Referencia de Ejemplo
 description: Una página de referencia en mi nuevo sitio de docs Starlight.
+version: "1.0"
 ---
 
 Las páginas de referencia son ideales para delinear cómo funcionan las cosas en términos concisos y claros.

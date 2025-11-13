@@ -5,6 +5,7 @@ sidebar:
   badge:
     text: "Plantilla"
     variant: tip
+version: "1.0"
 ---
 
 # [Nombre del Flujo de Trabajo - Sea Descriptivo y Orientado a la Acción]

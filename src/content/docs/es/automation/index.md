@@ -1,6 +1,7 @@
 ---
 title: Para entusiastas de la automatización
 description: Flujos de trabajo de automatización de IA sin código y con poco código
+version: "1.0"
 ---
 
 Bienvenido a la sección de automatización de **The New Era Codex**. Aquí encontrarás guías prácticas sobre:

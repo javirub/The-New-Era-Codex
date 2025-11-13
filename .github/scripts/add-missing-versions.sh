@@ -13,8 +13,8 @@ echo "🔍 Checking for content files without version..."
 
 files_modified=0
 
-# Find all English content files (exclude /es/ translations)
-content_files=$(find src/content/docs -type f \( -name "*.md" -o -name "*.mdx" \) ! -path "*/es/*")
+# Find all content files (including translations)
+content_files=$(find src/content/docs -type f \( -name "*.md" -o -name "*.mdx" \))
 
 for file in $content_files; do
     # Check if file has frontmatter
