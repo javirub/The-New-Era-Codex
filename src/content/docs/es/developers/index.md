@@ -1,6 +1,7 @@
 ---
 title: Para desarrolladores
 description: Herramientas de IA, frameworks y mejores prácticas para desarrolladores de software
+version: "1.0"
 ---
 
 Bienvenido a la sección de desarrolladores de **The New Era Codex**. Aquí encontrarás guías completas sobre:

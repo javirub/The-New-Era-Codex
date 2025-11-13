@@ -1,6 +1,7 @@
 ---
 title: Para todos
 description: Guías de IA accesibles para uso diario y aplicaciones prácticas
+version: "1.0"
 ---
 
 Bienvenido a **The New Era Codex** para todos. Aquí encontrarás guías amigables para principiantes sobre:

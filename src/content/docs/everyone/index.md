@@ -1,6 +1,7 @@
 ---
 title: For Everyone
 description: Accessible AI guides for daily use and practical applications
+version: "1.0"
 ---
 
 Welcome to **The New Era Codex** for everyone. Here you'll find beginner-friendly guides on:

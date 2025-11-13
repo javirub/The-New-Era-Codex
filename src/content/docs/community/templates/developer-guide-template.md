@@ -5,6 +5,7 @@ sidebar:
   badge:
     text: "Template"
     variant: tip
+version: "1.0"
 ---
 
 # [Guide Title - Be Specific]

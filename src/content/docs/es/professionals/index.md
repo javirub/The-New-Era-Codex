@@ -1,6 +1,7 @@
 ---
 title: Para profesionales
 description: Aplicaciones de IA para negocios, RRHH, marketing y roles especializados
+version: "1.0"
 ---
 
 Bienvenido a la sección de profesionales de **The New Era Codex**. Aquí encontrarás guías de IA específicas por rol para:

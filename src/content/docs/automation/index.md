@@ -1,6 +1,7 @@
 ---
 title: For Automation Enthusiasts
 description: No-code and low-code AI automation workflows
+version: "1.0"
 ---
 
 Welcome to the automation section of **The New Era Codex**. Here you'll find practical guides on:

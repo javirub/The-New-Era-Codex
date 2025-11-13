@@ -5,6 +5,7 @@ sidebar:
   badge:
     text: "Plantilla"
     variant: tip
+version: "1.0"
 ---
 
 # [Título de la Guía - Sea Específico]

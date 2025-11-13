@@ -5,6 +5,7 @@ sidebar:
   badge:
     text: "Template"
     variant: tip
+version: "1.0"
 ---
 
 # [Simple, Clear Title Without Jargon]

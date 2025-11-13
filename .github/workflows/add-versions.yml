@@ -10,7 +10,7 @@ on:
 
 jobs:
   add-versions:
-    name: Add version 1.0 to files without version
+    name: Add version 1.0 to all files without version
     runs-on: [self-hosted, Linux, X64]
 
     steps:
@@ -45,8 +45,9 @@ jobs:
           git add src/content/docs/
           git commit -m "chore: add version 1.0 to content files without version
 
-          Automatically added version: \"1.0\" to English content files
-          that were missing the version field in their frontmatter.
+          Automatically added version: \"1.0\" to all content files
+          (English and translations) that were missing the version
+          field in their frontmatter.
 
           This ensures all content files have proper version tracking
           for translation synchronization.
