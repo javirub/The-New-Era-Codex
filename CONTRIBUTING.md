@@ -99,6 +99,101 @@ We welcome:
 
 See our [Style Guide](https://your-site-url/community/style-guide/) for detailed guidelines.
 
+## Translation and Versioning Policy
+
+### Language Hierarchy
+
+- **English is the source language**: All content must first exist in `src/content/docs/` (English version) in its corresponding directory before translations can be created.
+- **No direct translations**: New entries cannot be created directly in translation folders without an English original.
+- All content changes must originate in English to maintain consistency and quality.
+
+### Versioning System
+
+We use a simplified semantic versioning (X.Y) for all documentation:
+
+- **Major version (X)**: Significant content changes
+  - Complete restructuring of the guide
+  - Major new sections or fundamental changes in approach
+  - Substantial content additions that change the guide's scope
+  - Example: 1.5 → 2.0
+
+- **Minor version (Y)**: Small to moderate content updates
+  - Additional clarifications or examples
+  - Small corrections to technical content
+  - New subsections that complement existing content
+  - Technical updates (e.g., API changes, tool updates)
+  - Example: 1.2 → 1.3
+
+- **Version reset**: When incrementing major version, minor resets to 0
+  - Example: 1.9 → 2.0 (not 2.9)
+
+- **Starting version**: All new English content starts at version **1.0**
+
+### Translation Rules
+
+1. **Translation corrections don't change version**:
+   - Fixing typos, grammar errors, or improving translation quality doesn't require a version bump
+   - Correcting mistranslations or unclear wording in translations keeps the same version
+   - These are considered maintenance, not content changes
+
+2. **Content changes must be done in English first**:
+   - To modify a guide's actual content, make the change in the English version first
+   - Update the version number in the English file according to the versioning system
+   - Then update translations to match
+
+3. **Translation version matches source**:
+   - When creating or updating a translation, use the same version number as the English document you're translating from
+   - Example: If translating English v2.0, the Spanish translation should be v2.0
+
+4. **Out-of-date translations**:
+   - If a translation hasn't been updated to match the latest English version, it should clearly indicate which version it corresponds to
+   - Consider adding a note: "⚠️ This translation corresponds to version X.Y. The English version is at X.Z"
+
+### Example Workflow
+
+Here's a practical example of how this works:
+
+1. **Initial creation**:
+   - Create guide in English: `docs/developers/ai-agents.md` → version 1.0
+   - Create Spanish translation: `docs/es/developers/ai-agents.md` → version 1.0
+
+2. **Translation correction**:
+   - Fix typo in Spanish translation → stays version 1.0
+   - Improve Spanish wording → stays version 1.0
+
+3. **Minor content update**:
+   - Add example to English version → becomes version 1.1
+   - Update Spanish translation with same example → becomes version 1.1
+
+4. **Major content update**:
+   - Restructure English guide significantly → becomes version 2.0
+   - Update Spanish translation with restructure → becomes version 2.0
+
+5. **Translation lag**:
+   - English is at 2.0, Spanish is at 1.5
+   - Spanish translation should indicate: "Translation of version 1.5 (English version: 2.0)"
+
+### Version Declaration
+
+All content files must include their version in the frontmatter:
+
+```yaml
+---
+title: "Your Guide Title"
+version: "1.0"
+---
+```
+
+For translations, optionally include the source version if different:
+
+```yaml
+---
+title: "Tu Título de Guía"
+version: "1.5"
+sourceVersion: "2.0"  # Optional: if translation is behind
+---
+```
+
 ## Pull Request Process
 
 1. **Fork the repository** and create your branch from `main`
@@ -114,10 +209,13 @@ See our [Style Guide](https://your-site-url/community/style-guide/) for detailed
 ### PR Title Format
 
 Use clear, descriptive titles:
-- `[Developers] Add guide on building RAG systems`
-- `[Everyone] Add ChatGPT prompt engineering basics`
-- `[Fix] Correct typo in automation workflow guide`
-- `[Translation] Add Spanish version of AI agents guide`
+- `[Developers] Add guide on building RAG systems (v1.0)`
+- `[Everyone] Add ChatGPT prompt engineering basics (v1.0)`
+- `[Developers] Update RAG guide with new examples (v1.0 → v1.1)`
+- `[Everyone] Major restructure of prompt engineering guide (v1.5 → v2.0)`
+- `[Translation] Add Spanish version of AI agents guide (v1.0)`
+- `[Translation] Update Spanish translation to match v2.0`
+- `[Fix] Correct typo in automation workflow guide (no version change)`
 
 ## Code of Conduct
 

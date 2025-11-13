@@ -13,7 +13,7 @@
 [![Powered by Starlight](https://img.shields.io/badge/Powered%20by-Starlight-C561FF.svg)](https://starlight.astro.build)
 [![Languages](https://img.shields.io/badge/Languages-EN%20%7C%20ES-success.svg)](#)
 
-[🌐 View Live Site](https://codex.javirub.pro) • [🤝 Contribute](./CONTRIBUTING.md) • [🗺️ Roadmap](#-content-roadmap)
+[🌐 View Live Site](https://codex.javirub.pro) • [🤝 Contribute](./CONTRIBUTING.md)
 
 </div>
 
@@ -336,7 +336,7 @@ The site automatically generates a sitemap at `/sitemap-index.xml` using the con
 ## 📁 Project Structure
 
 ```
-ia-website/
+The-New-Era-Codex/
 ├── public/              # Static assets (favicon, images)
 ├── src/
 │   ├── assets/          # Optimized images and media
@@ -371,82 +371,6 @@ description: A step-by-step guide to creating an autonomous AI agent
 
 Your content here...
 ```
-
----
-
-## 🗺️ Evolution & Roadmap
-
-The New Era Codex is designed to grow with the AI landscape. Here's our vision for evolution:
-
-### Phase 1: Foundation (Current - Q1 2025)
-**Goal**: Establish core content and platform
-
-- ✅ Modern documentation platform (Astro + Starlight)
-- ✅ Project structure and tech stack
-- 🔄 Initial guides for developers (AGENTS.md, RAG basics, n8n workflows)
-- 🔄 Spanish and English versions
-- 🔄 Responsive design with impressive visuals
-- 🔄 Core contribution guidelines
-
-**Target**: 30+ high-quality guides across all audiences
-
-### Phase 2: Community Growth (Q2-Q3 2025)
-**Goal**: Build active contributor community
-
-- 🎯 Establish contributor workflow and review process
-- 🎯 Community Discord/forum for discussions
-- 🎯 Monthly contributor spotlights
-- 🎯 Expand to 100+ guides with community contributions
-- 🎯 Add Portuguese and French language support
-- 🎯 Implement advanced search functionality
-- 🎯 Create content templates for easy contributions
-
-**Target**: 50+ active contributors, 100+ guides
-
-### Phase 3: Interactive Learning (Q4 2025)
-**Goal**: Make learning hands-on and engaging
-
-- 🎯 Interactive code playgrounds for testing examples
-- 🎯 Embedded AI assistants for personalized help
-- 🎯 Video tutorials and walkthroughs
-- 🎯 Learning paths for different roles/goals
-- 🎯 Quizzes and knowledge checks
-- 🎯 Real-time collaboration features
-
-**Target**: Increase engagement by 5x
-
-### Phase 4: Intelligence Layer (2026)
-**Goal**: AI-powered documentation experience
-
-- 🎯 AI-powered search with semantic understanding
-- 🎯 Personalized content recommendations
-- 🎯 Automatic content updates based on AI developments
-- 🎯 AI tutor chatbot trained on our content
-- 🎯 Content quality analysis and suggestions
-- 🎯 Automated translations to new languages
-
-**Target**: 10+ languages, intelligent UX
-
-### Phase 5: Ecosystem & Certification (2027+)
-**Goal**: Become the standard for AI education
-
-- 🎯 Certification programs for various AI skills
-- 🎯 Integration with AI development tools
-- 🎯 API for accessing content programmatically
-- 🎯 Partnerships with companies and educational institutions
-- 🎯 Job board for AI professionals
-- 🎯 Annual conference/virtual events
-
-**Target**: Industry-recognized certification, 1M+ learners
-
-### Long-Term Vision
-
-**The New Era Codex aims to become:**
-- 📚 The world's most comprehensive AI knowledge base
-- 🌍 Accessible to everyone, in their native language
-- 🎓 The standard certification for AI competency
-- 🤝 A thriving community of AI practitioners
-- ⚡ Always up-to-date with the latest AI developments
 
 ---
 
