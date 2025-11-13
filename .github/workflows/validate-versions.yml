@@ -1,0 +1,53 @@
+name: Validate Content Versions
+
+on:
+  pull_request:
+    branches:
+      - main
+      - develop
+    paths:
+      - 'src/content/docs/**/*.md'
+      - 'src/content/docs/**/*.mdx'
+
+jobs:
+  validate-versions:
+    name: Check version increments
+    runs-on: [self-hosted, Linux, X64]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Need full history to compare versions
+
+      - name: Fetch base branch
+        run: |
+          git fetch origin ${{ github.base_ref }}
+
+      - name: Make validation script executable
+        run: chmod +x .github/scripts/validate-versions.sh
+
+      - name: Run version validation
+        env:
+          GITHUB_BASE_REF: ${{ github.base_ref }}
+        run: .github/scripts/validate-versions.sh
+
+      - name: Validation passed
+        if: success()
+        run: |
+          echo "✅ All content versions are valid!"
+          echo ""
+          echo "Summary:"
+          echo "  • New files have version 1.0"
+          echo "  • Modified files have properly incremented versions"
+          echo "  • All version formats are correct (X.Y)"
+
+      - name: Validation failed
+        if: failure()
+        run: |
+          echo "❌ Version validation failed!"
+          echo ""
+          echo "Please review the errors above and update your versions accordingly."
+          echo "Remember: English content files must have proper version increments."
+          echo "Translations in /es/ are exempt from this check."
+          exit 1
