@@ -1,5 +1,5 @@
 ---
-title: Para Entusiastas de la Automatización
+title: Para entusiastas de la automatización
 description: Flujos de trabajo de automatización de IA sin código y con poco código
 ---
 

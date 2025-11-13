@@ -11,7 +11,7 @@ sidebar:
 
 <!-- Ejemplo: "Escribe Mejores Prompts de ChatGPT en 5 Minutos" -->
 
-## Por Qué Esto Importa
+## Por qué esto importa
 
 [Comienza con un problema relacionable que tus lectores enfrentan]
 
@@ -26,11 +26,11 @@ sidebar:
 
 **Lo que necesitas**: [Usualmente solo "Una cuenta de ChatGPT" o "10 minutos" - mantén las barreras bajas]
 
-## El Problema
+## El problema
 
 [Describe la frustración o desafío común en términos conversacionales]
 
-### Ejemplo Malo
+### Ejemplo malo
 
 Esto es lo que la mayoría de la gente hace (y por qué no funciona):
 
@@ -40,7 +40,7 @@ Esto es lo que la mayoría de la gente hace (y por qué no funciona):
 
 **Qué sucede**: [Describe el mal resultado en lenguaje sencillo]
 
-### Ejemplo Bueno
+### Ejemplo bueno
 
 Aquí hay un mejor enfoque:
 
@@ -52,7 +52,7 @@ Aquí hay un mejor enfoque:
 
 **La diferencia**: [Explica en términos simples por qué uno funciona y otro no]
 
-## La Fórmula Simple
+## La fórmula simple
 
 No necesitas ser técnico. Solo necesitas recordar [número] cosas clave:
 
@@ -93,7 +93,7 @@ Imagina que estás [analogía relacionable]. [Completa la analogía mostrando po
 
 [Manténlo en 3-5 principios máximo - más es abrumador]
 
-## Ponlo Todo Junto
+## Ponlo todo junto
 
 Practiquemos con ejemplos reales que puedes usar hoy.
 
@@ -142,7 +142,7 @@ Escribe un [tono] [tipo] para [destinatario] sobre [tema].
 
 [Sigue el mismo patrón]
 
-## Errores Comunes (Y Cómo Solucionarlos)
+## Errores comunes (y cómo solucionarlos)
 
 ### Error 1: [Error Común]
 
@@ -168,7 +168,7 @@ Escribe un [tono] [tipo] para [destinatario] sobre [tema].
 
 [Repite el patrón]
 
-## Pruébalo Tú Mismo
+## Pruébalo tú mismo
 
 ¡Practiquemos! Elige uno de estos escenarios:
 
@@ -186,7 +186,7 @@ Escribe un [tono] [tipo] para [destinatario] sobre [tema].
 - [ ] [Instrucción]
 - [ ] [Instrucción]
 
-## Guía de Referencia Rápida
+## Guía de referencia rápida
 
 ¡Guarda esto para después! Aquí están todas las plantillas en un solo lugar:
 
@@ -212,7 +212,7 @@ Escribe un [tono] [tipo] para [destinatario] sobre [tema].
 
 **Marca esta página** para que puedas encontrar estas plantillas cuando las necesites!
 
-## Preguntas Frecuentes
+## Preguntas frecuentes
 
 ### ¿Esto funciona con [otra herramienta de IA]?
 
@@ -234,7 +234,7 @@ Escribe un [tono] [tipo] para [destinatario] sobre [tema].
 
 [Abordar preocupaciones comunes sobre uso profesional, privacidad, etc.]
 
-## Resultados Reales de Personas Reales
+## Resultados reales de personas reales
 
 [Opcional: Incluye testimonios breves o ejemplos de antes/después que demuestren el valor]
 
@@ -244,7 +244,7 @@ Escribe un [tono] [tipo] para [destinatario] sobre [tema].
 **Después**:
 > "[Cita mostrando su éxito]" - [Misma persona]
 
-## ¿Qué Sigue?
+## ¿Qué sigue?
 
 **Has aprendido**:
 - ✅ [Recapitula habilidad 1]
@@ -261,7 +261,7 @@ Escribe un [tono] [tipo] para [destinatario] sobre [tema].
 - [Enlace a tema ligeramente más avanzado]
 - [Enlace a guía de caso de uso específico]
 
-## Recursos Útiles
+## Recursos útiles
 
 **Herramientas gratuitas**:
 - [ChatGPT (nivel gratuito)](https://chat.openai.com)
@@ -275,7 +275,7 @@ Escribe un [tono] [tipo] para [destinatario] sobre [tema].
 - [Enlace a foro de la comunidad]
 - [Enlace a FAQ o recursos de ayuda]
 
-## ¡Tu Retroalimentación Ayuda!
+## ¡Tu retroalimentación ayuda!
 
 **¿Fue útil esta guía?** ¡Queremos saber!
 - ¿Los ejemplos tenían sentido?

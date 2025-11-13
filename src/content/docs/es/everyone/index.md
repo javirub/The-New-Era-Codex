@@ -1,5 +1,5 @@
 ---
-title: Para Todos
+title: Para todos
 description: Guías de IA accesibles para uso diario y aplicaciones prácticas
 ---
 
