@@ -2,6 +2,7 @@
 title: "Creating a Virtual Assistant with Voiceflow"
 description: "Design conversational flows, integrate with AI, deploy on WhatsApp/Telegram"
 sidebar:
+  order: 20
   badge:
     text: "Intermediate"
     variant: note

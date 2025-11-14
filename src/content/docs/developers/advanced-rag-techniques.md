@@ -2,6 +2,7 @@
 title: "Advanced RAG Techniques: Hybrid Search, Reranking, Query Expansion"
 description: "Implement advanced RAG patterns for improved retrieval quality"
 sidebar:
+  order: 45
   badge:
     text: "Advanced"
     variant: danger

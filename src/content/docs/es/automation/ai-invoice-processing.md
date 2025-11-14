@@ -2,6 +2,7 @@
 title: "Procesamiento de Facturas con IA: OCR, Extracción de Datos, Auto-Aprobación"
 description: "Automatiza el procesamiento de facturas con OCR impulsado por IA y extracción inteligente de datos"
 sidebar:
+  order: 60
   badge:
     text: "Bajo"
     variant: note

@@ -2,6 +2,7 @@
 title: "IA para Educadores: Planificación de Lecciones, Evaluación y Apoyo Estudiantil"
 description: "Usa IA para mejorar la enseñanza, crear lecciones atractivas y apoyar el aprendizaje estudiantil"
 sidebar:
+  order: 80
   badge:
     text: "Bajo"
     variant: note

@@ -2,6 +2,7 @@
 title: "Function Calling: Building Tool-Using AI Agents"
 description: "Enable LLMs to call functions, APIs, and tools for dynamic, action-oriented agents"
 sidebar:
+  order: 25
   badge:
     text: "Intermediate"
     variant: caution

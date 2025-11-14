@@ -2,6 +2,7 @@
 title: "Gestión de Calendario con IA y Optimización de Tiempo"
 description: "Optimiza tu horario, programa tareas automáticamente y gestiona tiempo con IA"
 sidebar:
+  order: 35
   badge:
     text: "Intermedio"
     variant: caution

@@ -2,6 +2,7 @@
 title: "AI Video Automation: Auto-Subtitles, Summaries, Clips"
 description: "Automate video processing with AI-powered transcription, subtitles, and content extraction"
 sidebar:
+  order: 90
   badge:
     text: "Low"
     variant: note

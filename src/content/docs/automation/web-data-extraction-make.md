@@ -2,6 +2,7 @@
 title: "Web Data Extraction with Make.com and AI"
 description: "Web scraping combined with GPT analysis, no-code solutions, and reusable templates"
 sidebar:
+  order: 30
   badge:
     text: "Intermediate"
     variant: note

@@ -2,6 +2,7 @@
 title: "Building Your First RAG System with LangChain"
 description: "Step-by-step tutorial for creating a basic RAG system with embeddings, ChromaDB and OpenAI"
 sidebar:
+  order: 40
   badge:
     text: "Intermediate"
     variant: note

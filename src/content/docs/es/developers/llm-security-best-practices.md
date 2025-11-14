@@ -2,6 +2,7 @@
 title: "Seguridad de LLM: Inyección de Prompts, Privacidad de Datos, Despliegue Seguro"
 description: "Asegura tus aplicaciones de IA contra ataques, protege datos de usuarios y despliega de forma segura"
 sidebar:
+  order: 80
   badge:
     text: "Intermedio"
     variant: caution

@@ -2,6 +2,7 @@
 title: "IA para Planificación de Eventos: Bodas, Fiestas, Celebraciones"
 description: "Planifica y organiza eventos con asistencia de IA desde el concepto hasta la ejecución"
 sidebar:
+  order: 85
   badge:
     text: "Intermedio"
     variant: caution

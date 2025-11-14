@@ -2,6 +2,7 @@
 title: "IA para Salud y Bienestar: Fitness, Nutrición, Salud Mental"
 description: "Usa IA para planes de ejercicio, planificación de comidas, seguimiento de salud y apoyo al bienestar"
 sidebar:
+  order: 75
   badge:
     text: "Intermedio"
     variant: caution

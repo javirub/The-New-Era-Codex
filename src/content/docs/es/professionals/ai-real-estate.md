@@ -2,6 +2,7 @@
 title: "IA para Bienes Raíces: Análisis de Propiedades, Descripciones, Investigación de Mercado"
 description: "Aplica IA a listados de propiedades, análisis de mercado y operaciones inmobiliarias"
 sidebar:
+  order: 90
   badge:
     text: "Intermedio"
     variant: caution

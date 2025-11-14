@@ -2,6 +2,7 @@
 title: "Optimización de Costos para Aplicaciones LLM"
 description: "Reduce los costos de IA mediante caching, optimización de prompts, selección de modelos y monitoreo"
 sidebar:
+  order: 95
   badge:
     text: "Intermedio"
     variant: caution

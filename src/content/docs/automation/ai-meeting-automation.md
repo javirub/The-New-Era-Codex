@@ -2,6 +2,7 @@
 title: "AI Meeting Automation: Transcripts, Summaries, Action Items"
 description: "Automate meeting workflows with AI transcription, intelligent summaries, and action tracking"
 sidebar:
+  order: 65
   badge:
     text: "Low"
     variant: note

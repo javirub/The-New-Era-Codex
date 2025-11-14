@@ -2,6 +2,7 @@
 title: "Trucos de Productividad con IA: Trabaja Más Inteligente Diariamente"
 description: "Consejos prácticos de IA para aumentar la productividad en tu trabajo y vida diaria"
 sidebar:
+  order: 20
   badge:
     text: "Intermedio"
     variant: caution

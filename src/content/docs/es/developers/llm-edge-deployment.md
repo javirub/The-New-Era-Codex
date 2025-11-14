@@ -2,6 +2,7 @@
 title: "Despliegue en Edge: Ejecutando LLMs en Dispositivos Móviles e IoT"
 description: "Despliega LLMs optimizados en dispositivos edge con recursos limitados"
 sidebar:
+  order: 105
   badge:
     text: "Avanzado"
     variant: danger

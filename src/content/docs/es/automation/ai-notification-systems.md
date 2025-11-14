@@ -2,6 +2,7 @@
 title: "Notificaciones y Alertas Inteligentes con IA"
 description: "Construye sistemas de notificación inteligentes que priorizan, resumen y enrutan alertas"
 sidebar:
+  order: 40
   badge:
     text: "Intermedio"
     variant: caution

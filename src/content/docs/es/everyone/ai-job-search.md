@@ -2,6 +2,7 @@
 title: "IA para Búsqueda de Empleo: Currículos, Cartas de Presentación, Preparación para Entrevistas"
 description: "Usa IA para optimizar tu búsqueda de empleo, crear aplicaciones y prepararte para entrevistas"
 sidebar:
+  order: 65
   badge:
     text: "Intermedio"
     variant: caution

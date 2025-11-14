@@ -2,6 +2,7 @@
 title: "AI for Legal Research & Contract Analysis"
 description: "Use AI to streamline legal research, analyze contracts, and improve legal documentation"
 sidebar:
+  order: 55
   badge:
     text: "Low"
     variant: note

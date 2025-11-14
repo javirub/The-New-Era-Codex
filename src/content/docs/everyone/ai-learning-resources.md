@@ -2,6 +2,7 @@
 title: "AI Learning Resources: Courses, Communities, Tools"
 description: "Curated resources to continue your AI learning journey"
 sidebar:
+  order: 50
   badge:
     text: "Reference"
     variant: note

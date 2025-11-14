@@ -2,6 +2,7 @@
 title: "AI Quality Assurance: Automated Testing & Bug Detection"
 description: "Automate QA processes with AI-powered testing, bug detection, and code review"
 sidebar:
+  order: 85
   badge:
     text: "Low"
     variant: note

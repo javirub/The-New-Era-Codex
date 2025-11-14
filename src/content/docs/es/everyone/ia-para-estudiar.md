@@ -2,6 +2,7 @@
 title: "Usando IA para Estudiar: Aprende Más Inteligentemente, No Más Duro"
 description: "Aprovecha ChatGPT y herramientas de IA para estudiar más efectivamente - tutoría personalizada, exámenes de práctica y planes de estudio"
 sidebar:
+  order: 40
   badge:
     text: "Básico"
     variant: tip

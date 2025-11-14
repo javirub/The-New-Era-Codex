@@ -2,6 +2,7 @@
 title: "Optimización Avanzada de Modelos LLM: Cuantización, Pruning, Destilación"
 description: "Optimiza el rendimiento de LLMs mediante cuantización, pruning y destilación de conocimiento"
 sidebar:
+  order: 90
   badge:
     text: "Avanzado"
     variant: danger

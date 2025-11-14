@@ -2,6 +2,7 @@
 title: "AI for Event Planning: Weddings, Parties, Celebrations"
 description: "Plan and organize events with AI assistance from concept to execution"
 sidebar:
+  order: 85
   badge:
     text: "Intermediate"
     variant: caution

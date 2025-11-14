@@ -2,6 +2,7 @@
 title: "Building Customer Support Chatbots with No-Code Tools"
 description: "Create intelligent support chatbots using Voiceflow, Chatfuel, and ManyChat"
 sidebar:
+  order: 25
   badge:
     text: "Intermediate"
     variant: caution

@@ -2,6 +2,7 @@
 title: "IA para Educación y Capacitación: Diseño de Cursos, Evaluación, Tutoría"
 description: "Usa IA para crear cursos, evaluaciones y experiencias de aprendizaje personalizadas"
 sidebar:
+  order: 85
   badge:
     text: "Intermedio"
     variant: caution

@@ -2,6 +2,7 @@
 title: "AI for Supply Chain & Operations: Optimization & Forecasting"
 description: "Apply AI to supply chain management, demand forecasting, and operations"
 sidebar:
+  order: 105
   badge:
     text: "Intermediate"
     variant: caution

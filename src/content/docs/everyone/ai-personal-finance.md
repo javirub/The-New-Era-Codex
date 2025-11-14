@@ -2,6 +2,7 @@
 title: "AI for Personal Finance: Budgeting, Planning, Advice"
 description: "Use AI for financial planning, budgeting, investment research, and money management"
 sidebar:
+  order: 70
   badge:
     text: "Intermediate"
     variant: caution

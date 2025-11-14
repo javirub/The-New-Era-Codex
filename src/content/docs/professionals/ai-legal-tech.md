@@ -2,6 +2,7 @@
 title: "AI for Legal & Contracts: Review, Draft, Research"
 description: "Use AI for contract analysis, legal research, and document drafting"
 sidebar:
+  order: 60
   badge:
     text: "Intermediate"
     variant: caution

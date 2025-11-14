@@ -2,6 +2,7 @@
 title: "IA para Investigación Legal y Análisis de Contratos"
 description: "Usa IA para agilizar la investigación legal, analizar contratos y mejorar la documentación legal"
 sidebar:
+  order: 55
   badge:
     text: "Bajo"
     variant: note

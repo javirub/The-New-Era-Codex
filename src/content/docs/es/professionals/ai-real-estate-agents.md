@@ -2,6 +2,7 @@
 title: "IA para Agentes Inmobiliarios: Listados, Generación de Leads y Gestión de Clientes"
 description: "Usa IA para crear listados convincentes, generar leads y gestionar relaciones con clientes en bienes raíces"
 sidebar:
+  order: 95
   badge:
     text: "Bajo"
     variant: note

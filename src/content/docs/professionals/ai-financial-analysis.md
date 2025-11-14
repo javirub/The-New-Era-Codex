@@ -2,6 +2,7 @@
 title: "AI for Financial Analysis & Investment Research"
 description: "Use AI to analyze financial data, research investments, and make data-driven decisions"
 sidebar:
+  order: 15
   badge:
     text: "Low"
     variant: note

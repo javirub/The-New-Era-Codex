@@ -2,6 +2,7 @@
 title: "Workflow Template Library: Ready-to-Use AI Automations"
 description: "10+ exportable workflows for CRM automation, data enrichment, content moderation and more"
 sidebar:
+  order: 100
   badge:
     text: "Basic"
     variant: tip

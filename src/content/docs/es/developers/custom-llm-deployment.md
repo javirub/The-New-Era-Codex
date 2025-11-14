@@ -2,6 +2,7 @@
 title: "Despliegue Personalizado de LLMs: Self-Hosting, Escalado, Producción"
 description: "Despliega y escala LLMs personalizados en entornos de producción"
 sidebar:
+  order: 100
   badge:
     text: "Avanzado"
     variant: danger

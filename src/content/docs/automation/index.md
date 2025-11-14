@@ -1,6 +1,8 @@
 ---
 title: For Automation Enthusiasts
 description: No-code and low-code AI automation workflows
+sidebar:
+  order: 0
 version: "1.0"
 ---
 

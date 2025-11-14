@@ -2,6 +2,7 @@
 title: "AI for Nonprofits & Fundraising: Donor Engagement, Grants, Impact"
 description: "Use AI for donor communications, grant writing, and impact reporting"
 sidebar:
+  order: 100
   badge:
     text: "Intermediate"
     variant: caution

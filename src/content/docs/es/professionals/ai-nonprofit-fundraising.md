@@ -2,6 +2,7 @@
 title: "IA para Organizaciones sin Fines de Lucro y Recaudación de Fondos: Compromiso de Donantes, Subvenciones, Impacto"
 description: "Usa IA para comunicaciones con donantes, redacción de subvenciones y reportes de impacto"
 sidebar:
+  order: 100
   badge:
     text: "Intermedio"
     variant: caution

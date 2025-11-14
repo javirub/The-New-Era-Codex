@@ -2,6 +2,7 @@
 title: "AI as Your Personal Tutor: Learn Anything Faster"
 description: "Use AI to learn new skills, understand complex topics, and accelerate your education"
 sidebar:
+  order: 45
   badge:
     text: "Low"
     variant: note

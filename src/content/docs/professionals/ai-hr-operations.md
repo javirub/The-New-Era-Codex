@@ -2,6 +2,7 @@
 title: "AI for HR Operations: Onboarding, Training, Performance"
 description: "Streamline HR workflows with AI for employee lifecycle management"
 sidebar:
+  order: 40
   badge:
     text: "Intermediate"
     variant: caution

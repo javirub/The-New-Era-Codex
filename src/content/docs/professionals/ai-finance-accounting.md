@@ -2,6 +2,7 @@
 title: "AI for Finance & Accounting: Analysis, Forecasting, Reporting"
 description: "Apply AI to financial analysis, forecasting, and automated reporting"
 sidebar:
+  order: 70
   badge:
     text: "Intermediate"
     variant: caution

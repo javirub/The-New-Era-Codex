@@ -2,6 +2,7 @@
 title: "AI for Project Management: Smart Planning and Execution"
 description: "Use AI for project planning, resource allocation, risk assessment, and team coordination"
 sidebar:
+  order: 50
   badge:
     text: "Intermediate"
     variant: caution

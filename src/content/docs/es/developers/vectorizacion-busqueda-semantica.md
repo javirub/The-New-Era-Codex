@@ -2,6 +2,7 @@
 title: "Vectorización y Búsqueda Semántica: Guía Completa"
 description: "Embeddings, bases de datos vectoriales (Pinecone, Weaviate, ChromaDB), técnicas de búsqueda por similitud y mejores prácticas"
 sidebar:
+  order: 35
   badge:
     text: "Intermedio"
     variant: note

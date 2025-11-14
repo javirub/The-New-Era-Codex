@@ -2,6 +2,7 @@
 title: "AI for Career Development & Professional Growth"
 description: "Use AI to advance your career, improve professional skills, and navigate workplace challenges"
 sidebar:
+  order: 60
   badge:
     text: "Low"
     variant: note

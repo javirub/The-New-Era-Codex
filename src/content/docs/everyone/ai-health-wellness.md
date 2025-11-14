@@ -2,6 +2,7 @@
 title: "AI for Health & Wellness: Fitness, Nutrition, Mental Health"
 description: "Use AI for workout plans, meal planning, health tracking, and wellness support"
 sidebar:
+  order: 75
   badge:
     text: "Intermediate"
     variant: caution

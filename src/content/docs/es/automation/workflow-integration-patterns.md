@@ -2,6 +2,7 @@
 title: "Patrones de Integración de Flujos de Trabajo: Conecta tus Herramientas con IA"
 description: "Patrones comunes para integrar IA en flujos de trabajo y herramientas existentes"
 sidebar:
+  order: 95
   badge:
     text: "Intermedio"
     variant: caution

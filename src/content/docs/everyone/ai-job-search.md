@@ -2,6 +2,7 @@
 title: "AI for Job Search: Resumes, Cover Letters, Interview Prep"
 description: "Use AI to optimize your job search, craft applications, and prepare for interviews"
 sidebar:
+  order: 65
   badge:
     text: "Intermediate"
     variant: caution

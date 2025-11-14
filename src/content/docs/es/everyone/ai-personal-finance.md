@@ -2,6 +2,7 @@
 title: "IA para Finanzas Personales: Presupuestos, Planificación, Consejos"
 description: "Usa IA para planificación financiera, presupuestos, investigación de inversiones y gestión de dinero"
 sidebar:
+  order: 70
   badge:
     text: "Intermedio"
     variant: caution

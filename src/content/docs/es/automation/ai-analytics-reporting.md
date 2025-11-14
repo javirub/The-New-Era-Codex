@@ -2,6 +2,7 @@
 title: "Análisis y Reportes Automatizados con IA"
 description: "Genera insights y reportes automatizados a partir de datos usando IA"
 sidebar:
+  order: 75
   badge:
     text: "Intermedio"
     variant: caution

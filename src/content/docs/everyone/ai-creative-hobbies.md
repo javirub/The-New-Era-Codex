@@ -2,6 +2,7 @@
 title: "AI for Creative Hobbies: Writing, Art, Music, Photography"
 description: "Enhance your creative hobbies with AI tools and techniques"
 sidebar:
+  order: 95
   badge:
     text: "Intermediate"
     variant: caution

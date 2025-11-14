@@ -2,6 +2,7 @@
 title: "Detectando Contenido Generado por IA: Identifica los Bots"
 description: "Aprende a identificar texto, imágenes y videos generados por IA - herramientas, técnicas y señales reveladoras"
 sidebar:
+  order: 105
   badge:
     text: "Básico"
     variant: tip

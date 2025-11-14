@@ -2,6 +2,7 @@
 title: "Prompt Engineering for Developers"
 description: "Advanced techniques: few-shot learning, chain-of-thought, function calling, and structured outputs for production AI applications"
 sidebar:
+  order: 10
   badge:
     text: "Basic"
     variant: tip

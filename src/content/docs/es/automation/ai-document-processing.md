@@ -2,6 +2,7 @@
 title: "Procesamiento de Documentos con IA: OCR, Extracción, Clasificación"
 description: "Automatiza flujos de trabajo de documentos con IA para OCR, extracción de datos y enrutamiento inteligente"
 sidebar:
+  order: 55
   badge:
     text: "Intermedio"
     variant: caution

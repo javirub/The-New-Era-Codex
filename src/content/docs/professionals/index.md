@@ -1,6 +1,8 @@
 ---
 title: For Professionals
 description: AI applications for business, HR, marketing, and specialized roles
+sidebar:
+  order: 0
 version: "1.0"
 ---
 

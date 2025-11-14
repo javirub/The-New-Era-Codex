@@ -2,6 +2,7 @@
 title: "Técnicas Avanzadas de RAG: Búsqueda Híbrida, Reranking, Expansión de Consultas"
 description: "Implementa patrones avanzados de RAG para mejorar la calidad de recuperación"
 sidebar:
+  order: 45
   badge:
     text: "Avanzado"
     variant: danger

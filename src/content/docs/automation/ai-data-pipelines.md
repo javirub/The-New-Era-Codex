@@ -2,6 +2,7 @@
 title: "AI-Powered Data Pipelines: ETL with Intelligence"
 description: "Build intelligent data pipelines that clean, enrich, and transform data automatically"
 sidebar:
+  order: 80
   badge:
     text: "Intermediate"
     variant: caution

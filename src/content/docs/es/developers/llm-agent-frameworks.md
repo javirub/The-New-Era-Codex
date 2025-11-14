@@ -2,6 +2,7 @@
 title: "Frameworks Avanzados de Agentes: AutoGPT, BabyAGI, CrewAI"
 description: "Construye agentes autónomos con frameworks avanzados y sistemas multi-agente"
 sidebar:
+  order: 55
   badge:
     text: "Avanzado"
     variant: danger

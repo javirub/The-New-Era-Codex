@@ -2,6 +2,7 @@
 title: "Advanced LLM Model Optimization: Quantization, Pruning, Distillation"
 description: "Optimize LLM performance through quantization, pruning, and knowledge distillation"
 sidebar:
+  order: 90
   badge:
     text: "Advanced"
     variant: danger

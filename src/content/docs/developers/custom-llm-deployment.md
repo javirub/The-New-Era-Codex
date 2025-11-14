@@ -2,6 +2,7 @@
 title: "Custom LLM Deployment: Self-Hosting, Scaling, Production"
 description: "Deploy and scale custom LLMs in production environments"
 sidebar:
+  order: 100
   badge:
     text: "Advanced"
     variant: danger

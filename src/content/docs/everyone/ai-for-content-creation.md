@@ -2,6 +2,7 @@
 title: "AI for Content Creation: Write, Design, Create Faster"
 description: "Use AI tools to create blog posts, social media content, videos, and more efficiently"
 sidebar:
+  order: 30
   badge:
     text: "Intermediate"
     variant: caution

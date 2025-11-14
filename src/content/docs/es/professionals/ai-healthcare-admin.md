@@ -2,6 +2,7 @@
 title: "IA para Administración de Salud y Documentación Médica"
 description: "Usa IA para mejorar la documentación de salud, comunicación con pacientes y eficiencia administrativa"
 sidebar:
+  order: 75
   badge:
     text: "Bajo"
     variant: note

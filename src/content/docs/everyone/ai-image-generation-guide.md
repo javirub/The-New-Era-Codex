@@ -2,6 +2,7 @@
 title: "Creating Images with AI: DALL-E, Midjourney & Stable Diffusion"
 description: "Generate stunning images from text - learn prompting techniques, tools comparison, and practical applications"
 sidebar:
+  order: 35
   badge:
     text: "Basic"
     variant: tip

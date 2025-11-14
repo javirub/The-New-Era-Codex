@@ -2,6 +2,7 @@
 title: "ChatGPT: The Ultimate Beginner's Guide"
 description: "Everything you need to know to start using ChatGPT effectively - from your first prompt to advanced techniques"
 sidebar:
+  order: 10
   badge:
     text: "Basic"
     variant: tip

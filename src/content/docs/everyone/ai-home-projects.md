@@ -2,6 +2,7 @@
 title: "AI for Home Projects: DIY, Repairs, Renovation Planning"
 description: "Use AI for home improvement planning, DIY guides, and project management"
 sidebar:
+  order: 100
   badge:
     text: "Intermediate"
     variant: caution

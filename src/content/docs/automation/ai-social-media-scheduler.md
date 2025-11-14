@@ -2,6 +2,7 @@
 title: "AI Social Media Scheduler: Auto-Posting & Content Calendar"
 description: "Automate social media posting with AI-generated content and intelligent scheduling"
 sidebar:
+  order: 45
   badge:
     text: "Low"
     variant: note

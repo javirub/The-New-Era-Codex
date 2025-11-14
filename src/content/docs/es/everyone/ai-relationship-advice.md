@@ -2,6 +2,7 @@
 title: "IA para Consejos de Relaciones y Situaciones Sociales"
 description: "Usa IA para orientación en relaciones, ayuda con comunicación y navegación de situaciones sociales"
 sidebar:
+  order: 80
   badge:
     text: "Bajo"
     variant: note

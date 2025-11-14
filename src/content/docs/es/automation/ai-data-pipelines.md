@@ -2,6 +2,7 @@
 title: "Pipelines de Datos con IA: ETL con Inteligencia"
 description: "Construye pipelines de datos inteligentes que limpian, enriquecen y transforman datos automáticamente"
 sidebar:
+  order: 80
   badge:
     text: "Intermedio"
     variant: caution

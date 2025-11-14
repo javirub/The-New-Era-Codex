@@ -2,6 +2,7 @@
 title: "AI for Real Estate Agents: Listings, Lead Gen, & Client Management"
 description: "Use AI to create compelling listings, generate leads, and manage client relationships in real estate"
 sidebar:
+  order: 95
   badge:
     text: "Low"
     variant: note

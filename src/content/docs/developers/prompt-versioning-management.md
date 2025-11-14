@@ -2,6 +2,7 @@
 title: "Prompt Versioning & Management: Track, Test, Deploy"
 description: "Version control your prompts, A/B test variations, and manage prompt deployments"
 sidebar:
+  order: 15
   badge:
     text: "Intermediate"
     variant: caution

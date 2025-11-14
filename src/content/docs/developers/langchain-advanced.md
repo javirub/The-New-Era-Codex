@@ -2,6 +2,7 @@
 title: "Advanced LangChain: Chains, Memory, and Agents"
 description: "Master LangChain's advanced features for production AI applications"
 sidebar:
+  order: 65
   badge:
     text: "Intermediate"
     variant: caution

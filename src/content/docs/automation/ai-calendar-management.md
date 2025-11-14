@@ -2,6 +2,7 @@
 title: "AI Calendar Management & Time Optimization"
 description: "Optimize your schedule, auto-schedule tasks, and manage time with AI"
 sidebar:
+  order: 35
   badge:
     text: "Intermediate"
     variant: caution

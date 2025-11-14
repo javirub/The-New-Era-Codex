@@ -1,6 +1,8 @@
 ---
 title: Example Guide
 description: A guide in my new Starlight docs site.
+sidebar:
+  order: 999
 version: "1.0"
 ---
 

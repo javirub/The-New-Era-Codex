@@ -2,6 +2,7 @@
 title: "IA para Proyectos del Hogar: Bricolaje, Reparaciones, Planificación de Renovaciones"
 description: "Usa IA para planificación de mejoras del hogar, guías de bricolaje y gestión de proyectos"
 sidebar:
+  order: 100
   badge:
     text: "Intermedio"
     variant: caution

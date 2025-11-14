@@ -2,6 +2,7 @@
 title: "IA para Pasatiempos Creativos: Escritura, Arte, Música, Fotografía"
 description: "Mejora tus pasatiempos creativos con herramientas y técnicas de IA"
 sidebar:
+  order: 95
   badge:
     text: "Intermedio"
     variant: caution

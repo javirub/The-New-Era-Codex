@@ -2,6 +2,7 @@
 title: "IA para Proyectos Creativos: Arte, Escritura, Música y Diseño"
 description: "Usa IA para impulsar la creatividad en arte, escritura, composición musical y proyectos de diseño"
 sidebar:
+  order: 90
   badge:
     text: "Bajo"
     variant: note

@@ -2,6 +2,7 @@
 title: "AI for Educators: Lesson Planning, Assessment, & Student Support"
 description: "Use AI to enhance teaching, create engaging lessons, and support student learning"
 sidebar:
+  order: 80
   badge:
     text: "Low"
     variant: note

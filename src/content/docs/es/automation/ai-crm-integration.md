@@ -2,6 +2,7 @@
 title: "Integración de IA con CRM: Automatiza Gestión de Contactos y Seguimientos"
 description: "Integra IA con Salesforce, HubSpot y Pipedrive para automatización inteligente de CRM"
 sidebar:
+  order: 70
   badge:
     text: "Intermedio"
     variant: caution

@@ -2,6 +2,7 @@
 title: "AI for Data Analysis: From Raw Data to Actionable Insights"
 description: "Use AI to clean data, generate insights, create visualizations, and build predictive models without coding"
 sidebar:
+  order: 10
   badge:
     text: "Professional"
     variant: success

@@ -2,6 +2,7 @@
 title: "Vectorization and Semantic Search: Complete Guide"
 description: "Embeddings, vector databases (Pinecone, Weaviate, ChromaDB), similarity search techniques and best practices"
 sidebar:
+  order: 35
   badge:
     text: "Intermediate"
     variant: note

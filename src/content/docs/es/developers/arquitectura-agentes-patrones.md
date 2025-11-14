@@ -2,6 +2,7 @@
 title: "Arquitectura de Agentes de IA: Patrones y Mejores Prácticas"
 description: "Diseño de agentes autónomos, patterns (ReAct, Chain-of-Thought), herramientas y estrategias de orquestación"
 sidebar:
+  order: 50
   badge:
     text: "Avanzado"
     variant: caution

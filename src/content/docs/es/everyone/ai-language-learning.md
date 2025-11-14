@@ -2,6 +2,7 @@
 title: "IA para Aprendizaje de Idiomas: Práctica, Traducción, Fluidez"
 description: "Usa IA como tu tutor personal de idiomas para práctica y aprendizaje"
 sidebar:
+  order: 55
   badge:
     text: "Intermedio"
     variant: caution

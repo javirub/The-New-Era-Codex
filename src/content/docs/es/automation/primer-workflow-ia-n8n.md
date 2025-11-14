@@ -2,6 +2,7 @@
 title: "Tu Primer Workflow de IA con n8n"
 description: "Guía visual para conectar OpenAI a n8n y crear flujos de automatización con IA simples"
 sidebar:
+  order: 10
   badge:
     text: "Básico"
     variant: tip

@@ -2,6 +2,7 @@
 title: "Detecting AI-Generated Content: Spot the Bots"
 description: "Learn to identify AI-generated text, images, and videos - tools, techniques, and telltale signs"
 sidebar:
+  order: 105
   badge:
     text: "Basic"
     variant: tip

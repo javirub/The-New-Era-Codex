@@ -2,6 +2,7 @@
 title: "Using AI for Studying: Learn Smarter, Not Harder"
 description: "Leverage ChatGPT and AI tools to study more effectively - personalized tutoring, practice tests, and study plans"
 sidebar:
+  order: 40
   badge:
     text: "Basic"
     variant: tip

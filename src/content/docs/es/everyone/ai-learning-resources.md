@@ -2,6 +2,7 @@
 title: "Recursos de Aprendizaje de IA: Cursos, Comunidades, Herramientas"
 description: "Recursos seleccionados para continuar tu viaje de aprendizaje de IA"
 sidebar:
+  order: 50
   badge:
     text: "Reference"
     variant: note
