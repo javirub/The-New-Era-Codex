@@ -1,6 +1,8 @@
 ---
 title: Para profesionales
 description: Aplicaciones de IA para negocios, RRHH, marketing y roles especializados
+sidebar:
+  order: 0
 version: "1.0"
 ---
 
