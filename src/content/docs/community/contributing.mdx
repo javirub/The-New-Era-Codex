@@ -102,6 +102,64 @@ The New Era Codex is unique: we organize content by **audience first**, not topi
 This ensures all contributors and maintainers can review content, while still supporting our multilingual mission.
 </Aside>
 
+### Translation File Naming Conventions
+
+When creating translations, **you must use the same filename as the English version**. This is required for Starlight to properly link translations together.
+
+**Correct Structure:**
+```
+src/content/docs/
+├── automation/
+│   └── first-ai-workflow-n8n.md          (English)
+└── es/
+    └── automation/
+        └── first-ai-workflow-n8n.md      (Spanish translation)
+```
+
+**Important Rules:**
+
+1. **Same Filename**: Translation files must have the **exact same filename** as the English version
+   - ✅ `automation/first-ai-workflow-n8n.md` → `es/automation/first-ai-workflow-n8n.md`
+   - ❌ `automation/first-ai-workflow-n8n.md` → `es/automation/primer-workflow-ia-n8n.md`
+
+2. **Same Directory Structure**: Maintain the same folder hierarchy
+   - ✅ `developers/building-first-rag-system.md` → `es/developers/building-first-rag-system.md`
+   - ❌ `developers/building-first-rag-system.md` → `es/desarrolladores/building-first-rag-system.md`
+
+3. **Match Frontmatter Order**: If the English file has `sidebar: { order: 10 }`, the translation should too
+   - This ensures consistent navigation ordering across languages
+
+4. **Translate Content, Not Filenames**: Keep filenames in English, translate the actual content inside
+   - The `title` field in frontmatter should be translated
+   - The file content should be fully translated
+   - Only the filename stays in English
+
+**Example:**
+
+English file (`automation/first-ai-workflow-n8n.md`):
+```markdown
+---
+title: "Your First AI Workflow with n8n"
+description: "Visual guide to connect OpenAI to n8n"
+sidebar:
+  order: 10
+---
+# Your First AI Workflow with n8n
+...
+```
+
+Spanish translation (`es/automation/first-ai-workflow-n8n.md`):
+```markdown
+---
+title: "Tu Primer Workflow de IA con n8n"
+description: "Guía visual para conectar OpenAI a n8n"
+sidebar:
+  order: 10
+---
+# Tu Primer Workflow de IA con n8n
+...
+```
+
 <Steps>
 
 1. **Choose Your Audience**

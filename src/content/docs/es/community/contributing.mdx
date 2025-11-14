@@ -100,6 +100,64 @@ The New Era Codex es único: organizamos el contenido **primero por audiencia**,
 Esto asegura que todos los contribuidores y mantenedores puedan revisar el contenido, mientras seguimos apoyando nuestra misión multilingüe.
 </Aside>
 
+### Convenciones de Nombres para Archivos de Traducción
+
+Al crear traducciones, **debes usar el mismo nombre de archivo que la versión en inglés**. Esto es necesario para que Starlight vincule correctamente las traducciones.
+
+**Estructura Correcta:**
+```
+src/content/docs/
+├── automation/
+│   └── first-ai-workflow-n8n.md          (Inglés)
+└── es/
+    └── automation/
+        └── first-ai-workflow-n8n.md      (Traducción al español)
+```
+
+**Reglas Importantes:**
+
+1. **Mismo Nombre de Archivo**: Los archivos de traducción deben tener el **mismo nombre exacto** que la versión en inglés
+   - ✅ `automation/first-ai-workflow-n8n.md` → `es/automation/first-ai-workflow-n8n.md`
+   - ❌ `automation/first-ai-workflow-n8n.md` → `es/automation/primer-workflow-ia-n8n.md`
+
+2. **Misma Estructura de Directorios**: Mantén la misma jerarquía de carpetas
+   - ✅ `developers/building-first-rag-system.md` → `es/developers/building-first-rag-system.md`
+   - ❌ `developers/building-first-rag-system.md` → `es/desarrolladores/building-first-rag-system.md`
+
+3. **Coincidir el Order del Frontmatter**: Si el archivo en inglés tiene `sidebar: { order: 10 }`, la traducción también debe tenerlo
+   - Esto asegura un orden consistente de navegación entre idiomas
+
+4. **Traduce el Contenido, No los Nombres de Archivo**: Mantén los nombres de archivo en inglés, traduce el contenido interior
+   - El campo `title` en el frontmatter debe traducirse
+   - El contenido del archivo debe estar completamente traducido
+   - Solo el nombre del archivo permanece en inglés
+
+**Ejemplo:**
+
+Archivo en inglés (`automation/first-ai-workflow-n8n.md`):
+```markdown
+---
+title: "Your First AI Workflow with n8n"
+description: "Visual guide to connect OpenAI to n8n"
+sidebar:
+  order: 10
+---
+# Your First AI Workflow with n8n
+...
+```
+
+Traducción al español (`es/automation/first-ai-workflow-n8n.md`):
+```markdown
+---
+title: "Tu Primer Workflow de IA con n8n"
+description: "Guía visual para conectar OpenAI a n8n"
+sidebar:
+  order: 10
+---
+# Tu Primer Workflow de IA con n8n
+...
+```
+
 ## Antes de empezar
 
 <Steps>
