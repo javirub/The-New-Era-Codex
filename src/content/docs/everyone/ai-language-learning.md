@@ -2,6 +2,7 @@
 title: "AI for Language Learning: Practice, Translation, Fluency"
 description: "Use AI as your personal language tutor for practice and learning"
 sidebar:
+  order: 55
   badge:
     text: "Intermediate"
     variant: caution

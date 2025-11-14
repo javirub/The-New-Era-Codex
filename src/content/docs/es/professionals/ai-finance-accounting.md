@@ -2,6 +2,7 @@
 title: "IA para Finanzas y Contabilidad: Análisis, Pronósticos, Reportes"
 description: "Aplica IA al análisis financiero, pronósticos y reportes automatizados"
 sidebar:
+  order: 70
   badge:
     text: "Intermedio"
     variant: caution

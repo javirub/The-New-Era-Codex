@@ -2,6 +2,7 @@
 title: "IA para el Desarrollo Profesional y Crecimiento de Carrera"
 description: "Usa IA para avanzar en tu carrera, mejorar habilidades profesionales y navegar desafíos laborales"
 sidebar:
+  order: 60
   badge:
     text: "Bajo"
     variant: note

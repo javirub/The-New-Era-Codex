@@ -2,6 +2,7 @@
 title: "AI for Real Estate: Property Analysis, Descriptions, Market Research"
 description: "Apply AI to property listings, market analysis, and real estate operations"
 sidebar:
+  order: 90
   badge:
     text: "Intermediate"
     variant: caution

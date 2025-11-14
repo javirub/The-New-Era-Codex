@@ -2,6 +2,7 @@
 title: "Creando un Asistente Virtual con Voiceflow"
 description: "Diseño de flujos conversacionales, integración con IA, despliegue en WhatsApp/Telegram"
 sidebar:
+  order: 20
   badge:
     text: "Intermedio"
     variant: note

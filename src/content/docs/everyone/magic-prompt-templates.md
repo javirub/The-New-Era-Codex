@@ -2,6 +2,7 @@
 title: "50 Magic Prompt Templates: Copy, Paste, Get Results"
 description: "Ready-to-use AI prompts for work, learning, creativity, and daily life - just fill in the blanks"
 sidebar:
+  order: 15
   badge:
     text: "Basic"
     variant: tip

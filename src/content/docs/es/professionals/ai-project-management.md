@@ -2,6 +2,7 @@
 title: "IA para Gestión de Proyectos: Planificación y Ejecución Inteligente"
 description: "Usa IA para planificación de proyectos, asignación de recursos, evaluación de riesgos y coordinación de equipos"
 sidebar:
+  order: 50
   badge:
     text: "Intermedio"
     variant: caution

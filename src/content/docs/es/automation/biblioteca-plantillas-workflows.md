@@ -2,6 +2,7 @@
 title: "Biblioteca de Plantillas de Workflows: Automatizaciones IA Listas para Usar"
 description: "10+ workflows exportables para automatización CRM, enriquecimiento de datos, moderación de contenido y más"
 sidebar:
+  order: 100
   badge:
     text: "Básico"
     variant: tip

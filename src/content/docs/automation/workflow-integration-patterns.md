@@ -2,6 +2,7 @@
 title: "Workflow Integration Patterns: Connect Your Tools with AI"
 description: "Common patterns for integrating AI into existing workflows and tools"
 sidebar:
+  order: 95
   badge:
     text: "Intermediate"
     variant: caution

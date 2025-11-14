@@ -2,6 +2,7 @@
 title: "IA para Creación de Contenido: Escribe, Diseña, Crea Más Rápido"
 description: "Usa herramientas de IA para crear publicaciones de blog, contenido de redes sociales, videos y más de manera eficiente"
 sidebar:
+  order: 30
   badge:
     text: "Intermedio"
     variant: caution

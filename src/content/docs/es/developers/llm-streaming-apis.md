@@ -2,6 +2,7 @@
 title: "APIs de Streaming de LLM: Generación de Respuestas en Tiempo Real"
 description: "Implementa respuestas en streaming para mejor UX con OpenAI, Anthropic y LLMs open-source"
 sidebar:
+  order: 20
   badge:
     text: "Intermedio"
     variant: caution

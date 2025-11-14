@@ -2,6 +2,7 @@
 title: "Versionado y Gestión de Prompts: Rastrear, Probar, Desplegar"
 description: "Control de versiones de tus prompts, pruebas A/B de variaciones y gestión de despliegues de prompts"
 sidebar:
+  order: 15
   badge:
     text: "Intermedio"
     variant: caution

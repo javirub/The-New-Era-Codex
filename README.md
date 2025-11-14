@@ -12,6 +12,10 @@
 [![Built with Astro](https://img.shields.io/badge/Built%20with-Astro-FF5D01.svg)](https://astro.build)
 [![Powered by Starlight](https://img.shields.io/badge/Powered%20by-Starlight-C561FF.svg)](https://starlight.astro.build)
 [![Languages](https://img.shields.io/badge/Languages-EN%20%7C%20ES-success.svg)](#)
+<!-- TRANSLATION_STATUS_START -->
+![Translated](https://img.shields.io/badge/ES_Translated-42.5%25-yellow?style=flat-square)
+![Outdated](https://img.shields.io/badge/ES_Outdated-57.5%25-orange?style=flat-square)
+<!-- TRANSLATION_STATUS_END -->
 
 [🌐 View Live Site](https://codex.javirub.pro) • [🤝 Contribute](./CONTRIBUTING.md)
 

@@ -2,6 +2,7 @@
 title: "AI for Relationship Advice & Social Situations"
 description: "Use AI for relationship guidance, communication help, and navigating social situations"
 sidebar:
+  order: 80
   badge:
     text: "Low"
     variant: note

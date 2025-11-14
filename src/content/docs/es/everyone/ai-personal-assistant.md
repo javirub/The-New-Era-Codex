@@ -2,6 +2,7 @@
 title: "Tu Asistente Personal de IA: Organización de Vida y Gestión de Tareas"
 description: "Usa IA como tu asistente personal para planificación diaria, recordatorios y gestión de vida"
 sidebar:
+  order: 25
   badge:
     text: "Bajo"
     variant: note

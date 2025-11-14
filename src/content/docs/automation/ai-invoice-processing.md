@@ -2,6 +2,7 @@
 title: "AI Invoice Processing: OCR, Data Extraction, Auto-Approval"
 description: "Automate invoice processing with AI-powered OCR and intelligent data extraction"
 sidebar:
+  order: 60
   badge:
     text: "Low"
     variant: note

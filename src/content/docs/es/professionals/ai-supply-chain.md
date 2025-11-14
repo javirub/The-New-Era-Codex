@@ -2,6 +2,7 @@
 title: "IA para Cadena de Suministro y Operaciones: Optimización y Pronósticos"
 description: "Aplica IA a gestión de cadena de suministro, pronóstico de demanda y operaciones"
 sidebar:
+  order: 105
   badge:
     text: "Intermedio"
     variant: caution

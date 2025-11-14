@@ -2,6 +2,7 @@
 title: "Your AI Personal Assistant: Life Organization & Task Management"
 description: "Use AI as your personal assistant for daily planning, reminders, and life management"
 sidebar:
+  order: 25
   badge:
     text: "Low"
     variant: note

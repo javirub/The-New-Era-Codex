@@ -2,6 +2,7 @@
 title: "AI and Compliance: Navigate Regulations, Mitigate Risks"
 description: "Understand AI regulations, implement compliant AI systems, audit for bias, and manage AI governance"
 sidebar:
+  order: 65
   badge:
     text: "Professional"
     variant: success

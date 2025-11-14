@@ -2,6 +2,7 @@
 title: "Creando Imágenes con IA: DALL-E, Midjourney y Stable Diffusion"
 description: "Genera imágenes impresionantes desde texto - aprende técnicas de prompting, comparación de herramientas y aplicaciones prácticas"
 sidebar:
+  order: 35
   badge:
     text: "Básico"
     variant: tip

@@ -2,6 +2,7 @@
 title: "IA y Cumplimiento Normativo: Navega Regulaciones, Mitiga Riesgos"
 description: "Entiende regulaciones IA, implementa sistemas IA conformes, audita sesgos y gestiona gobernanza IA"
 sidebar:
+  order: 65
   badge:
     text: "Profesional"
     variant: success

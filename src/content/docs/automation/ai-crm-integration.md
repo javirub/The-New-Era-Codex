@@ -2,6 +2,7 @@
 title: "AI CRM Integration: Automate Contact Management & Follow-ups"
 description: "Integrate AI with Salesforce, HubSpot, and Pipedrive for intelligent CRM automation"
 sidebar:
+  order: 70
   badge:
     text: "Intermediate"
     variant: caution

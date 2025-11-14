@@ -2,6 +2,7 @@
 title: "AI for Sales Enablement: Accelerate Your Sales Process"
 description: "Use AI for lead scoring, email personalization, call analysis, and pipeline management"
 sidebar:
+  order: 25
   badge:
     text: "Intermediate"
     variant: caution

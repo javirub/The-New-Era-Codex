@@ -2,6 +2,7 @@
 title: "AI Productivity Hacks: Work Smarter Daily"
 description: "Practical AI tips to boost productivity in your daily work and life"
 sidebar:
+  order: 20
   badge:
     text: "Intermediate"
     variant: caution

@@ -2,6 +2,7 @@
 title: "AI for Education & Training: Course Design, Assessment, Tutoring"
 description: "Use AI to create courses, assessments, and personalized learning experiences"
 sidebar:
+  order: 85
   badge:
     text: "Intermediate"
     variant: caution

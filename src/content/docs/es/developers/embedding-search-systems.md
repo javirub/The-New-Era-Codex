@@ -2,6 +2,7 @@
 title: "Construcción de Sistemas de Búsqueda con Embeddings en Producción"
 description: "Despliega búsqueda semántica escalable con bases de datos vectoriales, caching y monitoreo"
 sidebar:
+  order: 30
   badge:
     text: "Intermedio"
     variant: caution

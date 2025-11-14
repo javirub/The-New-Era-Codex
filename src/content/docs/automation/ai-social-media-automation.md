@@ -2,6 +2,7 @@
 title: "AI Social Media Automation: Content, Scheduling, Engagement"
 description: "Automate social media workflows with AI for content creation and audience engagement"
 sidebar:
+  order: 50
   badge:
     text: "Intermediate"
     variant: caution

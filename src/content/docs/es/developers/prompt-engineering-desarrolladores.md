@@ -2,6 +2,7 @@
 title: "Prompt Engineering para Desarrolladores"
 description: "Técnicas avanzadas: few-shot, chain-of-thought, function calling y structured outputs para aplicaciones de IA en producción"
 sidebar:
+  order: 10
   badge:
     text: "Básico"
     variant: tip

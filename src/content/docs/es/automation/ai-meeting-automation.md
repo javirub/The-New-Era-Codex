@@ -2,6 +2,7 @@
 title: "Automatización de Reuniones con IA: Transcripciones, Resúmenes, Elementos de Acción"
 description: "Automatiza flujos de trabajo de reuniones con transcripción de IA, resúmenes inteligentes y seguimiento de acciones"
 sidebar:
+  order: 65
   badge:
     text: "Bajo"
     variant: note

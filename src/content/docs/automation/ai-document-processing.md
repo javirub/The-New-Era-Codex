@@ -2,6 +2,7 @@
 title: "AI-Powered Document Processing: OCR, Extraction, Classification"
 description: "Automate document workflows with AI for OCR, data extraction, and intelligent routing"
 sidebar:
+  order: 55
   badge:
     text: "Intermediate"
     variant: caution

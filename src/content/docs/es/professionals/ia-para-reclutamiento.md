@@ -2,6 +2,7 @@
 title: "IA para Reclutamiento: Agiliza la Contratación con Automatización Inteligente"
 description: "Usa IA para buscar candidatos, filtrar currículos, conducir entrevistas iniciales y tomar decisiones de contratación basadas en datos"
 sidebar:
+  order: 35
   badge:
     text: "Profesional"
     variant: success

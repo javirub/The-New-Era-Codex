@@ -2,6 +2,7 @@
 title: "50 Plantillas de Prompts Mágicos: Copia, Pega, Obtén Resultados"
 description: "Prompts de IA listos para usar en trabajo, aprendizaje, creatividad y vida diaria - solo llena los espacios"
 sidebar:
+  order: 15
   badge:
     text: "Básico"
     variant: tip

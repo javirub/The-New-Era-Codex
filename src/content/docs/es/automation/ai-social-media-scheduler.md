@@ -2,6 +2,7 @@
 title: "Programador de Redes Sociales con IA: Auto-Publicación y Calendario de Contenido"
 description: "Automatiza la publicación en redes sociales con contenido generado por IA y programación inteligente"
 sidebar:
+  order: 45
   badge:
     text: "Bajo"
     variant: note

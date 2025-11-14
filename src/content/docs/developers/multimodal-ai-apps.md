@@ -2,6 +2,7 @@
 title: "Building Multimodal AI Applications: Text, Image, Audio"
 description: "Create apps that process multiple data types with GPT-4o, Claude, and Gemini"
 sidebar:
+  order: 60
   badge:
     text: "Intermediate"
     variant: caution

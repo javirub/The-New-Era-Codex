@@ -2,6 +2,7 @@
 title: "Fine-Tuning de LLMs: Personaliza Modelos para tu Caso de Uso"
 description: "Aprende a hacer fine-tuning de GPT, Llama y otros LLMs para tareas específicas de dominio con ejemplos prácticos"
 sidebar:
+  order: 85
   badge:
     text: "Intermedio"
     variant: caution

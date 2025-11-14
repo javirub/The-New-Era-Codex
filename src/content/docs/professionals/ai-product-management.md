@@ -2,6 +2,7 @@
 title: "AI for Product Management: Roadmaps, Research, Prioritization"
 description: "Apply AI to product strategy, user research, and feature prioritization"
 sidebar:
+  order: 45
   badge:
     text: "Intermediate"
     variant: caution

@@ -2,6 +2,8 @@
 title: Guía de Ejemplo
 description: Una guía en mi nuevo sitio de docs Starlight.
 version: "1.0"
+sidebar:
+  order: 999
 ---
 
 Las guías conducen al usuario a través de una tarea específica que quieren lograr, a menudo con una secuencia de pasos.

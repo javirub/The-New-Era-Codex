@@ -2,6 +2,7 @@
 title: "Automatizando Respuestas de Email con Zapier + ChatGPT"
 description: "Clasificación automática, respuestas contextuales e integración Gmail/Outlook"
 sidebar:
+  order: 15
   badge:
     text: "Básico"
     variant: tip

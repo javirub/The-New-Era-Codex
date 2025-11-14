@@ -2,6 +2,7 @@
 title: "AI-Powered Smart Notifications & Alerts"
 description: "Build intelligent notification systems that prioritize, summarize, and route alerts"
 sidebar:
+  order: 40
   badge:
     text: "Intermediate"
     variant: caution

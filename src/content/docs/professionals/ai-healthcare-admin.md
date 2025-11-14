@@ -2,6 +2,7 @@
 title: "AI for Healthcare Administration & Medical Documentation"
 description: "Use AI to improve healthcare documentation, patient communication, and administrative efficiency"
 sidebar:
+  order: 75
   badge:
     text: "Low"
     variant: note

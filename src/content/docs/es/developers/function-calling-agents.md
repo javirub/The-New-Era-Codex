@@ -2,6 +2,7 @@
 title: "Function Calling: Construcción de Agentes de IA que Usan Herramientas"
 description: "Permite a los LLMs llamar funciones, APIs y herramientas para agentes dinámicos orientados a acciones"
 sidebar:
+  order: 25
   badge:
     text: "Intermedio"
     variant: caution

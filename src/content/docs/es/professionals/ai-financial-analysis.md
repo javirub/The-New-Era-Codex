@@ -2,6 +2,7 @@
 title: "IA para Análisis Financiero e Investigación de Inversiones"
 description: "Usa IA para analizar datos financieros, investigar inversiones y tomar decisiones basadas en datos"
 sidebar:
+  order: 15
   badge:
     text: "Bajo"
     variant: note

@@ -2,6 +2,7 @@
 title: "Building Production Embedding Search Systems"
 description: "Deploy scalable semantic search with vector databases, caching, and monitoring"
 sidebar:
+  order: 30
   badge:
     text: "Intermediate"
     variant: caution

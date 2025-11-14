@@ -2,6 +2,7 @@
 title: "Evaluación de Modelos LLM: Métricas y Testing"
 description: "BLEU, ROUGE, perplejidad, testing unitario de prompts y CI/CD para IA"
 sidebar:
+  order: 70
   badge:
     text: "Avanzado"
     variant: caution

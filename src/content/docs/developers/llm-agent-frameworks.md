@@ -2,6 +2,7 @@
 title: "Advanced Agent Frameworks: AutoGPT, BabyAGI, CrewAI"
 description: "Build autonomous agents with advanced frameworks and multi-agent systems"
 sidebar:
+  order: 55
   badge:
     text: "Advanced"
     variant: danger

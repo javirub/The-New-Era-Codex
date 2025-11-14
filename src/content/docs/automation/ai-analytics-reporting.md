@@ -2,6 +2,7 @@
 title: "AI-Powered Analytics & Automated Reporting"
 description: "Generate insights and automated reports from data using AI"
 sidebar:
+  order: 75
   badge:
     text: "Intermediate"
     variant: caution

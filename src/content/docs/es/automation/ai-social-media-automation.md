@@ -2,6 +2,7 @@
 title: "Automatización de Redes Sociales con IA: Contenido, Programación, Engagement"
 description: "Automatiza flujos de trabajo de redes sociales con IA para creación de contenido y engagement con audiencia"
 sidebar:
+  order: 50
   badge:
     text: "Intermedio"
     variant: caution

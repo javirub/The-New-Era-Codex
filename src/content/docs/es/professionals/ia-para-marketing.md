@@ -2,6 +2,7 @@
 title: "IA para Marketing: Personalización, Contenido y Optimización de Campañas"
 description: "Aprovecha IA para creación de contenido, segmentación de audiencia, optimización de campañas y analítica de marketing"
 sidebar:
+  order: 20
   badge:
     text: "Profesional"
     variant: success

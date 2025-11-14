@@ -2,6 +2,7 @@
 title: "IA para Servicio al Cliente: Mejora Soporte con Automatización Inteligente"
 description: "Despliega chatbots IA, automatiza enrutamiento de tickets, analiza sentimiento y mejora satisfacción del cliente"
 sidebar:
+  order: 30
   badge:
     text: "Profesional"
     variant: success

@@ -2,6 +2,7 @@
 title: "AI for Recruitment: Streamline Hiring with Intelligent Automation"
 description: "Use AI to source candidates, screen resumes, conduct initial interviews, and make data-driven hiring decisions"
 sidebar:
+  order: 35
   badge:
     text: "Professional"
     variant: success

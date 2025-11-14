@@ -2,6 +2,7 @@
 title: "Automatización de Video con IA: Auto-Subtítulos, Resúmenes, Clips"
 description: "Automatiza el procesamiento de video con transcripción impulsada por IA, subtítulos y extracción de contenido"
 sidebar:
+  order: 90
   badge:
     text: "Bajo"
     variant: note

@@ -2,6 +2,7 @@
 title: "Control de Calidad con IA: Pruebas Automatizadas y Detección de Bugs"
 description: "Automatiza procesos de QA con pruebas impulsadas por IA, detección de bugs y revisión de código"
 sidebar:
+  order: 85
   badge:
     text: "Bajo"
     variant: note

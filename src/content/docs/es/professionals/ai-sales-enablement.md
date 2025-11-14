@@ -2,6 +2,7 @@
 title: "IA para Habilitación de Ventas: Acelera Tu Proceso de Ventas"
 description: "Usa IA para puntuación de leads, personalización de emails, análisis de llamadas y gestión de pipeline"
 sidebar:
+  order: 25
   badge:
     text: "Intermedio"
     variant: caution

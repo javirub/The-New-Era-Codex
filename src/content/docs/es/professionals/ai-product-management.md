@@ -2,6 +2,7 @@
 title: "IA para Gestión de Productos: Hojas de Ruta, Investigación, Priorización"
 description: "Aplica IA a estrategia de producto, investigación de usuarios y priorización de funciones"
 sidebar:
+  order: 45
   badge:
     text: "Intermedio"
     variant: caution

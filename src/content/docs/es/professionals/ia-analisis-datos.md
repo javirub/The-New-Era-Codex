@@ -2,6 +2,7 @@
 title: "IA para Análisis de Datos: De Datos Crudos a Insights Accionables"
 description: "Usa IA para limpiar datos, generar insights, crear visualizaciones y construir modelos predictivos sin programar"
 sidebar:
+  order: 10
   badge:
     text: "Profesional"
     variant: success

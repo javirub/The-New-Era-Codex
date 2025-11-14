@@ -2,6 +2,7 @@
 title: "AI Agent Architecture: Patterns and Best Practices"
 description: "Design autonomous agents, patterns (ReAct, Chain-of-Thought), tools and orchestration strategies"
 sidebar:
+  order: 50
   badge:
     text: "Advanced"
     variant: caution

@@ -2,6 +2,7 @@
 title: "AI for Customer Service: Enhance Support with Intelligent Automation"
 description: "Deploy AI chatbots, automate ticket routing, analyze sentiment, and improve customer satisfaction"
 sidebar:
+  order: 30
   badge:
     text: "Professional"
     variant: success

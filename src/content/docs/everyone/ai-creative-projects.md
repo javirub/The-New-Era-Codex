@@ -2,6 +2,7 @@
 title: "AI for Creative Projects: Art, Writing, Music, and Design"
 description: "Use AI to boost creativity in art, writing, music composition, and design projects"
 sidebar:
+  order: 90
   badge:
     text: "Low"
     variant: note

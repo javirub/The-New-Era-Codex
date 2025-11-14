@@ -2,6 +2,7 @@
 title: "IA para Operaciones de RH: Incorporación, Capacitación, Desempeño"
 description: "Optimiza flujos de trabajo de RH con IA para la gestión del ciclo de vida del empleado"
 sidebar:
+  order: 40
   badge:
     text: "Intermedio"
     variant: caution

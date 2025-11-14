@@ -2,6 +2,7 @@
 title: "AI for Marketing: Personalization, Content, and Campaign Optimization"
 description: "Leverage AI for content creation, audience targeting, campaign optimization, and marketing analytics"
 sidebar:
+  order: 20
   badge:
     text: "Professional"
     variant: success

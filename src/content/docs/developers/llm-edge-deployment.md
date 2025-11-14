@@ -2,6 +2,7 @@
 title: "Edge Deployment: Running LLMs on Mobile & IoT Devices"
 description: "Deploy optimized LLMs on resource-constrained edge devices"
 sidebar:
+  order: 105
   badge:
     text: "Advanced"
     variant: danger

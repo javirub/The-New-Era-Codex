@@ -2,6 +2,7 @@
 title: "IA para Legal y Contratos: Revisión, Redacción, Investigación"
 description: "Usa IA para análisis de contratos, investigación legal y redacción de documentos"
 sidebar:
+  order: 60
   badge:
     text: "Intermedio"
     variant: caution

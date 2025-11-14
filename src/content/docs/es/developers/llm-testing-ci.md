@@ -2,6 +2,7 @@
 title: "Pruebas de LLM y CI/CD: Aseguramiento de Calidad para Apps de IA"
 description: "Implementa pruebas, monitoreo y pipelines de CI/CD para aplicaciones LLM"
 sidebar:
+  order: 75
   badge:
     text: "Intermedio"
     variant: caution

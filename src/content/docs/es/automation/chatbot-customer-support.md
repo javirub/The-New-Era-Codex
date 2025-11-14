@@ -2,6 +2,7 @@
 title: "Construcción de Chatbots de Soporte al Cliente con Herramientas No-Code"
 description: "Crea chatbots de soporte inteligentes usando Voiceflow, Chatfuel y ManyChat"
 sidebar:
+  order: 25
   badge:
     text: "Intermedio"
     variant: caution

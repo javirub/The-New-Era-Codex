@@ -1,6 +1,8 @@
 ---
 title: For Everyone
 description: Accessible AI guides for daily use and practical applications
+sidebar:
+  order: 0
 version: "1.0"
 ---
 

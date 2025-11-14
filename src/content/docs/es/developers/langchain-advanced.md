@@ -2,6 +2,7 @@
 title: "LangChain Avanzado: Chains, Memory y Agents"
 description: "Domina las características avanzadas de LangChain para aplicaciones de IA en producción"
 sidebar:
+  order: 65
   badge:
     text: "Intermedio"
     variant: caution

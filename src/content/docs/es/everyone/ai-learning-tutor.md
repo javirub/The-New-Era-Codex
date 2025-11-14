@@ -2,6 +2,7 @@
 title: "IA como tu Tutor Personal: Aprende Cualquier Cosa Más Rápido"
 description: "Usa IA para aprender nuevas habilidades, comprender temas complejos y acelerar tu educación"
 sidebar:
+  order: 45
   badge:
     text: "Bajo"
     variant: note

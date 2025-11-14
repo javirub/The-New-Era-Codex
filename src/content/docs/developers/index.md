@@ -1,6 +1,8 @@
 ---
 title: For Developers
 description: AI tools, frameworks, and best practices for software developers
+sidebar:
+  order: 0
 version: "1.0"
 ---
 
