@@ -1,6 +1,8 @@
 ---
 title: Para entusiastas de la automatización
 description: Flujos de trabajo de automatización de IA sin código y con poco código
+sidebar:
+  order: 0
 version: "1.0"
 ---
 

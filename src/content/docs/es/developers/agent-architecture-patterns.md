@@ -1,7 +1,8 @@
 ---
 title: "Arquitectura de Agentes de IA: Patrones y Mejores Prácticas"
-description: "Diseña agentes autónomos, patrones (ReAct, Chain-of-Thought), herramientas y estrategias de orquestación"
+description: "Diseño de agentes autónomos, patterns (ReAct, Chain-of-Thought), herramientas y estrategias de orquestación"
 sidebar:
+  order: 50
   badge:
     text: "Avanzado"
     variant: caution
@@ -12,7 +13,7 @@ version: "1.0"
 
 ## Descripción General
 
-Los agentes de IA son sistemas autónomos que pueden percibir su entorno, tomar decisiones y ejecutar acciones para lograr objetivos específicos. A diferencia de los sistemas simples de prompt-respuesta, los agentes pueden descomponer tareas complejas, usar herramientas y adaptar su comportamiento basándose en retroalimentación.
+Los agentes de IA son sistemas autónomos que pueden percibir su entorno, tomar decisiones y ejecutar acciones para alcanzar objetivos específicos. A diferencia de sistemas simples de prompt-respuesta, los agentes pueden descomponer tareas complejas, usar herramientas y adaptar su comportamiento basándose en retroalimentación.
 
 **Lo que aprenderás**: Cómo diseñar, implementar y orquestar agentes de IA autónomos usando patrones y frameworks modernos.
 
@@ -20,27 +21,27 @@ Los agentes de IA son sistemas autónomos que pueden percibir su entorno, tomar 
 - Soporte al cliente automatizado que puede consultar bases de datos y tomar acciones
 - Asistentes de investigación que pueden buscar, analizar y sintetizar información
 - Agentes DevOps que pueden monitorear sistemas y resolver problemas
-- Asistentes de productividad personal que gestionan múltiples herramientas
+- Asistentes de productividad personal que manejan múltiples herramientas
 
 **Tiempo para completar**: 60-90 minutos
 
-## Requisitos Previos
+## Prerrequisitos
 
 **Conocimientos requeridos**:
 - Python 3.9+
 - Comprensión de LLMs y sus capacidades
 - Patrones básicos de async/await
-- Conceptos de API RESTful
+- Conceptos de APIs RESTful
 
 **Cuentas/herramientas requeridas**:
-- Clave de API de OpenAI o Anthropic
+- Clave API de OpenAI o Anthropic
 - Entorno Python con pip
 - Familiaridad con LangChain (útil pero no requerido)
 
 **Opcional pero útil**:
 - Experiencia con diseño de sistemas
 - Comprensión de máquinas de estado
-- Antecedentes en sistemas multi-agente
+- Conocimiento de sistemas multi-agente
 
 ## Fundamentos de Arquitectura de Agentes
 
@@ -50,7 +51,7 @@ Un agente de IA típicamente tiene estas características:
 
 1. **Autonomía**: Puede operar independientemente sin intervención humana constante
 2. **Reactividad**: Responde a cambios en su entorno
-3. **Proactividad**: Toma la iniciativa para alcanzar objetivos
+3. **Proactividad**: Toma iniciativa para alcanzar objetivos
 4. **Uso de Herramientas**: Puede interactuar con sistemas externos y APIs
 5. **Memoria**: Mantiene estado a través de interacciones
 6. **Razonamiento**: Puede planificar y tomar decisiones
@@ -59,17 +60,17 @@ Un agente de IA típicamente tiene estas características:
 
 ```
 Cadena Simple:        Entrada → LLM → Salida
-                     (determinista, camino único)
+                      (determinista, ruta única)
 
-Agente:               Entrada → [Bucle de Razonamiento] → Salida
-                             ↓           ↑
-                          Herramientas ←→ Memoria
-                     (no determinista, adaptativo)
+Agente:               Entrada → [Ciclo de Razonamiento] → Salida
+                               ↓           ↑
+                         Herramientas ←→ Memoria
+                      (no determinista, adaptativo)
 
-Sistema Multi-Agente:  Entrada → Agente 1 ⇄ Agente 2 ⇄ Agente 3 → Salida
-                             ↓         ↓         ↓
-                           Herramientas     Herramientas     Herramientas
-                     (colaborativo, especializado)
+Sistema Multi-Agente: Entrada → Agente 1 ⇄ Agente 2 ⇄ Agente 3 → Salida
+                               ↓         ↓         ↓
+                          Herramientas Herramientas Herramientas
+                      (colaborativo, especializado)
 ```
 
 ## Patrones Principales de Agentes
@@ -81,10 +82,10 @@ El patrón ReAct alterna entre razonar sobre qué hacer y tomar acciones.
 **Estructura del Patrón**:
 ```
 Pensamiento: Necesito encontrar el clima actual
-Acción: search_weather(location="San Francisco")
-Observación: La temperatura es 65°F, parcialmente nublado
+Acción: buscar_clima(ubicacion="San Francisco")
+Observación: La temperatura es 18°C, parcialmente nublado
 Pensamiento: Ahora tengo la información del clima
-Acción: Respuesta Final: Está a 65°F y parcialmente nublado en San Francisco
+Acción: Respuesta Final: Está a 18°C y parcialmente nublado en San Francisco
 ```
 
 **Implementación**:
@@ -95,73 +96,73 @@ from langchain_openai import ChatOpenAI
 from langchain.tools import Tool
 from langchain import hub
 
-# Define tools
-def get_weather(location: str) -> str:
-    """Get current weather for a location"""
-    # In production, call actual weather API
-    return f"The weather in {location} is 72°F and sunny"
+# Definir herramientas
+def obtener_clima(ubicacion: str) -> str:
+    """Obtener clima actual para una ubicación"""
+    # En producción, llamar API de clima real
+    return f"El clima en {ubicacion} es 22°C y soleado"
 
-def calculate(expression: str) -> str:
-    """Safely evaluate mathematical expressions"""
+def calcular(expresion: str) -> str:
+    """Evaluar expresiones matemáticas de forma segura"""
     try:
-        return str(eval(expression, {"__builtins__": {}}))
+        return str(eval(expresion, {"__builtins__": {}}))
     except Exception as e:
         return f"Error: {str(e)}"
 
-tools = [
+herramientas = [
     Tool(
-        name="get_weather",
-        func=get_weather,
-        description="Get current weather for a specific location. Input should be a city name."
+        name="obtener_clima",
+        func=obtener_clima,
+        description="Obtener clima actual para una ubicación específica. La entrada debe ser el nombre de una ciudad."
     ),
     Tool(
-        name="calculator",
-        func=calculate,
-        description="Perform mathematical calculations. Input should be a valid mathematical expression."
+        name="calculadora",
+        func=calcular,
+        description="Realizar cálculos matemáticos. La entrada debe ser una expresión matemática válida."
     )
 ]
 
-# Create ReAct agent
+# Crear agente ReAct
 llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
 
-# Get the ReAct prompt template
+# Obtener plantilla de prompt ReAct
 prompt = hub.pull("hwchase17/react")
 
-# Create agent
-agent = create_react_agent(
+# Crear agente
+agente = create_react_agent(
     llm=llm,
-    tools=tools,
+    tools=herramientas,
     prompt=prompt
 )
 
-# Create executor
-agent_executor = AgentExecutor(
-    agent=agent,
-    tools=tools,
+# Crear ejecutor
+ejecutor_agente = AgentExecutor(
+    agent=agente,
+    tools=herramientas,
     verbose=True,
     handle_parsing_errors=True,
-    max_iterations=5  # Prevent infinite loops
+    max_iterations=5  # Prevenir bucles infinitos
 )
 
-# Run agent
-result = agent_executor.invoke({
-    "input": "What's the weather in San Francisco and what is 25 * 4?"
+# Ejecutar agente
+resultado = ejecutor_agente.invoke({
+    "input": "¿Cuál es el clima en San Francisco y cuánto es 25 * 4?"
 })
 
-print(result["output"])
+print(resultado["output"])
 ```
 
 **Por qué funciona ReAct**:
-- Las trazas de razonamiento explícitas hacen que el comportamiento del agente sea interpretable
-- Autocorrección a través de retroalimentación de observaciones
+- Las trazas de razonamiento explícitas hacen el comportamiento del agente interpretable
+- Auto-corrección a través de retroalimentación de observaciones
 - Integración natural de herramientas y razonamiento
-- Maneja tareas multi-paso de manera efectiva
+- Maneja efectivamente tareas complejas de múltiples pasos
 
 **Mejores prácticas**:
-- Establece `max_iterations` para prevenir bucles de razonamiento infinitos
-- Usa `handle_parsing_errors=True` para robustez
-- Mantén las descripciones de herramientas claras y específicas
-- Registra trazas de razonamiento para depuración
+- Establecer `max_iterations` para prevenir bucles de razonamiento infinitos
+- Usar `handle_parsing_errors=True` para robustez
+- Mantener descripciones de herramientas claras y específicas
+- Registrar trazas de razonamiento para depuración
 
 ### 2. Chain-of-Thought (CoT)
 
@@ -175,64 +176,64 @@ from langchain.chains import LLMChain
 
 llm = ChatOpenAI(model="gpt-4o", temperature=0)
 
-cot_prompt = PromptTemplate(
-    input_variables=["question"],
-    template="""Answer the following question by thinking through it step by step.
+prompt_cot = PromptTemplate(
+    input_variables=["pregunta"],
+    template="""Responde la siguiente pregunta pensándola paso a paso.
 
-Question: {question}
+Pregunta: {pregunta}
 
-Let's think step by step:
+Pensemos paso a paso:
 """
 )
 
-chain = LLMChain(llm=llm, prompt=cot_prompt)
+cadena = LLMChain(llm=llm, prompt=prompt_cot)
 
-result = chain.run(
-    question="If a store has 15 apples and sells 40% of them, then receives a shipment of 8 more apples, how many apples does it have?"
+resultado = cadena.run(
+    pregunta="Si una tienda tiene 15 manzanas y vende el 40% de ellas, luego recibe un envío de 8 manzanas más, ¿cuántas manzanas tiene?"
 )
 
-print(result)
+print(resultado)
 ```
 
 **Few-Shot CoT**:
 ```python
-few_shot_prompt = PromptTemplate(
-    input_variables=["question"],
-    template="""Answer questions by showing your reasoning step by step.
+prompt_few_shot = PromptTemplate(
+    input_variables=["pregunta"],
+    template="""Responde preguntas mostrando tu razonamiento paso a paso.
 
-Example 1:
-Question: If John has 5 apples and gives 2 to Mary, how many does he have left?
-Reasoning:
-1. John starts with 5 apples
-2. He gives away 2 apples
+Ejemplo 1:
+Pregunta: Si Juan tiene 5 manzanas y le da 2 a María, ¿cuántas le quedan?
+Razonamiento:
+1. Juan comienza con 5 manzanas
+2. Regala 2 manzanas
 3. 5 - 2 = 3
-Answer: John has 3 apples left.
+Respuesta: A Juan le quedan 3 manzanas.
 
-Example 2:
-Question: A train travels 60 miles in 1 hour. How far does it travel in 2.5 hours?
-Reasoning:
-1. Speed = 60 miles/hour
-2. Time = 2.5 hours
-3. Distance = Speed × Time
-4. Distance = 60 × 2.5 = 150 miles
-Answer: The train travels 150 miles.
+Ejemplo 2:
+Pregunta: Un tren viaja 60 millas en 1 hora. ¿Qué tan lejos viaja en 2.5 horas?
+Razonamiento:
+1. Velocidad = 60 millas/hora
+2. Tiempo = 2.5 horas
+3. Distancia = Velocidad × Tiempo
+4. Distancia = 60 × 2.5 = 150 millas
+Respuesta: El tren viaja 150 millas.
 
-Now answer this question:
-Question: {question}
-Reasoning:
+Ahora responde esta pregunta:
+Pregunta: {pregunta}
+Razonamiento:
 """
 )
 
-chain = LLMChain(llm=llm, prompt=few_shot_prompt)
+cadena = LLMChain(llm=llm, prompt=prompt_few_shot)
 ```
 
 **Cuándo usar CoT**:
 - Problemas matemáticos o lógicos complejos
-- Tareas de razonamiento multi-paso
+- Tareas de razonamiento de múltiples pasos
 - Cuando la transparencia del razonamiento es importante
 - Aplicaciones educativas
 
-### 3. Plan-and-Execute
+### 3. Planificar-y-Ejecutar
 
 Separa la planificación de la ejecución para tareas complejas.
 
@@ -243,225 +244,223 @@ from langchain_openai import ChatOpenAI
 from langchain.prompts import PromptTemplate
 from typing import List, Dict
 
-class PlanExecuteAgent:
-    def __init__(self, llm, tools):
+class AgentePlanificarEjecutar:
+    def __init__(self, llm, herramientas):
         self.llm = llm
-        self.tools = {tool.name: tool for tool in tools}
-        self.planner = self._create_planner()
-        self.executor = self._create_executor()
+        self.herramientas = {h.name: h for h in herramientas}
+        self.planificador = self._crear_planificador()
+        self.ejecutor = self._crear_ejecutor()
 
-    def _create_planner(self):
-        """Create planning chain"""
+    def _crear_planificador(self):
+        """Crear cadena de planificación"""
         prompt = PromptTemplate(
-            input_variables=["objective", "tools"],
-            template="""You are a planning agent. Create a step-by-step plan to achieve the objective.
+            input_variables=["objetivo", "herramientas"],
+            template="""Eres un agente de planificación. Crea un plan paso a paso para alcanzar el objetivo.
 
-Available tools:
-{tools}
+Herramientas disponibles:
+{herramientas}
 
-Objective: {objective}
+Objetivo: {objetivo}
 
-Create a numbered plan with specific steps. Each step should use one of the available tools.
+Crea un plan numerado con pasos específicos. Cada paso debe usar una de las herramientas disponibles.
 
 Plan:
 """
         )
         return LLMChain(llm=self.llm, prompt=prompt)
 
-    def _create_executor(self):
-        """Create execution chain"""
+    def _crear_ejecutor(self):
+        """Crear cadena de ejecución"""
         prompt = PromptTemplate(
-            input_variables=["step", "context"],
-            template="""Execute this step based on the context from previous steps.
+            input_variables=["paso", "contexto"],
+            template="""Ejecuta este paso basándote en el contexto de pasos anteriores.
 
-Previous context: {context}
+Contexto previo: {contexto}
 
-Current step: {step}
+Paso actual: {paso}
 
-Result:
+Resultado:
 """
         )
         return LLMChain(llm=self.llm, prompt=prompt)
 
-    def run(self, objective: str) -> Dict:
-        """Execute plan-and-execute loop"""
-        # Step 1: Create plan
-        tools_description = "\n".join([
-            f"- {name}: {tool.description}"
-            for name, tool in self.tools.items()
+    def ejecutar(self, objetivo: str) -> Dict:
+        """Ejecutar bucle de planificar-y-ejecutar"""
+        # Paso 1: Crear plan
+        descripcion_herramientas = "\n".join([
+            f"- {nombre}: {h.description}"
+            for nombre, h in self.herramientas.items()
         ])
 
-        plan = self.planner.run(
-            objective=objective,
-            tools=tools_description
+        plan = self.planificador.run(
+            objetivo=objetivo,
+            herramientas=descripcion_herramientas
         )
 
         print(f"📋 Plan:\n{plan}\n")
 
-        # Step 2: Execute plan
-        steps = [s.strip() for s in plan.split("\n") if s.strip() and s[0].isdigit()]
-        context = []
+        # Paso 2: Ejecutar plan
+        pasos = [p.strip() for p in plan.split("\n") if p.strip() and p[0].isdigit()]
+        contexto = []
 
-        for i, step in enumerate(steps, 1):
-            print(f"\n🔧 Executing step {i}: {step}")
+        for i, paso in enumerate(pasos, 1):
+            print(f"\n🔧 Ejecutando paso {i}: {paso}")
 
-            # Extract tool name and parameters from step
-            # (simplified - in production, use more robust parsing)
-            result = self.executor.run(
-                step=step,
-                context="\n".join(context)
+            resultado = self.ejecutor.run(
+                paso=paso,
+                contexto="\n".join(contexto)
             )
 
-            context.append(f"Step {i} result: {result}")
-            print(f"✅ Result: {result}")
+            contexto.append(f"Resultado paso {i}: {resultado}")
+            print(f"✅ Resultado: {resultado}")
 
         return {
             "plan": plan,
-            "steps": steps,
-            "results": context
+            "pasos": pasos,
+            "resultados": contexto
         }
 
 
-# Usage
+# Uso
 from langchain.tools import Tool
 
-tools = [
+herramientas = [
     Tool(
-        name="search",
-        func=lambda x: f"Search results for: {x}",
-        description="Search for information on the internet"
+        name="buscar",
+        func=lambda x: f"Resultados de búsqueda para: {x}",
+        description="Buscar información en internet"
     ),
     Tool(
-        name="calculate",
+        name="calcular",
         func=lambda x: eval(x),
-        description="Perform mathematical calculations"
+        description="Realizar cálculos matemáticos"
     )
 ]
 
 llm = ChatOpenAI(model="gpt-4o", temperature=0)
-agent = PlanExecuteAgent(llm=llm, tools=tools)
+agente = AgentePlanificarEjecutar(llm=llm, herramientas=herramientas)
 
-result = agent.run(
-    objective="Find the current price of Bitcoin and calculate 10% of that value"
+resultado = agente.ejecutar(
+    objetivo="Encontrar el precio actual de Bitcoin y calcular el 10% de ese valor"
 )
 ```
 
 **Ventajas**:
-- Mejor manejo de tareas complejas multi-paso
+- Mejor manejo de tareas complejas de múltiples pasos
 - Separación más clara de responsabilidades
 - Más fácil de depurar y modificar planes
-- Puede replanificar si la ejecución falla
+- Puede replanificar si falla la ejecución
 
 **Compromisos**:
-- Más llamadas al LLM (mayor costo)
+- Más llamadas LLM (mayor costo)
 - Más lento que la ejecución directa
 - Puede crear planes innecesariamente complejos para tareas simples
 
-### 4. ReWOO (Reasoning WithOut Observation)
+### 4. ReWOO (Razonamiento Sin Observación)
 
 ReWOO desacopla el razonamiento de las observaciones para reducir el uso de tokens.
 
-**Perspectiva clave**: Planifica todas las llamadas a herramientas por adelantado, ejecuta en paralelo, luego razona sobre los resultados.
+**Intuición clave**: Planificar todas las llamadas a herramientas por adelantado, ejecutar en paralelo, luego razonar sobre los resultados.
 
 **Patrón**:
 ```python
 from typing import List, Tuple
 import asyncio
 
-class ReWOOAgent:
-    def __init__(self, llm, tools):
+class AgenteReWOO:
+    def __init__(self, llm, herramientas):
         self.llm = llm
-        self.tools = {tool.name: tool for tool in tools}
+        self.herramientas = {h.name: h for h in herramientas}
 
-    async def plan(self, task: str) -> List[Tuple[str, str]]:
-        """Generate plan without executing"""
-        prompt = f"""Create a plan to solve this task. List each tool call needed.
+    async def planificar(self, tarea: str) -> List[Tuple[str, str]]:
+        """Generar plan sin ejecutar"""
+        prompt = f"""Crea un plan para resolver esta tarea. Lista cada llamada a herramienta necesaria.
 
-Available tools: {list(self.tools.keys())}
+Herramientas disponibles: {list(self.herramientas.keys())}
 
-Task: {task}
+Tarea: {tarea}
 
-Plan (format as "tool_name: parameters"):
+Plan (formato como "nombre_herramienta: parámetros"):
 """
-        plan_text = await self.llm.apredict(prompt)
+        texto_plan = await self.llm.apredict(prompt)
 
-        # Parse plan into (tool_name, params) tuples
+        # Parsear plan en tuplas (nombre_herramienta, params)
         plan = []
-        for line in plan_text.split("\n"):
-            if ":" in line:
-                tool, params = line.split(":", 1)
-                plan.append((tool.strip(), params.strip()))
+        for linea in texto_plan.split("\n"):
+            if ":" in linea:
+                herramienta, params = linea.split(":", 1)
+                plan.append((herramienta.strip(), params.strip()))
 
         return plan
 
-    async def execute_plan(self, plan: List[Tuple[str, str]]) -> List[str]:
-        """Execute all tool calls in parallel"""
-        async def execute_tool(tool_name: str, params: str):
-            tool = self.tools.get(tool_name)
-            if tool:
-                return await asyncio.to_thread(tool.func, params)
-            return f"Tool {tool_name} not found"
+    async def ejecutar_plan(self, plan: List[Tuple[str, str]]) -> List[str]:
+        """Ejecutar todas las llamadas a herramientas en paralelo"""
+        async def ejecutar_herramienta(nombre_herramienta: str, params: str):
+            herramienta = self.herramientas.get(nombre_herramienta)
+            if herramienta:
+                return await asyncio.to_thread(herramienta.func, params)
+            return f"Herramienta {nombre_herramienta} no encontrada"
 
-        tasks = [execute_tool(tool, params) for tool, params in plan]
-        results = await asyncio.gather(*tasks)
-        return results
+        tareas = [ejecutar_herramienta(h, p) for h, p in plan]
+        resultados = await asyncio.gather(*tareas)
+        return resultados
 
-    async def solve(self, task: str) -> str:
-        """Solve task using ReWOO pattern"""
-        # 1. Plan
-        plan = await self.plan(task)
+    async def resolver(self, tarea: str) -> str:
+        """Resolver tarea usando patrón ReWOO"""
+        # 1. Planificar
+        plan = await self.planificar(tarea)
         print(f"📋 Plan: {plan}")
 
-        # 2. Execute (parallel)
-        results = await self.execute_plan(plan)
-        print(f"✅ Results: {results}")
+        # 2. Ejecutar (paralelo)
+        resultados = await self.ejecutar_plan(plan)
+        print(f"✅ Resultados: {resultados}")
 
-        # 3. Synthesize
-        synthesis_prompt = f"""Given these results, answer the original task.
+        # 3. Sintetizar
+        prompt_sintesis = f"""Dada esta información, responde la tarea original.
 
-Task: {task}
+Tarea: {tarea}
 
-Tool results:
-{chr(10).join([f"{i+1}. {r}" for i, r in enumerate(results)])}
+Resultados de herramientas:
+{chr(10).join([f"{i+1}. {r}" for i, r in enumerate(resultados)])}
 
-Final answer:
+Respuesta final:
 """
-        answer = await self.llm.apredict(synthesis_prompt)
-        return answer
+        respuesta = await self.llm.apredict(prompt_sintesis)
+        return respuesta
 
 
-# Usage
+# Uso
 async def main():
     from langchain_openai import ChatOpenAI
     from langchain.tools import Tool
 
-    tools = [
+    herramientas = [
         Tool(
-            name="search",
-            func=lambda x: f"Results for {x}: [Mock data]",
-            description="Search the web"
+            name="buscar",
+            func=lambda x: f"Resultados para {x}: [Datos simulados]",
+            description="Buscar en la web"
         ),
         Tool(
-            name="calculate",
+            name="calcular",
             func=lambda x: str(eval(x)),
-            description="Calculate math expressions"
+            description="Calcular expresiones matemáticas"
         )
     ]
 
     llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
-    agent = ReWOOAgent(llm=llm, tools=tools)
+    agente = AgenteReWOO(llm=llm, herramientas=herramientas)
 
-    result = await agent.solve(
-        "What is the population of Tokyo and what is 10% of that number?"
+    resultado = await agente.resolver(
+        "¿Cuál es la población de Tokio y cuánto es el 10% de ese número?"
     )
-    print(f"\n🎯 Final result: {result}")
+    print(f"\n🎯 Resultado final: {resultado}")
 
-# Run
+# Ejecutar
 asyncio.run(main())
 ```
 
 **Beneficios**:
-- Uso reducido de tokens (no envía observaciones de vuelta al LLM después de cada paso)
+- Uso reducido de tokens (no enviar observaciones de vuelta al LLM después de cada paso)
 - Ejecución paralela de herramientas (más rápido)
 - Separación más limpia entre planificación y ejecución
 
@@ -472,43 +471,43 @@ asyncio.run(main())
 
 ## Integración de Herramientas
 
-### Diseñar Herramientas Efectivas
+### Diseñando Herramientas Efectivas
 
 **Anatomía de una herramienta**:
 ```python
 from langchain.tools import Tool, StructuredTool
 from pydantic import BaseModel, Field
 
-# Simple tool
-simple_tool = Tool(
-    name="weather",  # Clear, descriptive name
-    func=get_weather,  # The function to call
-    description="Get weather for a location. Input: city name"  # Clear usage instructions
+# Herramienta simple
+herramienta_simple = Tool(
+    name="clima",  # Nombre claro y descriptivo
+    func=obtener_clima,  # La función a llamar
+    description="Obtener clima para una ubicación. Entrada: nombre de ciudad"  # Instrucciones claras de uso
 )
 
-# Structured tool (with type safety)
-class WeatherInput(BaseModel):
-    location: str = Field(description="City name")
-    units: str = Field(description="Temperature units: 'celsius' or 'fahrenheit'", default="fahrenheit")
+# Herramienta estructurada (con seguridad de tipos)
+class EntradaClima(BaseModel):
+    ubicacion: str = Field(description="Nombre de ciudad")
+    unidades: str = Field(description="Unidades de temperatura: 'celsius' o 'fahrenheit'", default="fahrenheit")
 
-def get_weather_structured(location: str, units: str = "fahrenheit") -> str:
-    """Get weather with specified units"""
-    return f"Weather in {location}: 72°{units[0].upper()}"
+def obtener_clima_estructurado(ubicacion: str, unidades: str = "fahrenheit") -> str:
+    """Obtener clima con unidades especificadas"""
+    return f"Clima en {ubicacion}: 22°{unidades[0].upper()}"
 
-structured_tool = StructuredTool.from_function(
-    func=get_weather_structured,
-    name="weather",
-    description="Get current weather for a location with specified units"
+herramienta_estructurada = StructuredTool.from_function(
+    func=obtener_clima_estructurado,
+    name="clima",
+    description="Obtener clima actual para una ubicación con unidades especificadas"
 )
 ```
 
 **Mejores prácticas de diseño de herramientas**:
 
-1. **Descripciones claras**: Sé específico sobre entradas y salidas
-2. **Manejo de errores**: Devuelve mensajes de error útiles
-3. **Validación**: Valida entradas antes de procesar
+1. **Descripciones claras**: Ser específico sobre entradas y salidas
+2. **Manejo de errores**: Devolver mensajes de error útiles
+3. **Validación**: Validar entradas antes de procesar
 4. **Idempotencia**: La misma entrada debe dar la misma salida
-5. **Timeouts**: Establece timeouts razonables para APIs externas
+5. **Timeouts**: Establecer timeouts razonables para APIs externas
 
 **Ejemplo: Herramienta lista para producción**:
 ```python
@@ -517,128 +516,128 @@ from typing import Optional
 from functools import lru_cache
 import time
 
-class WeatherTool:
+class HerramientaClima:
     def __init__(self, api_key: str, timeout: int = 5):
         self.api_key = api_key
         self.timeout = timeout
-        self.last_call_time = {}
+        self.tiempo_ultima_llamada = {}
 
-    def _rate_limit(self, key: str, min_interval: float = 1.0):
-        """Simple rate limiting"""
-        now = time.time()
-        if key in self.last_call_time:
-            elapsed = now - self.last_call_time[key]
-            if elapsed < min_interval:
-                time.sleep(min_interval - elapsed)
-        self.last_call_time[key] = time.time()
+    def _limitar_tasa(self, clave: str, intervalo_min: float = 1.0):
+        """Limitación de tasa simple"""
+        ahora = time.time()
+        if clave in self.tiempo_ultima_llamada:
+            transcurrido = ahora - self.tiempo_ultima_llamada[clave]
+            if transcurrido < intervalo_min:
+                time.sleep(intervalo_min - transcurrido)
+        self.tiempo_ultima_llamada[clave] = time.time()
 
     @lru_cache(maxsize=100)
-    def get_weather(self, location: str) -> str:
+    def obtener_clima(self, ubicacion: str) -> str:
         """
-        Get current weather for a location.
+        Obtener clima actual para una ubicación.
 
         Args:
-            location: City name (e.g., "San Francisco" or "London,UK")
+            ubicacion: Nombre de ciudad (ej., "San Francisco" o "Londres,UK")
 
         Returns:
-            Weather description string or error message
+            Cadena de descripción del clima o mensaje de error
 
-        Examples:
-            >>> get_weather("San Francisco")
-            "72°F, Partly Cloudy, Humidity: 65%"
+        Ejemplos:
+            >>> obtener_clima("San Francisco")
+            "22°C, Parcialmente Nublado, Humedad: 65%"
         """
-        # Input validation
-        if not location or not isinstance(location, str):
-            return "Error: Location must be a non-empty string"
+        # Validación de entrada
+        if not ubicacion or not isinstance(ubicacion, str):
+            return "Error: La ubicación debe ser una cadena no vacía"
 
-        if len(location) > 100:
-            return "Error: Location name too long"
+        if len(ubicacion) > 100:
+            return "Error: Nombre de ubicación demasiado largo"
 
-        # Rate limiting
-        self._rate_limit(f"weather_{location}")
+        # Limitación de tasa
+        self._limitar_tasa(f"clima_{ubicacion}")
 
         try:
-            # Call weather API
-            response = requests.get(
+            # Llamar API de clima
+            respuesta = requests.get(
                 f"https://api.openweathermap.org/data/2.5/weather",
                 params={
-                    "q": location,
+                    "q": ubicacion,
                     "appid": self.api_key,
-                    "units": "imperial"
+                    "units": "metric"
                 },
                 timeout=self.timeout
             )
 
-            response.raise_for_status()
-            data = response.json()
+            respuesta.raise_for_status()
+            datos = respuesta.json()
 
-            # Format response
-            temp = data["main"]["temp"]
-            description = data["weather"][0]["description"]
-            humidity = data["main"]["humidity"]
+            # Formatear respuesta
+            temp = datos["main"]["temp"]
+            descripcion = datos["weather"][0]["description"]
+            humedad = datos["main"]["humidity"]
 
-            return f"{temp}°F, {description.title()}, Humidity: {humidity}%"
+            return f"{temp}°C, {descripcion.title()}, Humedad: {humedad}%"
 
         except requests.Timeout:
-            return f"Error: Weather API timeout for {location}"
+            return f"Error: Timeout en API de clima para {ubicacion}"
         except requests.RequestException as e:
-            return f"Error: Failed to fetch weather - {str(e)}"
+            return f"Error: Fallo al obtener clima - {str(e)}"
         except (KeyError, ValueError) as e:
-            return f"Error: Invalid response format - {str(e)}"
+            return f"Error: Formato de respuesta inválido - {str(e)}"
 
-# Create tool from class
-weather_tool = Tool(
-    name="get_weather",
-    func=WeatherTool(api_key="your-api-key").get_weather,
-    description="""Get current weather for any city.
+# Crear herramienta desde clase
+herramienta_clima = Tool(
+    name="obtener_clima",
+    func=HerramientaClima(api_key="tu-clave-api").obtener_clima,
+    description="""Obtener clima actual para cualquier ciudad.
 
-Input: City name (e.g., "San Francisco" or "Tokyo,JP")
-Output: Temperature, conditions, and humidity
+Entrada: Nombre de ciudad (ej., "San Francisco" o "Tokio,JP")
+Salida: Temperatura, condiciones y humedad
 
-Examples:
-- "San Francisco" → "72°F, Partly Cloudy, Humidity: 65%"
-- "Invalid City" → Error message
+Ejemplos:
+- "San Francisco" → "22°C, Parcialmente Nublado, Humedad: 65%"
+- "Ciudad Inválida" → Mensaje de error
 """
 )
 ```
 
 ### Composición de Herramientas
 
-**Encadenamiento de herramientas**:
+**Encadenar herramientas**:
 ```python
-class ToolChain:
-    """Compose multiple tools into a pipeline"""
+class CadenaHerramientas:
+    """Componer múltiples herramientas en un pipeline"""
 
-    def __init__(self, tools: List[Tool]):
-        self.tools = {t.name: t for t in tools}
+    def __init__(self, herramientas: List[Tool]):
+        self.herramientas = {h.name: h for h in herramientas}
 
-    def create_pipeline(self, *tool_names: str) -> Tool:
-        """Create a pipeline of tools"""
+    def crear_pipeline(self, *nombres_herramientas: str) -> Tool:
+        """Crear un pipeline de herramientas"""
 
-        def pipeline(input_data: str) -> str:
-            result = input_data
-            for tool_name in tool_names:
-                tool = self.tools.get(tool_name)
-                if not tool:
-                    return f"Error: Tool '{tool_name}' not found"
-                result = tool.func(result)
-            return result
+        def pipeline(datos_entrada: str) -> str:
+            resultado = datos_entrada
+            for nombre_herramienta in nombres_herramientas:
+                herramienta = self.herramientas.get(nombre_herramienta)
+                if not herramienta:
+                    return f"Error: Herramienta '{nombre_herramienta}' no encontrada"
+                resultado = herramienta.func(resultado)
+            return resultado
 
         return Tool(
-            name=f"pipeline_{'_'.join(tool_names)}",
+            name=f"pipeline_{'_'.join(nombres_herramientas)}",
             func=pipeline,
-            description=f"Pipeline: {' → '.join(tool_names)}"
+            description=f"Pipeline: {' → '.join(nombres_herramientas)}"
         )
 
 
-# Example usage
-search_tool = Tool(name="search", func=mock_search, description="Search web")
-summarize_tool = Tool(name="summarize", func=mock_summarize, description="Summarize text")
+# Uso de ejemplo
+herramienta_buscar = Tool(name="buscar", func=buscar_simulada, description="Buscar web")
+herramienta_resumir = Tool(name="resumir", func=resumir_simulada, description="Resumir texto")
 
-chain = ToolChain([search_tool, summarize_tool])
-research_tool = chain.create_pipeline("search", "summarize")
+cadena = CadenaHerramientas([herramienta_buscar, herramienta_resumir])
+herramienta_investigar = cadena.crear_pipeline("buscar", "resumir")
 
-result = research_tool.func("Latest AI developments")
+resultado = herramienta_investigar.func("Últimos desarrollos en IA")
 ```
 
 ## Gestión de Memoria y Estado
@@ -650,30 +649,30 @@ from langchain.memory import ConversationBufferMemory, ConversationSummaryMemory
 from langchain.agents import AgentExecutor, create_react_agent
 from langchain_openai import ChatOpenAI
 
-# Buffer memory (stores all messages)
-buffer_memory = ConversationBufferMemory(
-    memory_key="chat_history",
+# Memoria de buffer (almacena todos los mensajes)
+memoria_buffer = ConversationBufferMemory(
+    memory_key="historial_chat",
     return_messages=True
 )
 
-# Summary memory (summarizes old messages to save tokens)
-summary_memory = ConversationSummaryMemory(
+# Memoria de resumen (resume mensajes antiguos para ahorrar tokens)
+memoria_resumen = ConversationSummaryMemory(
     llm=ChatOpenAI(model="gpt-4o-mini"),
-    memory_key="chat_history",
+    memory_key="historial_chat",
     return_messages=True
 )
 
-# Agent with memory
-agent_with_memory = AgentExecutor(
-    agent=create_react_agent(llm, tools, prompt),
-    tools=tools,
-    memory=buffer_memory,  # or summary_memory
+# Agente con memoria
+agente_con_memoria = AgentExecutor(
+    agent=create_react_agent(llm, herramientas, prompt),
+    tools=herramientas,
+    memory=memoria_buffer,  # o memoria_resumen
     verbose=True
 )
 
-# Conversation with context
-agent_with_memory.invoke({"input": "My name is Alice"})
-agent_with_memory.invoke({"input": "What's my name?"})  # Will remember "Alice"
+# Conversación con contexto
+agente_con_memoria.invoke({"input": "Mi nombre es Alicia"})
+agente_con_memoria.invoke({"input": "¿Cuál es mi nombre?"})  # Recordará "Alicia"
 ```
 
 ### Memoria a Largo Plazo
@@ -683,32 +682,32 @@ from langchain.memory import VectorStoreRetrieverMemory
 from langchain_community.vectorstores import Chroma
 from langchain_openai import OpenAIEmbeddings
 
-# Create vector store for memory
+# Crear almacén vectorial para memoria
 embeddings = OpenAIEmbeddings()
-vectorstore = Chroma(embedding_function=embeddings, persist_directory="./agent_memory")
+almacen_vectorial = Chroma(embedding_function=embeddings, persist_directory="./memoria_agente")
 
-# Create retriever memory
-retriever_memory = VectorStoreRetrieverMemory(
-    retriever=vectorstore.as_retriever(search_kwargs={"k": 3}),
-    memory_key="relevant_history"
+# Crear memoria con recuperador
+memoria_recuperador = VectorStoreRetrieverMemory(
+    retriever=almacen_vectorial.as_retriever(search_kwargs={"k": 3}),
+    memory_key="historial_relevante"
 )
 
-# Save memories
-retriever_memory.save_context(
-    {"input": "User prefers formal communication"},
-    {"output": "Noted: formal tone preferred"}
+# Guardar memorias
+memoria_recuperador.save_context(
+    {"input": "Usuario prefiere comunicación formal"},
+    {"output": "Notado: tono formal preferido"}
 )
 
-retriever_memory.save_context(
-    {"input": "User is interested in machine learning"},
-    {"output": "Noted: ML interest"}
+memoria_recuperador.save_context(
+    {"input": "Usuario está interesado en aprendizaje automático"},
+    {"output": "Notado: interés en ML"}
 )
 
-# Retrieve relevant memories
-relevant = retriever_memory.load_memory_variables(
-    {"input": "What are my preferences?"}
+# Recuperar memorias relevantes
+relevante = memoria_recuperador.load_memory_variables(
+    {"input": "¿Cuáles son mis preferencias?"}
 )
-print(relevant)
+print(relevante)
 ```
 
 ### Máquinas de Estado
@@ -717,70 +716,70 @@ print(relevant)
 from enum import Enum
 from typing import Dict, Callable
 
-class AgentState(Enum):
-    IDLE = "idle"
-    PLANNING = "planning"
-    EXECUTING = "executing"
-    WAITING = "waiting"
-    COMPLETED = "completed"
+class EstadoAgente(Enum):
+    INACTIVO = "inactivo"
+    PLANIFICANDO = "planificando"
+    EJECUTANDO = "ejecutando"
+    ESPERANDO = "esperando"
+    COMPLETADO = "completado"
     ERROR = "error"
 
-class StatefulAgent:
+class AgenteConEstado:
     def __init__(self):
-        self.state = AgentState.IDLE
-        self.context = {}
-        self.transitions: Dict[AgentState, Dict[AgentState, Callable]] = {
-            AgentState.IDLE: {
-                AgentState.PLANNING: self._start_planning
+        self.estado = EstadoAgente.INACTIVO
+        self.contexto = {}
+        self.transiciones: Dict[EstadoAgente, Dict[EstadoAgente, Callable]] = {
+            EstadoAgente.INACTIVO: {
+                EstadoAgente.PLANIFICANDO: self._iniciar_planificacion
             },
-            AgentState.PLANNING: {
-                AgentState.EXECUTING: self._start_execution,
-                AgentState.ERROR: self._handle_error
+            EstadoAgente.PLANIFICANDO: {
+                EstadoAgente.EJECUTANDO: self._iniciar_ejecucion,
+                EstadoAgente.ERROR: self._manejar_error
             },
-            AgentState.EXECUTING: {
-                AgentState.WAITING: self._wait_for_result,
-                AgentState.COMPLETED: self._complete,
-                AgentState.ERROR: self._handle_error
+            EstadoAgente.EJECUTANDO: {
+                EstadoAgente.ESPERANDO: self._esperar_resultado,
+                EstadoAgente.COMPLETADO: self._completar,
+                EstadoAgente.ERROR: self._manejar_error
             },
-            AgentState.WAITING: {
-                AgentState.EXECUTING: self._continue_execution,
-                AgentState.COMPLETED: self._complete
+            EstadoAgente.ESPERANDO: {
+                EstadoAgente.EJECUTANDO: self._continuar_ejecucion,
+                EstadoAgente.COMPLETADO: self._completar
             }
         }
 
-    def transition(self, new_state: AgentState):
-        """Transition to new state with validation"""
-        if new_state not in self.transitions.get(self.state, {}):
-            raise ValueError(f"Invalid transition from {self.state} to {new_state}")
+    def transicionar(self, nuevo_estado: EstadoAgente):
+        """Transicionar a nuevo estado con validación"""
+        if nuevo_estado not in self.transiciones.get(self.estado, {}):
+            raise ValueError(f"Transición inválida desde {self.estado} a {nuevo_estado}")
 
-        transition_func = self.transitions[self.state][new_state]
-        transition_func()
-        self.state = new_state
-        print(f"State: {self.state.value}")
+        func_transicion = self.transiciones[self.estado][nuevo_estado]
+        func_transicion()
+        self.estado = nuevo_estado
+        print(f"Estado: {self.estado.value}")
 
-    def _start_planning(self):
-        print("Starting planning phase...")
+    def _iniciar_planificacion(self):
+        print("Iniciando fase de planificación...")
 
-    def _start_execution(self):
-        print("Starting execution...")
+    def _iniciar_ejecucion(self):
+        print("Iniciando ejecución...")
 
-    def _wait_for_result(self):
-        print("Waiting for results...")
+    def _esperar_resultado(self):
+        print("Esperando resultados...")
 
-    def _continue_execution(self):
-        print("Continuing execution...")
+    def _continuar_ejecucion(self):
+        print("Continuando ejecución...")
 
-    def _complete(self):
-        print("Task completed!")
+    def _completar(self):
+        print("¡Tarea completada!")
 
-    def _handle_error(self):
-        print("Handling error...")
+    def _manejar_error(self):
+        print("Manejando error...")
 
-# Usage
-agent = StatefulAgent()
-agent.transition(AgentState.PLANNING)
-agent.transition(AgentState.EXECUTING)
-agent.transition(AgentState.COMPLETED)
+# Uso
+agente = AgenteConEstado()
+agente.transicionar(EstadoAgente.PLANIFICANDO)
+agente.transicionar(EstadoAgente.EJECUTANDO)
+agente.transicionar(EstadoAgente.COMPLETADO)
 ```
 
 ## Sistemas Multi-Agente
@@ -792,153 +791,153 @@ from typing import List
 from dataclasses import dataclass
 
 @dataclass
-class AgentMessage:
-    sender: str
-    receiver: str
-    content: str
-    message_type: str  # "request", "response", "broadcast"
+class MensajeAgente:
+    emisor: str
+    receptor: str
+    contenido: str
+    tipo_mensaje: str  # "solicitud", "respuesta", "difusion"
 
-class CollaborativeAgent:
-    def __init__(self, name: str, role: str, llm, tools):
-        self.name = name
-        self.role = role
+class AgenteColaborativo:
+    def __init__(self, nombre: str, rol: str, llm, herramientas):
+        self.nombre = nombre
+        self.rol = rol
         self.llm = llm
-        self.tools = tools
-        self.inbox: List[AgentMessage] = []
+        self.herramientas = herramientas
+        self.bandeja_entrada: List[MensajeAgente] = []
 
-    def send_message(self, receiver: str, content: str, message_type: str = "request"):
-        """Send message to another agent"""
-        return AgentMessage(
-            sender=self.name,
-            receiver=receiver,
-            content=content,
-            message_type=message_type
+    def enviar_mensaje(self, receptor: str, contenido: str, tipo_mensaje: str = "solicitud"):
+        """Enviar mensaje a otro agente"""
+        return MensajeAgente(
+            emisor=self.nombre,
+            receptor=receptor,
+            contenido=contenido,
+            tipo_mensaje=tipo_mensaje
         )
 
-    def receive_message(self, message: AgentMessage):
-        """Receive message from another agent"""
-        self.inbox.append(message)
+    def recibir_mensaje(self, mensaje: MensajeAgente):
+        """Recibir mensaje de otro agente"""
+        self.bandeja_entrada.append(mensaje)
 
-    def process_messages(self) -> List[AgentMessage]:
-        """Process inbox and generate responses"""
-        responses = []
+    def procesar_mensajes(self) -> List[MensajeAgente]:
+        """Procesar bandeja de entrada y generar respuestas"""
+        respuestas = []
 
-        for message in self.inbox:
-            if message.message_type == "request":
-                # Process request and generate response
-                response_content = self._handle_request(message.content)
-                responses.append(
-                    self.send_message(
-                        message.sender,
-                        response_content,
-                        "response"
+        for mensaje in self.bandeja_entrada:
+            if mensaje.tipo_mensaje == "solicitud":
+                # Procesar solicitud y generar respuesta
+                contenido_respuesta = self._manejar_solicitud(mensaje.contenido)
+                respuestas.append(
+                    self.enviar_mensaje(
+                        mensaje.emisor,
+                        contenido_respuesta,
+                        "respuesta"
                     )
                 )
 
-        self.inbox.clear()
-        return responses
+        self.bandeja_entrada.clear()
+        return respuestas
 
-    def _handle_request(self, content: str) -> str:
-        """Handle incoming request"""
-        prompt = f"""You are {self.name}, a {self.role} agent.
-Process this request and provide a response:
+    def _manejar_solicitud(self, contenido: str) -> str:
+        """Manejar solicitud entrante"""
+        prompt = f"""Eres {self.nombre}, un agente {self.rol}.
+Procesa esta solicitud y proporciona una respuesta:
 
-Request: {content}
+Solicitud: {contenido}
 
-Response:
+Respuesta:
 """
         return self.llm.predict(prompt)
 
 
-class AgentOrchestrator:
+class OrquestadorAgentes:
     def __init__(self):
-        self.agents: Dict[str, CollaborativeAgent] = {}
+        self.agentes: Dict[str, AgenteColaborativo] = {}
 
-    def register_agent(self, agent: CollaborativeAgent):
-        """Register an agent"""
-        self.agents[agent.name] = agent
+    def registrar_agente(self, agente: AgenteColaborativo):
+        """Registrar un agente"""
+        self.agentes[agente.nombre] = agente
 
-    def route_message(self, message: AgentMessage):
-        """Route message to appropriate agent"""
-        receiver = self.agents.get(message.receiver)
-        if receiver:
-            receiver.receive_message(message)
+    def enrutar_mensaje(self, mensaje: MensajeAgente):
+        """Enrutar mensaje al agente apropiado"""
+        receptor = self.agentes.get(mensaje.receptor)
+        if receptor:
+            receptor.recibir_mensaje(mensaje)
         else:
-            print(f"Warning: Agent '{message.receiver}' not found")
+            print(f"Advertencia: Agente '{mensaje.receptor}' no encontrado")
 
-    def run_round(self):
-        """Process one round of messages"""
-        all_messages = []
+    def ejecutar_ronda(self):
+        """Procesar una ronda de mensajes"""
+        todos_mensajes = []
 
-        # Each agent processes their inbox
-        for agent in self.agents.values():
-            responses = agent.process_messages()
-            all_messages.extend(responses)
+        # Cada agente procesa su bandeja de entrada
+        for agente in self.agentes.values():
+            respuestas = agente.procesar_mensajes()
+            todos_mensajes.extend(respuestas)
 
-        # Route all responses
-        for message in all_messages:
-            if message.receiver == "broadcast":
-                for agent in self.agents.values():
-                    if agent.name != message.sender:
-                        agent.receive_message(message)
+        # Enrutar todas las respuestas
+        for mensaje in todos_mensajes:
+            if mensaje.receptor == "difusion":
+                for agente in self.agentes.values():
+                    if agente.nombre != mensaje.emisor:
+                        agente.recibir_mensaje(mensaje)
             else:
-                self.route_message(message)
+                self.enrutar_mensaje(mensaje)
 
-        return len(all_messages) > 0  # Continue if there are messages
+        return len(todos_mensajes) > 0  # Continuar si hay mensajes
 
 
-# Example usage
+# Uso de ejemplo
 from langchain_openai import ChatOpenAI
 
 llm = ChatOpenAI(model="gpt-4o-mini")
 
-researcher = CollaborativeAgent(
-    name="Researcher",
-    role="information gatherer",
+investigador = AgenteColaborativo(
+    nombre="Investigador",
+    rol="recopilador de información",
     llm=llm,
-    tools=[]
+    herramientas=[]
 )
 
-analyst = CollaborativeAgent(
-    name="Analyst",
-    role="data analyzer",
+analista = AgenteColaborativo(
+    nombre="Analista",
+    rol="analizador de datos",
     llm=llm,
-    tools=[]
+    herramientas=[]
 )
 
-writer = CollaborativeAgent(
-    name="Writer",
-    role="content creator",
+escritor = AgenteColaborativo(
+    nombre="Escritor",
+    rol="creador de contenido",
     llm=llm,
-    tools=[]
+    herramientas=[]
 )
 
-# Orchestrate
-orchestrator = AgentOrchestrator()
-orchestrator.register_agent(researcher)
-orchestrator.register_agent(analyst)
-orchestrator.register_agent(writer)
+# Orquestar
+orquestador = OrquestadorAgentes()
+orquestador.registrar_agente(investigador)
+orquestador.registrar_agente(analista)
+orquestador.registrar_agente(escritor)
 
-# Start collaboration
-initial_message = AgentMessage(
-    sender="User",
-    receiver="Researcher",
-    content="Research the latest trends in AI agents",
-    message_type="request"
+# Iniciar colaboración
+mensaje_inicial = MensajeAgente(
+    emisor="Usuario",
+    receptor="Investigador",
+    contenido="Investiga las últimas tendencias en agentes de IA",
+    tipo_mensaje="solicitud"
 )
 
-orchestrator.route_message(initial_message)
+orquestador.enrutar_mensaje(mensaje_inicial)
 
-# Run collaboration rounds
+# Ejecutar rondas de colaboración
 for _ in range(3):
-    has_messages = orchestrator.run_round()
-    if not has_messages:
+    tiene_mensajes = orquestador.ejecutar_ronda()
+    if not tiene_mensajes:
         break
 ```
 
 ## Manejo de Errores y Robustez
 
-### Estrategias de Reintentos
+### Estrategias de Reintento
 
 ```python
 from tenacity import (
@@ -949,9 +948,9 @@ from tenacity import (
 )
 from openai import RateLimitError, APIError
 
-class RobustAgent:
-    def __init__(self, agent_executor):
-        self.agent_executor = agent_executor
+class AgenteRobusto:
+    def __init__(self, ejecutor_agente):
+        self.ejecutor_agente = ejecutor_agente
 
     @retry(
         retry=retry_if_exception_type((RateLimitError, APIError)),
@@ -959,70 +958,70 @@ class RobustAgent:
         wait=wait_exponential(multiplier=1, min=2, max=10),
         reraise=True
     )
-    def run_with_retry(self, input_text: str):
-        """Run agent with automatic retry on failures"""
+    def ejecutar_con_reintentos(self, texto_entrada: str):
+        """Ejecutar agente con reintento automático en fallos"""
         try:
-            return self.agent_executor.invoke({"input": input_text})
+            return self.ejecutor_agente.invoke({"input": texto_entrada})
         except Exception as e:
-            print(f"Attempt failed: {e}")
+            print(f"Intento fallido: {e}")
             raise
 
-    def run_with_fallback(self, input_text: str, fallback_response: str = None):
-        """Run agent with fallback response"""
+    def ejecutar_con_respaldo(self, texto_entrada: str, respuesta_respaldo: str = None):
+        """Ejecutar agente con respuesta de respaldo"""
         try:
-            return self.run_with_retry(input_text)
+            return self.ejecutar_con_reintentos(texto_entrada)
         except Exception as e:
-            print(f"All retries failed: {e}")
-            if fallback_response:
-                return {"output": fallback_response}
-            return {"output": "I apologize, but I'm unable to process your request at this time."}
+            print(f"Todos los reintentos fallaron: {e}")
+            if respuesta_respaldo:
+                return {"output": respuesta_respaldo}
+            return {"output": "Lo siento, pero no puedo procesar tu solicitud en este momento."}
 
 
-# Usage
-robust_agent = RobustAgent(agent_executor)
+# Uso
+agente_robusto = AgenteRobusto(ejecutor_agente)
 
-result = robust_agent.run_with_fallback(
-    "Complex query that might fail",
-    fallback_response="Let me try a different approach..."
+resultado = agente_robusto.ejecutar_con_respaldo(
+    "Consulta compleja que podría fallar",
+    respuesta_respaldo="Permíteme intentar un enfoque diferente..."
 )
 ```
 
-### Degradación Gradual
+### Degradación Elegante
 
 ```python
-class DegradableAgent:
-    def __init__(self, primary_llm, fallback_llm, tools):
-        self.primary_llm = primary_llm  # e.g., GPT-4
-        self.fallback_llm = fallback_llm  # e.g., GPT-3.5
-        self.tools = tools
-        self.use_fallback = False
+class AgenteDegradable:
+    def __init__(self, llm_primario, llm_respaldo, herramientas):
+        self.llm_primario = llm_primario  # ej., GPT-4
+        self.llm_respaldo = llm_respaldo  # ej., GPT-3.5
+        self.herramientas = herramientas
+        self.usar_respaldo = False
 
-    def run(self, input_text: str):
-        """Run with automatic degradation to simpler model"""
-        llm = self.fallback_llm if self.use_fallback else self.primary_llm
+    def ejecutar(self, texto_entrada: str):
+        """Ejecutar con degradación automática a modelo más simple"""
+        llm = self.llm_respaldo if self.usar_respaldo else self.llm_primario
 
         try:
-            agent = create_react_agent(llm, self.tools, prompt)
-            executor = AgentExecutor(agent=agent, tools=self.tools)
-            result = executor.invoke({"input": input_text})
+            agente = create_react_agent(llm, self.herramientas, prompt)
+            ejecutor = AgentExecutor(agent=agente, tools=self.herramientas)
+            resultado = ejecutor.invoke({"input": texto_entrada})
 
-            # Reset to primary if fallback succeeded
-            if self.use_fallback:
-                self.use_fallback = False
+            # Resetear a primario si el respaldo tuvo éxito
+            if self.usar_respaldo:
+                self.usar_respaldo = False
 
-            return result
+            return resultado
 
         except RateLimitError:
-            if not self.use_fallback:
-                print("Rate limited on primary model, degrading to fallback")
-                self.use_fallback = True
-                return self.run(input_text)  # Retry with fallback
+            if not self.usar_respaldo:
+                print("Límite de tasa en modelo primario, degradando a respaldo")
+                self.usar_respaldo = True
+                return self.ejecutar(texto_entrada)  # Reintentar con respaldo
             raise
 ```
 
 ## Observabilidad y Monitoreo
 
-### Registro y Rastreo
+### Registro y Trazado
 
 ```python
 import logging
@@ -1030,83 +1029,83 @@ from datetime import datetime
 from typing import Any, Dict
 import json
 
-class AgentLogger:
-    def __init__(self, agent_name: str):
-        self.agent_name = agent_name
-        self.logger = logging.getLogger(agent_name)
-        self.logger.setLevel(logging.INFO)
+class RegistradorAgente:
+    def __init__(self, nombre_agente: str):
+        self.nombre_agente = nombre_agente
+        self.registrador = logging.getLogger(nombre_agente)
+        self.registrador.setLevel(logging.INFO)
 
-        # Console handler
-        console_handler = logging.StreamHandler()
-        console_handler.setLevel(logging.INFO)
+        # Manejador de consola
+        manejador_consola = logging.StreamHandler()
+        manejador_consola.setLevel(logging.INFO)
 
-        # File handler for detailed logs
-        file_handler = logging.FileHandler(f"{agent_name}_trace.log")
-        file_handler.setLevel(logging.DEBUG)
+        # Manejador de archivo para registros detallados
+        manejador_archivo = logging.FileHandler(f"{nombre_agente}_traza.log")
+        manejador_archivo.setLevel(logging.DEBUG)
 
-        # Format
-        formatter = logging.Formatter(
+        # Formato
+        formateador = logging.Formatter(
             '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
         )
-        console_handler.setFormatter(formatter)
-        file_handler.setFormatter(formatter)
+        manejador_consola.setFormatter(formateador)
+        manejador_archivo.setFormatter(formateador)
 
-        self.logger.addHandler(console_handler)
-        self.logger.addHandler(file_handler)
+        self.registrador.addHandler(manejador_consola)
+        self.registrador.addHandler(manejador_archivo)
 
-    def log_interaction(self, interaction_type: str, data: Dict[str, Any]):
-        """Log agent interaction"""
-        log_entry = {
-            "timestamp": datetime.now().isoformat(),
-            "agent": self.agent_name,
-            "type": interaction_type,
-            "data": data
+    def registrar_interaccion(self, tipo_interaccion: str, datos: Dict[str, Any]):
+        """Registrar interacción del agente"""
+        entrada_registro = {
+            "marca_tiempo": datetime.now().isoformat(),
+            "agente": self.nombre_agente,
+            "tipo": tipo_interaccion,
+            "datos": datos
         }
-        self.logger.info(json.dumps(log_entry))
+        self.registrador.info(json.dumps(entrada_registro))
 
-    def log_tool_call(self, tool_name: str, input_data: Any, output_data: Any, duration: float):
-        """Log tool usage"""
-        self.log_interaction("tool_call", {
-            "tool": tool_name,
-            "input": str(input_data)[:200],  # Truncate long inputs
-            "output": str(output_data)[:200],
-            "duration_ms": duration * 1000
+    def registrar_llamada_herramienta(self, nombre_herramienta: str, datos_entrada: Any, datos_salida: Any, duracion: float):
+        """Registrar uso de herramienta"""
+        self.registrar_interaccion("llamada_herramienta", {
+            "herramienta": nombre_herramienta,
+            "entrada": str(datos_entrada)[:200],  # Truncar entradas largas
+            "salida": str(datos_salida)[:200],
+            "duracion_ms": duracion * 1000
         })
 
-    def log_error(self, error: Exception, context: Dict[str, Any] = None):
-        """Log errors with context"""
-        self.logger.error(f"Error: {error}", extra={
-            "context": context,
-            "error_type": type(error).__name__
+    def registrar_error(self, error: Exception, contexto: Dict[str, Any] = None):
+        """Registrar errores con contexto"""
+        self.registrador.error(f"Error: {error}", extra={
+            "contexto": contexto,
+            "tipo_error": type(error).__name__
         })
 
 
-# Usage with agent
-logger = AgentLogger("MyAgent")
+# Uso con agente
+registrador = RegistradorAgente("MiAgente")
 
-class LoggedAgent:
-    def __init__(self, agent_executor, logger):
-        self.agent_executor = agent_executor
-        self.logger = logger
+class AgenteRegistrado:
+    def __init__(self, ejecutor_agente, registrador):
+        self.ejecutor_agente = ejecutor_agente
+        self.registrador = registrador
 
-    def run(self, input_text: str):
-        """Run agent with logging"""
-        self.logger.log_interaction("input", {"query": input_text})
+    def ejecutar(self, texto_entrada: str):
+        """Ejecutar agente con registro"""
+        self.registrador.registrar_interaccion("entrada", {"consulta": texto_entrada})
 
         try:
-            start_time = datetime.now()
-            result = self.agent_executor.invoke({"input": input_text})
-            duration = (datetime.now() - start_time).total_seconds()
+            tiempo_inicio = datetime.now()
+            resultado = self.ejecutor_agente.invoke({"input": texto_entrada})
+            duracion = (datetime.now() - tiempo_inicio).total_seconds()
 
-            self.logger.log_interaction("output", {
-                "response": result["output"],
-                "duration_s": duration
+            self.registrador.registrar_interaccion("salida", {
+                "respuesta": resultado["output"],
+                "duracion_s": duracion
             })
 
-            return result
+            return resultado
 
         except Exception as e:
-            self.logger.log_error(e, {"input": input_text})
+            self.registrador.registrar_error(e, {"entrada": texto_entrada})
             raise
 ```
 
@@ -1118,91 +1117,91 @@ from typing import List
 import time
 
 @dataclass
-class AgentMetrics:
-    total_runs: int = 0
-    successful_runs: int = 0
-    failed_runs: int = 0
-    total_tokens: int = 0
-    total_cost: float = 0.0
-    average_latency: float = 0.0
-    tool_usage: Dict[str, int] = field(default_factory=dict)
-    latencies: List[float] = field(default_factory=list)
+class MetricasAgente:
+    ejecuciones_totales: int = 0
+    ejecuciones_exitosas: int = 0
+    ejecuciones_fallidas: int = 0
+    tokens_totales: int = 0
+    costo_total: float = 0.0
+    latencia_promedio: float = 0.0
+    uso_herramientas: Dict[str, int] = field(default_factory=dict)
+    latencias: List[float] = field(default_factory=list)
 
-    def add_run(self, success: bool, tokens: int, cost: float, latency: float, tools_used: List[str]):
-        """Record a run"""
-        self.total_runs += 1
-        if success:
-            self.successful_runs += 1
+    def agregar_ejecucion(self, exito: bool, tokens: int, costo: float, latencia: float, herramientas_usadas: List[str]):
+        """Registrar una ejecución"""
+        self.ejecuciones_totales += 1
+        if exito:
+            self.ejecuciones_exitosas += 1
         else:
-            self.failed_runs += 1
+            self.ejecuciones_fallidas += 1
 
-        self.total_tokens += tokens
-        self.total_cost += cost
-        self.latencies.append(latency)
-        self.average_latency = sum(self.latencies) / len(self.latencies)
+        self.tokens_totales += tokens
+        self.costo_total += costo
+        self.latencias.append(latencia)
+        self.latencia_promedio = sum(self.latencias) / len(self.latencias)
 
-        for tool in tools_used:
-            self.tool_usage[tool] = self.tool_usage.get(tool, 0) + 1
+        for herramienta in herramientas_usadas:
+            self.uso_herramientas[herramienta] = self.uso_herramientas.get(herramienta, 0) + 1
 
-    def get_success_rate(self) -> float:
-        """Calculate success rate"""
-        if self.total_runs == 0:
+    def obtener_tasa_exito(self) -> float:
+        """Calcular tasa de éxito"""
+        if self.ejecuciones_totales == 0:
             return 0.0
-        return self.successful_runs / self.total_runs
+        return self.ejecuciones_exitosas / self.ejecuciones_totales
 
-    def get_report(self) -> str:
-        """Generate metrics report"""
+    def obtener_reporte(self) -> str:
+        """Generar reporte de métricas"""
         return f"""
-Agent Performance Metrics:
-- Total Runs: {self.total_runs}
-- Success Rate: {self.get_success_rate():.2%}
-- Average Latency: {self.average_latency:.2f}s
-- Total Tokens: {self.total_tokens:,}
-- Total Cost: ${self.total_cost:.4f}
-- Tool Usage: {self.tool_usage}
+Métricas de Rendimiento del Agente:
+- Ejecuciones Totales: {self.ejecuciones_totales}
+- Tasa de Éxito: {self.obtener_tasa_exito():.2%}
+- Latencia Promedio: {self.latencia_promedio:.2f}s
+- Tokens Totales: {self.tokens_totales:,}
+- Costo Total: ${self.costo_total:.4f}
+- Uso de Herramientas: {self.uso_herramientas}
         """.strip()
 
 
-# Usage
-metrics = AgentMetrics()
+# Uso
+metricas = MetricasAgente()
 
-def run_agent_with_metrics(agent, input_text: str):
-    """Run agent and track metrics"""
-    start = time.time()
-    tools_used = []
+def ejecutar_agente_con_metricas(agente, texto_entrada: str):
+    """Ejecutar agente y rastrear métricas"""
+    inicio = time.time()
+    herramientas_usadas = []
 
     try:
-        result = agent.invoke({"input": input_text})
-        latency = time.time() - start
+        resultado = agente.invoke({"input": texto_entrada})
+        latencia = time.time() - inicio
 
-        # Extract metrics (simplified)
-        tokens = 500  # Would get from LLM callback
-        cost = 0.01  # Would calculate based on model and tokens
+        # Extraer métricas (simplificado)
+        tokens = 500  # Se obtendría del callback del LLM
+        costo = 0.01  # Se calcularía basado en modelo y tokens
 
-        metrics.add_run(
-            success=True,
+        metricas.agregar_ejecucion(
+            exito=True,
             tokens=tokens,
-            cost=cost,
-            latency=latency,
-            tools_used=tools_used
+            costo=costo,
+            latencia=latencia,
+            herramientas_usadas=herramientas_usadas
         )
 
-        return result
+        return resultado
 
     except Exception as e:
-        latency = time.time() - start
-        metrics.add_run(
-            success=False,
+        latencia = time.time() - inicio
+        metricas.agregar_ejecucion(
+            exito=False,
             tokens=0,
-            cost=0,
-            latency=latency,
-            tools_used=[]
+            costo=0,
+            latencia=latencia,
+            herramientas_usadas=[]
         )
         raise
 
 
-# After multiple runs
-print(metrics.get_report())
+# Después de múltiples ejecuciones
+print(metricas.obtener_reporte())
 ```
 
 ## Mejores Prácticas de Producción
@@ -1213,63 +1212,63 @@ print(metrics.get_report())
 import re
 from typing import Any
 
-class SecureAgent:
-    """Agent with security controls"""
+class AgenteSeguro:
+    """Agente con controles de seguridad"""
 
-    DANGEROUS_PATTERNS = [
-        r"rm\s+-rf",  # Dangerous file operations
-        r"DROP\s+TABLE",  # SQL injection
-        r"eval\(",  # Code injection
-        r"__import__",  # Python imports
-        r"exec\(",  # Code execution
+    PATRONES_PELIGROSOS = [
+        r"rm\s+-rf",  # Operaciones de archivo peligrosas
+        r"DROP\s+TABLE",  # Inyección SQL
+        r"eval\(",  # Inyección de código
+        r"__import__",  # Importaciones Python
+        r"exec\(",  # Ejecución de código
     ]
 
-    def __init__(self, agent_executor):
-        self.agent_executor = agent_executor
+    def __init__(self, ejecutor_agente):
+        self.ejecutor_agente = ejecutor_agente
 
-    def _validate_input(self, input_text: str) -> bool:
-        """Validate input for security threats"""
-        for pattern in self.DANGEROUS_PATTERNS:
-            if re.search(pattern, input_text, re.IGNORECASE):
-                raise ValueError(f"Potentially dangerous input detected: {pattern}")
+    def _validar_entrada(self, texto_entrada: str) -> bool:
+        """Validar entrada para amenazas de seguridad"""
+        for patron in self.PATRONES_PELIGROSOS:
+            if re.search(patron, texto_entrada, re.IGNORECASE):
+                raise ValueError(f"Entrada potencialmente peligrosa detectada: {patron}")
         return True
 
-    def _sanitize_output(self, output: Any) -> str:
-        """Sanitize output to prevent information leakage"""
-        output_str = str(output)
+    def _sanitizar_salida(self, salida: Any) -> str:
+        """Sanitizar salida para prevenir fuga de información"""
+        cadena_salida = str(salida)
 
-        # Remove potential API keys
-        output_str = re.sub(
+        # Eliminar claves API potenciales
+        cadena_salida = re.sub(
             r'(api[_-]?key|token)["\']?\s*[:=]\s*["\']?[\w-]+',
             r'\1=***',
-            output_str,
+            cadena_salida,
             flags=re.IGNORECASE
         )
 
-        # Remove file paths
-        output_str = re.sub(
+        # Eliminar rutas de archivo
+        cadena_salida = re.sub(
             r'(/[a-zA-Z0-9_-]+)+/[\w.-]+',
-            '[PATH]',
-            output_str
+            '[RUTA]',
+            cadena_salida
         )
 
-        return output_str
+        return cadena_salida
 
-    def run(self, input_text: str, user_id: str = None):
-        """Run agent with security controls"""
-        # Validate input
-        self._validate_input(input_text)
+    def ejecutar(self, texto_entrada: str, id_usuario: str = None):
+        """Ejecutar agente con controles de seguridad"""
+        # Validar entrada
+        self._validar_entrada(texto_entrada)
 
-        # Log for audit
-        print(f"User {user_id} query: {input_text[:100]}...")
+        # Registrar para auditoría
+        print(f"Usuario {id_usuario} consulta: {texto_entrada[:100]}...")
 
-        # Run agent
-        result = self.agent_executor.invoke({"input": input_text})
+        # Ejecutar agente
+        resultado = self.ejecutor_agente.invoke({"input": texto_entrada})
 
-        # Sanitize output
-        result["output"] = self._sanitize_output(result["output"])
+        # Sanitizar salida
+        resultado["output"] = self._sanitizar_salida(resultado["output"])
 
-        return result
+        return resultado
 ```
 
 ### Limitación de Tasa
@@ -1279,49 +1278,49 @@ from collections import defaultdict
 from datetime import datetime, timedelta
 import time
 
-class RateLimiter:
-    def __init__(self, max_requests: int, window_seconds: int):
-        self.max_requests = max_requests
-        self.window_seconds = window_seconds
-        self.requests: Dict[str, List[datetime]] = defaultdict(list)
+class LimitadorTasa:
+    def __init__(self, max_solicitudes: int, ventana_segundos: int):
+        self.max_solicitudes = max_solicitudes
+        self.ventana_segundos = ventana_segundos
+        self.solicitudes: Dict[str, List[datetime]] = defaultdict(list)
 
-    def allow_request(self, user_id: str) -> bool:
-        """Check if request is allowed under rate limit"""
-        now = datetime.now()
-        window_start = now - timedelta(seconds=self.window_seconds)
+    def permitir_solicitud(self, id_usuario: str) -> bool:
+        """Verificar si la solicitud está permitida bajo el límite de tasa"""
+        ahora = datetime.now()
+        inicio_ventana = ahora - timedelta(seconds=self.ventana_segundos)
 
-        # Remove old requests
-        self.requests[user_id] = [
-            req_time for req_time in self.requests[user_id]
-            if req_time > window_start
+        # Eliminar solicitudes antiguas
+        self.solicitudes[id_usuario] = [
+            tiempo_sol for tiempo_sol in self.solicitudes[id_usuario]
+            if tiempo_sol > inicio_ventana
         ]
 
-        # Check limit
-        if len(self.requests[user_id]) >= self.max_requests:
+        # Verificar límite
+        if len(self.solicitudes[id_usuario]) >= self.max_solicitudes:
             return False
 
-        # Record request
-        self.requests[user_id].append(now)
+        # Registrar solicitud
+        self.solicitudes[id_usuario].append(ahora)
         return True
 
-    def wait_if_needed(self, user_id: str):
-        """Wait until request is allowed"""
-        while not self.allow_request(user_id):
+    def esperar_si_necesario(self, id_usuario: str):
+        """Esperar hasta que la solicitud esté permitida"""
+        while not self.permitir_solicitud(id_usuario):
             time.sleep(1)
 
 
-# Usage
-rate_limiter = RateLimiter(max_requests=10, window_seconds=60)
+# Uso
+limitador_tasa = LimitadorTasa(max_solicitudes=10, ventana_segundos=60)
 
-def run_with_rate_limit(agent, input_text: str, user_id: str):
-    """Run agent with rate limiting"""
-    if not rate_limiter.allow_request(user_id):
-        raise Exception("Rate limit exceeded. Please try again later.")
+def ejecutar_con_limite_tasa(agente, texto_entrada: str, id_usuario: str):
+    """Ejecutar agente con limitación de tasa"""
+    if not limitador_tasa.permitir_solicitud(id_usuario):
+        raise Exception("Límite de tasa excedido. Por favor, intenta de nuevo más tarde.")
 
-    return agent.invoke({"input": input_text})
+    return agente.invoke({"input": texto_entrada})
 ```
 
-## Pruebas de Agentes
+## Probando Agentes
 
 ### Pruebas Unitarias
 
@@ -1329,87 +1328,87 @@ def run_with_rate_limit(agent, input_text: str, user_id: str):
 import pytest
 from unittest.mock import Mock, patch
 
-def test_agent_basic_query():
-    """Test agent can handle basic query"""
-    mock_llm = Mock()
-    mock_llm.predict.return_value = "Paris"
+def test_consulta_basica_agente():
+    """Probar que el agente puede manejar consulta básica"""
+    llm_simulado = Mock()
+    llm_simulado.predict.return_value = "París"
 
-    agent = SimpleAgent(llm=mock_llm, tools=[])
-    result = agent.run("What is the capital of France?")
+    agente = AgenteSimple(llm=llm_simulado, tools=[])
+    resultado = agente.ejecutar("¿Cuál es la capital de Francia?")
 
-    assert "Paris" in result["output"]
+    assert "París" in resultado["output"]
 
 
-def test_agent_tool_usage():
-    """Test agent uses tools correctly"""
-    def mock_weather(location: str) -> str:
-        return f"Weather in {location}: Sunny"
+def test_uso_herramientas_agente():
+    """Probar que el agente usa herramientas correctamente"""
+    def clima_simulado(ubicacion: str) -> str:
+        return f"Clima en {ubicacion}: Soleado"
 
-    weather_tool = Tool(
-        name="weather",
-        func=mock_weather,
-        description="Get weather"
+    herramienta_clima = Tool(
+        name="clima",
+        func=clima_simulado,
+        description="Obtener clima"
     )
 
-    agent = create_react_agent(llm, [weather_tool], prompt)
-    executor = AgentExecutor(agent=agent, tools=[weather_tool])
+    agente = create_react_agent(llm, [herramienta_clima], prompt)
+    ejecutor = AgentExecutor(agent=agente, tools=[herramienta_clima])
 
-    result = executor.invoke({"input": "What's the weather in Tokyo?"})
+    resultado = ejecutor.invoke({"input": "¿Cuál es el clima en Tokio?"})
 
-    assert "Tokyo" in result["output"]
-    assert "Sunny" in result["output"]
+    assert "Tokio" in resultado["output"]
+    assert "Soleado" in resultado["output"]
 
 
-def test_agent_error_handling():
-    """Test agent handles errors gracefully"""
-    def failing_tool(x):
-        raise ValueError("Tool error")
+def test_manejo_errores_agente():
+    """Probar que el agente maneja errores con elegancia"""
+    def herramienta_fallida(x):
+        raise ValueError("Error de herramienta")
 
-    tool = Tool(name="fail", func=failing_tool, description="Fails")
+    herramienta = Tool(name="fallar", func=herramienta_fallida, description="Falla")
 
-    agent = create_react_agent(llm, [tool], prompt)
-    executor = AgentExecutor(
-        agent=agent,
-        tools=[tool],
+    agente = create_react_agent(llm, [herramienta], prompt)
+    ejecutor = AgentExecutor(
+        agent=agente,
+        tools=[herramienta],
         handle_parsing_errors=True
     )
 
-    # Should not raise, but handle gracefully
-    result = executor.invoke({"input": "Use the fail tool"})
-    assert result is not None
+    # No debería lanzar, sino manejar con elegancia
+    resultado = ejecutor.invoke({"input": "Usa la herramienta fallar"})
+    assert resultado is not None
 ```
 
 ### Pruebas de Integración
 
 ```python
 @pytest.mark.integration
-def test_agent_with_real_apis():
-    """Test agent with real API calls"""
-    agent = create_production_agent()
+def test_agente_con_apis_reales():
+    """Probar agente con llamadas API reales"""
+    agente = crear_agente_produccion()
 
-    result = agent.run("What's the current weather in San Francisco?")
+    resultado = agente.ejecutar("¿Cuál es el clima actual en San Francisco?")
 
-    # Verify structure
-    assert "output" in result
-    assert len(result["output"]) > 0
+    # Verificar estructura
+    assert "output" in resultado
+    assert len(resultado["output"]) > 0
 
-    # Verify it used tools
-    assert hasattr(result, "intermediate_steps")
-    assert len(result.intermediate_steps) > 0
+    # Verificar que usó herramientas
+    assert hasattr(resultado, "intermediate_steps")
+    assert len(resultado.intermediate_steps) > 0
 
 
 @pytest.mark.integration
-def test_agent_conversation_memory():
-    """Test agent maintains conversation context"""
-    agent_with_memory = create_agent_with_memory()
+def test_memoria_conversacion_agente():
+    """Probar que el agente mantiene contexto de conversación"""
+    agente_con_memoria = crear_agente_con_memoria()
 
-    # First interaction
-    result1 = agent_with_memory.run("My favorite color is blue")
-    assert result1 is not None
+    # Primera interacción
+    resultado1 = agente_con_memoria.ejecutar("Mi color favorito es azul")
+    assert resultado1 is not None
 
-    # Second interaction - should remember
-    result2 = agent_with_memory.run("What's my favorite color?")
-    assert "blue" in result2["output"].lower()
+    # Segunda interacción - debería recordar
+    resultado2 = agente_con_memoria.ejecutar("¿Cuál es mi color favorito?")
+    assert "azul" in resultado2["output"].lower()
 ```
 
 ## Solución de Problemas
@@ -1418,47 +1417,47 @@ def test_agent_conversation_memory():
 
 **Problema**: El agente se queda atascado en bucles
 ```python
-# Solución: Establece max_iterations y añade detección de bucles
-agent_executor = AgentExecutor(
-    agent=agent,
-    tools=tools,
-    max_iterations=5,  # Prevent infinite loops
-    early_stopping_method="generate"  # Generate final answer if max reached
+# Solución: Establecer max_iterations y agregar detección de bucles
+ejecutor_agente = AgentExecutor(
+    agent=agente,
+    tools=herramientas,
+    max_iterations=5,  # Prevenir bucles infinitos
+    early_stopping_method="generate"  # Generar respuesta final si se alcanza max
 )
 ```
 
 **Problema**: El agente hace demasiadas llamadas a herramientas
 ```python
-# Solución: Implementa presupuesto de llamadas a herramientas
-class BudgetedAgentExecutor:
-    def __init__(self, agent_executor, max_tool_calls: int = 10):
-        self.agent_executor = agent_executor
-        self.max_tool_calls = max_tool_calls
-        self.tool_call_count = 0
+# Solución: Implementar presupuesto de llamadas a herramientas
+class EjecutorAgentePresupuestado:
+    def __init__(self, ejecutor_agente, max_llamadas_herramienta: int = 10):
+        self.ejecutor_agente = ejecutor_agente
+        self.max_llamadas_herramienta = max_llamadas_herramienta
+        self.contador_llamadas_herramienta = 0
 
-    def run(self, input_text: str):
-        self.tool_call_count = 0
+    def ejecutar(self, texto_entrada: str):
+        self.contador_llamadas_herramienta = 0
 
-        def tracked_tool(original_func):
-            def wrapper(*args, **kwargs):
-                self.tool_call_count += 1
-                if self.tool_call_count > self.max_tool_calls:
-                    raise Exception("Tool call budget exceeded")
-                return original_func(*args, **kwargs)
-            return wrapper
+        def herramienta_rastreada(func_original):
+            def envoltura(*args, **kwargs):
+                self.contador_llamadas_herramienta += 1
+                if self.contador_llamadas_herramienta > self.max_llamadas_herramienta:
+                    raise Exception("Presupuesto de llamadas a herramientas excedido")
+                return func_original(*args, **kwargs)
+            return envoltura
 
-        # Wrap tools
-        # ... implementation
+        # Envolver herramientas
+        # ... implementación
 
-        return self.agent_executor.invoke({"input": input_text})
+        return self.ejecutor_agente.invoke({"input": texto_entrada})
 ```
 
 **Problema**: Comportamiento inconsistente del agente
 ```python
-# Solución: Establece temperature=0 para respuestas deterministas
+# Solución: Establecer temperature=0 para respuestas determinísticas
 llm = ChatOpenAI(model="gpt-4o", temperature=0)
 
-# También considera el caching
+# También considerar caché
 from langchain.cache import InMemoryCache
 import langchain
 langchain.llm_cache = InMemoryCache()
@@ -1467,32 +1466,32 @@ langchain.llm_cache = InMemoryCache()
 ## Próximos Pasos
 
 **Guías relacionadas**:
-- [Construyendo tu Primer Sistema RAG](/developers/building-first-rag-system)
-- [Ingeniería de Prompts para Desarrolladores](/developers/prompt-engineering-developers)
-- [Evaluación de Modelos LLM: Métricas y Pruebas](/developers/llm-evaluation-metrics)
+- [Construyendo tu Primer Sistema RAG](/es/developers/construyendo-primer-sistema-rag)
+- [Prompt Engineering para Desarrolladores](/es/developers/prompt-engineering-desarrolladores)
+- [Evaluación de Modelos LLM: Métricas y Testing](/es/developers/evaluacion-llm-metricas)
 
 **Temas avanzados para explorar**:
 - LangGraph para orquestación compleja de agentes
 - Patrones AutoGPT y BabyAGI
 - Agentes con memoria externa (Mem0, Zep)
-- Evaluar el rendimiento de agentes sistemáticamente
-- Desplegar agentes a escala
+- Evaluación sistemática del rendimiento de agentes
+- Despliegue de agentes a escala
 
 ## Recursos Adicionales
 
 **Documentación**:
-- [LangChain Agents Guide](https://python.langchain.com/docs/modules/agents/)
-- [ReAct Paper](https://arxiv.org/abs/2210.03629)
-- [LangGraph Documentation](https://langchain-ai.github.io/langgraph/)
+- [Guía de Agentes LangChain](https://python.langchain.com/docs/modules/agents/)
+- [Paper ReAct](https://arxiv.org/abs/2210.03629)
+- [Documentación LangGraph](https://langchain-ai.github.io/langgraph/)
 
 **Repositorios de ejemplo**:
-- [LangChain Agent Examples](https://github.com/langchain-ai/langchain/tree/master/templates)
+- [Ejemplos de Agentes LangChain](https://github.com/langchain-ai/langchain/tree/master/templates)
 - [Agent Protocols](https://github.com/AI-Engineer-Foundation/agent-protocol)
 
 **Comunidad**:
-- [LangChain Discord](https://discord.gg/langchain)
+- [Discord de LangChain](https://discord.gg/langchain)
 - [r/LangChain](https://reddit.com/r/LangChain)
 
 ---
 
-**¿Encontraste un problema?** [Abre un issue](https://github.com/javirub/The-New-Era-Codex/issues) o envía un PR!
+**¿Encontraste un problema?** ¡[Abre un issue](https://github.com/javirub/The-New-Era-Codex/issues) o envía un PR!

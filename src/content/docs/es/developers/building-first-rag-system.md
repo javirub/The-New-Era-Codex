@@ -1,7 +1,8 @@
 ---
 title: "Construyendo tu Primer Sistema RAG con LangChain"
-description: "Tutorial paso a paso para crear un sistema RAG básico con embeddings, ChromaDB y OpenAI"
+description: "Tutorial paso a paso para crear un RAG básico con embeddings, ChromaDB y OpenAI"
 sidebar:
+  order: 40
   badge:
     text: "Intermedio"
     variant: note
@@ -12,14 +13,14 @@ version: "1.0"
 
 ## Descripción General
 
-La Generación Aumentada por Recuperación (RAG) es uno de los patrones más poderosos para construir aplicaciones de IA que necesitan trabajar con tus propios datos. En lugar de depender únicamente de los datos de entrenamiento de un modelo de lenguaje, los sistemas RAG recuperan información relevante de tus documentos y la usan para generar respuestas precisas y contextuales.
+La Generación Aumentada por Recuperación (RAG, por sus siglas en inglés) es uno de los patrones más potentes para construir aplicaciones de IA que necesitan trabajar con tus propios datos. En lugar de depender únicamente de los datos de entrenamiento de un modelo de lenguaje, los sistemas RAG recuperan información relevante de tus documentos y la utilizan para generar respuestas precisas y contextuales.
 
-**Lo que construirás**: Un sistema RAG completo que puede responder preguntas basadas en tus propios documentos usando embeddings, almacenamiento vectorial y recuperación LLM.
+**Lo que construirás**: Un sistema RAG completo que puede responder preguntas basándose en tus propios documentos usando embeddings, almacenamiento vectorial y recuperación LLM.
 
 **Casos de uso**:
 - Bases de conocimiento internas y búsqueda de documentación
 - Sistemas de soporte al cliente con información específica de la empresa
-- Asistentes de investigación que trabajan con documentos específicos de dominio
+- Asistentes de investigación que trabajan con documentos de dominio específico
 - Interfaces de chat para grandes colecciones de documentos
 
 **Tiempo para completar**: 45-60 minutos
@@ -33,23 +34,23 @@ La Generación Aumentada por Recuperación (RAG) es uno de los patrones más pod
 - Comprensión básica de cómo funcionan los LLMs
 
 **Cuentas/herramientas requeridas**:
-- Clave API de OpenAI ([Obtén una aquí](https://platform.openai.com/api-keys))
+- Clave API de OpenAI ([Consíguelo aquí](https://platform.openai.com/api-keys))
 - Python 3.9 o superior instalado
 - Git y un editor de código (VS Code recomendado)
 
 **Opcional pero útil**:
 - Comprensión de embeddings vectoriales
-- Experiencia con LangChain (cubriremos lo básico)
-- Familiaridad con notebooks de Jupyter para pruebas
+- Experiencia con LangChain (cubriremos los conceptos básicos)
+- Familiaridad con Jupyter notebooks para pruebas
 
 ## Descripción de la Arquitectura
 
 ```
 Consulta del Usuario → Modelo de Embedding → Búsqueda Vectorial → Recuperación de Contexto
-                                      ↓
+                                                    ↓
                                 Generación LLM ← Documentos Recuperados
-                                      ↓
-                                  Respuesta
+                                                    ↓
+                                                Respuesta
 ```
 
 **Componentes clave**:
@@ -62,7 +63,7 @@ Consulta del Usuario → Modelo de Embedding → Búsqueda Vectorial → Recuper
 
 ## Configuración del Entorno
 
-### Instalación de Dependencias
+### Instalar Dependencias
 
 ```bash
 # Crear entorno virtual
@@ -78,10 +79,10 @@ pip install langchain langchain-openai langchain-community chromadb tiktoken pyp
 Crea un archivo `.env` en la raíz de tu proyecto:
 
 ```text
-OPENAI_API_KEY=tu-clave-openai-aquí
+OPENAI_API_KEY=tu-clave-openai-aqui
 ```
 
-**Nota de seguridad**: Nunca hagas commit de archivos `.env` al control de versiones. Agrégalo a `.gitignore`:
+**Nota de seguridad**: Nunca subas archivos `.env` al control de versiones. Añade a `.gitignore`:
 
 ```text
 # .gitignore
@@ -95,11 +96,11 @@ chroma_db/
 
 ## Implementación
 
-### Paso 1: Configuración de la Base
+### Paso 1: Configurando los Fundamentos
 
-**Objetivo**: Inicializar los componentes principales y cargar las variables de entorno.
+**Objetivo**: Inicializar los componentes principales y cargar variables de entorno.
 
-Crea un archivo llamado `rag_system.py`:
+Crea un archivo llamado `sistema_rag.py`:
 
 ```python
 import os
@@ -111,14 +112,14 @@ from langchain_community.document_loaders import TextLoader, DirectoryLoader, Py
 from langchain.chains import RetrievalQA
 from langchain.prompts import PromptTemplate
 
-# Load environment variables
+# Cargar variables de entorno
 load_dotenv()
 
-# Verify API key is loaded
+# Verificar que la clave API está cargada
 if not os.getenv("OPENAI_API_KEY"):
-    raise ValueError("OPENAI_API_KEY not found in environment variables")
+    raise ValueError("OPENAI_API_KEY no encontrada en las variables de entorno")
 
-print("✅ Environment loaded successfully")
+print("✅ Entorno cargado exitosamente")
 ```
 
 **Por qué esto funciona**: Estamos usando `python-dotenv` para cargar de forma segura las claves API desde el archivo `.env`, manteniendo la información sensible fuera de nuestro código.
@@ -127,54 +128,54 @@ print("✅ Environment loaded successfully")
 - **Problema**: `ModuleNotFoundError: No module named 'langchain'`
   - **Solución**: Asegúrate de haber activado tu entorno virtual antes de instalar los paquetes
 
-### Paso 2: Cargar y Procesar Documentos
+### Paso 2: Cargando y Procesando Documentos
 
 **Objetivo**: Cargar tus documentos y dividirlos en fragmentos adecuados para embedding.
 
 ```python
-def load_documents(directory_path="./documents"):
+def cargar_documentos(ruta_directorio="./documentos"):
     """
-    Load documents from a directory.
-    Supports: .txt, .pdf, .md files
+    Cargar documentos desde un directorio.
+    Soporta: archivos .txt, .pdf, .md
     """
-    # Load text files
-    text_loader = DirectoryLoader(
-        directory_path,
+    # Cargar archivos de texto
+    cargador_texto = DirectoryLoader(
+        ruta_directorio,
         glob="**/*.txt",
         loader_cls=TextLoader
     )
 
-    # Load PDF files
-    pdf_loader = DirectoryLoader(
-        directory_path,
+    # Cargar archivos PDF
+    cargador_pdf = DirectoryLoader(
+        ruta_directorio,
         glob="**/*.pdf",
         loader_cls=PyPDFLoader
     )
 
-    text_docs = text_loader.load()
-    pdf_docs = pdf_loader.load()
+    docs_texto = cargador_texto.load()
+    docs_pdf = cargador_pdf.load()
 
-    all_docs = text_docs + pdf_docs
+    todos_docs = docs_texto + docs_pdf
 
-    print(f"✅ Loaded {len(all_docs)} documents")
-    return all_docs
+    print(f"✅ Cargados {len(todos_docs)} documentos")
+    return todos_docs
 
 
-def split_documents(documents):
+def dividir_documentos(documentos):
     """
-    Split documents into chunks for processing.
-    Chunk size: 1000 characters with 200 character overlap
+    Dividir documentos en fragmentos para procesamiento.
+    Tamaño de fragmento: 1000 caracteres con 200 caracteres de superposición
     """
-    text_splitter = RecursiveCharacterTextSplitter(
+    divisor_texto = RecursiveCharacterTextSplitter(
         chunk_size=1000,
         chunk_overlap=200,
         length_function=len,
         separators=["\n\n", "\n", " ", ""]
     )
 
-    chunks = text_splitter.split_documents(documents)
-    print(f"✅ Split into {len(chunks)} chunks")
-    return chunks
+    fragmentos = divisor_texto.split_documents(documentos)
+    print(f"✅ Dividido en {len(fragmentos)} fragmentos")
+    return fragmentos
 ```
 
 **¿Por qué estos parámetros?**:
@@ -186,110 +187,110 @@ def split_documents(documents):
 - Para documentación técnica, considera fragmentos más grandes (1500-2000 caracteres)
 - Para datos conversacionales, fragmentos más pequeños (500-800 caracteres) funcionan mejor
 
-### Paso 3: Creación del Almacén Vectorial
+### Paso 3: Creando el Almacén Vectorial
 
 **Objetivo**: Generar embeddings y almacenarlos en ChromaDB para recuperación eficiente.
 
 ```python
-def create_vector_store(chunks, persist_directory="./chroma_db"):
+def crear_almacen_vectorial(fragmentos, directorio_persistencia="./chroma_db"):
     """
-    Create embeddings and store in ChromaDB.
-    Uses OpenAI's text-embedding-3-small model.
+    Crear embeddings y almacenar en ChromaDB.
+    Usa el modelo text-embedding-3-small de OpenAI.
     """
-    # Initialize embeddings
+    # Inicializar embeddings
     embeddings = OpenAIEmbeddings(
         model="text-embedding-3-small"
     )
 
-    # Create vector store
-    vectorstore = Chroma.from_documents(
-        documents=chunks,
+    # Crear almacén vectorial
+    almacen_vectorial = Chroma.from_documents(
+        documents=fragmentos,
         embedding=embeddings,
-        persist_directory=persist_directory
+        persist_directory=directorio_persistencia
     )
 
-    print(f"✅ Created vector store with {len(chunks)} embeddings")
-    return vectorstore
+    print(f"✅ Creado almacén vectorial con {len(fragmentos)} embeddings")
+    return almacen_vectorial
 
 
-def load_existing_vector_store(persist_directory="./chroma_db"):
+def cargar_almacen_vectorial_existente(directorio_persistencia="./chroma_db"):
     """
-    Load an existing vector store from disk.
+    Cargar un almacén vectorial existente desde disco.
     """
     embeddings = OpenAIEmbeddings(
         model="text-embedding-3-small"
     )
 
-    vectorstore = Chroma(
-        persist_directory=persist_directory,
+    almacen_vectorial = Chroma(
+        persist_directory=directorio_persistencia,
         embedding_function=embeddings
     )
 
-    print("✅ Loaded existing vector store")
-    return vectorstore
+    print("✅ Cargado almacén vectorial existente")
+    return almacen_vectorial
 ```
 
 **¿Por qué text-embedding-3-small?**:
-- Rentable: ~$0.02 por 1M tokens
+- Costo-efectivo: ~$0.02 por 1M tokens
 - Rápido: Menor latencia que modelos más grandes
 - Calidad suficiente para la mayoría de aplicaciones RAG
 - Vectores de 1536 dimensiones (buen equilibrio de calidad y almacenamiento)
 
 **Problemas comunes**:
 - **Problema**: `chromadb.errors.InvalidDimensionError`
-  - **Solución**: Asegúrate de usar el mismo modelo de embedding al cargar un almacén existente
+  - **Solución**: Asegúrate de estar usando el mismo modelo de embedding al cargar un almacén existente
 
-### Paso 4: Construcción de la Cadena RAG
+### Paso 4: Construyendo la Cadena RAG
 
 **Objetivo**: Crear el pipeline de recuperación y generación.
 
 ```python
-def create_rag_chain(vectorstore):
+def crear_cadena_rag(almacen_vectorial):
     """
-    Create a RetrievalQA chain for question answering.
+    Crear una cadena RetrievalQA para responder preguntas.
     """
-    # Initialize LLM
+    # Inicializar LLM
     llm = ChatOpenAI(
         model="gpt-4o-mini",
-        temperature=0  # More deterministic responses
+        temperature=0  # Respuestas más determinísticas
     )
 
-    # Create custom prompt template
-    prompt_template = """Use the following pieces of context to answer the question at the end.
-If you don't know the answer based on the context, just say that you don't know, don't try to make up an answer.
-Always cite the source of your information when possible.
+    # Crear plantilla de prompt personalizada
+    plantilla_prompt = """Usa los siguientes fragmentos de contexto para responder la pregunta al final.
+Si no conoces la respuesta basándote en el contexto, simplemente di que no lo sabes, no intentes inventar una respuesta.
+Siempre cita la fuente de tu información cuando sea posible.
 
-Context: {context}
+Contexto: {context}
 
-Question: {question}
+Pregunta: {question}
 
-Answer: """
+Respuesta: """
 
     PROMPT = PromptTemplate(
-        template=prompt_template,
+        template=plantilla_prompt,
         input_variables=["context", "question"]
     )
 
-    # Create retrieval chain
-    qa_chain = RetrievalQA.from_chain_type(
+    # Crear cadena de recuperación
+    cadena_qa = RetrievalQA.from_chain_type(
         llm=llm,
-        chain_type="stuff",  # Stuff all retrieved docs into context
-        retriever=vectorstore.as_retriever(
+        chain_type="stuff",  # Meter todos los docs recuperados en el contexto
+        retriever=almacen_vectorial.as_retriever(
             search_type="similarity",
-            search_kwargs={"k": 4}  # Retrieve top 4 most similar chunks
+            search_kwargs={"k": 4}  # Recuperar los 4 fragmentos más similares
         ),
         return_source_documents=True,
         chain_type_kwargs={"prompt": PROMPT}
     )
 
-    print("✅ RAG chain created successfully")
-    return qa_chain
+    print("✅ Cadena RAG creada exitosamente")
+    return cadena_qa
 ```
 
-**Explicación de parámetros**:
-- **temperature=0**: Hace las respuestas más consistentes y factuales
-- **k=4**: Recupera los 4 fragmentos más relevantes (ajusta según tus necesidades)
-- **chain_type="stuff"**: Enfoque simple que concatena todos los documentos recuperados
+**Explicaciones de parámetros**:
+- **temperature=0**: Hace que las respuestas sean más consistentes y factuales
+- **k=4**: Recupera 4 fragmentos más relevantes (ajusta según tus necesidades)
+- **chain_type="stuff"**: Enfoque simple que concatena todos los docs recuperados
 - **return_source_documents=True**: Devuelve los fragmentos fuente para transparencia
 
 **Tipos de cadena alternativos**:
@@ -302,48 +303,48 @@ Answer: """
 **Objetivo**: Crear una interfaz amigable para consultar el sistema RAG.
 
 ```python
-def query_rag(qa_chain, question):
+def consultar_rag(cadena_qa, pregunta):
     """
-    Query the RAG system and return formatted results.
+    Consultar el sistema RAG y devolver resultados formateados.
     """
-    result = qa_chain.invoke({"query": question})
+    resultado = cadena_qa.invoke({"query": pregunta})
 
-    answer = result["result"]
-    sources = result["source_documents"]
+    respuesta = resultado["result"]
+    fuentes = resultado["source_documents"]
 
     print("\n" + "="*80)
-    print(f"Question: {question}")
+    print(f"Pregunta: {pregunta}")
     print("="*80)
-    print(f"\nAnswer:\n{answer}\n")
+    print(f"\nRespuesta:\n{respuesta}\n")
 
-    if sources:
-        print(f"Sources ({len(sources)} documents):")
-        for i, doc in enumerate(sources, 1):
-            print(f"\n{i}. {doc.metadata.get('source', 'Unknown source')}")
-            print(f"   Content preview: {doc.page_content[:200]}...")
+    if fuentes:
+        print(f"Fuentes ({len(fuentes)} documentos):")
+        for i, doc in enumerate(fuentes, 1):
+            print(f"\n{i}. {doc.metadata.get('source', 'Fuente desconocida')}")
+            print(f"   Vista previa del contenido: {doc.page_content[:200]}...")
 
     print("="*80 + "\n")
 
-    return result
+    return resultado
 
 
-def interactive_mode(qa_chain):
+def modo_interactivo(cadena_qa):
     """
-    Interactive question-answering mode.
+    Modo interactivo de preguntas y respuestas.
     """
-    print("\n🤖 RAG System Ready! Type 'exit' to quit.\n")
+    print("\n🤖 ¡Sistema RAG Listo! Escribe 'salir' para terminar.\n")
 
     while True:
-        question = input("You: ").strip()
+        pregunta = input("Tú: ").strip()
 
-        if question.lower() in ['exit', 'quit', 'q']:
-            print("Goodbye! 👋")
+        if pregunta.lower() in ['salir', 'exit', 'quit', 'q']:
+            print("¡Adiós! 👋")
             break
 
-        if not question:
+        if not pregunta:
             continue
 
-        query_rag(qa_chain, question)
+        consultar_rag(cadena_qa, pregunta)
 ```
 
 ### Paso 6: Flujo de Ejecución Principal
@@ -353,44 +354,44 @@ def interactive_mode(qa_chain):
 ```python
 def main():
     """
-    Main execution flow for the RAG system.
+    Flujo de ejecución principal para el sistema RAG.
     """
     import os
 
-    # Configuration
-    DOCUMENTS_PATH = "./documents"
-    VECTOR_STORE_PATH = "./chroma_db"
+    # Configuración
+    RUTA_DOCUMENTOS = "./documentos"
+    RUTA_ALMACEN_VECTORIAL = "./chroma_db"
 
-    # Check if vector store exists
-    if os.path.exists(VECTOR_STORE_PATH):
-        print("📂 Loading existing vector store...")
-        vectorstore = load_existing_vector_store(VECTOR_STORE_PATH)
+    # Verificar si existe el almacén vectorial
+    if os.path.exists(RUTA_ALMACEN_VECTORIAL):
+        print("📂 Cargando almacén vectorial existente...")
+        almacen_vectorial = cargar_almacen_vectorial_existente(RUTA_ALMACEN_VECTORIAL)
     else:
-        print("📂 Creating new vector store...")
+        print("📂 Creando nuevo almacén vectorial...")
 
-        # Create documents directory if it doesn't exist
-        os.makedirs(DOCUMENTS_PATH, exist_ok=True)
+        # Crear directorio de documentos si no existe
+        os.makedirs(RUTA_DOCUMENTOS, exist_ok=True)
 
-        # Load and process documents
-        documents = load_documents(DOCUMENTS_PATH)
+        # Cargar y procesar documentos
+        documentos = cargar_documentos(RUTA_DOCUMENTOS)
 
-        if not documents:
-            print("❌ No documents found in ./documents/")
-            print("Please add .txt or .pdf files to the documents directory")
+        if not documentos:
+            print("❌ No se encontraron documentos en ./documentos/")
+            print("Por favor, añade archivos .txt o .pdf al directorio documentos")
             return
 
-        chunks = split_documents(documents)
-        vectorstore = create_vector_store(chunks, VECTOR_STORE_PATH)
+        fragmentos = dividir_documentos(documentos)
+        almacen_vectorial = crear_almacen_vectorial(fragmentos, RUTA_ALMACEN_VECTORIAL)
 
-    # Create RAG chain
-    qa_chain = create_rag_chain(vectorstore)
+    # Crear cadena RAG
+    cadena_qa = crear_cadena_rag(almacen_vectorial)
 
-    # Example queries
-    print("\n🧪 Testing with example queries...")
-    query_rag(qa_chain, "What are the main topics covered in these documents?")
+    # Consultas de ejemplo
+    print("\n🧪 Probando con consultas de ejemplo...")
+    consultar_rag(cadena_qa, "¿Cuáles son los temas principales cubiertos en estos documentos?")
 
-    # Start interactive mode
-    interactive_mode(qa_chain)
+    # Iniciar modo interactivo
+    modo_interactivo(cadena_qa)
 
 
 if __name__ == "__main__":
@@ -401,45 +402,45 @@ if __name__ == "__main__":
 
 ### Preparar Documentos de Prueba
 
-Crea un directorio `documents/` y agrega algunos archivos de prueba:
+Crea un directorio `documentos/` y añade algunos archivos de prueba:
 
 ```bash
-mkdir documents
-echo "Artificial Intelligence is transforming software development.
-RAG systems combine the power of retrieval and generation to create
-more accurate AI applications." > documents/ai_intro.txt
+mkdir documentos
+echo "La Inteligencia Artificial está transformando el desarrollo de software.
+Los sistemas RAG combinan el poder de la recuperación y generación para crear
+aplicaciones de IA más precisas." > documentos/intro_ia.txt
 
-echo "LangChain is a framework for developing applications powered by
-language models. It provides tools for document loading, text splitting,
-embeddings, and chains." > documents/langchain_intro.txt
+echo "LangChain es un framework para desarrollar aplicaciones impulsadas por
+modelos de lenguaje. Proporciona herramientas para carga de documentos, división
+de texto, embeddings y cadenas." > documentos/intro_langchain.txt
 ```
 
 ### Ejecutar el Sistema
 
 ```bash
-python rag_system.py
+python sistema_rag.py
 ```
 
 **Salida esperada**:
 ```
-✅ Environment loaded successfully
-📂 Creating new vector store...
-✅ Loaded 2 documents
-✅ Split into 8 chunks
-✅ Created vector store with 8 embeddings
-✅ RAG chain created successfully
+✅ Entorno cargado exitosamente
+📂 Creando nuevo almacén vectorial...
+✅ Cargados 2 documentos
+✅ Dividido en 8 fragmentos
+✅ Creado almacén vectorial con 8 embeddings
+✅ Cadena RAG creada exitosamente
 
-🧪 Testing with example queries...
+🧪 Probando con consultas de ejemplo...
 ================================================================================
-Question: What are the main topics covered in these documents?
+Pregunta: ¿Cuáles son los temas principales cubiertos en estos documentos?
 ================================================================================
 
-Answer:
-The main topics covered include Artificial Intelligence's impact on software
-development, RAG (Retrieval-Augmented Generation) systems, and LangChain as a
-framework for building language model applications...
+Respuesta:
+Los temas principales cubiertos incluyen el impacto de la Inteligencia Artificial
+en el desarrollo de software, los sistemas RAG (Generación Aumentada por Recuperación),
+y LangChain como framework para construir aplicaciones de modelos de lenguaje...
 
-🤖 RAG System Ready! Type 'exit' to quit.
+🤖 ¡Sistema RAG Listo! Escribe 'salir' para terminar.
 ```
 
 ### Pruebas Unitarias
@@ -448,45 +449,45 @@ Crea un archivo llamado `test_rag.py`:
 
 ```python
 import pytest
-from rag_system import split_documents, create_vector_store
+from sistema_rag import dividir_documentos, crear_almacen_vectorial
 from langchain.schema import Document
 
-def test_document_splitting():
-    """Test that documents are split correctly"""
-    docs = [Document(page_content="This is a test document. " * 100)]
-    chunks = split_documents(docs)
+def test_division_documentos():
+    """Probar que los documentos se dividen correctamente"""
+    docs = [Document(page_content="Este es un documento de prueba. " * 100)]
+    fragmentos = dividir_documentos(docs)
 
-    assert len(chunks) > 1
-    assert all(len(chunk.page_content) <= 1200 for chunk in chunks)  # 1000 + overlap
+    assert len(fragmentos) > 1
+    assert all(len(fragmento.page_content) <= 1200 for fragmento in fragmentos)  # 1000 + superposición
 
 
-def test_vector_store_creation():
-    """Test vector store creation with sample data"""
-    test_docs = [
-        Document(page_content="RAG systems are powerful"),
-        Document(page_content="LangChain simplifies AI development")
+def test_creacion_almacen_vectorial():
+    """Probar creación de almacén vectorial con datos de muestra"""
+    docs_prueba = [
+        Document(page_content="Los sistemas RAG son potentes"),
+        Document(page_content="LangChain simplifica el desarrollo de IA")
     ]
 
-    vectorstore = create_vector_store(test_docs, persist_directory="./test_chroma")
+    almacen_vectorial = crear_almacen_vectorial(docs_prueba, persist_directory="./test_chroma")
 
-    # Test retrieval
-    results = vectorstore.similarity_search("RAG", k=1)
-    assert len(results) == 1
-    assert "RAG" in results[0].page_content
+    # Probar recuperación
+    resultados = almacen_vectorial.similarity_search("RAG", k=1)
+    assert len(resultados) == 1
+    assert "RAG" in resultados[0].page_content
 
 
-def test_retrieval_relevance():
-    """Test that retrieval returns relevant documents"""
-    from rag_system import load_existing_vector_store
+def test_relevancia_recuperacion():
+    """Probar que la recuperación devuelve documentos relevantes"""
+    from sistema_rag import cargar_almacen_vectorial_existente
 
-    vectorstore = load_existing_vector_store("./chroma_db")
+    almacen_vectorial = cargar_almacen_vectorial_existente("./chroma_db")
 
-    # Query about a specific topic
-    results = vectorstore.similarity_search("What is LangChain?", k=3)
+    # Consultar sobre un tema específico
+    resultados = almacen_vectorial.similarity_search("¿Qué es LangChain?", k=3)
 
-    assert len(results) > 0
-    # At least one result should mention LangChain
-    assert any("LangChain" in doc.page_content for doc in results)
+    assert len(resultados) > 0
+    # Al menos un resultado debe mencionar LangChain
+    assert any("LangChain" in doc.page_content for doc in resultados)
 ```
 
 Ejecutar pruebas:
@@ -502,58 +503,58 @@ pytest test_rag.py -v
 
 **Optimización de embeddings**:
 ```python
-# Batch process large document sets
-def batch_embed_documents(chunks, batch_size=100):
-    """Process embeddings in batches to avoid rate limits"""
-    all_embeddings = []
+# Procesar por lotes grandes conjuntos de documentos
+def embeddings_por_lotes(fragmentos, tamano_lote=100):
+    """Procesar embeddings en lotes para evitar límites de tasa"""
+    todos_embeddings = []
 
-    for i in range(0, len(chunks), batch_size):
-        batch = chunks[i:i+batch_size]
-        vectorstore = create_vector_store(batch)
-        all_embeddings.extend(vectorstore)
+    for i in range(0, len(fragmentos), tamano_lote):
+        lote = fragmentos[i:i+tamano_lote]
+        almacen_vectorial = crear_almacen_vectorial(lote)
+        todos_embeddings.extend(almacen_vectorial)
 
-        # Small delay to avoid rate limiting
+        # Pequeño retraso para evitar límites de tasa
         import time
         time.sleep(1)
 
-    return all_embeddings
+    return todos_embeddings
 ```
 
 **Optimización de recuperación**:
 ```python
-# Use MMR (Maximal Marginal Relevance) for diverse results
-retriever = vectorstore.as_retriever(
-    search_type="mmr",  # More diverse results
+# Usar MMR (Máxima Relevancia Marginal) para resultados diversos
+recuperador = almacen_vectorial.as_retriever(
+    search_type="mmr",  # Resultados más diversos
     search_kwargs={
         "k": 4,
-        "fetch_k": 20,  # Fetch more candidates before MMR
-        "lambda_mult": 0.5  # Balance between relevance and diversity
+        "fetch_k": 20,  # Obtener más candidatos antes de MMR
+        "lambda_mult": 0.5  # Balance entre relevancia y diversidad
     }
 )
 ```
 
 **Filtrado de metadatos**:
 ```python
-# Add metadata when creating documents
+# Añadir metadatos al crear documentos
 from langchain.schema import Document
 
-docs_with_metadata = [
+docs_con_metadata = [
     Document(
-        page_content=content,
+        page_content=contenido,
         metadata={
-            "source": filename,
-            "category": "technical",
+            "source": nombre_archivo,
+            "category": "tecnico",
             "date": "2025-01-15"
         }
     )
-    for content, filename in doc_data
+    for contenido, nombre_archivo in datos_docs
 ]
 
-# Filter during retrieval
-retriever = vectorstore.as_retriever(
+# Filtrar durante recuperación
+recuperador = almacen_vectorial.as_retriever(
     search_kwargs={
         "k": 4,
-        "filter": {"category": "technical"}
+        "filter": {"category": "tecnico"}
     }
 )
 ```
@@ -565,14 +566,14 @@ retriever = vectorstore.as_retriever(
 - Llamadas LLM (gpt-4o-mini): $0.15 por 1M tokens de entrada, $0.60 por 1M tokens de salida
 - ChromaDB: Gratis (almacenamiento local)
 
-**Estrategias de ahorro de costos**:
+**Estrategias para ahorrar costos**:
 
-1. **Caché de embeddings** - Solo regenerar cuando los documentos cambien
+1. **Cachear embeddings** - Solo regenerar cuando los documentos cambien
 2. **Usar modelos más baratos para consultas simples**:
 ```python
-# Use gpt-4o-mini for most queries, gpt-4 for complex ones
-def get_llm_for_query(query_complexity="simple"):
-    if query_complexity == "complex":
+# Usar gpt-4o-mini para la mayoría de consultas, gpt-4 para complejas
+def obtener_llm_para_consulta(complejidad_consulta="simple"):
+    if complejidad_consulta == "compleja":
         return ChatOpenAI(model="gpt-4o", temperature=0)
     return ChatOpenAI(model="gpt-4o-mini", temperature=0)
 ```
@@ -596,23 +597,23 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-# Install system dependencies
+# Instalar dependencias del sistema
 RUN apt-get update && apt-get install -y \
     build-essential \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy requirements
+# Copiar requirements
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy application code
+# Copiar código de la aplicación
 COPY . .
 
-# Create directories for documents and vector store
-RUN mkdir -p documents chroma_db
+# Crear directorios para documentos y almacén vectorial
+RUN mkdir -p documentos chroma_db
 
-# Run the application
-CMD ["python", "rag_system.py"]
+# Ejecutar la aplicación
+CMD ["python", "sistema_rag.py"]
 ```
 
 Crea `requirements.txt`:
@@ -628,8 +629,8 @@ python-dotenv==1.0.1
 
 Construir y ejecutar:
 ```bash
-docker build -t my-rag-system .
-docker run --env-file .env -v $(pwd)/documents:/app/documents my-rag-system
+docker build -t mi-sistema-rag .
+docker run --env-file .env -v $(pwd)/documentos:/app/documentos mi-sistema-rag
 ```
 
 ### Consideraciones de Producción
@@ -639,49 +640,49 @@ docker run --env-file .env -v $(pwd)/documents:/app/documents my-rag-system
 import time
 from functools import wraps
 
-def log_performance(func):
-    """Decorator to log function performance"""
+def registrar_rendimiento(func):
+    """Decorador para registrar el rendimiento de funciones"""
     @wraps(func)
     def wrapper(*args, **kwargs):
-        start = time.time()
-        result = func(*args, **kwargs)
-        duration = time.time() - start
-        print(f"{func.__name__} took {duration:.2f} seconds")
-        return result
+        inicio = time.time()
+        resultado = func(*args, **kwargs)
+        duracion = time.time() - inicio
+        print(f"{func.__name__} tomó {duracion:.2f} segundos")
+        return resultado
     return wrapper
 
-@log_performance
-def query_rag(qa_chain, question):
-    # ... existing code
+@registrar_rendimiento
+def consultar_rag(cadena_qa, pregunta):
+    # ... código existente
 ```
 
 **Manejo de errores**:
 ```python
 from openai import RateLimitError, APIError
 
-def query_with_retry(qa_chain, question, max_retries=3):
-    """Query with automatic retry on rate limits"""
-    for attempt in range(max_retries):
+def consultar_con_reintentos(cadena_qa, pregunta, max_reintentos=3):
+    """Consultar con reintento automático en límites de tasa"""
+    for intento in range(max_reintentos):
         try:
-            return qa_chain.invoke({"query": question})
+            return cadena_qa.invoke({"query": pregunta})
         except RateLimitError:
-            if attempt < max_retries - 1:
-                wait_time = 2 ** attempt
-                print(f"Rate limit hit. Waiting {wait_time}s...")
-                time.sleep(wait_time)
+            if intento < max_reintentos - 1:
+                tiempo_espera = 2 ** intento
+                print(f"Límite de tasa alcanzado. Esperando {tiempo_espera}s...")
+                time.sleep(tiempo_espera)
             else:
                 raise
         except APIError as e:
-            print(f"API Error: {e}")
+            print(f"Error de API: {e}")
             raise
 ```
 
 **Lista de verificación de seguridad**:
-- [ ] Claves API almacenadas en variables de entorno, nunca en código
+- [ ] Claves API almacenadas en variables de entorno, nunca en el código
 - [ ] Validación de entrada para prevenir ataques de inyección
-- [ ] Limitación de tasa implementada
+- [ ] Límite de tasa implementado
 - [ ] Autenticación de usuario si se expone como servicio
-- [ ] Registro de consultas para auditoría
+- [ ] Registro de consultas para auditorías
 - [ ] Rotación regular de claves API
 
 ## Solución de Problemas
@@ -690,24 +691,24 @@ def query_with_retry(qa_chain, question, max_retries=3):
 
 **Error**: `RateLimitError: Rate limit exceeded for text-embedding-3-small`
 ```python
-# Solution: Implement exponential backoff
+# Solución: Implementar retroceso exponencial
 import time
 from tenacity import retry, stop_after_attempt, wait_exponential
 
 @retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=2, max=10))
-def create_embeddings_with_retry(chunks):
-    return create_vector_store(chunks)
+def crear_embeddings_con_reintentos(fragmentos):
+    return crear_almacen_vectorial(fragmentos)
 ```
 
 **Error**: `ChromaDB database is locked`
 - **Causa**: Múltiples procesos accediendo a la misma base de datos
-- **Solución**: Asegúrate de que solo un proceso acceda a ChromaDB a la vez, o usa una configuración cliente-servidor:
+- **Solución**: Asegurar que solo un proceso accede a ChromaDB a la vez, o usar configuración cliente-servidor:
 
 ```python
 import chromadb
 from chromadb.config import Settings
 
-# Client-server mode
+# Modo cliente-servidor
 client = chromadb.Client(Settings(
     chroma_api_impl="rest",
     chroma_server_host="localhost",
@@ -715,24 +716,24 @@ client = chromadb.Client(Settings(
 ))
 ```
 
-**Error**: `No results returned from retrieval`
+**Error**: `No se devuelven resultados de la recuperación`
 - **Causa**: Los términos de consulta no coinciden bien con el contenido del documento
 - **Solución**:
   1. Verificar si los documentos fueron realmente embebidos
   2. Intentar términos de consulta más genéricos
-  3. Ajustar el umbral de similitud
+  3. Ajustar umbral de similitud
   4. Usar búsqueda híbrida (semántica + palabra clave)
 
-**Error**: `Out of memory when processing large documents`
+**Error**: `Sin memoria al procesar documentos grandes`
 - **Solución**: Procesar documentos en lotes y usar streaming:
 ```python
-def process_large_document(file_path, chunk_size=1000):
-    """Stream process large documents"""
-    with open(file_path, 'r') as f:
+def procesar_documento_grande(ruta_archivo, tamano_fragmento=1000):
+    """Procesar por streaming documentos grandes"""
+    with open(ruta_archivo, 'r') as f:
         buffer = ""
-        for line in f:
-            buffer += line
-            if len(buffer) >= chunk_size:
+        for linea in f:
+            buffer += linea
+            if len(buffer) >= tamano_fragmento:
                 yield buffer
                 buffer = ""
         if buffer:
@@ -742,19 +743,19 @@ def process_large_document(file_path, chunk_size=1000):
 ## Próximos Pasos
 
 **Mejoras a considerar**:
-- [ ] Agregar memoria de conversación para diálogos multi-turno
+- [ ] Añadir memoria de conversación para diálogos multi-turno
 - [ ] Implementar búsqueda híbrida (BM25 + semántica)
-- [ ] Agregar re-ranking con un modelo cross-encoder
+- [ ] Añadir re-ranking con un modelo cross-encoder
 - [ ] Crear una interfaz web con Streamlit o Gradio
-- [ ] Agregar soporte para más tipos de documentos (CSV, JSON, HTML)
-- [ ] Implementar recopilación de retroalimentación de usuarios para mejorar la recuperación
-- [ ] Agregar métricas de evaluación (precisión de recuperación, calidad de respuesta)
+- [ ] Añadir soporte para más tipos de documentos (CSV, JSON, HTML)
+- [ ] Implementar recopilación de feedback del usuario para mejorar la recuperación
+- [ ] Añadir métricas de evaluación (precisión de recuperación, calidad de respuestas)
 - [ ] Configurar observabilidad con LangSmith o Weights & Biases
 
 **Guías relacionadas**:
-- [Arquitectura de Agentes IA: Patrones y Mejores Prácticas](/developers/agent-architecture-patterns)
-- [Vectorización y Búsqueda Semántica: Guía Completa](/developers/vectorization-semantic-search)
-- [Ingeniería de Prompts para Desarrolladores](/developers/prompt-engineering-developers)
+- [Arquitectura de Agentes de IA: Patrones y Mejores Prácticas](/es/developers/arquitectura-agentes-patrones)
+- [Vectorización y Búsqueda Semántica: Guía Completa](/es/developers/vectorizacion-busqueda-semantica)
+- [Prompt Engineering para Desarrolladores](/es/developers/prompt-engineering-desarrolladores)
 
 ## Recursos Adicionales
 
@@ -765,7 +766,7 @@ def process_large_document(file_path, chunk_size=1000):
 
 **Temas avanzados**:
 - [RAG from Scratch](https://github.com/langchain-ai/rag-from-scratch) - Serie de videos de LangChain
-- [Técnicas RAG Avanzadas](https://blog.langchain.dev/deconstructing-rag/) - Blog de LangChain
+- [Técnicas Avanzadas de RAG](https://blog.langchain.dev/deconstructing-rag/) - Blog de LangChain
 - [Inmersión Profunda en Embeddings](https://platform.openai.com/docs/guides/embeddings) - Guía de OpenAI
 
 **Comunidad**:
@@ -779,4 +780,4 @@ def process_large_document(file_path, chunk_size=1000):
 
 ---
 
-**¿Encontraste un problema con esta guía?** [Abre un issue](https://github.com/javirub/The-New-Era-Codex/issues) o envía un PR!
+**¿Encontraste un problema con esta guía?** ¡[Abre un issue](https://github.com/javirub/The-New-Era-Codex/issues) o envía un PR!
