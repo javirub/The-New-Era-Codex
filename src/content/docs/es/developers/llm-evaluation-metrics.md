@@ -1,59 +1,55 @@
 ---
-title: "Evaluación de Modelos LLM: Métricas y Pruebas"
-description: "BLEU, ROUGE, perplejidad, pruebas unitarias de prompts y CI/CD para aplicaciones de IA"
+title: "Evaluación de Modelos LLM: Métricas y Testing"
+description: "BLEU, ROUGE, perplejidad, testing unitario de prompts y CI/CD para IA"
 sidebar:
+  order: 70
   badge:
     text: "Avanzado"
     variant: caution
 version: "1.0"
 ---
 
-# Evaluación de Modelos LLM: Métricas y Pruebas
+# Evaluación de Modelos LLM: Métricas y Testing
 
 ## Descripción General
 
-Evaluar salidas de LLM es crítico para sistemas de IA en producción. A diferencia de las pruebas de software tradicionales, la evaluación de LLM combina métricas cuantitativas con evaluación humana cualitativa para garantizar confiabilidad, seguridad y rendimiento.
+Evaluar salidas de LLM es crítico para sistemas de IA en producción. A diferencia del testing tradicional, la evaluación de LLM combina métricas cuantitativas con evaluación cualitativa humana.
 
-**Lo que aprenderás**: Evaluación sistemática de salidas de LLM usando métricas automatizadas, evaluación humana, pruebas de regresión e integración de CI/CD.
+**Lo que aprenderás**: Evaluación sistemática de salidas LLM usando métricas automatizadas, evaluación humana, regression testing e integración CI/CD.
 
-**Casos de uso**: Aseguramiento de calidad de IA en producción, comparación de modelos, optimización de prompts, detección de regresiones.
+**Casos de uso**: QA de IA en producción, comparación de modelos, optimización de prompts, detección de regresiones.
 
 **Tiempo**: 50 minutos
 
 ## Métricas de Evaluación
 
-### BLEU Score (Bilingual Evaluation Understudy)
+### BLEU Score
 
-Mide la superposición de n-gramas con texto de referencia. Común en traducción.
+Mide superposición de n-gramas con texto de referencia.
 
 ```python
-from nltk.translate.bleu_score import sentence_bleu, corpus_bleu
+from nltk.translate.bleu_score import sentence_bleu
 
-def calculate_bleu(reference: str, candidate: str) -> float:
-    """Calculate BLEU score"""
-    reference_tokens = [reference.split()]
-    candidate_tokens = candidate.split()
+def calcular_bleu(referencia: str, candidato: str) -> float:
+    """Calcular score BLEU"""
+    tokens_ref = [referencia.split()]
+    tokens_cand = candidato.split()
 
-    score = sentence_bleu(reference_tokens, candidate_tokens)
+    score = sentence_bleu(tokens_ref, tokens_cand)
     return score
-
-# Example
-ref = "the cat sat on the mat"
-cand = "the cat is on the mat"
-print(f"BLEU: {calculate_bleu(ref, cand):.3f}")  # ~0.75
 ```
 
-### ROUGE Score (Recall-Oriented Understudy for Gisting Evaluation)
+### ROUGE Score
 
-Mide el recall de n-gramas. Común en resúmenes.
+Mide recall de n-gramas. Común en resúmenes.
 
 ```python
 from rouge_score import rouge_scorer
 
-def calculate_rouge(reference: str, candidate: str) -> dict:
-    """Calculate ROUGE scores"""
+def calcular_rouge(referencia: str, candidato: str) -> dict:
+    """Calcular scores ROUGE"""
     scorer = rouge_scorer.RougeScorer(['rouge1', 'rouge2', 'rougeL'], use_stemmer=True)
-    scores = scorer.score(reference, candidate)
+    scores = scorer.score(referencia, candidato)
 
     return {
         'rouge1': scores['rouge1'].fmeasure,
@@ -67,42 +63,15 @@ def calculate_rouge(reference: str, candidate: str) -> dict:
 ```python
 from sentence_transformers import SentenceTransformer, util
 
-model = SentenceTransformer('all-MiniLM-L6-v2')
+modelo = SentenceTransformer('all-MiniLM-L6-v2')
 
-def semantic_similarity(text1: str, text2: str) -> float:
-    """Calculate semantic similarity"""
-    emb1 = model.encode(text1)
-    emb2 = model.encode(text2)
+def similitud_semantica(texto1: str, texto2: str) -> float:
+    emb1 = modelo.encode(texto1)
+    emb2 = modelo.encode(texto2)
     return float(util.cos_sim(emb1, emb2))
 ```
 
-### Funciones de Evaluación Personalizadas
-
-```python
-import re
-
-def evaluate_json_format(output: str) -> dict:
-    """Check if output is valid JSON"""
-    try:
-        import json
-        json.loads(output)
-        return {"valid": True, "score": 1.0}
-    except:
-        return {"valid": False, "score": 0.0}
-
-def evaluate_code_syntax(code: str, language: str) -> dict:
-    """Check code syntax"""
-    if language == "python":
-        try:
-            compile(code, '<string>', 'exec')
-            return {"valid": True, "score": 1.0}
-        except SyntaxError as e:
-            return {"valid": False, "score": 0.0, "error": str(e)}
-```
-
-## Pruebas Unitarias de Salidas LLM
-
-### Suite de Pruebas Básicas
+## Testing Unitario de Salidas LLM
 
 ```python
 import pytest
@@ -110,228 +79,150 @@ from openai import OpenAI
 
 client = OpenAI()
 
-class TestPromptOutputs:
-    """Test suite for LLM prompts"""
+class TestSalidasPrompt:
+    def test_clasificacion_sentimiento(self):
+        """Test consistencia análisis sentimiento"""
+        prompt = "Clasifica sentimiento: '¡Este producto es increíble!'"
 
-    def test_sentiment_classification(self):
-        """Test sentiment analysis consistency"""
-        prompt = "Classify sentiment: 'This product is amazing!'"
-
-        response = client.chat.completions.create(
+        respuesta = client.chat.completions.create(
             model="gpt-4o-mini",
             messages=[{"role": "user", "content": prompt}],
             temperature=0
         )
 
-        output = response.choices[0].message.content.lower()
-        assert "positive" in output
+        salida = respuesta.choices[0].message.content.lower()
+        assert "positivo" in salida
 
-    def test_json_output_structure(self):
-        """Test structured output format"""
-        prompt = """Return JSON: {"name": "John", "age": 30}"""
+    def test_estructura_json(self):
+        """Test formato de salida estructurada"""
+        prompt = """Retorna JSON: {"nombre": "Juan", "edad": 30}"""
 
-        response = client.chat.completions.create(
+        respuesta = client.chat.completions.create(
             model="gpt-4o-mini",
             messages=[{"role": "user", "content": prompt}],
             temperature=0
         )
 
         import json
-        output = json.loads(response.choices[0].message.content)
-        assert "name" in output
-        assert "age" in output
-
-    def test_output_length(self):
-        """Test output length constraints"""
-        prompt = "Describe Python in exactly 3 words."
-
-        response = client.chat.completions.create(
-            model="gpt-4o-mini",
-            messages=[{"role": "user", "content": prompt}],
-            temperature=0,
-            max_tokens=10
-        )
-
-        words = response.choices[0].message.content.split()
-        assert len(words) <= 5  # Allow some flexibility
+        salida = json.loads(respuesta.choices[0].message.content)
+        assert "nombre" in salida
+        assert "edad" in salida
 ```
 
-### Pruebas Parametrizadas
+### Tests Parametrizados
 
 ```python
-@pytest.mark.parametrize("input_text,expected_category", [
-    ("Schedule a meeting tomorrow", "calendar"),
-    ("Send email to John", "email"),
-    ("What's the weather?", "query"),
+@pytest.mark.parametrize("texto_entrada,categoria_esperada", [
+    ("Programa una reunión mañana", "calendario"),
+    ("Envía email a Juan", "email"),
+    ("¿Cuál es el clima?", "consulta"),
 ])
-def test_intent_classification(input_text, expected_category):
-    """Test intent classification across multiple inputs"""
-    prompt = f"Classify intent: {input_text}\nReturn one word: calendar, email, or query"
+def test_clasificacion_intencion(texto_entrada, categoria_esperada):
+    prompt = f"Clasifica intención: {texto_entrada}\nRetorna una palabra: calendario, email o consulta"
 
-    response = client.chat.completions.create(
+    respuesta = client.chat.completions.create(
         model="gpt-4o-mini",
         messages=[{"role": "user", "content": prompt}],
         temperature=0
     )
 
-    output = response.choices[0].message.content.strip().lower()
-    assert expected_category in output
+    salida = respuesta.choices[0].message.content.strip().lower()
+    assert categoria_esperada in salida
 ```
 
-## Pruebas de Regresión
-
-### Comparación con Línea Base
+## Regression Testing
 
 ```python
 import json
 from pathlib import Path
 
-class LLMRegressionTester:
-    def __init__(self, baseline_file: str = "baselines.json"):
-        self.baseline_file = Path(baseline_file)
-        self.baselines = self.load_baselines()
+class ProbadorRegresionLLM:
+    def __init__(self, archivo_base: str = "lineas_base.json"):
+        self.archivo_base = Path(archivo_base)
+        self.lineas_base = self.cargar_lineas_base()
 
-    def load_baselines(self) -> dict:
-        if self.baseline_file.exists():
-            return json.loads(self.baseline_file.read_text())
+    def cargar_lineas_base(self) -> dict:
+        if self.archivo_base.exists():
+            return json.loads(self.archivo_base.read_text())
         return {}
 
-    def save_baselines(self):
-        self.baseline_file.write_text(json.dumps(self.baselines, indent=2))
-
-    def set_baseline(self, test_name: str, output: str, metrics: dict):
-        """Set baseline for a test"""
-        self.baselines[test_name] = {
-            "output": output,
-            "metrics": metrics
+    def establecer_linea_base(self, nombre_test: str, salida: str, metricas: dict):
+        """Establecer línea base para un test"""
+        self.lineas_base[nombre_test] = {
+            "salida": salida,
+            "metricas": metricas
         }
-        self.save_baselines()
+        self.guardar_lineas_base()
 
-    def compare_to_baseline(self, test_name: str, output: str, metrics: dict) -> dict:
-        """Compare current output to baseline"""
-        if test_name not in self.baselines:
-            return {"status": "no_baseline", "message": "No baseline set"}
+    def comparar_con_linea_base(self, nombre_test: str, salida: str, metricas: dict) -> dict:
+        """Comparar salida actual con línea base"""
+        if nombre_test not in self.lineas_base:
+            return {"estado": "sin_linea_base"}
 
-        baseline = self.baselines[test_name]
+        linea_base = self.lineas_base[nombre_test]
 
-        # Compare semantic similarity
-        similarity = semantic_similarity(baseline["output"], output)
+        similitud = similitud_semantica(linea_base["salida"], salida)
 
-        # Compare metrics
-        metric_diffs = {}
-        for key in metrics:
-            if key in baseline["metrics"]:
-                metric_diffs[key] = metrics[key] - baseline["metrics"][key]
+        dif_metricas = {}
+        for clave in metricas:
+            if clave in linea_base["metricas"]:
+                dif_metricas[clave] = metricas[clave] - linea_base["metricas"][clave]
 
         return {
-            "status": "compared",
-            "similarity": similarity,
-            "metric_differences": metric_diffs,
-            "passed": similarity > 0.9  # 90% similarity threshold
+            "estado": "comparado",
+            "similitud": similitud,
+            "diferencias_metricas": dif_metricas,
+            "aprobado": similitud > 0.9
         }
-
-# Usage
-tester = LLMRegressionTester()
-
-# Set baseline
-output = "Python is a high-level programming language."
-metrics = {"length": len(output), "bleu": 1.0}
-tester.set_baseline("describe_python", output, metrics)
-
-# Later, compare new output
-new_output = "Python is a high-level language for programming."
-new_metrics = {"length": len(new_output), "bleu": 0.95}
-result = tester.compare_to_baseline("describe_python", new_output, new_metrics)
-print(result)
 ```
 
 ## Evaluación Humana
 
-### Interfaz de Evaluación
-
 ```python
 from dataclasses import dataclass
-from typing import List
-import json
 
 @dataclass
-class HumanEvaluation:
+class EvaluacionHumana:
     prompt: str
-    output: str
-    ratings: dict  # {"relevance": 1-5, "accuracy": 1-5, "clarity": 1-5}
-    feedback: str
-    evaluator: str
+    salida: str
+    calificaciones: dict  # {"relevancia": 1-5, "precision": 1-5, "claridad": 1-5}
+    retroalimentacion: str
+    evaluador: str
 
-class EvaluationCollector:
-    def __init__(self, output_file: str = "evaluations.jsonl"):
-        self.output_file = output_file
-
-    def collect_evaluation(self, prompt: str, output: str) -> HumanEvaluation:
-        """Interactive evaluation collection"""
+class RecolectorEvaluaciones:
+    def recolectar_evaluacion(self, prompt: str, salida: str) -> EvaluacionHumana:
+        """Recolección interactiva de evaluación"""
         print(f"\nPrompt: {prompt}")
-        print(f"Output: {output}\n")
+        print(f"Salida: {salida}\n")
 
-        ratings = {}
-        for criterion in ["relevance", "accuracy", "clarity"]:
+        calificaciones = {}
+        for criterio in ["relevancia", "precision", "claridad"]:
             while True:
                 try:
-                    rating = int(input(f"Rate {criterion} (1-5): "))
-                    if 1 <= rating <= 5:
-                        ratings[criterion] = rating
+                    calif = int(input(f"Califica {criterio} (1-5): "))
+                    if 1 <= calif <= 5:
+                        calificaciones[criterio] = calif
                         break
                 except ValueError:
                     pass
 
-        feedback = input("Additional feedback: ")
-        evaluator = input("Your name: ")
+        retroalimentacion = input("Feedback adicional: ")
+        evaluador = input("Tu nombre: ")
 
-        evaluation = HumanEvaluation(
+        return EvaluacionHumana(
             prompt=prompt,
-            output=output,
-            ratings=ratings,
-            feedback=feedback,
-            evaluator=evaluator
+            salida=salida,
+            calificaciones=calificaciones,
+            retroalimentacion=retroalimentacion,
+            evaluador=evaluador
         )
-
-        # Save to file
-        with open(self.output_file, 'a') as f:
-            f.write(json.dumps(evaluation.__dict__) + '\n')
-
-        return evaluation
-
-    def load_evaluations(self) -> List[HumanEvaluation]:
-        """Load all evaluations"""
-        evaluations = []
-        try:
-            with open(self.output_file, 'r') as f:
-                for line in f:
-                    data = json.loads(line)
-                    evaluations.append(HumanEvaluation(**data))
-        except FileNotFoundError:
-            pass
-        return evaluations
-
-    def get_average_ratings(self) -> dict:
-        """Calculate average ratings"""
-        evaluations = self.load_evaluations()
-        if not evaluations:
-            return {}
-
-        totals = {"relevance": 0, "accuracy": 0, "clarity": 0}
-        for eval in evaluations:
-            for key in totals:
-                totals[key] += eval.ratings[key]
-
-        return {key: totals[key] / len(evaluations) for key in totals}
 ```
 
-## Integración de CI/CD
-
-### Flujo de Trabajo de GitHub Actions
+## Integración CI/CD
 
 ```yaml
-# .github/workflows/llm-tests.yml
-name: LLM Tests
+# .github/workflows/pruebas-llm.yml
+name: Pruebas LLM
 
 on: [push, pull_request]
 
@@ -342,130 +233,57 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Set up Python
+    - name: Configurar Python
       uses: actions/setup-python@v4
       with:
         python-version: '3.11'
 
-    - name: Install dependencies
+    - name: Instalar dependencias
       run: |
         pip install pytest openai sentence-transformers rouge-score
 
-    - name: Run LLM tests
+    - name: Ejecutar pruebas LLM
       env:
         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       run: |
-        pytest tests/test_llm_outputs.py -v
-
-    - name: Run regression tests
-      run: |
-        python scripts/regression_tests.py
-
-    - name: Upload test results
-      if: always()
-      uses: actions/upload-artifact@v3
-      with:
-        name: test-results
-        path: test-results/
-```
-
-### Configuración de Pruebas
-
-```python
-# conftest.py
-import pytest
-from openai import OpenAI
-
-@pytest.fixture(scope="session")
-def llm_client():
-    """Provide OpenAI client"""
-    return OpenAI()
-
-@pytest.fixture
-def test_config():
-    """Test configuration"""
-    return {
-        "model": "gpt-4o-mini",
-        "temperature": 0,
-        "max_retries": 3
-    }
+        pytest tests/test_salidas_llm.py -v
 ```
 
 ## Métricas de Rendimiento
 
-### Pruebas de Latencia
+### Testing de Latencia
 
 ```python
 import time
 from statistics import mean, median, stdev
 
-class PerformanceTester:
-    def __init__(self, client):
-        self.client = client
-        self.results = []
+class ProbadorRendimiento:
+    def __init__(self, cliente):
+        self.cliente = cliente
 
-    def test_latency(self, prompt: str, n_runs: int = 10):
-        """Test prompt latency"""
-        latencies = []
+    def probar_latencia(self, prompt: str, n_ejecuciones: int = 10):
+        """Probar latencia de prompt"""
+        latencias = []
 
-        for _ in range(n_runs):
-            start = time.time()
+        for _ in range(n_ejecuciones):
+            inicio = time.time()
 
-            response = self.client.chat.completions.create(
+            respuesta = self.cliente.chat.completions.create(
                 model="gpt-4o-mini",
                 messages=[{"role": "user", "content": prompt}],
                 temperature=0
             )
 
-            latency = time.time() - start
-            latencies.append(latency)
+            latencia = time.time() - inicio
+            latencias.append(latencia)
 
         return {
-            "mean": mean(latencies),
-            "median": median(latencies),
-            "stdev": stdev(latencies) if len(latencies) > 1 else 0,
-            "min": min(latencies),
-            "max": max(latencies)
+            "media": mean(latencias),
+            "mediana": median(latencias),
+            "desv_std": stdev(latencias) if len(latencias) > 1 else 0,
+            "min": min(latencias),
+            "max": max(latencias)
         }
-
-# Usage
-tester = PerformanceTester(client)
-stats = tester.test_latency("What is 2+2?", n_runs=10)
-print(f"Mean latency: {stats['mean']:.3f}s")
-```
-
-### Rastreo de Costos
-
-```python
-import tiktoken
-
-def estimate_test_costs(test_suite: List[dict], model: str = "gpt-4o-mini") -> dict:
-    """Estimate cost of running test suite"""
-    pricing = {
-        "gpt-4o-mini": {"input": 0.15, "output": 0.60},
-        "gpt-4o": {"input": 2.50, "output": 10.00}
-    }
-
-    encoding = tiktoken.encoding_for_model(model)
-
-    total_input_tokens = 0
-    estimated_output_tokens = 0
-
-    for test in test_suite:
-        prompt_tokens = len(encoding.encode(test["prompt"]))
-        total_input_tokens += prompt_tokens
-        estimated_output_tokens += test.get("expected_output_tokens", 100)
-
-    input_cost = (total_input_tokens / 1_000_000) * pricing[model]["input"]
-    output_cost = (estimated_output_tokens / 1_000_000) * pricing[model]["output"]
-
-    return {
-        "total_tests": len(test_suite),
-        "total_input_tokens": total_input_tokens,
-        "estimated_output_tokens": estimated_output_tokens,
-        "estimated_cost": input_cost + output_cost,
-        "cost_per_test": (input_cost + output_cost) / len(test_suite)
-    }
 ```
 
 ## Mejores Prácticas
@@ -475,81 +293,73 @@ def estimate_test_costs(test_suite: List[dict], model: str = "gpt-4o-mini") -> d
 ```python
 from datetime import datetime
 
-class PromptVersion:
-    def __init__(self, prompt: str, version: str, description: str):
+class VersionPrompt:
+    def __init__(self, prompt: str, version: str, descripcion: str):
         self.prompt = prompt
         self.version = version
-        self.description = description
-        self.created_at = datetime.now()
-        self.test_results = []
+        self.descripcion = descripcion
+        self.creado_en = datetime.now()
+        self.resultados_test = []
 
-    def add_test_result(self, result: dict):
-        self.test_results.append({
-            **result,
+    def agregar_resultado_test(self, resultado: dict):
+        self.resultados_test.append({
+            **resultado,
             "timestamp": datetime.now().isoformat()
         })
 
-    def get_success_rate(self) -> float:
-        if not self.test_results:
+    def obtener_tasa_exito(self) -> float:
+        if not self.resultados_test:
             return 0.0
-        passed = sum(1 for r in self.test_results if r.get("passed", False))
-        return passed / len(self.test_results)
+        aprobados = sum(1 for r in self.resultados_test if r.get("aprobado", False))
+        return aprobados / len(self.resultados_test)
 ```
 
 ### 2. Monitoreo Continuo
 
 ```python
-class ProductionMonitor:
+class MonitorProduccion:
     def __init__(self):
-        self.metrics = []
+        self.metricas = []
 
-    def log_inference(self, prompt: str, output: str, latency: float, cost: float):
-        """Log production inference"""
-        self.metrics.append({
+    def registrar_inferencia(self, prompt: str, salida: str, latencia: float, costo: float):
+        self.metricas.append({
             "timestamp": datetime.now().isoformat(),
-            "prompt_hash": hash(prompt),
-            "output_length": len(output),
-            "latency": latency,
-            "cost": cost
+            "hash_prompt": hash(prompt),
+            "longitud_salida": len(salida),
+            "latencia": latencia,
+            "costo": costo
         })
 
-    def get_daily_summary(self) -> dict:
-        """Get daily metrics summary"""
-        today = datetime.now().date()
-        today_metrics = [
-            m for m in self.metrics
-            if datetime.fromisoformat(m["timestamp"]).date() == today
+    def obtener_resumen_diario(self) -> dict:
+        hoy = datetime.now().date()
+        metricas_hoy = [
+            m for m in self.metricas
+            if datetime.fromisoformat(m["timestamp"]).date() == hoy
         ]
 
-        if not today_metrics:
+        if not metricas_hoy:
             return {}
 
         return {
-            "total_inferences": len(today_metrics),
-            "avg_latency": mean(m["latency"] for m in today_metrics),
-            "total_cost": sum(m["cost"] for m in today_metrics),
-            "avg_output_length": mean(m["output_length"] for m in today_metrics)
+            "inferencias_totales": len(metricas_hoy),
+            "latencia_promedio": mean(m["latencia"] for m in metricas_hoy),
+            "costo_total": sum(m["costo"] for m in metricas_hoy)
         }
 ```
 
 ## Próximos Pasos
 
 **Guías relacionadas**:
-- [Ingeniería de Prompts para Desarrolladores](/developers/prompt-engineering-developers)
-- [Construyendo tu Primer Sistema RAG](/developers/building-first-rag-system)
-- [Arquitectura de Agentes de IA](/developers/agent-architecture-patterns)
+- [Prompt Engineering para Desarrolladores](/es/developers/prompt-engineering-desarrolladores)
+- [Construyendo tu Primer Sistema RAG](/es/developers/construyendo-primer-sistema-rag)
 
 ## Recursos
 
 **Herramientas**:
-- [LangSmith](https://www.langchain.com/langsmith) - Observabilidad de LLM
-- [Weights & Biases](https://wandb.ai/) - Rastreo de experimentos
-- [promptfoo](https://github.com/promptfoo/promptfoo) - Harness de pruebas
-
-**Papers**:
-- [BLEU Paper](https://aclanthology.org/P02-1040/)
-- [ROUGE Paper](https://aclanthology.org/W04-1013/)
+- [LangSmith](https://www.langchain.com/langsmith)
+- [Weights & Biases](https://wandb.ai/)
+- [promptfoo](https://github.com/promptfoo/promptfoo)
 
 ---
 
-**¿Encontraste un problema?** [Abre un issue](https://github.com/javirub/The-New-Era-Codex/issues) o envía un PR!
+**¿Encontraste un problema?** ¡[Abre un issue](https://github.com/javirub/The-New-Era-Codex/issues) o envía un PR!

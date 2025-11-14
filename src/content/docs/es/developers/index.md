@@ -1,6 +1,8 @@
 ---
 title: Para desarrolladores
 description: Herramientas de IA, frameworks y mejores prácticas para desarrolladores de software
+sidebar:
+  order: 0
 version: "1.0"
 ---
 

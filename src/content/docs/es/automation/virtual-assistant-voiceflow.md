@@ -1,7 +1,8 @@
 ---
 title: "Creando un Asistente Virtual con Voiceflow"
-description: "Diseña flujos conversacionales, integra con IA, despliega en WhatsApp/Telegram"
+description: "Diseño de flujos conversacionales, integración con IA, despliegue en WhatsApp/Telegram"
 sidebar:
+  order: 20
   badge:
     text: "Intermedio"
     variant: note
@@ -12,30 +13,30 @@ version: "1.0"
 
 ## Descripción General
 
-Construye asistentes de IA conversacional usando la interfaz visual de Voiceflow, integra con OpenAI y despliega en múltiples plataformas de mensajería.
+Construye asistentes de IA conversacionales usando la interfaz visual de Voiceflow, integra con OpenAI y despliega en plataformas de mensajería.
 
 **Lo que construirás**: Un asistente virtual de servicio al cliente con comprensión de lenguaje natural, gestión de contexto y despliegue multi-canal.
 
-**Casos de uso**: Soporte al cliente, reserva de citas, automatización de FAQ, calificación de leads.
+**Casos de uso**: Soporte al cliente, reserva de citas, automatización FAQ, calificación de leads.
 
 **Tiempo**: 40 minutos
 
 ## Prerrequisitos
 
-- Cuenta de Voiceflow (tier gratuito disponible en [voiceflow.com](https://voiceflow.com))
+- Cuenta Voiceflow (tier gratuito en [voiceflow.com](https://voiceflow.com))
 - Clave API de OpenAI
-- Canal de despliegue (WhatsApp Business API, Telegram o web)
+- Canal de despliegue (WhatsApp Business API, Telegram, o web)
 
-## Primeros Pasos
+## Comenzando
 
 ### Crear Nuevo Proyecto
 
-1. Inicia sesión en Voiceflow
-2. Haz clic en "New Project"
-3. Elige "Chat Assistant"
-4. Selecciona plantilla o comienza en blanco
+1. Ingresa a Voiceflow
+2. Click "Nuevo Proyecto"
+3. Elige "Asistente de Chat"
+4. Selecciona plantilla o inicia en blanco
 
-## Construyendo tu Primer Flujo
+## Construyendo Tu Primer Flujo
 
 ### Componentes Básicos
 
@@ -47,50 +48,50 @@ Construye asistentes de IA conversacional usando la interfaz visual de Voiceflow
 - **API**: Llamadas externas
 - **Code**: Lógica personalizada
 
-### Flujo 1: Bot Simple de FAQ
+### Flujo 1: Bot FAQ Simple
 
 **Objetivo**: Responder preguntas comunes
 
 **Diseño del Flujo**:
 ```
-Start
+Inicio
   ↓
-Welcome Message
+Mensaje Bienvenida
   ↓
-Capture User Question
+Capturar Pregunta Usuario
   ↓
-OpenAI API Call
+Llamada API OpenAI
   ↓
-Display Answer
+Mostrar Respuesta
   ↓
-Ask if helpful?
+¿Fue útil?
   ↓
-Yes: Thank you → End
-No: Connect to human → End
+Sí: Gracias → Fin
+No: Conectar con humano → Fin
 ```
 
 **Implementación**:
 
-**1. Bloque de Bienvenida**
+**1. Bloque Bienvenida**
 ```
-Type: Text
-Message: "Hi! I'm your virtual assistant. How can I help you today?"
+Tipo: Text
+Mensaje: "¡Hola! Soy tu asistente virtual. ¿Cómo puedo ayudarte hoy?"
 ```
 
 **2. Capturar Entrada**
 ```
-Type: Capture
-Variable: {user_question}
-Message: "Please type your question..."
+Tipo: Capture
+Variable: {pregunta_usuario}
+Mensaje: "Por favor escribe tu pregunta..."
 ```
 
-**3. Integración con OpenAI**
+**3. Integración OpenAI**
 ```
-Type: API
-Method: POST
+Tipo: API
+Método: POST
 URL: https://api.openai.com/v1/chat/completions
 Headers:
-  Authorization: Bearer {your_api_key}
+  Authorization: Bearer {tu_clave_api}
   Content-Type: application/json
 
 Body:
@@ -99,77 +100,77 @@ Body:
   "messages": [
     {
       "role": "system",
-      "content": "You are a helpful customer service assistant. Answer questions concisely and professionally."
+      "content": "Eres un asistente útil de servicio al cliente. Responde preguntas de manera concisa y profesional."
     },
     {
       "role": "user",
-      "content": "{user_question}"
+      "content": "{pregunta_usuario}"
     }
   ]
 }
 
-Response Mapping:
-answer = response.choices[0].message.content
+Mapeo Respuesta:
+respuesta = response.choices[0].message.content
 ```
 
 **4. Mostrar Respuesta**
 ```
-Type: Text
-Message: "{answer}"
+Tipo: Text
+Mensaje: "{respuesta}"
 ```
 
-**5. Verificación de Satisfacción**
+**5. Verificación Satisfacción**
 ```
-Type: Choice
-Message: "Was this helpful?"
-Choices:
-  - Yes → Thank you message → End
-  - No → "Let me connect you with a human agent" → Handoff
+Tipo: Choice
+Mensaje: "¿Fue útil esto?"
+Opciones:
+  - Sí → Mensaje de agradecimiento → Fin
+  - No → "Déjame conectarte con un agente humano" → Transferencia
 ```
 
 ## Características Avanzadas
 
 ### Gestión de Contexto
 
-**Usar Variables** para rastrear el estado de la conversación:
+**Usa Variables** para rastrear estado de conversación:
 
 ```
 Variables:
-- user_name: String
-- user_email: String
-- conversation_topic: String
-- satisfied: Boolean
-- retry_count: Number
+- nombre_usuario: String
+- email_usuario: String
+- tema_conversacion: String
+- satisfecho: Boolean
+- contador_reintentos: Number
 ```
 
 **Ejemplo de Flujo con Contexto**:
 ```
-Capture name → Store in {user_name}
+Capturar nombre → Guardar en {nombre_usuario}
   ↓
-All future messages: "Hi {user_name}, ..."
+Todos los mensajes futuros: "Hola {nombre_usuario}, ..."
   ↓
-Track topic in {conversation_topic}
+Rastrear tema en {tema_conversacion}
   ↓
-If {retry_count} > 3 → Escalate to human
+Si {contador_reintentos} > 3 → Escalar a humano
 ```
 
 ### Reconocimiento de Intención
 
-**Usar Condiciones para enrutamiento de intención**:
+**Usa Condiciones para enrutamiento de intención**:
 
 ```
-Condition Block:
-IF {user_question} contains ["price", "cost", "pricing"]
-  → Go to Pricing Flow
+Bloque Condición:
+SI {pregunta_usuario} contiene ["precio", "costo", "precios"]
+  → Ir a Flujo Precios
 
-ELSE IF {user_question} contains ["demo", "trial", "test"]
-  → Go to Demo Booking Flow
+SINO SI {pregunta_usuario} contiene ["demo", "prueba", "test"]
+  → Ir a Flujo Reserva Demo
 
-ELSE IF {user_question} contains ["bug", "error", "broken"]
-  → Go to Support Flow
+SINO SI {pregunta_usuario} contiene ["bug", "error", "roto"]
+  → Ir a Flujo Soporte
 
-ELSE
-  → Go to General FAQ Flow
+SINO
+  → Ir a Flujo FAQ General
 ```
 
 ### Conversaciones Multi-Paso
@@ -177,92 +178,49 @@ ELSE
 **Ejemplo: Reserva de Cita**
 
 ```
-Start → Collect Service Type
+Inicio → Recopilar Tipo de Servicio
   ↓
-Collect Preferred Date
+Recopilar Fecha Preferida
   ↓
-Collect Preferred Time
+Recopilar Hora Preferida
   ↓
-Collect Contact Info
+Recopilar Info de Contacto
   ↓
-Confirm Details
+Confirmar Detalles
   ↓
-API Call to Calendar System
+Llamada API a Sistema de Calendario
   ↓
-Send Confirmation
-```
-
-**Implementación**:
-
-```javascript
-// Step 1: Collect Service
-Text: "What service do you need?"
-Choice:
-  - Consultation
-  - Support
-  - Demo
-
-// Step 2: Date Collection
-Capture: {preferred_date}
-Validation: Must be future date
-
-// Step 3: Time Selection
-Choice: Pick from available slots
-Buttons:
-  - 9:00 AM
-  - 11:00 AM
-  - 2:00 PM
-  - 4:00 PM
-
-// Step 4: Contact Info
-Capture: {email}
-Validation: Must be valid email
-
-// Step 5: Confirmation
-Text: "Booking {service} on {date} at {time}. Confirm?"
-Choice: Yes/No
-
-// Step 6: API Call (if Yes)
-API: POST /api/bookings
-Body: {
-  service: {service},
-  date: {date},
-  time: {time},
-  email: {email}
-}
-
-// Step 7: Success Message
-Text: "Confirmed! Check {email} for details."
+Enviar Confirmación
 ```
 
 ## Integraciones
 
-### Despliegue en WhatsApp
+### Despliegue WhatsApp
 
-1. Obtén acceso a WhatsApp Business API
-2. En Voiceflow: Integrations → WhatsApp
-3. Conecta tu cuenta de WhatsApp Business
-4. Configura URL de webhook
+1. Obtén acceso API WhatsApp Business
+2. En Voiceflow: Integraciones → WhatsApp
+3. Conecta tu cuenta WhatsApp Business
+4. Configura URL webhook
 5. Prueba con tu número
 
-### Bot de Telegram
+### Bot Telegram
 
 1. Crea bot con @BotFather
 2. Obtén token del bot
-3. En Voiceflow: Integrations → Telegram
-4. Pega el token
+3. En Voiceflow: Integraciones → Telegram
+4. Pega token
 5. Despliega
 
-### Widget de Chat Web
+### Widget Chat Web
 
 ```html
-<!-- Add to your website -->
+<!-- Añadir a tu sitio web -->
 <script type="text/javascript">
   (function(d, t) {
     var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
     v.onload = function() {
       window.voiceflow.chat.load({
-        verify: { projectID: 'YOUR_PROJECT_ID' },
+        verify: { projectID: 'TU_PROJECT_ID' },
         url: 'https://general-runtime.voiceflow.com',
         versionID: 'production'
       });
@@ -279,196 +237,80 @@ Text: "Confirmed! Check {email} for details."
 
 **Hacer**:
 - Usar lenguaje claro y conciso
-- Proporcionar ejemplos en los prompts
+- Proporcionar ejemplos en prompts
 - Ofrecer botones de respuesta rápida
 - Establecer expectativas del usuario temprano
 
 **No hacer**:
-- Hacer conversaciones demasiado largas
+- Hacer conversaciones muy largas
 - Usar jerga compleja
-- Pedir información que ya tienes
-- Dejar a los usuarios en callejones sin salida
+- Pedir info que ya tienes
+- Dejar usuarios en callejones sin salida
 
 ### 2. Manejo de Errores
 
 **Siempre incluir**:
 ```
-Try-Catch blocks for API calls
-Fallback responses for unknowns
-Escalation path to humans
-Retry limits for failed inputs
+Bloques Try-Catch para llamadas API
+Respuestas de respaldo para desconocidos
+Ruta de escalamiento a humanos
+Límites de reintento para entradas fallidas
 ```
 
-**Ejemplo**:
-```
-API Call
-  ↓
-Success? → Continue
-  ↓
-No → Try again (max 2 times)
-  ↓
-Still failing? → "I'm having technical difficulties. Let me connect you to a person."
-```
+### 3. Procesamiento Lenguaje Natural
 
-### 3. Procesamiento de Lenguaje Natural
-
-**Mejorar la comprensión**:
+**Mejorar comprensión**:
 - Usar OpenAI para consultas complejas
-- Agregar sinónimos a la coincidencia de intenciones
-- Implementar corrector ortográfico
+- Añadir sinónimos a coincidencia de intención
+- Implementar corrección ortográfica
 - Manejar errores tipográficos comunes
 
-**Ejemplo de Configuración NLU**:
-```javascript
-// Code block in Voiceflow
-const userInput = {user_question}.toLowerCase();
-
-// Handle variations
-if (userInput.includes('hi') ||
-    userInput.includes('hello') ||
-    userInput.includes('hey')) {
-  setVariable('intent', 'greeting');
-}
-```
-
-### 4. Analítica y Mejora
-
-**Rastrear**:
-- Puntos de abandono del usuario
-- Consultas comunes no manejadas
-- Longitud promedio de conversación
-- Puntuaciones de satisfacción
-
-**En Voiceflow**:
-- Usar panel de Analytics
-- Revisar registros de conversación
-- Probar A/B diferentes flujos
-- Iterar basándose en datos
-
-## Pruebas
+## Testing
 
 ### Escenarios de Prueba
 
-1. **Happy Path**: Usuario obtiene respuesta fácilmente
+1. **Ruta Feliz**: Usuario obtiene respuesta fácilmente
 2. **Usuario Confundido**: Preguntas poco claras
 3. **Casos Límite**: Entradas inusuales
-4. **Escenarios de Error**: Fallos de API
+4. **Escenarios Error**: Fallos API
 5. **Multi-Intención**: Múltiples preguntas a la vez
-
-### Lista de Verificación de Pruebas
-
-```
-□ Todas las intenciones reconocidas correctamente
-□ Variables almacenando datos apropiadamente
-□ Llamadas API devolviendo datos esperados
-□ Mensajes de error mostrándose
-□ Fallbacks funcionando
-□ Handoff a humano funcional
-□ Todas las plataformas (WhatsApp, Web, etc.) funcionando
-```
 
 ## Consejos de Producción
 
 ### 1. Rendimiento
 
 - Cachear respuestas frecuentes
-- Usar limitación de tasa de API
-- Optimizar tamaños de imagen/medios
+- Usar limitación de tasa API
+- Optimizar tamaños imagen/media
 - Establecer timeouts apropiadamente
 
 ### 2. Seguridad
 
 ```
-- Validar todas las entradas del usuario
+- Validar todas las entradas de usuario
 - Sanitizar antes de llamadas API
 - No almacenar datos sensibles en variables
 - Usar HTTPS para todas las integraciones
 - Implementar limitación de tasa
 ```
 
-### 3. Escalabilidad
-
-**Manejar alto volumen**:
-- Usar colas para handoffs
-- Balancear carga de llamadas API
-- Monitorear tiempos de respuesta
-- Configurar alertas para fallos
-
-### 4. Mantenimiento
+### 3. Mantenimiento
 
 **Tareas regulares**:
-- Revisar registros de conversación semanalmente
-- Actualizar base de conocimiento
-- Reentrenar intenciones
+- Revisar logs de conversación semanalmente
+- Actualizar base de conocimientos
+- Re-entrenar intenciones
 - Probar nuevos escenarios
 - Actualizar integraciones API
-
-## Casos de Uso Comunes
-
-### Caso de Uso 1: Triaje de Soporte al Cliente
-
-```
-Flow:
-User Question → Classify Issue Type → Route to:
-  - Knowledge Base (self-service)
-  - Ticket Creation (async)
-  - Live Agent (urgent)
-```
-
-### Caso de Uso 2: Calificación de Leads
-
-```
-Flow:
-Greeting → Collect:
-  - Company Size
-  - Industry
-  - Budget Range
-  - Timeline
-→ Score Lead → Route to Sales
-```
-
-### Caso de Uso 3: Seguimiento de Pedidos
-
-```
-Flow:
-Capture Order Number → API Lookup → Display:
-  - Order Status
-  - Expected Delivery
-  - Tracking Link
-→ Offer to help with issues
-```
-
-## Solución de Problemas
-
-**Problema**: Bot no responde
-- Verificar estado de despliegue
-- Verificar configuración de webhook
-- Probar con chat integrado primero
-
-**Problema**: Llamadas API fallando
-- Verificar clave API
-- Verificar formato de solicitud
-- Revisar registros de error
-- Probar endpoint directamente
-
-**Problema**: Intención incorrecta detectada
-- Agregar más frases de entrenamiento
-- Mejorar descripciones de intención
-- Usar OpenAI para NLU complejo
 
 ## Próximos Pasos
 
 **Mejora tu asistente**:
-- Agregar soporte multiidioma
+- Añadir soporte multiidioma
 - Implementar análisis de sentimiento
 - Crear flujos especializados
 - Integrar con CRM
-- Agregar capacidades de voz
-
-**Guías relacionadas**:
-- [Flujos de Trabajo con n8n](/automation/first-ai-workflow-n8n)
-- [Automatización con Zapier](/automation/email-automation-zapier)
 
 ---
 
-**¿Encontraste un problema?** [Abre un issue](https://github.com/javirub/The-New-Era-Codex/issues)!
+**¿Encontraste un problema?** ¡[Abre un issue](https://github.com/javirub/The-New-Era-Codex/issues)!
