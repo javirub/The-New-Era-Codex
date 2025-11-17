@@ -6,12 +6,9 @@ sidebar:
   badge:
     text: "LLM Ops"
     variant: caution
-version: "1.0"
----
+version: "1.1"---
 
 import { Card, CardGrid, LinkCard, Aside, Tabs, TabItem } from '@astrojs/starlight/components';
-
-# LLM Operations: Production Best Practices
 
 Taking LLM applications from prototype to production requires careful attention to cost, security, performance, and reliability. This guide organizes essential operational topics for running LLMs at scale.
 

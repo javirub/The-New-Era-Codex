@@ -8,9 +8,6 @@ sidebar:
     variant: tip
 version: "1.0"
 ---
-
-# Tu Primer Workflow de IA con n8n
-
 ## Descripción General
 
 n8n es una herramienta de automatización de workflows que te permite conectar modelos de IA como GPT de OpenAI con cientos de aplicaciones sin código. Construye automatizaciones inteligentes visualmente.

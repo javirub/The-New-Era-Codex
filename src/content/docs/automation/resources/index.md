@@ -6,12 +6,9 @@ sidebar:
   badge:
     text: "Resources"
     variant: tip
-version: "1.0"
----
+version: "1.1"---
 
 import { CardGrid, LinkCard, Aside } from '@astrojs/starlight/components';
-
-# Automation Resources & Templates
 
 Level up your automation skills with proven patterns, ready-to-use templates, and best practices.
 

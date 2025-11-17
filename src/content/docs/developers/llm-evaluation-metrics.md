@@ -6,11 +6,7 @@ sidebar:
   badge:
     text: "LLM Ops"
     variant: caution
-version: "1.1"
----
-
-# LLM Model Evaluation: Metrics and Testing
-
+version: "1.2"---
 ## Overview
 
 Evaluating LLM outputs is critical for production AI systems. Unlike traditional software testing, LLM evaluation combines quantitative metrics with qualitative human assessment to ensure reliability, safety, and performance.

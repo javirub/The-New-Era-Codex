@@ -6,12 +6,9 @@ sidebar:
   badge:
     text: "Data"
     variant: note
-version: "1.0"
----
+version: "1.1"---
 
 import { CardGrid, LinkCard, Aside } from '@astrojs/starlight/components';
-
-# Document & Data Processing
 
 Automate the extraction, transformation, and validation of documents and data using AI—no coding required.
 

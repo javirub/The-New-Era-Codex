@@ -6,11 +6,7 @@ sidebar:
   badge:
     text: "Basic"
     variant: tip
-version: "1.0"
----
-
-# Detecting AI-Generated Content: Spot the Bots
-
+version: "1.1"---
 ## Why This Matters
 
 AI-generated content is everywhere - essays, articles, images, videos. Knowing how to spot it helps you:

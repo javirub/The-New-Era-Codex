@@ -6,11 +6,7 @@ sidebar:
   badge:
     text: "Basic"
     variant: tip
-version: "1.0"
----
-
-# Creating Images with AI: DALL-E, Midjourney & Stable Diffusion
-
+version: "1.1"---
 ## What is AI Image Generation?
 
 AI image generators create original images from text descriptions (prompts). Type what you want to see, and AI creates it in seconds.

@@ -6,11 +6,7 @@ sidebar:
   badge:
     text: "Intermediate"
     variant: caution
-version: "1.0"
----
-
-# Building Production Embedding Search Systems
-
+version: "1.1"---
 ## Overview
 
 Move from prototype to production-ready semantic search with proper architecture, caching, monitoring, and scaling.

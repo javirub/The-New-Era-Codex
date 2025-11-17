@@ -6,12 +6,9 @@ sidebar:
   badge:
     text: "Creative"
     variant: danger
-version: "1.0"
----
+version: "1.1"---
 
 import { CardGrid, LinkCard, Aside } from '@astrojs/starlight/components';
-
-# Content & Social Media Automation
 
 Streamline your content creation and social media management with AI-powered automation.
 

@@ -6,11 +6,7 @@ sidebar:
   badge:
     text: "Basic"
     variant: tip
-version: "1.0"
----
-
-# ChatGPT: The Ultimate Beginner's Guide
-
+version: "1.1"---
 ## What is ChatGPT?
 
 ChatGPT is an AI assistant created by OpenAI that can have conversations, answer questions, write content, help with tasks, and much more - all through simple text conversations.

@@ -6,12 +6,9 @@ sidebar:
   badge:
     text: "Business"
     variant: success
-version: "1.0"
----
+version: "1.1"---
 
 import { CardGrid, LinkCard, Aside } from '@astrojs/starlight/components';
-
-# Business Automation with AI
 
 Supercharge your business operations by automating repetitive tasks with intelligent AI workflows.
 

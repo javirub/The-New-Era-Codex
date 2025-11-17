@@ -6,11 +6,7 @@ sidebar:
   badge:
     text: "Intermediate"
     variant: caution
-version: "1.0"
----
-
-# Function Calling: Building Tool-Using AI Agents
-
+version: "1.1"---
 ## Overview
 
 Function calling allows LLMs to interact with external tools, APIs, and databases, transforming them from text generators into action-taking agents.

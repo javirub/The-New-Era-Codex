@@ -6,12 +6,9 @@ sidebar:
   badge:
     text: "Conversational"
     variant: caution
-version: "1.0"
----
+version: "1.1"---
 
 import { CardGrid, LinkCard, Aside } from '@astrojs/starlight/components';
-
-# Chatbots & Virtual Assistants
 
 Build intelligent conversational AI that can handle customer inquiries, provide support, and assist with tasks—all without code.
 

@@ -8,9 +8,6 @@ sidebar:
     variant: caution
 version: "1.0"
 ---
-
-# APIs de Streaming de LLM: Generación de Respuestas en Tiempo Real
-
 ## Descripción General
 
 El streaming permite que las respuestas de LLM aparezcan progresivamente, mejorando el rendimiento percibido y la experiencia del usuario. Esencial para aplicaciones en producción.

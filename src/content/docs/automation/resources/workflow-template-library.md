@@ -6,11 +6,7 @@ sidebar:
   badge:
     text: "Basic"
     variant: tip
-version: "1.0"
----
-
-# Workflow Template Library: Ready-to-Use AI Automations
-
+version: "1.1"---
 ## Overview
 
 Collection of production-ready workflow templates you can import and customize for common AI automation use cases.

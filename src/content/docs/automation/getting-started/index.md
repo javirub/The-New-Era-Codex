@@ -6,12 +6,9 @@ sidebar:
   badge:
     text: "Start Here"
     variant: tip
-version: "1.0"
----
+version: "1.1"---
 
 import { Card, CardGrid, LinkCard, Aside } from '@astrojs/starlight/components';
-
-# Getting Started with AI Automation
 
 Welcome to AI automation! If you're new to connecting AI with your workflows, start here. These guides will teach you the fundamentals using popular no-code platforms—no programming required.
 

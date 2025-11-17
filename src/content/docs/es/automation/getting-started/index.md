@@ -11,8 +11,6 @@ version: "1.0"
 
 import { Card, CardGrid, LinkCard, Aside } from '@astrojs/starlight/components';
 
-# Comenzando con Automatización de IA
-
 ¡Bienvenido a la automatización de IA! Si eres nuevo en conectar IA con tus flujos de trabajo, comienza aquí. Estas guías te enseñarán los fundamentos usando plataformas populares sin código—no se requiere programación.
 
 <Aside type="tip" title="No se Requiere Código">

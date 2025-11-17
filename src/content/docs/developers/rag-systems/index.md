@@ -6,12 +6,9 @@ sidebar:
   badge:
     text: "Learning Path"
     variant: tip
-version: "1.0"
----
+version: "1.1"---
 
 import { Card, CardGrid, LinkCard, Aside, Steps } from '@astrojs/starlight/components';
-
-# RAG Systems: Complete Learning Path
 
 Retrieval-Augmented Generation (RAG) is one of the most powerful patterns for building AI applications that work with your own data. This learning path will take you from understanding the basics to implementing production-ready RAG systems.
 

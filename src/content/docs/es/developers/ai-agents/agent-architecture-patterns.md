@@ -8,9 +8,6 @@ sidebar:
     variant: caution
 version: "1.0"
 ---
-
-# Arquitectura de Agentes de IA: Patrones y Mejores Prácticas
-
 ## Descripción General
 
 Los agentes de IA son sistemas autónomos que pueden percibir su entorno, tomar decisiones y ejecutar acciones para alcanzar objetivos específicos. A diferencia de sistemas simples de prompt-respuesta, los agentes pueden descomponer tareas complejas, usar herramientas y adaptar su comportamiento basándose en retroalimentación.

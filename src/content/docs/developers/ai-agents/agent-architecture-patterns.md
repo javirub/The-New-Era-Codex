@@ -6,11 +6,7 @@ sidebar:
   badge:
     text: "Advanced"
     variant: caution
-version: "1.0"
----
-
-# AI Agent Architecture: Patterns and Best Practices
-
+version: "1.1"---
 ## Overview
 
 AI agents are autonomous systems that can perceive their environment, make decisions, and take actions to achieve specific goals. Unlike simple prompt-response systems, agents can break down complex tasks, use tools, and adapt their behavior based on feedback.

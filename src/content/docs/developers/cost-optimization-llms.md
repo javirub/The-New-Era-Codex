@@ -6,11 +6,7 @@ sidebar:
   badge:
     text: "LLM Ops"
     variant: caution
-version: "1.1"
----
-
-# Cost Optimization for LLM Applications
-
+version: "1.2"---
 ## Cost Breakdown
 
 **Typical costs**:

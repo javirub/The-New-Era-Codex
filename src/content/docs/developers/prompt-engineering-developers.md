@@ -6,11 +6,7 @@ sidebar:
   badge:
     text: "Prompting"
     variant: tip
-version: "1.1"
----
-
-# Prompt Engineering for Developers
-
+version: "1.2"---
 ## Overview
 
 Prompt engineering is the practice of designing inputs that guide language models to produce desired outputs reliably. For developers, this means treating prompts as a programmatic interface—testable, version-controlled, and optimized for consistent results.

@@ -8,9 +8,6 @@ sidebar:
     variant: note
 version: "1.0"
 ---
-
-# Creando un Asistente Virtual con Voiceflow
-
 ## Descripción General
 
 Construye asistentes de IA conversacionales usando la interfaz visual de Voiceflow, integra con OpenAI y despliega en plataformas de mensajería.

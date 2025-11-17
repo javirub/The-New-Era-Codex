@@ -8,9 +8,6 @@ sidebar:
     variant: tip
 version: "1.0"
 ---
-
-# Automatizando Respuestas de Email con Zapier + ChatGPT
-
 ## Descripción General
 
 Automatiza respuestas de email usando Zapier y ChatGPT para clasificar emails, redactar respuestas contextuales y manejar consultas rutinarias automáticamente.

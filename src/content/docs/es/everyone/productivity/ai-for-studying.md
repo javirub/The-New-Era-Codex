@@ -8,9 +8,6 @@ sidebar:
     variant: tip
 version: "1.0"
 ---
-
-# Usando IA para Estudiar: Aprende Más Inteligentemente, No Más Duro
-
 ## ¿Por Qué IA para Estudiar?
 
 Herramientas de IA como ChatGPT pueden ser tu tutor personal 24/7 - explicando conceptos, creando exámenes de práctica y adaptándose a tu estilo de aprendizaje.

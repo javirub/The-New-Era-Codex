@@ -8,9 +8,6 @@ sidebar:
     variant: success
 version: "1.0"
 ---
-
-# IA para Marketing: Personalización, Contenido y Optimización de Campañas
-
 La IA revoluciona el marketing al habilitar hiper-personalización, automatizar creación de contenido, optimizar campañas en tiempo real y proporcionar insights profundos de clientes.
 
 ## Aplicaciones Clave

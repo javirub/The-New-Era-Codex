@@ -6,12 +6,9 @@ sidebar:
   badge:
     text: "Learning Path"
     variant: tip
-version: "1.0"
----
+version: "1.1"---
 
 import { Card, CardGrid, LinkCard, Aside, Steps } from '@astrojs/starlight/components';
-
-# AI Agents: From Concepts to Production
 
 AI agents are autonomous systems that can perceive their environment, make decisions, and take actions to achieve specific goals. Unlike simple chatbots, agents can use tools, plan multi-step tasks, and adapt their behavior based on feedback.
 

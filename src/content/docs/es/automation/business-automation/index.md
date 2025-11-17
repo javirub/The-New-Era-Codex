@@ -11,8 +11,6 @@ version: "1.0"
 
 import { CardGrid, LinkCard } from '@astrojs/starlight/components';
 
-# Automatización de Negocios con IA
-
 Potencia tus operaciones comerciales automatizando tareas repetitivas con flujos de trabajo inteligentes de IA.
 
 ## Guías Disponibles

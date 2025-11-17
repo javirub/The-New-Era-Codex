@@ -6,11 +6,7 @@ sidebar:
   badge:
     text: "Professional"
     variant: success
-version: "1.0"
----
-
-# AI and Compliance: Navigate Regulations, Mitigate Risks
-
+version: "1.1"---
 ## Overview
 
 As AI adoption accelerates, understanding compliance requirements and risk mitigation becomes critical for organizations. Navigate GDPR, AI Act, algorithmic transparency, and ethical AI implementation.

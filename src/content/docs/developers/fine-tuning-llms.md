@@ -6,11 +6,7 @@ sidebar:
   badge:
     text: "Deployment"
     variant: caution
-version: "1.1"
----
-
-# Fine-Tuning LLMs: Customize Models for Your Use Case
-
+version: "1.2"---
 ## Overview
 
 Fine-tuning adapts pre-trained LLMs to your specific domain, improving performance on specialized tasks while being more cost-effective than training from scratch.

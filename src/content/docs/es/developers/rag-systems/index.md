@@ -11,8 +11,6 @@ version: "1.0"
 
 import { Card, CardGrid, LinkCard, Aside, Steps } from '@astrojs/starlight/components';
 
-# Sistemas RAG: Ruta de Aprendizaje Completa
-
 La Generación Aumentada por Recuperación (RAG) es uno de los patrones más poderosos para construir aplicaciones de IA que trabajan con tus propios datos. Esta ruta de aprendizaje te llevará desde entender los conceptos básicos hasta implementar sistemas RAG listos para producción.
 
 ## ¿Qué es RAG?

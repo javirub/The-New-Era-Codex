@@ -11,8 +11,6 @@ version: "1.0"
 
 import { CardGrid, LinkCard, Aside } from '@astrojs/starlight/components';
 
-# Carrera y Vida Personal
-
 Usa IA para avanzar tu carrera, gestionar tus finanzas, mejorar tu salud y navegar los desafíos de la vida.
 
 <Aside type="caution" title="Descargos de Responsabilidad Importantes">

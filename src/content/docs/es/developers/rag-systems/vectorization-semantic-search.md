@@ -8,9 +8,6 @@ sidebar:
     variant: note
 version: "1.0"
 ---
-
-# Vectorización y Búsqueda Semántica: Guía Completa
-
 ## Descripción General
 
 La búsqueda semántica transforma cómo encontramos información al comprender significado en lugar de solo coincidencias de palabras clave. En su núcleo está la vectorización: convertir texto en representaciones numéricas que capturan significado semántico.

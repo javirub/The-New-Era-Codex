@@ -8,9 +8,6 @@ sidebar:
     variant: caution
 version: "1.0"
 ---
-
-# Evaluación de Modelos LLM: Métricas y Testing
-
 ## Descripción General
 
 Evaluar salidas de LLM es crítico para sistemas de IA en producción. A diferencia del testing tradicional, la evaluación de LLM combina métricas cuantitativas con evaluación cualitativa humana.

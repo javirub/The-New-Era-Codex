@@ -6,12 +6,9 @@ sidebar:
   badge:
     text: "Regulated"
     variant: caution
-version: "1.0"
----
+version: "1.1"---
 
 import { CardGrid, LinkCard, Aside } from '@astrojs/starlight/components';
-
-# Finance, Legal & Compliance
 
 Navigate the intersection of AI and regulated industries. These guides address compliance considerations, privacy requirements, and best practices for using AI in finance and legal contexts.
 

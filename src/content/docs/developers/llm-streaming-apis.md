@@ -6,11 +6,7 @@ sidebar:
   badge:
     text: "LLM Ops"
     variant: caution
-version: "1.1"
----
-
-# LLM Streaming APIs: Real-Time Response Generation
-
+version: "1.2"---
 ## Overview
 
 Streaming allows LLM responses to appear progressively, improving perceived performance and user experience. Essential for production applications.

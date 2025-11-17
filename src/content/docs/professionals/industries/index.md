@@ -6,12 +6,9 @@ sidebar:
   badge:
     text: "Specialized"
     variant: note
-version: "1.0"
----
+version: "1.1"---
 
 import { CardGrid, LinkCard, Aside } from '@astrojs/starlight/components';
-
-# Industry-Specific AI Applications
 
 AI solutions designed for the unique challenges and workflows of specific industries. These guides address industry-specific regulations, terminology, and use cases.
 

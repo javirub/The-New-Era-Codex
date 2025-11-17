@@ -8,9 +8,6 @@ sidebar:
     variant: tip
 version: "1.0"
 ---
-
-# ChatGPT: La Guía Definitiva para Principiantes
-
 ## ¿Qué es ChatGPT?
 
 ChatGPT es un asistente de IA creado por OpenAI que puede mantener conversaciones, responder preguntas, escribir contenido, ayudar con tareas y mucho más - todo a través de conversaciones de texto simples.

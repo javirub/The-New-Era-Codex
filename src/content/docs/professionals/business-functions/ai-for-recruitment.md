@@ -6,11 +6,7 @@ sidebar:
   badge:
     text: "Professional"
     variant: success
-version: "1.0"
----
-
-# AI for Recruitment: Streamline Hiring with Intelligent Automation
-
+version: "1.1"---
 ## Overview
 
 AI transforms recruitment by automating repetitive tasks, reducing bias, and improving candidate experience while helping recruiters focus on relationship-building and strategic decisions.

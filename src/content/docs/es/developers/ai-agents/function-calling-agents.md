@@ -8,9 +8,6 @@ sidebar:
     variant: caution
 version: "1.0"
 ---
-
-# Function Calling: Construcción de Agentes de IA que Usan Herramientas
-
 ## Descripción General
 
 El function calling permite a los LLMs interactuar con herramientas externas, APIs y bases de datos, transformándolos de generadores de texto en agentes que toman acciones.

@@ -8,9 +8,6 @@ sidebar:
     variant: success
 version: "1.0"
 ---
-
-# IA y Cumplimiento Normativo: Navega Regulaciones, Mitiga Riesgos
-
 Conforme acelera adopción de IA, entender requisitos de cumplimiento y mitigación de riesgos se vuelve crítico para organizaciones.
 
 ## Marcos Regulatorios Clave

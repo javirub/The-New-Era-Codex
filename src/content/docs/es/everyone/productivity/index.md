@@ -11,8 +11,6 @@ version: "1.0"
 
 import { CardGrid, LinkCard } from '@astrojs/starlight/components';
 
-# Productividad y Aprendizaje
-
 Potencia tu productividad y aprendizaje con asistentes de IA, herramientas de estudio y trucos de productividad.
 
 ## Guías Disponibles

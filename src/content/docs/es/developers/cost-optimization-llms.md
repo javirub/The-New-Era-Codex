@@ -8,9 +8,6 @@ sidebar:
     variant: caution
 version: "1.0"
 ---
-
-# Optimización de Costos para Aplicaciones LLM
-
 ## Desglose de Costos
 
 **Costos típicos**:

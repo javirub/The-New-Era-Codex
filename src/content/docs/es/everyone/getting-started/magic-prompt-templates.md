@@ -8,9 +8,6 @@ sidebar:
     variant: tip
 version: "1.0"
 ---
-
-# 50 Plantillas de Prompts Mágicos: Copia, Pega, Obtén Resultados
-
 ## Cómo Usar Esta Guía
 
 Cada plantilla tiene:

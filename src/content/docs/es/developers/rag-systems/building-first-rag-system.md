@@ -8,9 +8,6 @@ sidebar:
     variant: note
 version: "1.0"
 ---
-
-# Construyendo tu Primer Sistema RAG con LangChain
-
 ## Descripción General
 
 La Generación Aumentada por Recuperación (RAG, por sus siglas en inglés) es uno de los patrones más potentes para construir aplicaciones de IA que necesitan trabajar con tus propios datos. En lugar de depender únicamente de los datos de entrenamiento de un modelo de lenguaje, los sistemas RAG recuperan información relevante de tus documentos y la utilizan para generar respuestas precisas y contextuales.
