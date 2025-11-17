@@ -2,9 +2,9 @@
 title: "LLM Model Evaluation: Metrics and Testing"
 description: "BLEU, ROUGE, perplexity, unit testing prompts, and CI/CD for AI applications"
 sidebar:
-  order: 70
+  order: 64
   badge:
-    text: "Advanced"
+    text: "LLM Ops"
     variant: caution
 version: "1.0"
 ---

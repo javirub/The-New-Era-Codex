@@ -2,9 +2,9 @@
 title: "Cost Optimization for LLM Applications"
 description: "Reduce AI costs through caching, prompt optimization, model selection, and monitoring"
 sidebar:
-  order: 95
+  order: 61
   badge:
-    text: "Intermediate"
+    text: "LLM Ops"
     variant: caution
 version: "1.0"
 ---

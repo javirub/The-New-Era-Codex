@@ -2,9 +2,9 @@
 title: "LLM Testing and CI/CD: Quality Assurance for AI Apps"
 description: "Implement testing, monitoring, and CI/CD pipelines for LLM applications"
 sidebar:
-  order: 75
+  order: 63
   badge:
-    text: "Intermediate"
+    text: "LLM Ops"
     variant: caution
 version: "1.0"
 ---
