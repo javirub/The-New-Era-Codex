@@ -6,7 +6,8 @@ sidebar:
   badge:
     text: "Specialized"
     variant: note
-version: "1.1"---
+version: "1.1"
+---
 
 import { CardGrid, LinkCard, Aside } from '@astrojs/starlight/components';
 

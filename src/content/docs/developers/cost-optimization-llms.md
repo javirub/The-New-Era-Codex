@@ -6,7 +6,8 @@ sidebar:
   badge:
     text: "LLM Ops"
     variant: caution
-version: "1.2"---
+version: "1.2"
+---
 ## Cost Breakdown
 
 **Typical costs**:

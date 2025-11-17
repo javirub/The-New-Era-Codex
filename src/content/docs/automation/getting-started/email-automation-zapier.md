@@ -6,7 +6,8 @@ sidebar:
   badge:
     text: "Basic"
     variant: tip
-version: "1.1"---
+version: "1.1"
+---
 ## Overview
 
 Automate email responses using Zapier and ChatGPT to classify emails, draft contextual replies, and respond to common queries automatically.

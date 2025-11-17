@@ -6,7 +6,8 @@ sidebar:
   badge:
     text: "Start Here"
     variant: success
-version: "1.1"---
+version: "1.1"
+---
 
 import { CardGrid, LinkCard, Aside, Steps } from '@astrojs/starlight/components';
 

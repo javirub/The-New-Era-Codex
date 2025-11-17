@@ -6,7 +6,8 @@ sidebar:
   badge:
     text: "Business"
     variant: success
-version: "1.1"---
+version: "1.1"
+---
 
 import { CardGrid, LinkCard, Aside } from '@astrojs/starlight/components';
 

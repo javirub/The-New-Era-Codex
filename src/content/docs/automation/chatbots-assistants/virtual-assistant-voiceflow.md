@@ -6,7 +6,8 @@ sidebar:
   badge:
     text: "Intermediate"
     variant: note
-version: "1.1"---
+version: "1.1"
+---
 ## Overview
 
 Build conversational AI assistants using Voiceflow's visual interface, integrate with OpenAI, and deploy across messaging platforms.

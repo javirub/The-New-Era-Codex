@@ -6,7 +6,8 @@ sidebar:
   badge:
     text: "Deployment"
     variant: caution
-version: "1.2"---
+version: "1.2"
+---
 ## Overview
 
 Fine-tuning adapts pre-trained LLMs to your specific domain, improving performance on specialized tasks while being more cost-effective than training from scratch.

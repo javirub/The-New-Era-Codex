@@ -6,7 +6,8 @@ sidebar:
   badge:
     text: "Basic"
     variant: tip
-version: "1.1"---
+version: "1.1"
+---
 ## Why This Matters
 
 AI-generated content is everywhere - essays, articles, images, videos. Knowing how to spot it helps you:

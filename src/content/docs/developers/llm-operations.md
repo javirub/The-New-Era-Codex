@@ -6,7 +6,8 @@ sidebar:
   badge:
     text: "LLM Ops"
     variant: caution
-version: "1.1"---
+version: "1.1"
+---
 
 import { Card, CardGrid, LinkCard, Aside, Tabs, TabItem } from '@astrojs/starlight/components';
 

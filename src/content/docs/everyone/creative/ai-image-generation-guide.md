@@ -6,7 +6,8 @@ sidebar:
   badge:
     text: "Basic"
     variant: tip
-version: "1.1"---
+version: "1.1"
+---
 ## What is AI Image Generation?
 
 AI image generators create original images from text descriptions (prompts). Type what you want to see, and AI creates it in seconds.

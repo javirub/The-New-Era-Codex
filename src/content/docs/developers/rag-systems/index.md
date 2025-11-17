@@ -6,7 +6,8 @@ sidebar:
   badge:
     text: "Learning Path"
     variant: tip
-version: "1.1"---
+version: "1.1"
+---
 
 import { Card, CardGrid, LinkCard, Aside, Steps } from '@astrojs/starlight/components';
 

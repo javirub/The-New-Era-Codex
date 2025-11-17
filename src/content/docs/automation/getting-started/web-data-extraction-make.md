@@ -6,7 +6,8 @@ sidebar:
   badge:
     text: "Intermediate"
     variant: note
-version: "1.1"---
+version: "1.1"
+---
 ## Overview
 
 Extract and analyze web data using Make.com (formerly Integromat) combined with AI for intelligent data processing, transformation, and enrichment.

@@ -6,7 +6,8 @@ sidebar:
   badge:
     text: "Basic"
     variant: tip
-version: "1.1"---
+version: "1.1"
+---
 ## How to Use This Guide
 
 Each template has:

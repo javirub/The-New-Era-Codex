@@ -6,7 +6,8 @@ sidebar:
   badge:
     text: "Intermediate"
     variant: caution
-version: "1.1"---
+version: "1.1"
+---
 ## Overview
 
 Move from prototype to production-ready semantic search with proper architecture, caching, monitoring, and scaling.
