@@ -129,7 +129,58 @@ export default defineConfig({
                       es: 'Para Automatización',
                   },
                   badge: { text: 'No-Code', variant: 'tip' },
-                  autogenerate: { directory: 'automation' },
+                  items: [
+                      { slug: 'automation/index' },
+                      {
+                          label: 'Getting Started',
+                          translations: {
+                              es: 'Comenzar',
+                          },
+                          badge: { text: 'Start Here', variant: 'tip' },
+                          collapsed: false,
+                          autogenerate: { directory: 'automation/getting-started' },
+                      },
+                      {
+                          label: 'Chatbots & Assistants',
+                          translations: {
+                              es: 'Chatbots y Asistentes',
+                          },
+                          collapsed: true,
+                          autogenerate: { directory: 'automation/chatbots-assistants' },
+                      },
+                      {
+                          label: 'Business Automation',
+                          translations: {
+                              es: 'Automatización de Negocios',
+                          },
+                          collapsed: true,
+                          autogenerate: { directory: 'automation/business-automation' },
+                      },
+                      {
+                          label: 'Document & Data',
+                          translations: {
+                              es: 'Documentos y Datos',
+                          },
+                          collapsed: true,
+                          autogenerate: { directory: 'automation/document-data' },
+                      },
+                      {
+                          label: 'Content & Social',
+                          translations: {
+                              es: 'Contenido y Redes Sociales',
+                          },
+                          collapsed: true,
+                          autogenerate: { directory: 'automation/content-social' },
+                      },
+                      {
+                          label: 'Resources',
+                          translations: {
+                              es: 'Recursos',
+                          },
+                          collapsed: true,
+                          autogenerate: { directory: 'automation/resources' },
+                      },
+                  ],
               },
               {
                   label: 'For Everyone',
