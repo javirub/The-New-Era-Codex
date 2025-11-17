@@ -188,7 +188,42 @@ export default defineConfig({
                       es: 'Para Todos',
                   },
                   badge: { text: 'Beginner', variant: 'success' },
-                  autogenerate: { directory: 'everyone' },
+                  items: [
+                      { slug: 'everyone/index' },
+                      {
+                          label: 'Getting Started',
+                          translations: {
+                              es: 'Comenzar',
+                          },
+                          badge: { text: 'Start Here', variant: 'success' },
+                          collapsed: false,
+                          autogenerate: { directory: 'everyone/getting-started' },
+                      },
+                      {
+                          label: 'Productivity & Learning',
+                          translations: {
+                              es: 'Productividad y Aprendizaje',
+                          },
+                          collapsed: true,
+                          autogenerate: { directory: 'everyone/productivity' },
+                      },
+                      {
+                          label: 'Creative & Hobbies',
+                          translations: {
+                              es: 'Creatividad y Pasatiempos',
+                          },
+                          collapsed: true,
+                          autogenerate: { directory: 'everyone/creative' },
+                      },
+                      {
+                          label: 'Career & Life',
+                          translations: {
+                              es: 'Carrera y Vida',
+                          },
+                          collapsed: true,
+                          autogenerate: { directory: 'everyone/career-life' },
+                      },
+                  ],
               },
               {
                   label: 'For Professionals',
@@ -196,7 +231,34 @@ export default defineConfig({
                       es: 'Para Profesionales',
                   },
                   badge: { text: 'Business', variant: 'caution' },
-                  autogenerate: { directory: 'professionals' },
+                  items: [
+                      { slug: 'professionals/index' },
+                      {
+                          label: 'Business Functions',
+                          translations: {
+                              es: 'Funciones Empresariales',
+                          },
+                          badge: { text: 'Popular', variant: 'tip' },
+                          collapsed: false,
+                          autogenerate: { directory: 'professionals/business-functions' },
+                      },
+                      {
+                          label: 'Finance & Legal',
+                          translations: {
+                              es: 'Finanzas y Legal',
+                          },
+                          collapsed: true,
+                          autogenerate: { directory: 'professionals/finance-legal' },
+                      },
+                      {
+                          label: 'Industries',
+                          translations: {
+                              es: 'Industrias',
+                          },
+                          collapsed: true,
+                          autogenerate: { directory: 'professionals/industries' },
+                      },
+                  ],
               },
               {
                   label: 'Community',
