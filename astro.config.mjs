@@ -43,7 +43,7 @@ export default defineConfig({
                               es: 'Comenzar',
                           },
                           items: [
-                              { slug: 'developers/index' },
+                              { slug: 'developers' },
                               { slug: 'developers/prompt-engineering-developers' },
                               { slug: 'developers/prompt-versioning-management' },
                           ]
@@ -130,7 +130,7 @@ export default defineConfig({
                   },
                   badge: { text: 'No-Code', variant: 'tip' },
                   items: [
-                      { slug: 'automation/index' },
+                      { slug: 'automation' },
                       {
                           label: 'Getting Started',
                           translations: {
@@ -189,7 +189,7 @@ export default defineConfig({
                   },
                   badge: { text: 'Beginner', variant: 'success' },
                   items: [
-                      { slug: 'everyone/index' },
+                      { slug: 'everyone' },
                       {
                           label: 'Getting Started',
                           translations: {
@@ -232,7 +232,7 @@ export default defineConfig({
                   },
                   badge: { text: 'Business', variant: 'caution' },
                   items: [
-                      { slug: 'professionals/index' },
+                      { slug: 'professionals' },
                       {
                           label: 'Business Functions',
                           translations: {
