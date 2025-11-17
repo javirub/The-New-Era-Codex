@@ -2,11 +2,11 @@
 title: "LLM Streaming APIs: Real-Time Response Generation"
 description: "Implement streaming responses for better UX with OpenAI, Anthropic, and open-source LLMs"
 sidebar:
-  order: 20
+  order: 66
   badge:
-    text: "Intermediate"
+    text: "LLM Ops"
     variant: caution
-version: "1.0"
+version: "1.1"
 ---
 
 # LLM Streaming APIs: Real-Time Response Generation

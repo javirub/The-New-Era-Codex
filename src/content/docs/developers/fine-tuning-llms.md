@@ -2,11 +2,11 @@
 title: "Fine-Tuning LLMs: Customize Models for Your Use Case"
 description: "Learn to fine-tune GPT, Llama, and other LLMs for domain-specific tasks with practical examples"
 sidebar:
-  order: 85
+  order: 81
   badge:
-    text: "Intermediate"
+    text: "Deployment"
     variant: caution
-version: "1.0"
+version: "1.1"
 ---
 
 # Fine-Tuning LLMs: Customize Models for Your Use Case

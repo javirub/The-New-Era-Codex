@@ -36,7 +36,92 @@ export default defineConfig({
                       es: 'Para Desarrolladores',
                   },
                   badge: { text: 'Code', variant: 'note' },
-                  autogenerate: { directory: 'developers' },
+                  items: [
+                      {
+                          label: 'Getting Started',
+                          translations: {
+                              es: 'Comenzar',
+                          },
+                          items: [
+                              { slug: 'developers' },
+                              { slug: 'developers/prompt-engineering-developers' },
+                              { slug: 'developers/prompt-versioning-management' },
+                          ]
+                      },
+                      {
+                          label: 'RAG Systems',
+                          translations: {
+                              es: 'Sistemas RAG',
+                          },
+                          badge: { text: 'Popular', variant: 'tip' },
+                          collapsed: false,
+                          autogenerate: { directory: 'developers/rag-systems' },
+                      },
+                      {
+                          label: 'AI Agents',
+                          translations: {
+                              es: 'Agentes de IA',
+                          },
+                          collapsed: true,
+                          autogenerate: { directory: 'developers/ai-agents' },
+                      },
+                      {
+                          label: 'LLM Operations',
+                          translations: {
+                              es: 'Operaciones LLM',
+                          },
+                          collapsed: true,
+                          items: [
+                              { slug: 'developers/llm-operations' },
+                              { slug: 'developers/cost-optimization-llms' },
+                              { slug: 'developers/llm-security-best-practices' },
+                              { slug: 'developers/llm-testing-ci' },
+                              { slug: 'developers/llm-evaluation-metrics' },
+                              { slug: 'developers/llm-model-optimization' },
+                              { slug: 'developers/llm-streaming-apis' },
+                          ]
+                      },
+                      {
+                          label: 'Frameworks',
+                          translations: {
+                              es: 'Frameworks',
+                          },
+                          collapsed: true,
+                          items: [
+                              { slug: 'developers/langchain-advanced' },
+                          ]
+                      },
+                      {
+                          label: 'Deployment',
+                          translations: {
+                              es: 'Despliegue',
+                          },
+                          collapsed: true,
+                          items: [
+                              { slug: 'developers/custom-llm-deployment' },
+                              { slug: 'developers/fine-tuning-llms' },
+                              { slug: 'developers/llm-edge-deployment' },
+                          ]
+                      },
+                      {
+                          label: 'Advanced Topics',
+                          translations: {
+                              es: 'Temas Avanzados',
+                          },
+                          collapsed: true,
+                          items: [
+                              { slug: 'developers/multimodal-ai-apps' },
+                          ]
+                      },
+                      {
+                          label: 'Reference',
+                          translations: {
+                              es: 'Referencia',
+                          },
+                          collapsed: true,
+                          autogenerate: { directory: 'developers/reference' },
+                      },
+                  ],
               },
               {
                   label: 'For Automation',
@@ -44,7 +129,58 @@ export default defineConfig({
                       es: 'Para Automatización',
                   },
                   badge: { text: 'No-Code', variant: 'tip' },
-                  autogenerate: { directory: 'automation' },
+                  items: [
+                      { slug: 'automation' },
+                      {
+                          label: 'Getting Started',
+                          translations: {
+                              es: 'Comenzar',
+                          },
+                          badge: { text: 'Start Here', variant: 'tip' },
+                          collapsed: false,
+                          autogenerate: { directory: 'automation/getting-started' },
+                      },
+                      {
+                          label: 'Chatbots & Assistants',
+                          translations: {
+                              es: 'Chatbots y Asistentes',
+                          },
+                          collapsed: true,
+                          autogenerate: { directory: 'automation/chatbots-assistants' },
+                      },
+                      {
+                          label: 'Business Automation',
+                          translations: {
+                              es: 'Automatización de Negocios',
+                          },
+                          collapsed: true,
+                          autogenerate: { directory: 'automation/business-automation' },
+                      },
+                      {
+                          label: 'Document & Data',
+                          translations: {
+                              es: 'Documentos y Datos',
+                          },
+                          collapsed: true,
+                          autogenerate: { directory: 'automation/document-data' },
+                      },
+                      {
+                          label: 'Content & Social',
+                          translations: {
+                              es: 'Contenido y Redes Sociales',
+                          },
+                          collapsed: true,
+                          autogenerate: { directory: 'automation/content-social' },
+                      },
+                      {
+                          label: 'Resources',
+                          translations: {
+                              es: 'Recursos',
+                          },
+                          collapsed: true,
+                          autogenerate: { directory: 'automation/resources' },
+                      },
+                  ],
               },
               {
                   label: 'For Everyone',
@@ -52,7 +188,42 @@ export default defineConfig({
                       es: 'Para Todos',
                   },
                   badge: { text: 'Beginner', variant: 'success' },
-                  autogenerate: { directory: 'everyone' },
+                  items: [
+                      { slug: 'everyone' },
+                      {
+                          label: 'Getting Started',
+                          translations: {
+                              es: 'Comenzar',
+                          },
+                          badge: { text: 'Start Here', variant: 'success' },
+                          collapsed: false,
+                          autogenerate: { directory: 'everyone/getting-started' },
+                      },
+                      {
+                          label: 'Productivity & Learning',
+                          translations: {
+                              es: 'Productividad y Aprendizaje',
+                          },
+                          collapsed: true,
+                          autogenerate: { directory: 'everyone/productivity' },
+                      },
+                      {
+                          label: 'Creative & Hobbies',
+                          translations: {
+                              es: 'Creatividad y Pasatiempos',
+                          },
+                          collapsed: true,
+                          autogenerate: { directory: 'everyone/creative' },
+                      },
+                      {
+                          label: 'Career & Life',
+                          translations: {
+                              es: 'Carrera y Vida',
+                          },
+                          collapsed: true,
+                          autogenerate: { directory: 'everyone/career-life' },
+                      },
+                  ],
               },
               {
                   label: 'For Professionals',
@@ -60,7 +231,34 @@ export default defineConfig({
                       es: 'Para Profesionales',
                   },
                   badge: { text: 'Business', variant: 'caution' },
-                  autogenerate: { directory: 'professionals' },
+                  items: [
+                      { slug: 'professionals' },
+                      {
+                          label: 'Business Functions',
+                          translations: {
+                              es: 'Funciones Empresariales',
+                          },
+                          badge: { text: 'Popular', variant: 'tip' },
+                          collapsed: false,
+                          autogenerate: { directory: 'professionals/business-functions' },
+                      },
+                      {
+                          label: 'Finance & Legal',
+                          translations: {
+                              es: 'Finanzas y Legal',
+                          },
+                          collapsed: true,
+                          autogenerate: { directory: 'professionals/finance-legal' },
+                      },
+                      {
+                          label: 'Industries',
+                          translations: {
+                              es: 'Industrias',
+                          },
+                          collapsed: true,
+                          autogenerate: { directory: 'professionals/industries' },
+                      },
+                  ],
               },
               {
                   label: 'Community',

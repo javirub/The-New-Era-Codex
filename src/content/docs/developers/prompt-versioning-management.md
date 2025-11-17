@@ -2,11 +2,11 @@
 title: "Prompt Versioning & Management: Track, Test, Deploy"
 description: "Version control your prompts, A/B test variations, and manage prompt deployments"
 sidebar:
-  order: 15
+  order: 11
   badge:
-    text: "Intermediate"
+    text: "Prompting"
     variant: caution
-version: "1.0"
+version: "1.1"
 ---
 
 # Prompt Versioning & Management

@@ -2,11 +2,11 @@
 title: "LLM Security: Prompt Injection, Data Privacy, Safe Deployment"
 description: "Secure your AI applications against attacks, protect user data, and deploy safely"
 sidebar:
-  order: 80
+  order: 62
   badge:
-    text: "Intermediate"
+    text: "LLM Ops"
     variant: caution
-version: "1.0"
+version: "1.1"
 ---
 
 # LLM Security Best Practices

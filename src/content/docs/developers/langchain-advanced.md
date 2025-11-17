@@ -2,11 +2,11 @@
 title: "Advanced LangChain: Chains, Memory, and Agents"
 description: "Master LangChain's advanced features for production AI applications"
 sidebar:
-  order: 65
+  order: 70
   badge:
-    text: "Intermediate"
+    text: "Framework"
     variant: caution
-version: "1.0"
+version: "1.1"
 ---
 
 # Advanced LangChain Patterns
