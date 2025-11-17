@@ -6,7 +6,7 @@ sidebar:
   badge:
     text: "Advanced"
     variant: danger
-version: "1.0"
+version: "1.1"
 ---
 
 # Building Multimodal AI Applications

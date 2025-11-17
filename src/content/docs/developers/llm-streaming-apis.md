@@ -6,7 +6,7 @@ sidebar:
   badge:
     text: "LLM Ops"
     variant: caution
-version: "1.0"
+version: "1.1"
 ---
 
 # LLM Streaming APIs: Real-Time Response Generation

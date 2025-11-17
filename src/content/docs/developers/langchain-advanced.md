@@ -6,7 +6,7 @@ sidebar:
   badge:
     text: "Framework"
     variant: caution
-version: "1.0"
+version: "1.1"
 ---
 
 # Advanced LangChain Patterns

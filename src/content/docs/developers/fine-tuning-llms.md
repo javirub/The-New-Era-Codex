@@ -6,7 +6,7 @@ sidebar:
   badge:
     text: "Deployment"
     variant: caution
-version: "1.0"
+version: "1.1"
 ---
 
 # Fine-Tuning LLMs: Customize Models for Your Use Case

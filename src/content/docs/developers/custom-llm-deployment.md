@@ -6,7 +6,7 @@ sidebar:
   badge:
     text: "Deployment"
     variant: danger
-version: "1.0"
+version: "1.1"
 ---
 
 # Custom LLM Deployment

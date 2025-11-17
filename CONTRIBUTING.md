@@ -31,13 +31,40 @@ The New Era Codex uses an **audience-first organization** strategy. Content is o
 
 ```
 src/content/docs/
-├── developers/      # AI agents, RAG, LangChain, Python development
-├── automation/      # n8n, Zapier, Make.com workflows
-├── everyone/        # ChatGPT, prompt engineering, daily AI tools
-└── professionals/   # HR, marketing, analytics use cases
+├── developers/
+│   ├── rag-systems/         # RAG fundamentals to advanced techniques
+│   ├── ai-agents/           # Agent architectures and frameworks
+│   └── ...                  # LLM operations, deployment, optimization
+├── automation/
+│   ├── getting-started/     # n8n, Zapier, Make.com tutorials
+│   ├── chatbots-assistants/ # Customer support, virtual assistants
+│   ├── business-automation/ # CRM, meetings, analytics
+│   ├── document-data/       # Document processing, data pipelines
+│   ├── content-social/      # Social media, video automation
+│   └── resources/           # Integration patterns, templates
+├── everyone/
+│   ├── getting-started/     # ChatGPT basics, prompt templates
+│   ├── productivity/        # Study, learning, personal assistants
+│   ├── creative/            # Content creation, image generation
+│   └── career-life/         # Job search, finance, health
+└── professionals/
+    ├── business-functions/  # Marketing, sales, HR, customer service
+    ├── finance-legal/       # Accounting, legal research, compliance
+    └── industries/          # Education, healthcare, real estate
 ```
 
 **This is critical**: When contributing, you must first identify your target audience. A guide about "using AI" will be completely different if written for developers vs. HR professionals.
+
+### Subcategory Organization
+
+Each main audience section is organized into thematic subcategories:
+
+- **Choose the right subcategory**: Place your guide in the most relevant subfolder
+- **Index pages**: Each subcategory has an `index.md` that serves as a landing page with overview and links
+- **Spanish translations**: Must mirror the English structure exactly - same folder path and filename in `/es/`
+- **Sidebar navigation**: Content is automatically organized in the sidebar based on folder structure
+
+**Example**: A guide on building RAG systems goes in `developers/rag-systems/building-rag-system.md`, with its Spanish translation at `es/developers/rag-systems/building-rag-system.md`.
 
 ## How to Contribute
 
@@ -122,6 +149,7 @@ We use a simplified semantic versioning (X.Y) for all documentation:
   - Small corrections to technical content
   - New subsections that complement existing content
   - Technical updates (e.g., API changes, tool updates)
+  - Metadata changes (sidebar order, badges, navigation structure)
   - Example: 1.2 → 1.3
 
 - **Version reset**: When incrementing major version, minor resets to 0
@@ -243,9 +271,23 @@ ia-website/
 │   ├── content/
 │   │   └── docs/        # All documentation
 │   │       ├── developers/
+│   │       │   ├── rag-systems/
+│   │       │   ├── ai-agents/
+│   │       │   └── ...  # Other developer guides
 │   │       ├── automation/
+│   │       │   ├── getting-started/
+│   │       │   ├── chatbots-assistants/
+│   │       │   ├── business-automation/
+│   │       │   └── ...  # Other automation categories
 │   │       ├── everyone/
+│   │       │   ├── getting-started/
+│   │       │   ├── productivity/
+│   │       │   └── ...  # Other everyday AI guides
 │   │       ├── professionals/
+│   │       │   ├── business-functions/
+│   │       │   ├── finance-legal/
+│   │       │   └── industries/
+│   │       ├── es/      # Spanish translations (mirrors structure)
 │   │       └── community/  # Contribution guides
 │   └── styles/          # Global styles
 ├── astro.config.mjs     # Astro + Starlight configuration

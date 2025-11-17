@@ -6,7 +6,7 @@ sidebar:
   badge:
     text: "Prompting"
     variant: tip
-version: "1.0"
+version: "1.1"
 ---
 
 # Prompt Engineering for Developers
