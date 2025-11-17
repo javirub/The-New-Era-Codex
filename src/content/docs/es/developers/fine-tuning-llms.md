@@ -8,9 +8,6 @@ sidebar:
     variant: caution
 version: "1.0"
 ---
-
-# Fine-Tuning de LLMs: Personaliza Modelos para tu Caso de Uso
-
 ## Descripción General
 
 El fine-tuning adapta LLMs pre-entrenados a tu dominio específico, mejorando el rendimiento en tareas especializadas mientras es más rentable que entrenar desde cero.

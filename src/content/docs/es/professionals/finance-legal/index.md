@@ -11,8 +11,6 @@ version: "1.0"
 
 import { CardGrid, LinkCard, Aside } from '@astrojs/starlight/components';
 
-# Finanzas, Legal y Cumplimiento
-
 Navega la intersección de la IA y las industrias reguladas. Estas guías abordan consideraciones de cumplimiento, requisitos de privacidad y mejores prácticas para usar IA en contextos financieros y legales.
 
 <Aside type="caution" title="Cumplimiento Primero">

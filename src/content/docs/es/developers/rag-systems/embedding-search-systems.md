@@ -8,9 +8,6 @@ sidebar:
     variant: caution
 version: "1.0"
 ---
-
-# Construcción de Sistemas de Búsqueda con Embeddings en Producción
-
 ## Descripción General
 
 Pasa de prototipo a búsqueda semántica lista para producción con arquitectura adecuada, caching, monitoreo y escalado.

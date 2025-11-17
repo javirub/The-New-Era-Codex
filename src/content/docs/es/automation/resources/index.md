@@ -11,8 +11,6 @@ version: "1.0"
 
 import { CardGrid, LinkCard } from '@astrojs/starlight/components';
 
-# Recursos y Plantillas de Automatización
-
 Mejora tus habilidades de automatización con patrones probados, plantillas listas para usar y mejores prácticas.
 
 ## Recursos Disponibles

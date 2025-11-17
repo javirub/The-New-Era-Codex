@@ -6,11 +6,8 @@ sidebar:
   badge:
     text: "Professional"
     variant: success
-version: "1.0"
+version: "1.1"
 ---
-
-# AI for Marketing: Personalization, Content, and Campaign Optimization
-
 ## Overview
 
 AI revolutionizes marketing by enabling hyper-personalization, automating content creation, optimizing campaigns in real-time, and providing deep customer insights.

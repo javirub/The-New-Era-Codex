@@ -11,8 +11,6 @@ version: "1.0"
 
 import { CardGrid, LinkCard } from '@astrojs/starlight/components';
 
-# Aplicaciones de IA Específicas por Industria
-
 Soluciones de IA diseñadas para los desafíos únicos y flujos de trabajo de industrias específicas. Estas guías abordan regulaciones específicas de la industria, terminología y casos de uso.
 
 ## Guías Disponibles

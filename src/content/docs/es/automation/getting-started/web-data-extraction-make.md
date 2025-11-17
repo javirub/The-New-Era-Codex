@@ -8,9 +8,6 @@ sidebar:
     variant: note
 version: "1.0"
 ---
-
-# Extracción de Datos Web con Make.com y IA
-
 ## Descripción General
 
 Extrae y analiza datos web usando Make.com (antes Integromat) combinado con IA para procesamiento, transformación y enriquecimiento inteligente de datos.

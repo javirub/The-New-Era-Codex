@@ -6,11 +6,8 @@ sidebar:
   badge:
     text: "Professional"
     variant: success
-version: "1.0"
+version: "1.1"
 ---
-
-# AI for Customer Service: Enhance Support with Intelligent Automation
-
 ## Overview
 
 AI revolutionizes customer service by providing 24/7 support, instant responses, intelligent ticket routing, and deep insights into customer satisfaction.

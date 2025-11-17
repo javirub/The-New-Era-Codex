@@ -6,11 +6,8 @@ sidebar:
   badge:
     text: "Basic"
     variant: tip
-version: "1.0"
+version: "1.1"
 ---
-
-# 50 Magic Prompt Templates: Copy, Paste, Get Results
-
 ## How to Use This Guide
 
 Each template has:

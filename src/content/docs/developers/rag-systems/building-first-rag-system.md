@@ -6,11 +6,8 @@ sidebar:
   badge:
     text: "Intermediate"
     variant: note
-version: "1.0"
+version: "1.1"
 ---
-
-# Building Your First RAG System with LangChain
-
 ## Overview
 
 Retrieval-Augmented Generation (RAG) is one of the most powerful patterns for building AI applications that need to work with your own data. Instead of relying solely on a language model's training data, RAG systems retrieve relevant information from your documents and use it to generate accurate, contextual responses.

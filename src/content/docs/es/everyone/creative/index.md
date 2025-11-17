@@ -11,8 +11,6 @@ version: "1.0"
 
 import { CardGrid, LinkCard } from '@astrojs/starlight/components';
 
-# Creatividad y Pasatiempos
-
 Libera tu creatividad con herramientas de IA para creación de contenido, generación de arte y proyectos de pasatiempos.
 
 ## Guías Disponibles

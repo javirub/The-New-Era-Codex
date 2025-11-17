@@ -6,12 +6,10 @@ sidebar:
   badge:
     text: "Popular"
     variant: tip
-version: "1.0"
+version: "1.1"
 ---
 
 import { CardGrid, LinkCard, Aside } from '@astrojs/starlight/components';
-
-# Productivity & Learning
 
 Supercharge your productivity and learning with AI assistants, study tools, and productivity hacks.
 

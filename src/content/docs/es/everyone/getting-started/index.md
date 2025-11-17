@@ -11,8 +11,6 @@ version: "1.0"
 
 import { CardGrid, LinkCard, Aside, Steps } from '@astrojs/starlight/components';
 
-# Comenzando con IA
-
 ¿Nuevo en IA? ¡Comienza aquí! Estas guías te enseñarán lo básico en lenguaje simple y sin jerga. No se requiere experiencia técnica.
 
 <Aside type="tip" title="Perfecto para Principiantes">

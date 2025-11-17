@@ -6,11 +6,8 @@ sidebar:
   badge:
     text: "Intermediate"
     variant: note
-version: "1.0"
+version: "1.1"
 ---
-
-# Vectorization and Semantic Search: Complete Guide
-
 ## Overview
 
 Semantic search transforms how we find information by understanding meaning rather than just matching keywords. At its core is vectorization—converting text into numerical representations that capture semantic meaning, enabling machines to understand context, similarity, and relationships between pieces of information.

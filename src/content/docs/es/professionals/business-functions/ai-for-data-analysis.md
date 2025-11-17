@@ -8,9 +8,6 @@ sidebar:
     variant: success
 version: "1.0"
 ---
-
-# IA para Análisis de Datos: De Datos Crudos a Insights Accionables
-
 La IA transforma el análisis de datos al automatizar preparación de datos, generar insights, crear visualizaciones y hacer analítica avanzada accesible a usuarios no técnicos.
 
 ## Herramientas

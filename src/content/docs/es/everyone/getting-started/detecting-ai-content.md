@@ -8,9 +8,6 @@ sidebar:
     variant: tip
 version: "1.0"
 ---
-
-# Detectando Contenido Generado por IA: Identifica los Bots
-
 ## Por Qué Esto Importa
 
 El contenido generado por IA está en todas partes - ensayos, artículos, imágenes, videos. Saber cómo identificarlo te ayuda a:

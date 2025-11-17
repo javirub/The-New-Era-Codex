@@ -8,9 +8,6 @@ sidebar:
     variant: tip
 version: "1.0"
 ---
-
-# Prompt Engineering para Desarrolladores
-
 ## Descripción General
 
 El prompt engineering es la práctica de diseñar entradas que guían a los modelos de lenguaje para producir salidas deseadas de manera confiable. Para desarrolladores, esto significa tratar los prompts como una interfaz programática: testeable, versionada y optimizada.

@@ -11,8 +11,6 @@ version: "1.0"
 
 import { CardGrid, LinkCard } from '@astrojs/starlight/components';
 
-# Chatbots y Asistentes Virtuales
-
 Construye IA conversacional inteligente que puede manejar consultas de clientes, proporcionar soporte y asistir con tareas—todo sin código.
 
 ## Guías en Esta Sección

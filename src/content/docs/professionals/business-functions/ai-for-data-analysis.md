@@ -6,11 +6,8 @@ sidebar:
   badge:
     text: "Professional"
     variant: success
-version: "1.0"
+version: "1.1"
 ---
-
-# AI for Data Analysis: From Raw Data to Actionable Insights
-
 ## Overview
 
 AI transforms data analysis by automating data preparation, generating insights, creating visualizations, and making advanced analytics accessible to non-technical users.

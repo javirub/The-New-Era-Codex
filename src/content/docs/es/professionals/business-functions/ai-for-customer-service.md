@@ -8,9 +8,6 @@ sidebar:
     variant: success
 version: "1.0"
 ---
-
-# IA para Servicio al Cliente: Mejora Soporte con Automatización Inteligente
-
 La IA revoluciona servicio al cliente proporcionando soporte 24/7, respuestas instantáneas, enrutamiento inteligente de tickets y insights profundos sobre satisfacción del cliente.
 
 ## Aplicaciones

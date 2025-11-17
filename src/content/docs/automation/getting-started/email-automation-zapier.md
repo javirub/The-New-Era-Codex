@@ -6,11 +6,8 @@ sidebar:
   badge:
     text: "Basic"
     variant: tip
-version: "1.0"
+version: "1.1"
 ---
-
-# Automating Email Responses with Zapier + ChatGPT
-
 ## Overview
 
 Automate email responses using Zapier and ChatGPT to classify emails, draft contextual replies, and respond to common queries automatically.

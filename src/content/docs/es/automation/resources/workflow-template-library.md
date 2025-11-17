@@ -8,9 +8,6 @@ sidebar:
     variant: tip
 version: "1.0"
 ---
-
-# Biblioteca de Plantillas de Workflows: Automatizaciones IA Listas para Usar
-
 ## Descripción General
 
 Colección de plantillas de workflow listas para producción que puedes importar y personalizar para casos de uso comunes de automatización con IA.

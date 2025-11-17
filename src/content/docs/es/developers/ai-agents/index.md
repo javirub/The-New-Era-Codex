@@ -11,8 +11,6 @@ version: "1.0"
 
 import { Card, CardGrid, LinkCard, Aside, Steps } from '@astrojs/starlight/components';
 
-# Agentes de IA: De Conceptos a Producción
-
 Los agentes de IA son sistemas autónomos que pueden percibir su entorno, tomar decisiones y realizar acciones para lograr objetivos específicos. A diferencia de los chatbots simples, los agentes pueden usar herramientas, planificar tareas de múltiples pasos y adaptar su comportamiento basándose en retroalimentación.
 
 ## ¿Qué son los Agentes de IA?

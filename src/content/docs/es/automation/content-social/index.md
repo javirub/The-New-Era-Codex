@@ -11,8 +11,6 @@ version: "1.0"
 
 import { CardGrid, LinkCard } from '@astrojs/starlight/components';
 
-# Automatización de Contenido y Redes Sociales
-
 Optimiza tu creación de contenido y gestión de redes sociales con automatización impulsada por IA.
 
 ## Guías Disponibles

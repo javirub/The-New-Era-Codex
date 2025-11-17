@@ -6,11 +6,8 @@ sidebar:
   badge:
     text: "Basic"
     variant: tip
-version: "1.0"
+version: "1.1"
 ---
-
-# Using AI for Studying: Learn Smarter, Not Harder
-
 ## Why AI for Studying?
 
 AI tools like ChatGPT can be your 24/7 personal tutor - explaining concepts, creating practice tests, and adapting to your learning style.

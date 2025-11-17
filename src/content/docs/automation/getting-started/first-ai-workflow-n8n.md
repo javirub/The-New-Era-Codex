@@ -6,11 +6,8 @@ sidebar:
   badge:
     text: "Basic"
     variant: tip
-version: "1.0"
+version: "1.1"
 ---
-
-# Your First AI Workflow with n8n
-
 ## Overview
 
 n8n is a powerful workflow automation tool that lets you connect AI models like OpenAI's GPT to hundreds of apps without code. Build smart automations visually with a drag-and-drop interface.

@@ -6,12 +6,10 @@ sidebar:
   badge:
     text: "Start Here"
     variant: success
-version: "1.0"
+version: "1.1"
 ---
 
 import { CardGrid, LinkCard, Aside, Steps } from '@astrojs/starlight/components';
-
-# Getting Started with AI
 
 New to AI? Start here! These guides will teach you the basics in simple, jargon-free language. No technical background required.
 

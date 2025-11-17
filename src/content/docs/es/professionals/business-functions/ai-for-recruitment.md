@@ -8,9 +8,6 @@ sidebar:
     variant: success
 version: "1.0"
 ---
-
-# IA para Reclutamiento: Agiliza la Contratación con Automatización Inteligente
-
 ## Descripción General
 
 La IA transforma el reclutamiento al automatizar tareas repetitivas, reducir sesgos y mejorar la experiencia del candidato mientras ayuda a los reclutadores a enfocarse en construir relaciones y decisiones estratégicas.

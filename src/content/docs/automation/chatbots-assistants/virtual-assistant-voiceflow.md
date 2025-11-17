@@ -6,11 +6,8 @@ sidebar:
   badge:
     text: "Intermediate"
     variant: note
-version: "1.0"
+version: "1.1"
 ---
-
-# Creating a Virtual Assistant with Voiceflow
-
 ## Overview
 
 Build conversational AI assistants using Voiceflow's visual interface, integrate with OpenAI, and deploy across messaging platforms.

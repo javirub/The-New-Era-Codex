@@ -8,9 +8,6 @@ sidebar:
     variant: tip
 version: "1.0"
 ---
-
-# Creando Imágenes con IA: DALL-E, Midjourney y Stable Diffusion
-
 ## ¿Qué es la Generación de Imágenes con IA?
 
 Los generadores de imágenes con IA crean imágenes originales desde descripciones de texto (prompts). Escribe lo que quieres ver, y la IA lo crea en segundos.

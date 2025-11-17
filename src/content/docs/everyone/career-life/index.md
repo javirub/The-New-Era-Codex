@@ -6,12 +6,10 @@ sidebar:
   badge:
     text: "Life Skills"
     variant: caution
-version: "1.0"
+version: "1.1"
 ---
 
 import { CardGrid, LinkCard, Aside } from '@astrojs/starlight/components';
-
-# Career & Personal Life
 
 Use AI to advance your career, manage your finances, improve your health, and navigate life's challenges.
 

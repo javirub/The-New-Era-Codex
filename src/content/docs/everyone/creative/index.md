@@ -6,12 +6,10 @@ sidebar:
   badge:
     text: "Creative"
     variant: note
-version: "1.0"
+version: "1.1"
 ---
 
 import { CardGrid, LinkCard, Aside } from '@astrojs/starlight/components';
-
-# Creative & Hobbies
 
 Unleash your creativity with AI tools for content creation, art generation, and hobby projects.
 

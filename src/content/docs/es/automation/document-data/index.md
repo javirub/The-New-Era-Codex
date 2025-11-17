@@ -11,8 +11,6 @@ version: "1.0"
 
 import { CardGrid, LinkCard } from '@astrojs/starlight/components';
 
-# Procesamiento de Documentos y Datos
-
 Automatiza la extracción, transformación y validación de documentos y datos usando IA—sin codificación requerida.
 
 ## Guías Disponibles
